@@ -31,7 +31,7 @@ const Footer = (props) => {
   return(
     
     <>
-    <Grid sx={{backgroundColor:"#072541"}} container>
+    <Grid sx={{backgroundColor:"#2d2c2a"}} container>
       {/* footer buttons */}
 <Grid mt={4} container display = "flex" justifyContent="space-around" alignItems="center">
 
@@ -70,9 +70,9 @@ const Footer = (props) => {
     </Box>
 
     <Box mt={1} display="flex" alignItems="center" >
-<TelegramIcon sx={{ml:3 ,color:"#fff",cursor:"pointer",border:"1px solid white",padding:"5px",transition:'all ease 1s' ,'&:hover':{borderRadius:"50%"}}}/>
-<WhatsAppIcon sx={{ml:3,color:"#fff",cursor:"pointer",border:"1px solid white",padding:"5px",transition:'all ease 1s' ,'&:hover':{borderRadius:"50%"}}}/>
-<InstagramIcon sx={{ml:3,color:"#fff",cursor:"pointer",border:"1px solid white",padding:"5px",transition:'all ease 1s' ,'&:hover':{borderRadius:"50%"}}}/>
+<TelegramIcon sx={{ml:3 ,color:"#FFC436",cursor:"pointer",border:"1px solid #FFC436",padding:"5px",transition:'all ease 1s' ,'&:hover':{borderRadius:"50%"}}}/>
+<WhatsAppIcon sx={{ml:3,color:"#FFC436",cursor:"pointer",border:"1px solid #FFC436",padding:"5px",transition:'all ease 1s' ,'&:hover':{borderRadius:"50%"}}}/>
+<InstagramIcon sx={{ml:3,color:"#FFC436",cursor:"pointer",border:"1px solid #FFC436",padding:"5px",transition:'all ease 1s' ,'&:hover':{borderRadius:"50%"}}}/>
     </Box>
   </Grid>
 </Grid>

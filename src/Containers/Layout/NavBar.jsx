@@ -27,8 +27,8 @@ const NavBar = (props) => {
     setAnchorElUser(null);
   };
   return(
-    <AppBar position="static">
-      <Container maxWidth="xl">
+    <AppBar  position="static">
+      <Container sx={{backgroundColor:"#1C1B19"}} maxWidth="xl">
         <Toolbar disableGutters>
           <Box sx={{display:{sm:"none" ,md:"block"}}}>
          <img  width={40} height={40} src={props.image}/>
@@ -124,7 +124,7 @@ const NavBar = (props) => {
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="ثبت نام">
-              <Button sx={{color:"#FFC436",border:"1px solid #FFC436" ,'&:hover':{backgroundColor:"rgba(204, 163, 69,0.6)"}}}>ورود | ثبت نام</Button>
+              <Button sx={{color:"#FFC436",border:"1px solid #FFC436" ,'&:hover':{backgroundColor:"rgba(204, 163, 69,0.4)"}}}>ورود | ثبت نام</Button>
             </Tooltip>
            
           </Box>
