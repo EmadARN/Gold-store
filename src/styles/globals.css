@@ -105,8 +105,19 @@ a {
     color-scheme: dark;
   }
 } */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Yekan", sans-serif;
 
-body{
-  background-color:#1C1B19;
 }
-  
+
+@font-face {
+  font-family: "Yekan";
+  src: url("../Asset//Yekan.ttf");
+}
+@font-face {
+  font-family: "Lalezar";
+  src: url("../Asset/Lalezar-Regular.ttf");
+}
