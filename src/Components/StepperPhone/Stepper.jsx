@@ -2,10 +2,7 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
-import StepLabel from "@mui/material/StepLabel";
 import StepContent from "@mui/material/StepContent";
-import Button from "@mui/material/Button";
-import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import { Fab, StepButton } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
@@ -44,31 +41,45 @@ const cacheRtl = createCache({
 });
 export default function VerticalLinearStepper() {
   const [activeStep, setActiveStep] = React.useState(0);
-  const [completed, setCompleted] = React.useState({});
   const [box, setBox] = React.useState(false);
   const handleStep = (step) => () => {
     setActiveStep(step);
-    setBox(true);
+    setBox("#FFC436");
   };
   return (
     <CacheProvider value={cacheRtl}>
       <ThemeProvider theme={themee}>
         <Box sx={{ maxWidth: 400 }}>
-          <Stepper nonLinear activeStep={activeStep} orientation="vertical">
+          <Stepper activeStep={activeStep} orientation="vertical">
             {steps.map((step, index) => (
-              <Step key={index} completed={completed[index]}>
+              <Step key={index}>
                 <Box
-                  sx={{ display: "flex", alignItems: "center" }}
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    position: "relative",
+                    top: "55px",
+                  }}
                   onClick={handleStep(index)}
                 >
                   <Fab
-                    sx={{ width: "35px", height: "30px" }}
+                    sx={{
+                      width: "35px",
+                      height: "30px",
+                      bgcolor: activeStep == index ? box : null,
+                    }}
                     aria-label="add"
                     color="inherit"
                   >
                     {step.id}
                   </Fab>
-                  <Typography sx={{ cursor: "pointer", pl: 2 }}>
+                  <Typography
+                    sx={{
+                      cursor: "pointer",
+                      pl: 2,
+                      color: activeStep == index ? box : null,
+                    }}
+                  >
                     {step.label}
                   </Typography>
                 </Box>
@@ -81,10 +92,11 @@ export default function VerticalLinearStepper() {
                     bgcolor: "rgb(39,37,35)",
                     borderRadius: "8px",
                     color: "#fff",
+                    mt: 2,
                   }}
                 >
                   <StepContent sx={{ pr: 5.5 }}>
-                    <Typography sx={{ p: 3 }}>{step.description}</Typography>
+                    <Typography sx={{ py: 5 }}>{step.description}</Typography>
                   </StepContent>
                 </Box>
               </Step>
@@ -95,4 +107,3 @@ export default function VerticalLinearStepper() {
     </CacheProvider>
   );
 }
-// boxShadow: "#FFC436 0px 22px 70px 4px"

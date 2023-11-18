@@ -1,10 +1,12 @@
+import StepperComputerList from "@/Components/StepperComputer";
+import StepperList from "@/Components/StepperPhone";
 import Layout from "@/Containers/Layout";
 
 export default function Home() {
   return (
     <>
       <Layout>
-        <h1>Hello</h1>
+        <StepperList />
       </Layout>
     </>
   );
