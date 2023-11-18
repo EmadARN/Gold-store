@@ -92,7 +92,7 @@ export default function StepperComputer() {
                       sx={{
                         cursor: "pointer",
                         pl: 2,
-                        color: activeStep == index ? box : null,
+                        color: activeStep == index ? box : "#fff",
                       }}
                     >
                       {label.label}

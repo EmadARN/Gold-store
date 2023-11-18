@@ -22,9 +22,9 @@ const TextFeild2 = () => {
                         borderColor: "#fff",
                         borderRadius: "10px",
                       },
-                    //   "&:hover fieldset": {
-                    //     borderColor: "#fff",
-                    //   },
+                      "&:hover fieldset": {
+                        borderColor: "#fff",
+                       },
                       "&.Mui-focused fieldset": {
                         borderColor: "#fff",
                       },

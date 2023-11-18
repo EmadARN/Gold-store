@@ -1,7 +1,9 @@
 import Layout from "@/Containers/Layout";
-import HomeMain from "./Home";
+
 import { Container, Grid } from "@mui/material";
 import TabPriceList from "@/Components/TabPrice";
+import StepperComputerList from "@/Components/StepperComputer";
+import HomePhoneNumber from "@/Components/AddPhoneNumber";
 
 export default function Home() {
   return (
@@ -12,6 +14,11 @@ export default function Home() {
             <HomePhoneNumber />
 
             <TabPriceList />
+          </Grid>
+
+
+          <Grid mb={20} mt={20}>
+            <StepperComputerList/>
           </Grid>
         </Container>
       </Layout>
