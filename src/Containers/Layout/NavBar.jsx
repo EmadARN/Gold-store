@@ -27,10 +27,10 @@ const NavBar = (props) => {
     setAnchorElUser(null);
   };
   return(
-    <AppBar  position="static">
-      <Container sx={{backgroundColor:"#1C1B19"}} maxWidth="xl">
+    <AppBar  position="static" >
+      <Container sx={{backgroundColor:"#1C1B19"}} maxWidth="L">
         <Toolbar disableGutters>
-          <Box sx={{display:{sm:"none" ,md:"block"}}}>
+          <Box sx={{display:{xs:"none" ,md:"block"}}}>
          <img  width={40} height={40} src={props.image}/>
          </Box>
           <Typography

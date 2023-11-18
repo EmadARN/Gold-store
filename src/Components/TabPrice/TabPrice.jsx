@@ -92,12 +92,12 @@ const TabPrice = () => {
           <Typography variant="h5" sx={{ color: "#fff", textAlign: "center" }}>
             قیمت خرید
           </Typography>
-          <p style={{ color: "green", display: "flex", fontSize: "20px" }}>
-            11.258.694
+          <Box sx={{ color: "green", display: "flex", fontSize: "20px" }}>
+            11.258.694 
             <Typography sx={{ color: "green", pr: 1, fontSize: "20px" }}>
               ریال
             </Typography>
-          </p>
+          </Box>
         </Box>
         <DiamondIcon
           sx={{
@@ -109,12 +109,12 @@ const TabPrice = () => {
           <Typography variant="h5" sx={{ color: "#fff", textAlign: "center" }}>
             قیمت فروش
           </Typography>
-          <p style={{ color: "red", display: "flex", fontSize: "20px" }}>
-            11.258.694
+           <Box sx={{ color: "red", display: "flex", fontSize: "20px" }}>
+            11.258.694 
             <Typography sx={{ color: "red", pr: 1, fontSize: "20px" }}>
               ریال
             </Typography>
-          </p>
+           </Box> 
         </Box>
       </Box>
       <Box
