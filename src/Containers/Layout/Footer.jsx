@@ -14,6 +14,7 @@ const FooterButton =styled("button")(({theme}) =>({
   backgroundColor:"none",
   border:"none",
   fontWeight:"100",
+  fontFamily:"Lalezar",
 
   
   '&:hover':{
@@ -59,20 +60,20 @@ const Footer = (props) => {
 
 <Grid mt={4} mb={4} container display="flex"  justifyContent="space-around" alignItems="center">
   <Grid item display="flex" alignItems="center" whiteSpace="nowrap" sx={{ml:{xs:"2%",sm:"0"}}}>
-    <Typography color="white" fontSize={20} variant="h5">آدرس :</Typography><Typography color="#fff" variant="h6" mr={1} fontWeight="bold">زنجان سفر اباد خیابان 12 نبش نانوایی</Typography>
+    <Typography fontFamily="Yekan" color="white" fontSize={20} variant="h5">آدرس :</Typography><Typography fontFamily="Yekan" color="#fff" variant="h6" mr={1} fontWeight="bold">زنجان سفر اباد خیابان 12 نبش نانوایی</Typography>
   </Grid>
 
 
   <Grid item display="flex" flexDirection="column" alignItems="center">
     <Box display="flex" alignItems="center"> 
-      <Typography color="white" fontSize={20} >  تلفن : </Typography>
-      <Typography mr={1} color="#fff" variant="h6" >024-2424-2424-24</Typography>
+      <Typography fontFamily="Yekan" color="white" fontSize={20} >  تلفن : </Typography>
+      <Typography fontFamily="Yekan" mr={1} color="#fff" variant="h6" >024-2424-2424-24</Typography>
     </Box>
 
     <Box mt={1} display="flex" alignItems="center" >
-<TelegramIcon sx={{ml:3 ,color:"#FFC436",cursor:"pointer",border:"1px solid #FFC436",padding:"5px",transition:'all ease 1s' ,'&:hover':{borderRadius:"50%"}}}/>
-<WhatsAppIcon sx={{ml:3,color:"#FFC436",cursor:"pointer",border:"1px solid #FFC436",padding:"5px",transition:'all ease 1s' ,'&:hover':{borderRadius:"50%"}}}/>
-<InstagramIcon sx={{ml:3,color:"#FFC436",cursor:"pointer",border:"1px solid #FFC436",padding:"5px",transition:'all ease 1s' ,'&:hover':{borderRadius:"50%"}}}/>
+<TelegramIcon sx={{ml:3 ,color:"#FFC436",cursor:"pointer",fontSize:"30px",border:"1px solid #FFC436",padding:"5px",transition:'all ease 1s' ,'&:hover':{borderRadius:"50%"}}}/>
+<WhatsAppIcon sx={{ml:3,color:"#FFC436",cursor:"pointer",fontSize:"30px",border:"1px solid #FFC436",padding:"5px",transition:'all ease 1s' ,'&:hover':{borderRadius:"50%"}}}/>
+<InstagramIcon sx={{ml:3,color:"#FFC436",fontSize:"30px",cursor:"pointer",border:"1px solid #FFC436",padding:"5px",transition:'all ease 1s' ,'&:hover':{borderRadius:"50%"}}}/>
     </Box>
   </Grid>
 </Grid>
