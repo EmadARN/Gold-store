@@ -101,11 +101,12 @@ const NavBar = (props) => {
               mr: 2,
               display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
-              fontFamily: 'monospace',
+              fontFamily: 'Yekan',
               fontWeight: 700,
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
+              
             }}
           >
             طلایار
@@ -115,7 +116,7 @@ const NavBar = (props) => {
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2,mx:2, color: 'white', display: 'block' ,fontSize:"20px" ,'&:hover':{borderBottom:"1px solid white"} }}
+                sx={{ my: 2,mx:2, color: 'white',fontFamily:"Yekan", display: 'block' ,fontSize:"20px" ,'&:hover':{borderBottom:"1px solid white"} }}
               >
                 {page}
               </Button>
@@ -124,7 +125,7 @@ const NavBar = (props) => {
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="ثبت نام">
-              <Button sx={{color:"#FFC436",border:"1px solid #FFC436" ,'&:hover':{backgroundColor:"rgba(204, 163, 69,0.4)"}}}>ورود | ثبت نام</Button>
+              <Button sx={{fontFamily:"Yekan",color:"#FFC436",border:"1px solid #FFC436" ,'&:hover':{backgroundColor:"rgba(204, 163, 69,0.4)"}}}>ورود | ثبت نام</Button>
             </Tooltip>
            
           </Box>
