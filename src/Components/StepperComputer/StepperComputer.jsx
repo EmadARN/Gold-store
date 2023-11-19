@@ -10,6 +10,8 @@ import rtlPlugin from "stylis-plugin-rtl";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
 import { Container, Fab } from "@mui/material";
+import DoneIcon from "@mui/icons-material/Done";
+import { steps } from "../../Utils/StepsObjext";
 const themee = createTheme({
   direction: "rtl",
 });
@@ -18,42 +20,24 @@ const cacheRtl = createCache({
   key: "muirtl",
   stylisPlugins: [rtlPlugin],
 });
-const steps = [
-  {
-    id: 1,
-    label: "ثبت نام و احراز هویت",
-    description: `ثبت نام در گلدیار ساده بوده و در چند دقیقه اتفاق میافتد.نیازی نیست به جایی مراجعه کنید یا عکس یا فیلمی بارگزاری گنید.`,
-  },
-  {
-    id: 2,
-    label: "شارژ کیف پول",
-    description: `
-    با ثبت‌نام در گلدیکا برای شما یک کیف‌پول ریالی و یک کیف طلا ایجاد می‌شود. برای
-    خرید طلا کافی است کیف پول خود را به میزان دلخواه شارژ کنید.`,
-  },
-  {
-    id: 3,
-    label: "خرید و فروش طلا",
-    description: `بلافاصله پس از شارژ کیف پول می‌توانید طلا بخرید و یا اگر در کیف طلای خود طلا دارید، می‌توانید هر مقدار از آن را که می‌خواهید بفروشید.`,
-  },
-  {
-    id: 4,
-    label: " تسویه ریالی یا تحویل طلای فیزیکی",
-    description: `با درخواست تسویه‌ی ریالی، هر میزان از موجودی کیف پول که می‌خواهید نهایتاً طی یک روز کاری به حساب بانکی شما واریز می‌شود. همچنین می‌توانید موجودی کیف طلایی خود را به صورت فیزیکی تحویل بگیرید.`,
-  },
-];
 
 export default function StepperComputer() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [completed, setCompleted] = React.useState({});
-  const [box, setBox] = React.useState(false);
-  const totalSteps = () => {
-    return steps.length;
-  };
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      if (activeStep >= 3) {
+        setActiveStep(0);
+      } else {
+        setActiveStep(activeStep + 1);
+      }
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [activeStep]);
 
   const handleStep = (step) => () => {
     setActiveStep(step);
-    setBox("#FFC436");
   };
 
   return (
@@ -65,9 +49,21 @@ export default function StepperComputer() {
               width: "100%",
               display: "flex",
               justifyContent: "space-evenly",
+              "@media (max-width:912px)": {
+                display: "none",
+              },
             }}
           >
-            <Stepper nonLinear activeStep={activeStep} orientation="vertical">
+            <Stepper
+              nonLinear
+              activeStep={activeStep}
+              orientation="vertical"
+              sx={{
+                display: "flex",
+                alignItems: "start",
+                justifyContent: "center",
+              }}
+            >
               {steps.map((label, index) => (
                 <Step key={label} completed={completed[index]}>
                   <Box
@@ -80,19 +76,21 @@ export default function StepperComputer() {
                   >
                     <Fab
                       sx={{
-                        width: "35px",
-                        height: "30px",
-                        bgcolor: activeStep == index ? box : "#fff",
+                        width: "15px",
+                        height: "1px",
+                        px: 1.8,
+
+                        bgcolor: activeStep == index ? "#FFC436" : "#fff",
                       }}
                       aria-label="add"
                     >
-                      {label.id}
+                      {activeStep >= index + 1 ? <DoneIcon /> : label.id}
                     </Fab>
                     <Typography
                       sx={{
                         cursor: "pointer",
                         pl: 2,
-                        color: activeStep == index ? box : "#fff",
+                        color: activeStep == index ? "#FFC436" : "#fff",
                       }}
                     >
                       {label.label}
@@ -113,6 +111,7 @@ export default function StepperComputer() {
                 width: "30%",
               }}
             >
+              {/* {(activeStep % activeStep.length).toFixed()} */}
               {steps.map((label, index) => {
                 if (activeStep === index) {
                   return (
