@@ -10,13 +10,12 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 const Accordion = styled((props) => (
   <MuiAccordion
-    style={{ backgroundColor: "#fcfcfc" }}
+    style={{ backgroundColor: "#f1f1f1", borderRadius: "11px" }}
     elevation={0}
     square
     {...props}
   />
 ))(({ theme }) => ({
-  border: `1px solid ${theme.palette.divider}`,
   marginTop: "10px",
   "&:before": {
     display: "none",
@@ -73,7 +72,9 @@ function Faqs() {
       </Box>
       <Grid container sx={{ mt: 10 }} spacing={5}>
         <Box>
-          <Typography sx={{ fontSize: "22px", fontWeight: "bold", pr: 1 }}>
+          <Typography
+            sx={{ color: "#fff", fontSize: "22px", fontWeight: "bold", pr: 1 }}
+          >
             درباره طلای آب شده
           </Typography>
         </Box>
@@ -86,7 +87,10 @@ function Faqs() {
               <Typography variant="h5">طلای آب شده چیست؟</Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <Typography variant="h6">
+              <Typography
+                variant="h6"
+                sx={{ fontWeight: "700", color: "#444", textAlign: "justify" }}
+              >
                 طلای زینتی دست دومی که دیگر قابل استفاده نیست، در آزمایشگاه های
                 عیارسنجی معتبر، ذوب شده و به شکل قطعات با ابعاد مختلف، به عنوان
                 ماده اولیه صنعت طلاسازی و بین همکاران معامله می‌شود. مزیت طلای
@@ -108,7 +112,10 @@ function Faqs() {
               <Typography variant="h5">عیار چیست؟</Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <Typography variant="h6">
+              <Typography
+                variant="h6"
+                sx={{ fontWeight: "700", color: "#444", textAlign: "justify" }}
+              >
                 به دلیل انعطاف پذیری و نرمی طلای خالص، برای ساخت زیورآلات، آن را
                 با فلزات دیگری مانند مس و نقره ترکیب می‌کنند. لذا در قیمت گذاری
                 یک قطعه طلا، میزان خلوص طلای موجود در آن اهمیت دارد که برای نشان
@@ -132,7 +139,10 @@ function Faqs() {
               <Typography variant="h5">انگ چیست؟</Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <Typography variant="h6">
+              <Typography
+                variant="h6"
+                sx={{ fontWeight: "700", color: "#444", textAlign: "justify" }}
+              >
                 یک شماره یا کد شناسایی است که بر روی طلای آب‌شده توسط آزمایشگاه
                 عیارسنجی حک می‌شود و به نوعی شناسنامه طلای آب‌شده است. کلیه
                 طلاهای عرضه شده در گلدیار دارای انگ و شناسنامه از آزمایشگاه های
@@ -154,7 +164,10 @@ function Faqs() {
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <Typography variant="h6">
+              <Typography
+                variant="h6"
+                sx={{ fontWeight: "700", color: "#444", textAlign: "justify" }}
+              >
                 طلای ‌آب‌شده توسط آزمایشگاه‌های معتبر عیار سنجی شده و شماره‌ای
                 به عنوان انگ روی آن حک می‌شود. با استعلام تلفنی این شماره از
                 آزمایشگاه و یا استعلام اینترنتی آن از سامانه نمایش جواب انگ طلا،
@@ -165,13 +178,20 @@ function Faqs() {
         </Grid>
         <Grid item xs={12} sm={12} md={12} sx={{ mb: 5 }}>
           <Box>
-            <Typography sx={{ fontSize: "22px", fontWeight: "bold", pr: 1 }}>
+            <Typography
+              sx={{
+                color: "#fff",
+                fontSize: "22px",
+                fontWeight: "bold",
+                pr: 1,
+              }}
+            >
               درباره سامانه
             </Typography>
           </Box>
           <Accordion
-            expanded={expanded === "panel6"}
-            onChange={handleChange("panel6")}
+            expanded={expanded === "panel5"}
+            onChange={handleChange("panel5")}
           >
             <AccordionSummary>
               <Typography variant="h5">
@@ -179,7 +199,10 @@ function Faqs() {
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <Typography variant="h6">
+              <Typography
+                variant="h6"
+                sx={{ fontWeight: "700", color: "#444", textAlign: "justify" }}
+              >
                 ثبت نام در گلدیار در تنها کمتر از یک دقیقه انجام می‌شود. ثبت نام
                 و احراز هویت در گلدیار ساده بوده و در چند ثانیه اتفاق می‌افتد.
                 نیازی نیست به جایی مراجعه کنید یا از خودتان عکس، فیلم یا مدرکی
@@ -189,8 +212,8 @@ function Faqs() {
             </AccordionDetails>
           </Accordion>
           <Accordion
-            expanded={expanded === "panel7"}
-            onChange={handleChange("panel7")}
+            expanded={expanded === "panel6"}
+            onChange={handleChange("panel6")}
           >
             <AccordionSummary
               aria-controls="panel2d-content"
@@ -201,7 +224,10 @@ function Faqs() {
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <Typography variant="h6">
+              <Typography
+                variant="h6"
+                sx={{ fontWeight: "700", color: "#444", textAlign: "justify" }}
+              >
                 یکی از مزیت های گلدیار سرعت بالای معاملات و دسترسی سریع مشتریان
                 به بازار طلاست به نحوی که مانند هر فروشگاه اینترنتی امکان شارژ
                 کیف پول در گلدیار از طریق درگاه خرید اینترنتی مطمئن و اختصاصی،
@@ -228,7 +254,10 @@ function Faqs() {
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <Typography variant="h6">
+              <Typography
+                variant="h6"
+                sx={{ fontWeight: "700", color: "#444", textAlign: "justify" }}
+              >
                 یکی از مزیت های گلدیار سرعت بالای معاملات و دسترسی سریع مشتریان
                 به بازار طلاست به نحوی که مانند هر فروشگاه اینترنتی امکان شارژ
                 کیف پول در گلدیار از طریق درگاه خرید اینترنتی مطمئن و اختصاصی،
@@ -255,7 +284,10 @@ function Faqs() {
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <Typography variant="h6">
+              <Typography
+                variant="h6"
+                sx={{ fontWeight: "700", color: "#444", textAlign: "justify" }}
+              >
                 همانطور که می‌دانید قیمت طلا همراه با نوسانات لحظه‌ای است. ار
                 آنجا که گلدیار متعهد است تمامی معاملات را دقیقا با قیمتی که در
                 سایت به کاربر نمایش داده شده به انجام رساند، مجبور است برای پوشش
@@ -267,6 +299,7 @@ function Faqs() {
               </Typography>
             </AccordionDetails>
           </Accordion>
+
           <Accordion
             expanded={expanded === "panel9"}
             onChange={handleChange("panel9")}
@@ -278,7 +311,10 @@ function Faqs() {
               <Typography variant="h5">نحوه تعیین قیمت؟</Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <Typography variant="h6">
+              <Typography
+                variant="h6"
+                sx={{ fontWeight: "700", color: "#444", textAlign: "justify" }}
+              >
                 یقیمت لحظه‌ای در گلدیار بر اساس قیمت لحظه‌ای معاملات بازار تهران
                 و با استفاده از تکنیک‌های علوم‌داده و هوش مصنوعی در ساعات غیر
                 کاری بازار تعیین می‌شود. اگر تفاوتی بین قیمت ارائه شده در گلدیار
@@ -302,7 +338,10 @@ function Faqs() {
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <Typography variant="h6">
+              <Typography
+                variant="h6"
+                sx={{ fontWeight: "700", color: "#444", textAlign: "justify" }}
+              >
                 ثبت نام در گلدیار، نیازمند احراز هویت است و به دستور پلیس فتا و
                 با توجه به قوانین و مقررات موجود از جمله قانون مبارزه با
                 پولشویی، کلیه تراکنش های بانکی در گلدیار (واریزی و برداشت) صرفاً
@@ -326,7 +365,10 @@ function Faqs() {
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <Typography variant="h6">
+              <Typography
+                variant="h6"
+                sx={{ fontWeight: "700", color: "#444", textAlign: "justify" }}
+              >
                 برای فروش طلا نیز مانند خرید طلا هیچگونه محدودیتی از نظر زمانی و
                 مقداری وجود ندارد و در هر ساعتی از شبانه روز و هر ۷ روز هفته و
                 حتی ایام تعطیل می‌توانید هر میزان از طلای خود را که می‌خواهید به

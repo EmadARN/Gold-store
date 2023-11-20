@@ -31,7 +31,7 @@ const pages1 = [
   
   {
     id: 2,
-    link: "/faqs",
+    link: "/Faqs",
     text: "سوالات متداول",
   },
   {
