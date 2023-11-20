@@ -177,7 +177,7 @@ const NavBar = (props) => {
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="ثبت نام">
-              <Button
+             <Link href="/SignUp"> <Button
                 sx={{
                   fontFamily: "Yekan",
                   color: "#FFC436",
@@ -187,6 +187,7 @@ const NavBar = (props) => {
               >
                 ورود | ثبت نام
               </Button>
+              </Link>
             </Tooltip>
           </Box>
         </Toolbar>
