@@ -13,7 +13,7 @@ import {
 } from "@mui/material";
 import React from "react";
 import AdbIcon from "@mui/icons-material/Adb";
-import Link from 'next/link'
+import Link from "next/link";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 
@@ -25,7 +25,7 @@ const pages1 = [
   },
   {
     id: 2,
-    link: "/faqs",
+    link: "/Faqs",
     text: "سوالات متداول",
   },
   {
@@ -111,7 +111,9 @@ const NavBar = (props) => {
             >
               {pages1.map((page) => (
                 <MenuItem key={page.id} onClick={handleCloseNavMenu}>
-                  <Typography color="#fff" textAlign="center">{page.text}</Typography>
+                  <Typography color="#fff" textAlign="center">
+                    {page.text}
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -139,28 +141,31 @@ const NavBar = (props) => {
             طلایار
           </Typography>
           <Box sx={{ flexGrow: 2, display: { xs: "none", md: "flex" } }}>
-             {pages1.map((page) => (
-              <Link style={{textDecoration:"none"}} className="myLink" href={page.link} >
-              <Button 
-                key={page.id}
-                onClick={handleCloseNavMenu}
-                sx={{
-                 
-                    textDecoration:"none",
-                
-                  my: 2,
-                  mx: 2,
-                  color: "white",
-                  fontFamily: "Yekan",
-                  display: "block",
-                  fontSize: "20px",
-                  "&:hover": { borderBottom: "1px solid white" },
-                }}
+            {pages1.map((page) => (
+              <Link
+                style={{ textDecoration: "none" }}
+                className="myLink"
+                href={page.link}
               >
-                {page.text}
-              </Button>
+                <Button
+                  key={page.id}
+                  onClick={handleCloseNavMenu}
+                  sx={{
+                    textDecoration: "none",
+
+                    my: 2,
+                    mx: 2,
+                    color: "white",
+                    fontFamily: "Yekan",
+                    display: "block",
+                    fontSize: "20px",
+                    "&:hover": { borderBottom: "1px solid white" },
+                  }}
+                >
+                  {page.text}
+                </Button>
               </Link>
-            ))} 
+            ))}
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
