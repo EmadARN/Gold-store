@@ -3,7 +3,7 @@ import React from "react";
 import TelegramIcon from '@mui/icons-material/Telegram';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import InstagramIcon from '@mui/icons-material/Instagram';
-
+import Link from "next/link";
 
 
 
@@ -32,21 +32,21 @@ const Footer = (props) => {
   return(
     
     <>
-    <Grid sx={{backgroundColor:"#2d2c2a"}} container>
+    <Grid sx={{backgroundColor:"#2d2c2a"}}  container >
       {/* footer buttons */}
 <Grid mt={4} container display = "flex" justifyContent="space-around" alignItems="center">
 
 <Grid xs={5} sm={4} md={4} alignItems="center" display="flex" flexDirection="column" sx={{marginLeft:{xs:"8%",sm:"0"}}}>
-<Box  mb={2}><FooterButton variant="standard">صفحه اصلی</FooterButton></Box>
-<Box mb={2}><FooterButton variant="standard"> درباره ما</FooterButton></Box>
-<Box ><FooterButton variant="standard">  شرایط و قوانین</FooterButton></Box>
+<Box  mb={2}><Link href="/"><FooterButton variant="standard">صفحه اصلی</FooterButton></Link></Box>
+<Box mb={2}><Link href="/About"><FooterButton variant="standard"> درباره ما</FooterButton></Link></Box>
+
 
 </Grid>
 
 <Grid whiteSpace="nowrap" xs={5} sm={4} md={4} alignItems="center" display="flex" flexDirection="column">
-<Box mb={2}><FooterButton variant="standard"> سوالات متداول</FooterButton></Box>
-<Box mb={2}><FooterButton variant="standard">  چطوری به طلایار اعتماد کنیم</FooterButton></Box>
-<Box ><FooterButton variant="standard">   ارتباط با ما </FooterButton></Box>
+<Box mb={2}><Link href="/Faqs"><FooterButton variant="standard"> سوالات متداول</FooterButton></Link></Box>
+
+<Box ><Link href="Contact"><FooterButton variant="standard">   ارتباط با ما </FooterButton></Link></Box>
 
 </Grid>
 

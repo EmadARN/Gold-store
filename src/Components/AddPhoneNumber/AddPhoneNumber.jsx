@@ -4,8 +4,21 @@ import TextFeild2 from "./TextFeild";
 
 const AddPhoneNumber = () => {
   return (
-    <Grid mt={10} display="flex" flexDirection="column">
-      <Grid display="flex" alignItems="center">
+    <Grid
+      mt={10}
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      flexDirection="column"
+      sx={{ mr: { xs: "8%", md: "0" } }}
+    >
+      <Grid
+        sx={{
+          display: { xs: "flex" },
+          justifyContent: { xs: "center", md: "start" },
+          alignItems: "center",
+        }}
+      >
         <Typography color="#FFC436" fontFamily="Lalezar" variant="h3">
           طلایار،
         </Typography>
@@ -14,7 +27,7 @@ const AddPhoneNumber = () => {
         </Typography>
       </Grid>
 
-      <Grid mt={2} display="flex">
+      <Grid sx={{ display: { xs: "none", md: "flex" } }} mt={2} display="flex">
         <Box
           ml={3}
           sx={{
@@ -76,15 +89,27 @@ const AddPhoneNumber = () => {
       </Grid>
 
       <Grid mb={3} display="flex" flexDirection="column" mt={3}>
-        <Typography mb={1} fontFamily="Yekan" color="#fff" variant="h4">
+        <Typography
+        mr={8}
+          sx={{ display: { xs: "none", md: "flex" } }}
+          mb={1}
+          fontFamily="Yekan"
+          color="#fff"
+          variant="h4"
+        >
           خرید و فروش طلای بدون اجرت
         </Typography>
-        <Typography color="#726F6D" fontFamily="Yekan" variant="h6">
+        <Typography
+          sx={{ fontWeight: { xs: "bold", md: "50" } }}
+          color="#726F6D"
+          fontFamily="Yekan"
+          variant="h6"
+        >
           خرید طلای آبشده به صورت رسمی و تصمین شده و با هر میزان سرمایه
         </Typography>
       </Grid>
 
-      <Grid mb={2} width="80%">
+      <Grid mb={3} sx={{width:{xs:"100%",sm:"80%"}}}>
         <TextFeild2 />
       </Grid>
 
