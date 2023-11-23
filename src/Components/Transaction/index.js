@@ -32,7 +32,7 @@ export const TransactionList = () => {
               mb: 2,
             }}
           >
-            برداشت
+            برداشت وجه
           </Typography>
         </Box>
         <Transaction />

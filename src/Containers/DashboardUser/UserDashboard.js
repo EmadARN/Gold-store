@@ -204,7 +204,7 @@ export default function UserDashboard({ children, indexBtn }) {
                 <ListItem key={text} disablePadding>
                   <ListItemButton
                     sx={{
-                      color: "#fff",
+                      color: "#FF3F3F",
                     }}
                   >
                     <LogoutIcon />

@@ -6,12 +6,12 @@ export const DrawerObj = [
   },
   {
     id: 2,
-    name: "واریز ریال",
+    name: "واریز وجه",
     toPage: "/DepositPage",
   },
   {
     id: 3,
-    name: "برداشت ریال",
+    name: "برداشت وجه",
     toPage: "/WithdrawPage",
   },
   {
