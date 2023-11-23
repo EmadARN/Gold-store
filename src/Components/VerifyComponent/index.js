@@ -1,10 +1,10 @@
-import * as React from 'react';
+import React from 'react'
+
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 
 import TextField from '@mui/material/TextField';
 
-import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -28,23 +28,22 @@ const themee = createTheme({
     stylisPlugins: [rtlPlugin],
   });
 
-
-export default function SignUpSide() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
-
+const VerifyCode = () => {
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const data = new FormData(event.currentTarget);
+        console.log({
+          email: data.get('email'),
+          password: data.get('password'),
+        });
+      };
+    
   return (
     <CacheProvider value={cacheRtl}>
     <ThemeProvider theme={themee}>
-      <Grid container  sx={{ height: '100vh',display:"flex",justifyContent:"center",width:"100%",backgroundImage :`url(${bg.src})`,backgroundRepeat:"no-repeat",backgroundSize:"cover",backgroundPosition:"center"}}>
+      <Grid container  sx={{ height: '100vh',display:"flex",justifyContent:"center",backgroundImage :`url(${bg.src})`,backgroundRepeat:"no-repeat",backgroundSize:"cover",backgroundPosition:"center",width:"100%"}}>
         
-      
+       
         <Grid sx={{backgroundColor:"#272523",maxHeight:"70%",mt:"8%"}}  item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
           <Box
             sx={{
@@ -56,11 +55,9 @@ export default function SignUpSide() {
               alignItems: 'center',
             }}
           >
-            <Avatar sx={{ m: 1,  }}>
-              <LockOutlinedIcon />
-            </Avatar>
+           
             <Typography color="#fff" fontFamily="Lalezar" component="h1" variant="h5">
-              ورود | ثبت نام
+            کد تایید را وارد کنید
             </Typography>
             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
               <TextField
@@ -93,7 +90,7 @@ export default function SignUpSide() {
                 required
                 fullWidth
                 id="number"
-                label="شماره تلفن همراه"
+                label=" کد تایید "
                 name="email"
                 autoComplete="email"
                 autoFocus
@@ -105,7 +102,7 @@ export default function SignUpSide() {
                 variant="contained"
                 sx={{ mt: 3, mb: 2 ,backgroundColor:"#FFC436",color:"#111",fontWeight:"bold", "&:hover": { backgroundColor: "rgba(204, 163, 69,0.7)" },}}
               >
-                ادامه
+                تایید
               </Button>
              
              
@@ -115,5 +112,7 @@ export default function SignUpSide() {
       </Grid>
     </ThemeProvider>
     </CacheProvider>
-  );
+  )
 }
+
+export default VerifyCode
