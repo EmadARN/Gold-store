@@ -75,8 +75,11 @@ const TabPrice = () => {
         width: 550,
         margin: "auto",
         mt: 10,
-        bgcolor: "rgb(39,37,35)",
-        borderRadius: "15px",
+        bgcolor: " rgba(39,37,35,.55)",
+
+        boxShadow:
+          "rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px",
+        borderRadius: "30px",
       }}
     >
       <Box
@@ -93,7 +96,7 @@ const TabPrice = () => {
             قیمت خرید
           </Typography>
           <Box sx={{ color: "green", display: "flex", fontSize: "20px" }}>
-            11.258.694 
+            11.258.694
             <Typography sx={{ color: "green", pr: 1, fontSize: "20px" }}>
               ریال
             </Typography>
@@ -109,12 +112,12 @@ const TabPrice = () => {
           <Typography variant="h5" sx={{ color: "#fff", textAlign: "center" }}>
             قیمت فروش
           </Typography>
-           <Box sx={{ color: "red", display: "flex", fontSize: "20px" }}>
-            11.258.694 
+          <Box sx={{ color: "red", display: "flex", fontSize: "20px" }}>
+            11.258.694
             <Typography sx={{ color: "red", pr: 1, fontSize: "20px" }}>
               ریال
             </Typography>
-           </Box> 
+          </Box>
         </Box>
       </Box>
       <Box
@@ -125,7 +128,10 @@ const TabPrice = () => {
           sx={{
             height: "250px",
             bgcolor: "#3C3A36",
-            borderRadius: "15px",
+            borderRadius: "30px",
+            boxShadow:
+              "rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px",
+            inset: "20px",
           }}
         >
           <AppBar position="static" sx={{ borderRadius: "10px" }}>
@@ -286,6 +292,7 @@ const TabPrice = () => {
               fontSize: "20px",
               fontWeight: "bold",
               borderColor: "#FFC436",
+              borderRadius: "10px",
             }}
           >
             خرید

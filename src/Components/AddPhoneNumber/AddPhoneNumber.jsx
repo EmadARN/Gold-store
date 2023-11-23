@@ -1,4 +1,4 @@
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Button, Grid, Typography } from "@mui/material";
 import React from "react";
 import TextFeild2 from "./TextFeild";
 
@@ -90,7 +90,7 @@ const AddPhoneNumber = () => {
 
       <Grid mb={3} display="flex" flexDirection="column" mt={3}>
         <Typography
-        mr={8}
+          mr={8}
           sx={{ display: { xs: "none", md: "flex" } }}
           mb={1}
           fontFamily="Yekan"
@@ -99,18 +99,34 @@ const AddPhoneNumber = () => {
         >
           خرید و فروش طلای بدون اجرت
         </Typography>
-        <Typography
-          sx={{ fontWeight: { xs: "bold", md: "50" } }}
-          color="#726F6D"
-          fontFamily="Yekan"
-          variant="h6"
-        >
-          خرید طلای آبشده به صورت رسمی و تصمین شده و با هر میزان سرمایه
-        </Typography>
       </Grid>
 
-      <Grid mb={3} sx={{width:{xs:"100%",sm:"80%"}}}>
-        <TextFeild2 />
+      <Grid
+        mb={3}
+        sx={{
+          width: { xs: "100%", sm: "80%" },
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <Button
+          variant="contained"
+          sx={{
+            bgcolor: "#FFC436",
+            color: "#000",
+            fontSize: "18px",
+            fontWeight: "bold",
+            px: 10,
+            transition: "all .3s ease-in ",
+            "&:hover": {
+              bgcolor: "#FFC436",
+              letterSpacing: "2px",
+              transition: "all .3s ease-in ",
+            },
+          }}
+        >
+          ثبت نام
+        </Button>
       </Grid>
 
       <Grid>
