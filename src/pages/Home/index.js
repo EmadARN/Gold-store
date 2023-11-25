@@ -48,7 +48,7 @@ const HomeLand = () => {
             </Grid>
           </Grid>
 
-          <Grid sx={{ mb: { xs: 30, md: 20 }, mt: { xs: 40, md: 50 } }}>
+          <Grid sx={{ mb: { xs: 30, md: 20 }, mt: { xs: 40, md: 40 } }}>
             <StepperComputerList />
             <StepperList />
           </Grid>

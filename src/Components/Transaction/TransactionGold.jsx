@@ -55,7 +55,14 @@ export default function TransactionGold() {
   return (
     <ThemeProvider theme={themeWithLocale}>
       <Container maxWidth={"md"}>
-        <Paper sx={{ width: "100%", overflow: "hidden" }}>
+        <Paper
+          sx={{
+            width: "100%",
+            display: "grid",
+            placeItems: "center",
+            overflow: "hidden",
+          }}
+        >
           <TableContainer
             sx={{ maxHeight: 440, bgcolor: "#272523", color: "#fff" }}
           >
@@ -108,6 +115,7 @@ export default function TransactionGold() {
           <TablePagination
             sx={{
               bgcolor: "#272523",
+              width: "100%",
               color: "#fff",
               "& .MuiButtonBase-root, .MuiSvgIcon-root ": {
                 color: "#fff",
