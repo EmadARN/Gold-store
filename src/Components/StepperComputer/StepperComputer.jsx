@@ -115,7 +115,9 @@ export default function StepperComputer() {
               {steps.map((label, index) => {
                 if (activeStep === index) {
                   return (
-                    <Typography sx={{ mt: 2, mb: 1, p: 2 }}>
+                    <Typography
+                      sx={{ mt: 5, mb: 1, p: 2, textAlign: "justify" }}
+                    >
                       {label.description}
                     </Typography>
                   );
