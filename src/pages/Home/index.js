@@ -28,8 +28,19 @@ const HomeLand = () => {
           >
             <ArrowBottom />
           </Grid>
-          <Grid container my={24}>
-            <Grid item xs={12} md={6}>
+          <Grid
+            container
+            sx={{
+              my: { xs: -20, md: 24 },
+              flexDirection: { xs: "column-reverse", md: "row" },
+            }}
+          >
+            <Grid
+              item
+              xs={12}
+              md={6}
+              sx={{ display: { xs: "none", md: "block" } }}
+            >
               <Animate />
             </Grid>
             <Grid item xs={12} md={6}>
@@ -37,7 +48,7 @@ const HomeLand = () => {
             </Grid>
           </Grid>
 
-          <Grid mb={20} mt={50}>
+          <Grid sx={{ mb: { xs: 30, md: 20 }, mt: { xs: 40, md: 50 } }}>
             <StepperComputerList />
             <StepperList />
           </Grid>

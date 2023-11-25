@@ -93,7 +93,7 @@ export const Animate = () => {
       }}
     >
       <Cotainer>
-        {Array.from({ length: 100 }, (_, i) => (
+        {Array.from({ length: 100 }, ( i) => (
           <DivOne className="divs " key={i} />
         ))}
       </Cotainer>

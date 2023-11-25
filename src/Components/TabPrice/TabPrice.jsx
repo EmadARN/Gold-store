@@ -72,7 +72,8 @@ const TabPrice = () => {
   return (
     <Paper
       sx={{
-        width: 550,
+        maxWidth: "550px",
+        width: { xs: "100%", md: "550px" },
         margin: "auto",
         mt: 10,
         bgcolor: " rgba(39,37,35,.55)",
@@ -120,14 +121,14 @@ const TabPrice = () => {
           </Box>
         </Box>
       </Box>
-      <Box
-        sx={{ width: 500, margin: "auto", px: 3, pt: 5, borderRadius: "15px" }}
-      >
+      <Box sx={{ margin: "auto", px: 3, pt: 5, borderRadius: "15px" }}>
         <Paper
           elevation={10}
           sx={{
             height: "250px",
             bgcolor: "#3C3A36",
+
+            width: { xs: "100%", md: "100%" },
             borderRadius: "30px",
             boxShadow:
               "rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px",
@@ -139,6 +140,7 @@ const TabPrice = () => {
               sx={{
                 bgcolor: "#3C3A36",
 
+                width: { xs: "100%", md: "100%" },
                 borderRadius: "10px",
                 "& .MuiButtonBase-root": {
                   color: "#FFC436",
@@ -163,7 +165,8 @@ const TabPrice = () => {
                 sx={{
                   mt: 3,
                   bgcolor: "#272523",
-                  width: "90%",
+
+                  width: { xs: "100%", md: "90%" },
                   borderRadius: "10px",
                   mx: "auto",
                 }}
@@ -219,7 +222,8 @@ const TabPrice = () => {
                 sx={{
                   mt: 2,
                   bgcolor: "#272523",
-                  width: "90%",
+
+                  width: { xs: "100%", md: "90%" },
                   borderRadius: "10px",
                   mx: "auto",
                 }}
