@@ -1,10 +1,6 @@
 import * as React from "react";
-import PropTypes from "prop-types";
-import SwipeableViews from "react-swipeable-views";
 import { useTheme } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { Button, Paper } from "@mui/material";
@@ -16,8 +12,7 @@ import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
 import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
-import DiamondIcon from "@mui/icons-material/Diamond";
-
+import numeral from "numeral";
 const themee = createTheme({
   direction: "rtl",
 });
@@ -29,7 +24,7 @@ const cacheRtl = createCache({
 const BuyGold = () => {
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
-
+  const [textFieldValue, setTextFieldValue] = React.useState("");
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -37,7 +32,11 @@ const BuyGold = () => {
   const handleChangeIndex = (index) => {
     setValue(index);
   };
+  const handleTextFieldChange = (event) => {
+    const newValue = numeral(event.target.value).format("0,0");
 
+    setTextFieldValue(newValue);
+  };
   return (
     <Box
       sx={{
@@ -139,11 +138,13 @@ const BuyGold = () => {
                         },
                       },
                     }}
+                    onChange={handleTextFieldChange}
                   >
                     <InputLabel htmlFor="outlined-adornment-amount">
                       ارزش کل
                     </InputLabel>
                     <OutlinedInput
+                      value={textFieldValue}
                       id="outlined-adornment-amount"
                       endAdornment={
                         <InputAdornment

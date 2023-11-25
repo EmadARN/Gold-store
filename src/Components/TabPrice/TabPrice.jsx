@@ -7,7 +7,7 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import { Button, Paper } from "@mui/material";
+import { Button, Paper, TextField } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import rtlPlugin from "stylis-plugin-rtl";
 import { CacheProvider } from "@emotion/react";
@@ -17,6 +17,7 @@ import InputLabel from "@mui/material/InputLabel";
 import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
 import DiamondIcon from "@mui/icons-material/Diamond";
+import numeral from "numeral";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -60,7 +61,7 @@ const cacheRtl = createCache({
 const TabPrice = () => {
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
-
+  const [textFieldValue, setTextFieldValue] = React.useState("");
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -69,6 +70,12 @@ const TabPrice = () => {
     setValue(index);
   };
 
+  const handleTextFieldChange = (event) => {
+    const newValue = numeral(event.target.value).format("0,0");
+    setTextFieldValue(newValue);
+  };
+  var string = numeral(11258694).format("0,0");
+  var string2 = numeral(25666444).format("0,0");
   return (
     <Paper
       sx={{
@@ -97,7 +104,7 @@ const TabPrice = () => {
             قیمت خرید
           </Typography>
           <Box sx={{ color: "green", display: "flex", fontSize: "20px" }}>
-            11.258.694
+            {string}
             <Typography sx={{ color: "green", pr: 1, fontSize: "20px" }}>
               ریال
             </Typography>
@@ -114,7 +121,7 @@ const TabPrice = () => {
             قیمت فروش
           </Typography>
           <Box sx={{ color: "red", display: "flex", fontSize: "20px" }}>
-            11.258.694
+            {string2}
             <Typography sx={{ color: "red", pr: 1, fontSize: "20px" }}>
               ریال
             </Typography>
@@ -196,11 +203,13 @@ const TabPrice = () => {
                       },
                     },
                   }}
+                  onChange={handleTextFieldChange}
                 >
                   <InputLabel htmlFor="outlined-adornment-amount">
                     ارزش کل
                   </InputLabel>
                   <OutlinedInput
+                    value={textFieldValue}
                     id="outlined-adornment-amount"
                     endAdornment={
                       <InputAdornment
