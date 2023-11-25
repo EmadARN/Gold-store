@@ -7,7 +7,7 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import { Button, Paper } from "@mui/material";
+import { Button, Paper, TextField } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import rtlPlugin from "stylis-plugin-rtl";
 import { CacheProvider } from "@emotion/react";
@@ -17,6 +17,7 @@ import InputLabel from "@mui/material/InputLabel";
 import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
 import DiamondIcon from "@mui/icons-material/Diamond";
+import numeral from "numeral";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -60,7 +61,7 @@ const cacheRtl = createCache({
 const TabPrice = () => {
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
-
+  const [textFieldValue, setTextFieldValue] = React.useState("");
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -69,14 +70,24 @@ const TabPrice = () => {
     setValue(index);
   };
 
+  const handleTextFieldChange = (event) => {
+    const newValue = numeral(event.target.value).format("0,0");
+    setTextFieldValue(newValue);
+  };
+  var string = numeral(11258694).format("0,0");
+  var string2 = numeral(25666444).format("0,0");
   return (
     <Paper
       sx={{
-        width: 550,
+        maxWidth: "550px",
+        width: { xs: "100%", md: "550px" },
         margin: "auto",
         mt: 10,
-        bgcolor: "rgb(39,37,35)",
-        borderRadius: "15px",
+        bgcolor: " rgba(39,37,35,.55)",
+
+        boxShadow:
+          "rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px",
+        borderRadius: "30px",
       }}
     >
       <Box
@@ -93,7 +104,7 @@ const TabPrice = () => {
             قیمت خرید
           </Typography>
           <Box sx={{ color: "green", display: "flex", fontSize: "20px" }}>
-            11.258.694 
+            {string}
             <Typography sx={{ color: "green", pr: 1, fontSize: "20px" }}>
               ریال
             </Typography>
@@ -109,23 +120,26 @@ const TabPrice = () => {
           <Typography variant="h5" sx={{ color: "#fff", textAlign: "center" }}>
             قیمت فروش
           </Typography>
-           <Box sx={{ color: "red", display: "flex", fontSize: "20px" }}>
-            11.258.694 
+          <Box sx={{ color: "red", display: "flex", fontSize: "20px" }}>
+            {string2}
             <Typography sx={{ color: "red", pr: 1, fontSize: "20px" }}>
               ریال
             </Typography>
-           </Box> 
+          </Box>
         </Box>
       </Box>
-      <Box
-        sx={{ width: 500, margin: "auto", px: 3, pt: 5, borderRadius: "15px" }}
-      >
+      <Box sx={{ margin: "auto", px: 3, pt: 5, borderRadius: "15px" }}>
         <Paper
           elevation={10}
           sx={{
             height: "250px",
             bgcolor: "#3C3A36",
-            borderRadius: "15px",
+
+            width: { xs: "100%", md: "100%" },
+            borderRadius: "30px",
+            boxShadow:
+              "rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px",
+            inset: "20px",
           }}
         >
           <AppBar position="static" sx={{ borderRadius: "10px" }}>
@@ -133,6 +147,7 @@ const TabPrice = () => {
               sx={{
                 bgcolor: "#3C3A36",
 
+                width: { xs: "100%", md: "100%" },
                 borderRadius: "10px",
                 "& .MuiButtonBase-root": {
                   color: "#FFC436",
@@ -157,7 +172,8 @@ const TabPrice = () => {
                 sx={{
                   mt: 3,
                   bgcolor: "#272523",
-                  width: "90%",
+
+                  width: { xs: "100%", md: "90%" },
                   borderRadius: "10px",
                   mx: "auto",
                 }}
@@ -187,11 +203,13 @@ const TabPrice = () => {
                       },
                     },
                   }}
+                  onChange={handleTextFieldChange}
                 >
                   <InputLabel htmlFor="outlined-adornment-amount">
                     ارزش کل
                   </InputLabel>
                   <OutlinedInput
+                    value={textFieldValue}
                     id="outlined-adornment-amount"
                     endAdornment={
                       <InputAdornment
@@ -213,7 +231,8 @@ const TabPrice = () => {
                 sx={{
                   mt: 2,
                   bgcolor: "#272523",
-                  width: "90%",
+
+                  width: { xs: "100%", md: "90%" },
                   borderRadius: "10px",
                   mx: "auto",
                 }}
@@ -286,6 +305,7 @@ const TabPrice = () => {
               fontSize: "20px",
               fontWeight: "bold",
               borderColor: "#FFC436",
+              borderRadius: "10px",
             }}
           >
             خرید

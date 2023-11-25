@@ -11,7 +11,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import rtlPlugin from "stylis-plugin-rtl";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
-
+import numeral from "numeral";
 const themee = createTheme({
   direction: "rtl",
 });
@@ -23,6 +23,11 @@ const cacheRtl = createCache({
 
 const Withdraw = (props) => {
   const [open, setOpen] = React.useState(true);
+  const [textFieldValue, setTextFieldValue] = React.useState("");
+  const handleTextFieldChange = (event) => {
+    const newValue = numeral(event.target.value).format("0,0");
+    setTextFieldValue(newValue);
+  };
   return (
     <Box
       sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
@@ -89,6 +94,8 @@ const Withdraw = (props) => {
                     </InputAdornment>
                   ),
                 }}
+                onChange={handleTextFieldChange}
+                value={textFieldValue}
               />
               <Box sx={{ display: "flex", justifyContent: "center" }}>
                 <Button

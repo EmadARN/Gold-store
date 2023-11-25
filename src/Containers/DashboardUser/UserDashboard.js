@@ -45,7 +45,27 @@ const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
     }),
   })
 );
-
+const BtnMenu = styled("div")(({ theme }) => ({
+  paddingLeft: 30,
+  paddingRight: 30,
+  paddingBottom: 5,
+  paddingTop: 5,
+  borderRadius: "4px",
+  backgroundColor: "#FFC436",
+  color: "#000",
+  fontSize: "20px",
+  fontWeight: "bolder",
+  boxShadow:
+    "rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px",
+  transition: "all 1s ease",
+  "&:hover": {
+    px: 6,
+    backgroundColorr: "#FFC436",
+    opacity: "0.8",
+    boxShadow:
+      "#FFC436 0px 2px 30px,#FFC436 0px 7px 90px -3px,#FFC436 0px -3px 30px ",
+  },
+}));
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== "open",
 })(({ theme, open }) => ({
@@ -81,8 +101,8 @@ const cacheRtl = createCache({
 });
 export default function UserDashboard({ children, indexBtn,DrawerObj }) {
   const theme = useTheme();
-  const [open, setOpen] = React.useState(true);
-
+  const [open, setOpen] = React.useState(false);
+  const [index1, setIndex1] = React.useState();
   const handleIndex = (step) => {
     setIndex1(step);
   };
@@ -114,7 +134,7 @@ export default function UserDashboard({ children, indexBtn,DrawerObj }) {
                   }),
                 }}
               >
-                <MenuIcon />
+                <BtnMenu>منو</BtnMenu>
               </IconButton>
               <Typography variant="h6" noWrap component="div">
                 <AccountBoxIcon sx={{ fontSize: "30px" }} />
@@ -187,9 +207,7 @@ export default function UserDashboard({ children, indexBtn,DrawerObj }) {
                             borderRadius: "0",
                           },
                         }}
-                        onClick={
-                          (() => handleIndex(index), console.log(indexBtn))
-                        }
+                        onClick={() => handleIndex(index)}
                       >
                         {text.name}
                       </Button>
@@ -223,7 +241,15 @@ export default function UserDashboard({ children, indexBtn,DrawerObj }) {
               ))}
             </List>
           </Drawer>
-          <Main open={open}>
+          <Main
+            open={open}
+            sx={{
+              ...(open && {
+                width: `calc(50% - ${drawerWidth}px)`,
+                position: { xs: "absolute", sm: "static" },
+              }),
+            }}
+          >
             <DrawerHeader />
 
             {children}
