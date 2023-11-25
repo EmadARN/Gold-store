@@ -1,28 +1,28 @@
+import React from 'react'
 import {
-  Box,
-  Button,
-  InputAdornment,
-  Paper,
-  TextField,
-  Typography,
-} from "@mui/material";
-import React from "react";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-import rtlPlugin from "stylis-plugin-rtl";
-import { CacheProvider } from "@emotion/react";
-import createCache from "@emotion/cache";
+    Box,
+    Button,
+    InputAdornment,
+    Paper,
+    TextField,
+    Typography,
+  } from "@mui/material";
 
-const themee = createTheme({
-  direction: "rtl",
-});
-
-const cacheRtl = createCache({
-  key: "muirtl",
-  stylisPlugins: [rtlPlugin],
-});
-
-const Withdraw = (props) => {
-  const [open, setOpen] = React.useState(true);
+  import { createTheme, ThemeProvider } from "@mui/material/styles";
+  import rtlPlugin from "stylis-plugin-rtl";
+  import { CacheProvider } from "@emotion/react";
+  import createCache from "@emotion/cache";
+  
+  const themee = createTheme({
+    direction: "rtl",
+  });
+  
+  const cacheRtl = createCache({
+    key: "muirtl",
+    stylisPlugins: [rtlPlugin],
+  });
+const GoldAmount = (props) => {
+    const [open, setOpen] = React.useState(true);
   return (
     <Box
       sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
@@ -32,7 +32,7 @@ const Withdraw = (props) => {
           variant="h3"
           sx={{ color: "#fff", fontWeight: "bold", my: 5, textAlign: "center" }}
         >
-          {props.title}
+          {props.title}:0
         </Typography>
         <Paper
           sx={{
@@ -121,7 +121,7 @@ const Withdraw = (props) => {
         </Paper>
       </div>
     </Box>
-  );
-};
+  )
+}
 
-export default Withdraw;
+export default GoldAmount

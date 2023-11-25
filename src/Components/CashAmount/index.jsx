@@ -1,14 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { DataGrid,faIR } from "@mui/x-data-grid";
-import { Box, Button, TextField } from "@mui/material";
+import { Box, Button, TextField,Grid } from "@mui/material";
+
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import FormControl from "@mui/material/FormControl";
+import InputLabel from "@mui/material/InputLabel";
+import InputAdornment from "@mui/material/InputAdornment";
+import OutlinedInput from "@mui/material/OutlinedInput";
 
 import { createTheme, ThemeProvider, useTheme } from '@mui/material/styles';
 
 
 const CashAmount = () => {
-  const [clickedRow, setClickedRow] = React.useState();
+const [cash ,setCash] = useState(false)
+const [goldPopUp,setGoldPopUp]=useState(false)
 
+const handleClose = ()=>{
+  setCash(false)
+}
 
+const GoldPopUpClose =()=>{
+  setGoldPopUp(false)
+}
 
   const existingTheme = useTheme();
 
@@ -126,11 +143,156 @@ const CashAmount = () => {
         width: 190,
       
       },
+      {
+    
+        description: "Actions column.",
+        sortable: false,
+        width: 220,
+        renderCell: (params) => {
+          return (
+            <Box display="flex"  width="100%">
+              <Button
+                sx={{
+                  width:"45%",
+                  padding:"6px 2px",
+                mr:2,
+                  backgroundColor: "green",
+                  color: "#fff",
+                  "&:hover": { backgroundColor: "rgba(20, 112, 44,0.7)" },
+                }}
+                onClick={()=>setCash(true)}
+                variant="standard"
+              >
+                تغییر کیف پول
+              </Button>
+              <Button
+                sx={{
+                  width:"45%",
+                  padding:"0 20px",
+                  backgroundColor: "rgb(255, 196, 54)",
+                  color: "#fff",
+                  "&:hover": { backgroundColor: "rgba(255, 196, 54,0.7)" },
+                }}
+                onClick={()=>setGoldPopUp(true)}
+                variant="standard"
+              >
+                تغییر کیف طلا
+              </Button>
+            </Box>
+          );
+        },
+      },
   ];
   return (
     <>
-    
-      <Box sx={{ height: 400, width: "70%", backgroundColor: "white" }}>
+     
+     <Grid container display="flex" justifyContent="center" alignItems="center" height="80vh">
+      {cash ? <Dialog  open={open} onClose={handleClose}>
+        <DialogTitle sx={{backgroundColor:'#272523',color:'#FFC436'}}>تغییر کیف پول کاربر</DialogTitle>
+        <DialogContent sx={{backgroundColor:'#272523'}}>
+        
+        <FormControl
+                  sx={{
+                    width: "100%",
+                   
+
+                    input: { color: "#FFC436", direction: "rtl", pr: 2 },
+                  
+                    "& .MuiInput-underline:after": {
+                      borderBottomColor: "#FFC436",
+                    },
+                    "& .MuiOutlinedInput-root": {
+                      "& fieldset": {
+                        borderColor: "#fff",
+                        borderRadius: "10px",
+                      },
+                      "&:hover fieldset": {
+                        borderColor: "#fff",
+                      },
+                      "&.Mui-focused fieldset": {
+                        borderColor: "#FFC436",
+                      },
+                    },
+                  }}
+                >
+            
+                  <OutlinedInput
+                    id="outlined-adornment-amount"
+                    endAdornment={
+                      <InputAdornment
+                        sx={{
+                          "& .MuiTypography-root": {
+                            color: "#fff",
+                          },
+                        }}
+                        position="start"
+                      >
+                        ریال
+                      </InputAdornment>
+                    }
+                    label="Amount"
+                  />
+                </FormControl>
+        </DialogContent>
+        <DialogActions sx={{backgroundColor:'#272523'}}>
+          <Button sx={{color:"red"}} onClick={handleClose}>خروج</Button>
+          <Button sx={{color:"#FFC436"}} onClick={handleClose}>تایید</Button>
+        </DialogActions>
+      </Dialog> :null}
+
+      {goldPopUp ?<Dialog  open={open} onClose={GoldPopUpClose}>
+        <DialogTitle sx={{backgroundColor:'#272523',color:'#FFC436'}}>تغییر کیف پول کاربر</DialogTitle>
+        <DialogContent sx={{backgroundColor:'#272523'}}>
+        
+        <FormControl
+                  sx={{
+                    width: "100%",
+                   
+
+                    input: { color: "#FFC436", direction: "rtl", pr: 2 },
+                  
+                    "& .MuiInput-underline:after": {
+                      borderBottomColor: "#FFC436",
+                    },
+                    "& .MuiOutlinedInput-root": {
+                      "& fieldset": {
+                        borderColor: "#fff",
+                        borderRadius: "10px",
+                      },
+                      "&:hover fieldset": {
+                        borderColor: "#fff",
+                      },
+                      "&.Mui-focused fieldset": {
+                        borderColor: "#FFC436",
+                      },
+                    },
+                  }}
+                >
+            
+                  <OutlinedInput
+                    id="outlined-adornment-amount"
+                    endAdornment={
+                      <InputAdornment
+                        sx={{
+                          "& .MuiTypography-root": {
+                            color: "#fff",
+                          },
+                        }}
+                        position="start"
+                      >
+                        گرم
+                      </InputAdornment>
+                    }
+                    label="Amount"
+                  />
+                </FormControl>
+        </DialogContent>
+        <DialogActions sx={{backgroundColor:'#272523'}}>
+          <Button sx={{color:"red"}} onClick={GoldPopUpClose}>خروج</Button>
+          <Button sx={{color:"#FFC436"}} onClick={handleClose}>تایید</Button>
+        </DialogActions>
+      </Dialog> :null}
+      <Grid item sx={{ height: 400, width: "90%", backgroundColor: "white" }}>
         
       <ThemeProvider theme={theme}>
         <DataGrid
@@ -156,7 +318,8 @@ const CashAmount = () => {
       
         />
          </ThemeProvider>
-      </Box>
+      </Grid>
+      </Grid>
      
     </>
   );
