@@ -70,7 +70,12 @@ function Faqs() {
     <Container maxWidth={"xl"} sx={{ mb: 6 }}>
       <Box>
         <Typography
-          sx={{ color: "#fff", fontFamily: "Lalezar", fontSize: "35px" }}
+          sx={{
+            color: "#fff",
+            fontFamily: "Lalezar",
+            fontSize: "35px",
+            mt: 5,
+          }}
         >
           سوالات متداول
         </Typography>
