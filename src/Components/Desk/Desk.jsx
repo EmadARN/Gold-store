@@ -8,35 +8,36 @@ const deskObj = [
     id: 1,
     title: "قیمت خرید از گلدیار",
     subtitle: "(هر گرم طلا 18 عیار )",
+    visibility: "visable",
     price: "24,431,010",
     btn: "خرید",
     btnColor: "#41B62A",
     unit: "ریال",
     displayBtn: "flex",
-    my: 3,
     page: "/BuyGoldPage",
   },
   {
     id: 2,
     title: "قیمت فروش به گلدیار",
     subtitle: "(هر گرم طلا 18 عیار )",
+    visibility: "visable",
     price: "19,432,111",
     btn: "فروش",
     btnColor: "#FF3F3F",
     unit: "ریال",
     displayBtn: "flex",
-    my: 3,
     page: "/SellGoldPage",
   },
   {
     id: 3,
     title: "موجودی کیف پول",
+    subtitle: "(هر گرم طلا 18 عیار )",
+    visibility: "hidden",
     price: "19,432,245",
     btn: "افزایش موجودی",
     btnColor: "skyblue",
     unit: "ریال",
     displayBtn: "flex",
-    my: 6.7,
     page: "/DepositPage",
   },
   {
@@ -63,21 +64,27 @@ const Desk = () => {
       <Grid container>
         {deskObj.map((obj) => {
           return (
-            <Grid xs={12} md={3} key={obj.id}>
+            <Grid item xs={12} sm={12} md={6} lg={3} key={obj.id}>
               <Paper
                 sx={{
                   bgcolor: "#272523",
-                  width: "300px",
+                  maxWidth: "280px",
+                  width: "100%",
                   borderRadius: "7px",
                   height: "280px",
                   p: 4,
+                  my: 2,
+                  pr: 3,
                 }}
               >
                 <Box>
                   <Typography variant="h6" sx={{ color: "#fff" }}>
                     {obj.title} :
                   </Typography>
-                  <Typography variant="h6" sx={{ color: "gray" }}>
+                  <Typography
+                    variant="h6"
+                    sx={{ color: "gray", visibility: obj.visibility }}
+                  >
                     {obj.subtitle}
                   </Typography>
                 </Box>
@@ -92,7 +99,7 @@ const Desk = () => {
                     onClick={() => router.push(obj.page)}
                     sx={{
                       width: "80%",
-                      my: obj.my,
+                      my: 1,
                       fontWeight: "bold",
                       fontSize: "22px",
                       color: "#222",
@@ -102,6 +109,7 @@ const Desk = () => {
                         bgcolor: obj.btnColor,
                         opacity: 0.8,
                       },
+                      whiteSpace: "nowrap",
                     }}
                     variant="contained"
                   >
