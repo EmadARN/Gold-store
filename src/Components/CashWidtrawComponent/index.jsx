@@ -129,17 +129,16 @@ const CashWidtrawComponent = () => {
       width: 190,
     },
     {
-      field: "deleteButton",
-      headerName: "Actions",
+    
       description: "Actions column.",
       sortable: false,
-      width: 160,
+      width: 180,
       renderCell: (params) => {
         return (
-          <Box display="flex">
+          <Box display="flex" mr={3}>
             <Button
               sx={{
-                ml: 2,
+              mr:2,
                 backgroundColor: "green",
                 color: "#fff",
                 "&:hover": { backgroundColor: "rgba(20, 112, 44,0.7)" },
@@ -183,7 +182,7 @@ const CashWidtrawComponent = () => {
         display="flex"
         justifyContent="center"
         alignItems="center"
-        height="100vh"
+        height="80vh"
         flexDirection="column"
       >
         <Typography color="#fff" variant="h3" fontFamily="Yekan" mb={3}>

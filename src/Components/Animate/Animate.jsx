@@ -1,6 +1,6 @@
 import { Box, Button, styled } from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
-import anime from "animejs/lib/anime.js";
+import anime from "animejs";
 const Cotainer = styled("div")(({ theme }) => ({
   minWidth: "400px",
   width: "400px",

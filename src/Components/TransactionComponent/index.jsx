@@ -160,7 +160,7 @@ const TransactionComponent = () => {
   ];
   return (
    <>
-   <Grid container display="flex" justifyContent="center" alignItems="center"height="100vh">
+   <Grid container display="flex" justifyContent="center" alignItems="center"height="80vh">
       <Box sx={{ height: 400, width: "70%", backgroundColor: "white" }}>
         
         <ThemeProvider theme={theme}>

@@ -44,7 +44,12 @@ const VerifyCode = () => {
       <Grid container  sx={{ height: '100vh',display:"flex",justifyContent:"center",backgroundImage :`url(${bg.src})`,backgroundRepeat:"no-repeat",backgroundSize:"cover",backgroundPosition:"center",width:"100%"}}>
         
        
-        <Grid sx={{backgroundColor:"#272523",maxHeight:"70%",mt:"8%"}}  item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+        <Grid sx={{backgroundColor:"#272523",maxHeight:"70%",mt:"8%", backgroundColor: "rgba(255,255,255,0.1)",
+              backdropFilter: "blur(7px)",
+              boxShadow: "0 25px 445px rgba(0,0,0,0.1)",
+              border: "1px solid rgba(255,255,255,0.5)",
+            
+              borderRadius: "10px",}}  item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
           <Box
             sx={{
              
@@ -65,7 +70,7 @@ const VerifyCode = () => {
                     width: "100%",
       
                     input: { color: "#fff", direction: "rtl", pr: 2 },
-                    label: { color: "#b7b3b0" },
+                    label: { color: "black" },
                     "& label.Mui-focused": {
                       color: "#FFC436",
                       fontWeight: "bold",
@@ -87,7 +92,7 @@ const VerifyCode = () => {
                     },
                   }}
                 margin="normal"
-                required
+                
                 fullWidth
                 id="number"
                 label=" کد تایید "

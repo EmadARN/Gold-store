@@ -23,7 +23,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 
 import { Button, Paper } from "@mui/material";
 import Link from "next/link";
-import { DrawerObj } from "@/Utils/DrawerObjects";
+
 
 const drawerWidth = 240;
 
@@ -99,7 +99,7 @@ const cacheRtl = createCache({
   key: "muirtl",
   stylisPlugins: [rtlPlugin],
 });
-export default function UserDashboard({ children, indexBtn }) {
+export default function UserDashboard({ children, indexBtn,DrawerObj }) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const [index1, setIndex1] = React.useState();
