@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { DataGrid, faIR } from "@mui/x-data-grid";
-import { Box, Button, TextField, Grid } from "@mui/material";
+import { Box, Button, TextField, Grid, Typography } from "@mui/material";
 
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -183,6 +183,7 @@ const CashAmount = () => {
         alignItems="center"
         height="80vh"
       >
+  
         {cash ? (
           <Dialog open={open} onClose={handleClose}>
             <DialogTitle sx={{ backgroundColor: "#272523", color: "#FFC436" }}>

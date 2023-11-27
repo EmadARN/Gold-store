@@ -54,7 +54,7 @@ export default function SignUpSide() {
           <Grid
             sx={{
               backgroundColor: "rgba(255,255,255,0.1)",
-              backdropFilter: "blur(7px)",
+              backdropFilter: "blur(10px)",
               boxShadow: "0 25px 445px rgba(0,0,0,0.1)",
               border: "1px solid rgba(255,255,255,0.5)",
               maxHeight: "70%",

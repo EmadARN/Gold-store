@@ -16,7 +16,7 @@ const AboutComponent = () => {
             borderRadius: "60px",
             backgroundColor: "#2B2926",
             width: "80%",
-            height: "70%",
+            height: "75%",
             padding:"0 20px"
           }}
           container
@@ -24,7 +24,7 @@ const AboutComponent = () => {
           justifyContent="space-around"
           alignItems="center"
           mt={13}
-          mb={15}
+          mb={35}
         >
      
 

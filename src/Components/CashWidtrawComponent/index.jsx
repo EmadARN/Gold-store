@@ -190,11 +190,13 @@ const CashWidtrawComponent = () => {
         </Typography>
 
         <Box sx={{ width: "70%", bgcolor: "black" }}>
-          <Tabs value={value} onChange={handleChange} centered>
+          <Tabs  value={value} onChange={handleChange} centered>
             <Tab
               sx={{
-                "&.MuiButtonBase-root": { color: "white" },
+                "&.MuiButtonBase-root": { color: "white" ,    },
                 fontWeight: "bold",
+            
+            
               }}
               label="درخواست های تایید نشده"
             />

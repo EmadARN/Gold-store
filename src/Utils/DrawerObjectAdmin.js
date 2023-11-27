@@ -26,7 +26,7 @@ export const DrawerObjAdmin = [
     },
     {
       id: 6,
-      name: "طلای موجود برای قروش",
+      name: "تنظیمات  ",
       toPage: "/GoldAmountStoreAdmin",
     },
     {
