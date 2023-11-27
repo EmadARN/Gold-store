@@ -244,6 +244,7 @@ export default function UserDashboard({ children, indexBtn,DrawerObj }) {
           <Main
             open={open}
             sx={{
+              flexWrap: "wrap",
               ...(open && {
                 width: `calc(50% - ${drawerWidth}px)`,
                 position: { xs: "absolute", sm: "static" },
