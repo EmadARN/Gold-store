@@ -20,10 +20,8 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import LogoutIcon from "@mui/icons-material/Logout";
-
 import { Button, Paper } from "@mui/material";
 import Link from "next/link";
-
 
 const drawerWidth = 240;
 
@@ -45,6 +43,10 @@ const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
     }),
   })
 );
+const BoxMain = styled("div")(({ theme }) => ({
+  display: "flex",
+  height: "100vh",
+}));
 const BtnMenu = styled("div")(({ theme }) => ({
   paddingLeft: 30,
   paddingRight: 30,
@@ -99,7 +101,7 @@ const cacheRtl = createCache({
   key: "muirtl",
   stylisPlugins: [rtlPlugin],
 });
-export default function UserDashboard({ children, indexBtn,DrawerObj }) {
+export default function UserDashboard({ children, indexBtn, DrawerObj }) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const [index1, setIndex1] = React.useState();
@@ -117,8 +119,13 @@ export default function UserDashboard({ children, indexBtn,DrawerObj }) {
   return (
     <CacheProvider value={cacheRtl}>
       <ThemeProvider theme={themee}>
-        <Box sx={{ display: "flex" }}>
-          <AppBar position="fixed" open={open} sx={{ bgcolor: "#3C3A36" }}>
+        <BoxMain className="active-bg" sx={{}}>
+          <AppBar
+            position="fixed"
+            open={open}
+            className="active-Header"
+            sx={{ bgcolor: "#3C3A36" }}
+          >
             <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
               <IconButton
                 color="inherit"
@@ -255,7 +262,7 @@ export default function UserDashboard({ children, indexBtn,DrawerObj }) {
 
             {children}
           </Main>
-        </Box>
+        </BoxMain>
       </ThemeProvider>
     </CacheProvider>
   );

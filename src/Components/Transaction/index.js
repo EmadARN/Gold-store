@@ -7,9 +7,7 @@ export const TransactionList = () => {
   return (
     <div>
       <Box sx={{ my: 4 }}>
-        <Box
-          sx={{ display: "flex", justifyContent: "center", color: "#FFC436" }}
-        >
+        <Box sx={{ display: "flex", justifyContent: "center", color: "#fff" }}>
           <Typography
             variant="h4"
             sx={{
@@ -41,7 +39,7 @@ export const TransactionList = () => {
         <Typography
           variant="h5"
           sx={{
-            color: "#FFC436",
+            color: "#fff",
             fontWeight: "bold",
 
             textAlign: "center",
