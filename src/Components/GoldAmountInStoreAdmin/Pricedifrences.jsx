@@ -88,50 +88,7 @@ const Pricedifrences = (props) => {
                     ),
                   }}
                 />
-                <Typography sx={{ color: "green", fontSize: "20px", py: 3 }}>
-                  {props.BoxTitle2} :
-                </Typography>
-                <TextField
-                  id="outlined-start-adornment"
-                  sx={{
-                    width: "100%",
 
-                    input: { color: "#FFC436", direction: "rtl", pr: 2 },
-
-                    "& .MuiInput-underline:after": {
-                      borderBottomColor: "#FFC436",
-                    },
-                    "& .MuiOutlinedInput-root": {
-                      "& fieldset": {
-                        borderColor: "#272523",
-                      },
-                      "&:hover fieldset": {
-                        borderColor: "#fff",
-                      },
-                      "& fieldset": {
-                        borderColor: "#fff",
-                        borderRadius: "8px",
-                      },
-                      "&.Mui-focused fieldset": {
-                        borderColor: "rgb(255,172,25)",
-                      },
-                    },
-                  }}
-                  InputProps={{
-                    endAdornment: (
-                      <InputAdornment
-                        sx={{
-                          "& .MuiTypography-root": {
-                            color: "#fff",
-                          },
-                        }}
-                        position="start"
-                      >
-                        {props.inputLabel}
-                      </InputAdornment>
-                    ),
-                  }}
-                />{" "}
                 <Box sx={{ display: "flex", justifyContent: "center" }}>
                   <Button
                     variant="outlined"
