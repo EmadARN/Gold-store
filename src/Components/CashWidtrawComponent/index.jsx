@@ -7,6 +7,8 @@ import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import * as locales from "@mui/material/locale";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
+import Paper from "@mui/material/Paper";
+import { Container } from "@mui/material";
 
 const CashWidtrawComponent = () => {
   const [value, setValue] = React.useState(0);
@@ -129,7 +131,6 @@ const CashWidtrawComponent = () => {
       width: 190,
     },
     {
-    
       description: "Actions column.",
       sortable: false,
       width: 180,
@@ -138,10 +139,11 @@ const CashWidtrawComponent = () => {
           <Box display="flex" mr={3}>
             <Button
               sx={{
-              mr:2,
-                backgroundColor: "green",
-                color: "#fff",
-                "&:hover": { backgroundColor: "rgba(20, 112, 44,0.7)" },
+                mr: 2,
+                backgroundColor: "#41B62A",
+                fontWeight:"bold",
+                color: "#111",
+                "&:hover": { backgroundColor: "rgba(65, 182, 42,0.8)" },
               }}
               onClick={(e) => onButtonClick(e, params.row)}
               variant="standard"
@@ -150,14 +152,15 @@ const CashWidtrawComponent = () => {
             </Button>
             <Button
               sx={{
-                backgroundColor: "rgb(247, 0, 45)",
-                color: "#fff",
+                backgroundColor: "#FF3F3F",
+                fontWeight:"bold",
+                color: "#111",
                 "&:hover": { backgroundColor: "rgba(247, 0, 45,0.7)" },
               }}
               onClick={(e) => onButtonClick(e, params.row)}
               variant="standard"
             >
-              تایید
+              لغو
             </Button>
           </Box>
         );
@@ -177,49 +180,73 @@ const CashWidtrawComponent = () => {
   );
   return (
     <>
-      <Grid
-        container
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        height="80vh"
-        flexDirection="column"
-      >
+      <Box display="flex" justifyContent="center">
         <Typography color="#fff" variant="h3" fontFamily="Yekan" mb={3}>
           برداشت پول
         </Typography>
+      </Box>
 
-        <Box sx={{ width: "70%", bgcolor: "black" }}>
-          <Tabs  value={value} onChange={handleChange} centered>
-            <Tab
-              sx={{
-                "&.MuiButtonBase-root": { color: "white" ,    },
-                fontWeight: "bold",
-            
-            
-              }}
-              label="درخواست های تایید نشده"
-            />
-            <Tab
-              sx={{
-                "&.MuiButtonBase-root": { color: "white" },
-                fontWeight: "bold",
-              }}
-              label="همه ی درخواست ها "
-            />
-          </Tabs>
-        </Box>
-        <Grid item sx={{ height: 400, width: "70%", backgroundColor: "white" }}>
-          <ThemeProvider theme={theme}>
+      <ThemeProvider theme={theme}>
+        <Container>
+          <Box
+            sx={{
+              width: "100%",
+              bgcolor: "#fff",
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <Tabs value={value} onChange={handleChange} centered>
+              <Tab
+                sx={{
+                  "&.MuiButtonBase-root": { color: "#111" },
+                  fontWeight: "bold",
+                  fontSize: "20px",
+                  fontFamily: "Yekan",
+                }}
+                label="درخواست های تایید نشده"
+              />
+              <Tab
+                sx={{
+                  "&.MuiButtonBase-root": { color: "#111" },
+                  fontWeight: "bold",
+                  fontSize: "20px",
+                  fontFamily: "Yekan",
+                }}
+                label="همه ی درخواست ها "
+              />
+            </Tabs>
+          </Box>
+          <Paper
+            sx={{
+              width: "100%",
+              overflow: "hidden",
+              display: "grid",
+              placeItems: "center",
+            }}
+          >
             <DataGrid
               sx={{
                 "& .css-t89xny-MuiDataGrid-columnHeaderTitle": {
                   margin: "0 25px",
                 },
                 "& .MuiDataGrid-cellContent": {
-                  margin: "0 25px",
+                  marginRight: "5px",
                   textAlign: "center !important",
                 },
+                "& .muirtl-rtrcn9-MuiTablePagination-root": {
+                  color: "white",
+                },
+                "& .muirtl-ptiqhd-MuiSvgIcon-root": {
+                  color: "white",
+                },
+                "& .MuiSvgIcon-root": {
+                  color: "white",
+                },
+
+                bgcolor: "#272523",
+                color: "#fff",
+                maxWidth: { xs: "100%" },
               }}
               density="comfortable"
               rows={rows}
@@ -232,9 +259,9 @@ const CashWidtrawComponent = () => {
               pageSizeOptions={[5, 10]}
               checkboxSelection
             />
-          </ThemeProvider>
-        </Grid>
-      </Grid>
+          </Paper>
+        </Container>
+      </ThemeProvider>
     </>
   );
 };
