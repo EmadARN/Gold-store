@@ -12,7 +12,7 @@ import {
   Typography,
 } from "@mui/material";
 import React from "react";
-import AdbIcon from "@mui/icons-material/Adb";
+
 import Link from "next/link";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuItem from "@mui/material/MenuItem";
@@ -34,14 +34,10 @@ const pages1 = [
     link: "/Faqs",
     text: "سوالات متداول",
   },
-  {
-    id: 3,
-    link: "/Contact",
-    text: "ارتباط با ما",
-  },
+
 
 ];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+
 
 const NavBar = (props) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -98,13 +94,15 @@ const NavBar = (props) => {
             >
               <MenuIcon />
             </IconButton>
-            <Menu
+            <Menu 
               id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
                 vertical: "bottom",
                 horizontal: "left",
+                
               }}
+              
               keepMounted
               transformOrigin={{
                 vertical: "top",
@@ -113,15 +111,17 @@ const NavBar = (props) => {
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: "block", md: "none" },
+                display: { xs: "block", md: "none" ,'& .MuiPaper-root':{width:"100vw" , height:"100vh",transition:'all 2s ease-in-out',backgroundColor:"#3C3A36"}},
               }}
             >
               {pages1.map((page) => (
-                <MenuItem key={page.id} onClick={handleCloseNavMenu}>
-                  <Typography color="#fff" textAlign="center">
+                <Link  key={page.id} href={page.link}>
+                <MenuItem  onClick={handleCloseNavMenu} sx={{display:"flex",justifyContent:"center",alignItems:"center",pt:6}}>
+                  <Typography fontWeight="bold" fontFamily="Yekan" color="#fff" textAlign="center">
                     {page.text}
                   </Typography>
                 </MenuItem>
+                </Link>
               ))}
             </Menu>
           </Box>

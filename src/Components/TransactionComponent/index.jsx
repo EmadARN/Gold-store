@@ -2,7 +2,8 @@ import React from 'react'
 
 import { DataGrid,faIR } from "@mui/x-data-grid";
 import { Box, Button, TextField,Grid } from "@mui/material";
-
+import Paper from "@mui/material/Paper";
+import { Container,Typography } from "@mui/material";
 import { createTheme, ThemeProvider, useTheme } from '@mui/material/styles';
 
 
@@ -160,35 +161,60 @@ const TransactionComponent = () => {
   ];
   return (
    <>
-   <Grid container display="flex" justifyContent="center" alignItems="center"height="80vh">
-      <Box sx={{ height: 400, width: "70%", backgroundColor: "white" }}>
-        
-        <ThemeProvider theme={theme}>
-          <DataGrid
+    <Box display="flex" justifyContent="center">
+        <Typography color="#fff" variant="h3" fontFamily="Yekan" mb={3}>
+           تراکنش ها
+        </Typography>
+      </Box>
+
+      <ThemeProvider theme={theme}>
+        <Container>
+
+          <Paper
             sx={{
-              "& .css-t89xny-MuiDataGrid-columnHeaderTitle": { margin: "0 25px" },
-              "& .MuiDataGrid-cellContent": {
-                margin: "0 25px",
-                textAlign: "center !important",
-              },
+              width: "100%",
+              overflow: "hidden",
+              display: "grid",
+              placeItems: "center",
             }}
-            density="comfortable"
-            rows={rows}
-            columns={columns}
-            initialState={{
-              pagination: {
-                paginationModel: { page: 0, pageSize: 5 },
-               
-                
-              },
-            }}
-            pageSizeOptions={[5, 10]}
-            checkboxSelection
-        
-          />
-           </ThemeProvider>
-        </Box>
-        </Grid>
+          >
+            <DataGrid
+              sx={{
+                "& .css-t89xny-MuiDataGrid-columnHeaderTitle": {
+                  margin: "0 25px",
+                },
+                "& .MuiDataGrid-cellContent": {
+                  marginRight: "5px",
+                  textAlign: "center !important",
+                },
+                "& .muirtl-rtrcn9-MuiTablePagination-root": {
+                  color: "white",
+                },
+                "& .muirtl-ptiqhd-MuiSvgIcon-root": {
+                  color: "white",
+                },
+                "& .MuiSvgIcon-root": {
+                  color: "white",
+                },
+                  width:"100%",
+                bgcolor: "#272523",
+                color: "#fff",
+                maxWidth: { xs: "100%" },
+              }}
+              density="comfortable"
+              rows={rows}
+              columns={columns}
+              initialState={{
+                pagination: {
+                  paginationModel: { page: 0, pageSize: 5 },
+                },
+              }}
+              pageSizeOptions={[5, 10]}
+             
+            />
+          </Paper>
+        </Container>
+      </ThemeProvider>
        </>
   )
 }
