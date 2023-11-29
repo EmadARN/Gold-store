@@ -11,6 +11,8 @@ import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import InputAdornment from "@mui/material/InputAdornment";
 import OutlinedInput from "@mui/material/OutlinedInput";
+import Paper from "@mui/material/Paper";
+import { Container } from "@mui/material";
 
 import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 
@@ -149,6 +151,7 @@ const CashAmount = () => {
                 mr: 2,
                 backgroundColor: "green",
                 color: "#fff",
+                fontWeight:"bold",
                 "&:hover": { backgroundColor: "rgba(20, 112, 44,0.7)" },
               }}
               onClick={() => setCash(true)}
@@ -161,7 +164,8 @@ const CashAmount = () => {
                 width: "45%",
                 padding: "0 20px",
                 backgroundColor: "rgb(255, 196, 54)",
-                color: "#fff",
+                color: "black",
+                fontWeight:"bold",
                 "&:hover": { backgroundColor: "rgba(255, 196, 54,0.7)" },
               }}
               onClick={() => setGoldPopUp(true)}
@@ -176,14 +180,7 @@ const CashAmount = () => {
   ];
   return (
     <>
-      <Grid
-        container
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        height="80vh"
-      >
-  
+
         {cash ? (
           <Dialog open={open} onClose={handleClose}>
             <DialogTitle sx={{ backgroundColor: "#272523", color: "#FFC436" }}>
@@ -299,17 +296,39 @@ const CashAmount = () => {
             </DialogActions>
           </Dialog>
         ) : null}
-        <Grid item sx={{ height: 400, width: "80%", backgroundColor: "white" }}>
+       
           <ThemeProvider theme={theme}>
+          <Container sx={{mt:10}} >
+          <Paper
+          sx={{
+            width: "100%",
+            overflow: "hidden",
+            display: "grid",
+            placeItems: "center",
+          }}
+        >
             <DataGrid
               sx={{
                 "& .css-t89xny-MuiDataGrid-columnHeaderTitle": {
                   margin: "0 25px",
                 },
                 "& .MuiDataGrid-cellContent": {
-                  margin: "0 25px",
+                  marginRight: "5px",
                   textAlign: "center !important",
                 },
+                '& .muirtl-rtrcn9-MuiTablePagination-root':{
+                  color:"white"
+                },
+                '& .muirtl-ptiqhd-MuiSvgIcon-root':{
+                  color:'white',
+                 
+                },
+                '& .MuiSvgIcon-root':{
+                  color:"white"
+                                },
+                width:"100%",
+                bgcolor: "#272523", color: "#fff",
+                maxWidth:{xs:"100%"}
               }}
               density="comfortable"
               rows={rows}
@@ -320,11 +339,12 @@ const CashAmount = () => {
                 },
               }}
               pageSizeOptions={[5, 10]}
-              checkboxSelection
+            
             />
+            </Paper>
+            </Container>
           </ThemeProvider>
-        </Grid>
-      </Grid>
+
     </>
   );
 };
