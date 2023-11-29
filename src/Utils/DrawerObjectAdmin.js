@@ -1,17 +1,17 @@
 export const DrawerObjAdmin = [
     {
       id: 1,
-      name: "موجودی پول و طلای کاربر",
+      name: "موجودی پول و طلا ",
       toPage: "/CashAmountAdmin",
     },
     {
       id: 2,
-      name: " میزان درخواست برداشت پول",
+      name: "  درخواست برداشت پول",
       toPage: "/CashWidthrawAdmin",
     },
     {
       id: 3,
-      name: " میزان درخواست برداشت طلا",
+      name: "  درخواست برداشت طلا",
       toPage: "/GoldWidtrawAdmin",
     },
     {
@@ -29,10 +29,6 @@ export const DrawerObjAdmin = [
       name: "تنظیمات  ",
       toPage: "/GoldAmountStoreAdmin",
     },
-    {
-      id: 7,
-      name: "دریافت طلا",
-      toPage: "/WithdrawGoldPage",
-    },
+
   ];
   
