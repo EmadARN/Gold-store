@@ -1,16 +1,12 @@
 import ContactUs from "@/Components/contact_us/ContactUs";
-import Footer from "@/Containers/Layout/Footer";
-import NavBar from "@/Containers/Layout/NavBar";
+import Layout from "@/Containers/Layout";
 
 const ContactPage = () => {
-    return (  
-        <>
-        <NavBar/>
-        <ContactUs/>
-            <Footer/>
-        
-        </>
-    );
-}
- 
-export default ContactPage
+  return (
+    <Layout>
+      <ContactUs />
+    </Layout>
+  );
+};
+
+export default ContactPage;

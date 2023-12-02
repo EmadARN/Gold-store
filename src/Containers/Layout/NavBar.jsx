@@ -34,6 +34,11 @@ const pages1 = [
     link: "/Faqs",
     text: "سوالات متداول",
   },
+  {
+    id: 3,
+    link: "/Contact",
+    text: "ارتباط با ما",
+  },
 ];
 
 const NavBar = (props) => {
