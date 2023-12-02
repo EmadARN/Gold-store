@@ -28,16 +28,13 @@ const pages1 = [
     link: "/About",
     text: "درباره ما",
   },
-  
+
   {
     id: 2,
     link: "/Faqs",
     text: "سوالات متداول",
   },
-
-
 ];
-
 
 const NavBar = (props) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -94,15 +91,13 @@ const NavBar = (props) => {
             >
               <MenuIcon />
             </IconButton>
-            <Menu 
+            <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
                 vertical: "bottom",
                 horizontal: "left",
-                
               }}
-              
               keepMounted
               transformOrigin={{
                 vertical: "top",
@@ -111,16 +106,38 @@ const NavBar = (props) => {
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: "block", md: "none" ,'& .MuiPaper-root':{width:"100vw" , height:"100vh",transition:'all 2s ease-in-out',backgroundColor:"#3C3A36"}},
+                display: {
+                  xs: "block",
+                  md: "none",
+                  "& .MuiPaper-root": {
+                    width: "100vw",
+                    height: "100vh",
+                    transition: "all 2s ease-in-out",
+                    backgroundColor: "#3C3A36",
+                  },
+                },
               }}
             >
               {pages1.map((page) => (
-                <Link  key={page.id} href={page.link}>
-                <MenuItem  onClick={handleCloseNavMenu} sx={{display:"flex",justifyContent:"center",alignItems:"center",pt:6}}>
-                  <Typography fontWeight="bold" fontFamily="Yekan" color="#fff" textAlign="center">
-                    {page.text}
-                  </Typography>
-                </MenuItem>
+                <Link key={page.id} href={page.link}>
+                  <MenuItem
+                    onClick={handleCloseNavMenu}
+                    sx={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      pt: 6,
+                    }}
+                  >
+                    <Typography
+                      fontWeight="bold"
+                      fontFamily="Yekan"
+                      color="#fff"
+                      textAlign="center"
+                    >
+                      {page.text}
+                    </Typography>
+                  </MenuItem>
                 </Link>
               ))}
             </Menu>
@@ -166,7 +183,9 @@ const NavBar = (props) => {
                     fontFamily: "Yekan",
                     display: "block",
                     fontSize: "20px",
-                    "&:hover": { borderBottom: "1px solid white" },
+                    transition: "all ease-out .6s",
+
+                    "&:hover": { borderBottom: "1px solid  #FFC436" },
                   }}
                 >
                   {page.text}
@@ -177,16 +196,18 @@ const NavBar = (props) => {
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="ثبت نام">
-             <Link href="/SignUp"> <Button
-                sx={{
-                  fontFamily: "Yekan",
-                  color: "#FFC436",
-                  border: "1px solid #FFC436",
-                  "&:hover": { backgroundColor: "rgba(204, 163, 69,0.4)" },
-                }}
-              >
-                ورود | ثبت نام
-              </Button>
+              <Link href="/SignUp">
+                {" "}
+                <Button
+                  sx={{
+                    fontFamily: "Yekan",
+                    color: "#FFC436",
+                    border: "1px solid #FFC436",
+                    "&:hover": { backgroundColor: "rgba(204, 163, 69,0.4)" },
+                  }}
+                >
+                  ورود | ثبت نام
+                </Button>
               </Link>
             </Tooltip>
           </Box>
