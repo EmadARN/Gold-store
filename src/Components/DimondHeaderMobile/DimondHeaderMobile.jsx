@@ -45,6 +45,9 @@ const Li2 = styled("li")(({ theme }) => ({
   margin: "-85px",
   overflow: "hidden",
   backgroundColor: "#FFC436",
+  "@media (max-width:544px)": {
+    left: "40%",
+  },
 }));
 const Li3 = styled("li")(({ theme }) => ({
   listStyle: "none",
