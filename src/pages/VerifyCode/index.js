@@ -1,7 +1,7 @@
 import VerifyCode from "@/Components/VerifyComponent";
 
 
-export default function VerifyNumber() {
+export default function VerifyCodePage() {
   
   return (
     <VerifyCode/>

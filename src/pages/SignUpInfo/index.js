@@ -1,11 +1,11 @@
-import SignUpInfoo from "@/Components/SignUpInfoo";
+import SignUpInfo from "@/Components/SignUpInfoo";
 import React from "react";
 
 
-const SignupInfo = () => {
+const SignupInfoPage = () => {
   return (
-   <SignUpInfoo/>
+   <SignUpInfo/>
   );
 };
 
-export default SignupInfo;
+export default SignupInfoPage;
