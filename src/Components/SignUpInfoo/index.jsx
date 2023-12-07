@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 
@@ -24,7 +24,7 @@ const cacheRtl = createCache({
   stylisPlugins: [rtlPlugin],
 });
 
-const SignUpInfoo = () => {
+const SignUpInfo = () => {
   return (
     <CacheProvider value={cacheRtl}>
       <ThemeProvider theme={themee}>
@@ -42,7 +42,16 @@ const SignUpInfoo = () => {
           }}
         >
           <Grid
-            sx={{ backgroundColor: "#272523", maxHeight: "70%", mt: "8%" }}
+            sx={{
+              backgroundColor: "rgba(255,255,255,0.1)",
+              backdropFilter: "blur(15px)",
+              boxShadow: "0 25px 445px rgba(0,0,0,0.1)",
+              border: "1px solid rgba(255,255,255,0.5)",
+
+              maxHeight: "70%",
+              mt: "8%",
+              borderRadius: "10px",
+            }}
             item
             xs={12}
             sm={8}
@@ -74,7 +83,7 @@ const SignUpInfoo = () => {
                     width: "100%",
 
                     input: { color: "#fff", direction: "rtl", pr: 2 },
-                    label: { color: "#b7b3b0" },
+                    label: { color: "#000" },
                     "& label.Mui-focused": {
                       color: "#FFC436",
                       fontWeight: "bold",
@@ -109,7 +118,7 @@ const SignUpInfoo = () => {
                     width: "100%",
 
                     input: { color: "#fff", direction: "rtl", pr: 2 },
-                    label: { color: "#b7b3b0" },
+                    label: { color: "#000" },
                     "& label.Mui-focused": {
                       color: "#FFC436",
                       fontWeight: "bold",
@@ -133,7 +142,7 @@ const SignUpInfoo = () => {
                   margin="normal"
                   fullWidth
                   id="number"
-                  label="نام و نام خانوادگی"
+                  label="  نام خانوادگی"
                   name="email"
                   autoComplete="email"
                   autoFocus
@@ -144,7 +153,7 @@ const SignUpInfoo = () => {
                     width: "100%",
 
                     input: { color: "#fff", direction: "rtl", pr: 2 },
-                    label: { color: "#b7b3b0" },
+                    label: { color: "#000" },
                     "& label.Mui-focused": {
                       color: "#FFC436",
                       fontWeight: "bold",
@@ -174,6 +183,41 @@ const SignUpInfoo = () => {
                   autoFocus
                 />
 
+                <TextField
+                  sx={{
+                    width: "100%",
+
+                    input: { color: "#fff", direction: "rtl", pr: 2 },
+                    label: { color: "#000" },
+                    "& label.Mui-focused": {
+                      color: "#FFC436",
+                      fontWeight: "bold",
+                    },
+                    "& .MuiInput-underline:after": {
+                      borderBottomColor: "#fff",
+                    },
+                    "& .MuiOutlinedInput-root": {
+                      "& fieldset": {
+                        borderColor: "#fff",
+                        borderRadius: "10px",
+                      },
+                      "&:hover fieldset": {
+                        borderColor: "#fff",
+                      },
+                      "&.Mui-focused fieldset": {
+                        borderColor: "#FFC436",
+                      },
+                    },
+                  }}
+                  margin="normal"
+                  fullWidth
+                  id="number"
+                  label="ایمیل"
+                  name="email"
+                  autoComplete="email"
+                  autoFocus
+                />
+
                 <Button
                   type="submit"
                   fullWidth
@@ -195,7 +239,7 @@ const SignUpInfoo = () => {
         </Grid>
       </ThemeProvider>
     </CacheProvider>
-  )
-}
+  );
+};
 
-export default SignUpInfoo
+export default SignUpInfo;
