@@ -58,7 +58,9 @@ const cacheRtl = createCache({
   key: "muirtl",
   stylisPlugins: [rtlPlugin],
 });
-const TabPrice = () => {
+const TabPrice = ({ tabPrice }) => {
+  const [tabPrice1, setTabPrice1] = React.useState({ tabPrice });
+
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
   const [textFieldValue, setTextFieldValue] = React.useState("");
@@ -74,8 +76,8 @@ const TabPrice = () => {
     const newValue = numeral(event.target.value).format("0,0");
     setTextFieldValue(newValue);
   };
-  var string = numeral(11258694).format("0,0");
-  var string2 = numeral(25666444).format("0,0");
+  var string = numeral(tabPrice1.tabPrice.buy_price).format("0,0");
+  var string2 = numeral(tabPrice1.tabPrice.sale_price).format("0,0");
   return (
     <Paper
       sx={{
@@ -105,6 +107,7 @@ const TabPrice = () => {
           </Typography>
           <Box sx={{ color: "green", display: "flex", fontSize: "20px" }}>
             {string}
+
             <Typography sx={{ color: "green", pr: 1, fontSize: "20px" }}>
               ریال
             </Typography>
@@ -122,6 +125,7 @@ const TabPrice = () => {
           </Typography>
           <Box sx={{ color: "red", display: "flex", fontSize: "20px" }}>
             {string2}
+
             <Typography sx={{ color: "red", pr: 1, fontSize: "20px" }}>
               ریال
             </Typography>

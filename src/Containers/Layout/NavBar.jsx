@@ -201,19 +201,33 @@ const NavBar = (props) => {
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="ثبت نام">
-              <Link href="/SignUp">
-                {" "}
-                <Button
-                  sx={{
-                    fontFamily: "Yekan",
-                    color: "#FFC436",
-                    border: "1px solid #FFC436",
-                    "&:hover": { backgroundColor: "rgba(204, 163, 69,0.4)" },
-                  }}
-                >
-                  ورود | ثبت نام
-                </Button>
-              </Link>
+              {props.dashboard === "400" ? (
+                <Link href="/SignUp">
+                  <Button
+                    sx={{
+                      fontFamily: "Yekan",
+                      color: "#FFC436",
+                      border: "1px solid #FFC436",
+                      "&:hover": { backgroundColor: "rgba(204, 163, 69,0.4)" },
+                    }}
+                  >
+                    ورود | ثبت نام
+                  </Button>
+                </Link>
+              ) : (
+                <Link href="/DeskPage">
+                  <Button
+                    sx={{
+                      fontFamily: "Yekan",
+                      color: "#FFC436",
+                      border: "1px solid #FFC436",
+                      "&:hover": { backgroundColor: "rgba(204, 163, 69,0.4)" },
+                    }}
+                  >
+                    پروفایل
+                  </Button>
+                </Link>
+              )}
             </Tooltip>
           </Box>
         </Toolbar>

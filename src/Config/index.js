@@ -1,7 +1,1 @@
-import React from "react";
-
-const index = () => {
-  return <div>index</div>;
-};
-
-export default index;
+export const IPServer = "http://10.4.0.162:8000";

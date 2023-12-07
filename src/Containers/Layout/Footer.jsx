@@ -50,12 +50,12 @@ const Footer = (props) => {
             sx={{ marginLeft: { xs: "8%", sm: "0" } }}
           >
             <Box mb={2}>
-              <Link href="/">
+              <Link href="/" style={{ textDecoration: "none" }}>
                 <FooterButton variant="standard">صفحه اصلی</FooterButton>
               </Link>
             </Box>
             <Box mb={2}>
-              <Link href="/About">
+              <Link href="/About" style={{ textDecoration: "none" }}>
                 <FooterButton variant="standard"> درباره ما</FooterButton>
               </Link>
             </Box>
@@ -71,13 +71,13 @@ const Footer = (props) => {
             flexDirection="column"
           >
             <Box mb={2}>
-              <Link href="/Faqs">
+              <Link href="/Faqs" style={{ textDecoration: "none" }}>
                 <FooterButton variant="standard"> سوالات متداول</FooterButton>
               </Link>
             </Box>
 
             <Box>
-              <Link href="Contact">
+              <Link href="Contact" style={{ textDecoration: "none" }}>
                 <FooterButton variant="standard"> ارتباط با ما </FooterButton>
               </Link>
             </Box>

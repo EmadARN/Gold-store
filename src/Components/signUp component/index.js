@@ -1,10 +1,7 @@
 import * as React from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-
 import TextField from "@mui/material/TextField";
-
-import Link from "@mui/material/Link";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
@@ -15,6 +12,10 @@ import rtlPlugin from "stylis-plugin-rtl";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
 import bg from "../../Asset/pexels-michael-steinberg-321464.jpg";
+import { IPServer } from "@/Config";
+import axios from "axios";
+import { useRouter } from "next/router";
+import { useCookies } from "react-cookie";
 
 const themee = createTheme({
   direction: "rtl",
@@ -26,15 +27,9 @@ const cacheRtl = createCache({
 });
 
 export default function SignUpSide() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
-  };
-
+  const [phone_number, setPhone_number] = React.useState("");
+  const [cookies, setCookie] = useCookies(["phone-number"]);
+  const router = useRouter();
   return (
     <CacheProvider value={cacheRtl}>
       <ThemeProvider theme={themee}>
@@ -89,13 +84,9 @@ export default function SignUpSide() {
               >
                 ورود | ثبت نام
               </Typography>
-              <Box
-                component="form"
-                noValidate
-                onSubmit={handleSubmit}
-                sx={{ mt: 1 }}
-              >
+              <Box component="form" noValidate sx={{ mt: 1 }}>
                 <TextField
+                  onChange={(e) => setPhone_number(e.target.value)}
                   sx={{
                     width: "100%",
 
@@ -125,8 +116,6 @@ export default function SignUpSide() {
                   fullWidth
                   id="number"
                   label="شماره تلفن همراه"
-                  name="email"
-                  autoComplete="email"
                   autoFocus
                 />
 
@@ -141,6 +130,20 @@ export default function SignUpSide() {
                     color: "#111",
                     fontWeight: "bold",
                     "&:hover": { backgroundColor: "rgba(204, 163, 69,0.7)" },
+                  }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const PhoneNumb = axios({
+                      method: "GET",
+                      url: `${IPServer}/Authentication/send-code/phone-number=${phone_number}/`,
+                    })
+                      .then((res) => {
+                        setCookie("phone-number", phone_number, {
+                          path: "/",
+                        });
+                        router.push("/VerifyCode");
+                      })
+                      .catch((err) => {});
                   }}
                 >
                   ادامه
