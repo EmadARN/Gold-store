@@ -3,53 +3,55 @@ import Typography from "@mui/material/Typography";
 import { Box, Button, Container, Grid, Paper } from "@mui/material";
 import { useRouter } from "next/router";
 
-const deskObj = [
-  {
-    id: 1,
-    title: "قیمت خرید از گلدیار",
-    subtitle: "(هر گرم طلا 18 عیار )",
-    visibility: "visable",
-    price: "24,431,010",
-    btn: "خرید",
-    btnColor: "#41B62A",
-    unit: "ریال",
-    displayBtn: "flex",
-    page: "/BuyGoldPage",
-  },
-  {
-    id: 2,
-    title: "قیمت فروش به گلدیار",
-    subtitle: "(هر گرم طلا 18 عیار )",
-    visibility: "visable",
-    price: "19,432,111",
-    btn: "فروش",
-    btnColor: "#FF3F3F",
-    unit: "ریال",
-    displayBtn: "flex",
-    page: "/SellGoldPage",
-  },
-  {
-    id: 3,
-    title: "موجودی کیف پول",
-    subtitle: "(هر گرم طلا 18 عیار )",
-    visibility: "hidden",
-    price: "19,432,245",
-    btn: "افزایش موجودی",
-    btnColor: "skyblue",
-    unit: "ریال",
-    displayBtn: "flex",
-    page: "/DepositPage",
-  },
-  {
-    id: 4,
-    title: "موجودی کیف طلا",
-    price: "500",
-    unit: "گرم",
-    displayBtn: "none",
-  },
-];
+const Desk = ({ goldStockPrice, walletDataToken }) => {
 
-const Desk = () => {
+
+  const deskObj = [
+    {
+      id: 1,
+      title: "قیمت خرید از گلدیار",
+      subtitle: "(هر گرم طلا 18 عیار )",
+      visibility: "visable",
+      price: goldStockPrice.buy_price,
+      btn: "خرید",
+      btnColor: "#41B62A",
+      unit: "ریال",
+      displayBtn: "flex",
+      page: "/BuyGoldPage",
+    },
+    {
+      id: 2,
+      title: "قیمت فروش به گلدیار",
+      subtitle: "(هر گرم طلا 18 عیار )",
+      visibility: "visable",
+      price: goldStockPrice.sale_price,
+      btn: "فروش",
+      btnColor: "#FF3F3F",
+      unit: "ریال",
+      displayBtn: "flex",
+      page: "/SellGoldPage",
+    },
+    {
+      id: 3,
+      title: "موجودی کیف پول",
+      subtitle: "(هر گرم طلا 18 عیار )",
+      visibility: "hidden",
+      price: "19,432,245",
+      btn: "افزایش موجودی",
+      btnColor: "skyblue",
+      unit: "ریال",
+      displayBtn: "flex",
+      page: "/DepositPage",
+    },
+    {
+      id: 4,
+      title: "موجودی کیف طلا",
+      price: "500",
+      unit: "گرم",
+      displayBtn: "none",
+    },
+  ];
+
   const router = useRouter();
   return (
     <Box>
