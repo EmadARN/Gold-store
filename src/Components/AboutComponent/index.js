@@ -4,7 +4,7 @@ import { Box, Grid, Typography } from "@mui/material";
 const AboutComponent = () => {
   return (
     <Layout>
-      <Grid container display="flex" justifyContent="center">
+      <Grid container display="flex" justifyContent="center" sx={{ p: 10 }}>
         <Typography color="#fff" fontFamily="Yekan" mr={4} mt={5} variant="h4">
           درباره طلایار
         </Typography>
@@ -15,7 +15,6 @@ const AboutComponent = () => {
             border: "1px solid #2B2926",
             borderRadius: "60px",
             backgroundColor: "#2B2926",
-            width: "80%",
 
             padding: "26px 20px",
           }}
@@ -34,7 +33,7 @@ const AboutComponent = () => {
               fontWeight="500"
               fontFamily="Yekan"
               textAlign="justify"
-              sx={{ p: 5, height:"100%" ,lineHeight:"40px"}}
+              sx={{ p: 5, height: "100%", lineHeight: "40px" }}
             >
               لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
               استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله
