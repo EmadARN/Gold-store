@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 
 import TextField from "@mui/material/TextField";
-
+import { useRouter } from "next/router";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
@@ -14,6 +14,10 @@ import rtlPlugin from "stylis-plugin-rtl";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
 import bg from "../../Asset/pexels-michael-steinberg-321464.jpg";
+import axios from "axios";
+import { IPServer } from "@/Config";
+
+import { CookiesProvider, useCookies } from "react-cookie";
 
 const themee = createTheme({
   direction: "rtl",
@@ -25,6 +29,38 @@ const cacheRtl = createCache({
 });
 
 const SignUpInfo = () => {
+  const [cookies, setCookie] = useCookies(["token"]);
+
+  const router = useRouter();
+
+const [inpInfo , setInpInfo] = useState({})
+
+const InputHandler =(e ,propertyName)=>{
+  setInpInfo({...inpInfo , [propertyName]: e.target.value})
+}
+
+
+
+const submit =(e)=>{
+  e.preventDefault();
+  axios.post(`${IPServer}/Authentication/sign-up/`,inpInfo,
+  {
+    headers:{
+Authorization: `Token ${cookies["token"]}`
+    }
+  },
+
+  ).then((res)=>{
+console.log(res.data);
+    router.push('/DeskPage')
+    
+  }).catch((err)=>{
+    console.log(err);
+  })
+
+}
+
+
   return (
     <CacheProvider value={cacheRtl}>
       <ThemeProvider theme={themee}>
@@ -111,6 +147,7 @@ const SignUpInfo = () => {
                   name="email"
                   autoComplete="email"
                   autoFocus
+                  onChange={(e)=>InputHandler(e, "first_name")}
                 />
 
                 <TextField
@@ -146,6 +183,7 @@ const SignUpInfo = () => {
                   name="email"
                   autoComplete="email"
                   autoFocus
+                  onChange={(e)=>InputHandler(e, "last_name")}
                 />
 
                 <TextField
@@ -181,6 +219,7 @@ const SignUpInfo = () => {
                   name="email"
                   autoComplete="email"
                   autoFocus
+                  onChange={(e)=>InputHandler(e, "national_code")}
                 />
 
                 <TextField
@@ -216,6 +255,7 @@ const SignUpInfo = () => {
                   name="email"
                   autoComplete="email"
                   autoFocus
+                  onChange={(e)=>InputHandler(e, "email")}
                 />
 
                 <Button
@@ -230,6 +270,7 @@ const SignUpInfo = () => {
                     fontWeight: "bold",
                     "&:hover": { backgroundColor: "rgba(204, 163, 69,0.7)" },
                   }}
+                  onClick={(e)=>submit(e)}
                 >
                   تایید
                 </Button>
