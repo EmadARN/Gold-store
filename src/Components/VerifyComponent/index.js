@@ -30,6 +30,8 @@ const VerifyCode = () => {
   const [phone_number2, setPhone_number2] = React.useState(
     cookies["phone-number"]
   );
+console.log("cookiessss" ,cookies);
+
   const router = useRouter();
   return (
     <CacheProvider value={cacheRtl}>
@@ -140,22 +142,23 @@ const VerifyCode = () => {
                         code: verify_code,
                       })
                       .then((res) => {
-                        if (res.data.status === 200) {
+                        
                           setCookie("token", res.data.token, {
                             path: "/",
                           });
                           setCookie("user_type", res.data.user_type, {
                             path: "/",
                           });
-                        }
+                          console.log(res.data);
+                        
                         if (res.data.signup_require) {
-                          router.push("/SignUpInfo");
+                         router.push('/SignUpInfo')
                         } else if (res.data.user_type === "customer") {
                           router.push("/DeskPage");
                         } else {
                           router.push("/CashAmountAdmin");
                         }
-                      });
+                      })
                   }}
                 >
                   تایید
