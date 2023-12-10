@@ -4,8 +4,7 @@ import { Box, Button, Container, Grid, Paper } from "@mui/material";
 import { useRouter } from "next/router";
 
 const Desk = ({ goldStockPrice, walletDataToken }) => {
-
-
+  console.log(walletDataToken);
   const deskObj = [
     {
       id: 1,
@@ -36,7 +35,7 @@ const Desk = ({ goldStockPrice, walletDataToken }) => {
       title: "موجودی کیف پول",
       subtitle: "(هر گرم طلا 18 عیار )",
       visibility: "hidden",
-      price: "19,432,245",
+      price: walletDataToken.wallet_money_data,
       btn: "افزایش موجودی",
       btnColor: "skyblue",
       unit: "ریال",
@@ -46,7 +45,7 @@ const Desk = ({ goldStockPrice, walletDataToken }) => {
     {
       id: 4,
       title: "موجودی کیف طلا",
-      price: "500",
+      price: walletDataToken.wallet_gold_data,
       unit: "گرم",
       displayBtn: "none",
     },

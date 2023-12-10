@@ -25,7 +25,7 @@ export default MainDeskPage;
 export async function getServerSideProps(context) {
   const { req } = context;
   const cookies = parseCookies({ req });
-  const token = cookies["auth-token"];
+  const token = cookies["token"];
 
   let walletDataToken;
   let goldStockPrice;
