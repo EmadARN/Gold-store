@@ -5,18 +5,24 @@ import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 const ContactUs = () => {
   return (
-    <Grid container height="70vh">
-      <Typography color="#fff" fontFamily="Yekan" mr={4} mt={5} variant="h4">
+    <>
+    <Box sx={{display:"flex", justifyContent:'center'}}>
+      <Typography fontWeight="bold" color="#FFC436" fontFamily="Lalazar" mr={4} mt={5} sx={{fontSize:{xs:"25px" , md:"35px"}}}>
         ارتباط با طلایار
       </Typography>
+      </Box>
 
+    <Grid container display="flex" justifyContent="center">
+      
       <Grid
         sx={{
           border: "1px solid #2B2926",
           borderRadius: "60px",
           backgroundColor: "#2B2926",
           width: "80%",
-          height: "70%",
+          padding:'20px'
+
+          
         }}
         container
         display="flex"
@@ -62,6 +68,7 @@ const ContactUs = () => {
         </Grid>
       </Grid>
     </Grid>
+    </>
   );
 };
 

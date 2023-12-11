@@ -5,7 +5,7 @@ const AboutComponent = () => {
   return (
     <Layout>
       <Grid container display="flex" justifyContent="center" sx={{ p: 10 }}>
-        <Typography color="#fff" fontFamily="Yekan" mr={4} mt={5} variant="h4">
+        <Typography color="#FFC436" fontWeight="bold" fontFamily="Lalazar" mr={4} mt={5} sx={{fontSize:{xs:"25px" , md:"35px"}}}>
           درباره طلایار
         </Typography>
 
