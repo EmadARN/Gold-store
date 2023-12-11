@@ -11,6 +11,9 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import rtlPlugin from "stylis-plugin-rtl";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
+import { IPServer } from "@/Config";
+import axios from "axios";
+import { useCookies } from "react-cookie";
 
 const themee = createTheme({
   direction: "rtl",
@@ -21,8 +24,15 @@ const cacheRtl = createCache({
   stylisPlugins: [rtlPlugin],
 });
 
-const WithdrawGold = () => {
-  const [open, setOpen] = React.useState(true);
+const WithdrawGold = ({ walletDataToken }) => {
+  const [goldAmount, setGoldAmount] = React.useState({ value: "" });
+  const changeHandler = (event) => {
+    const newValue = { ...goldAmount, value: event.target.value };
+    setGoldAmount(newValue);
+  };
+
+
+  const [cookies] = useCookies(["token"]);
   return (
     <Box
       sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
@@ -50,6 +60,7 @@ const WithdrawGold = () => {
           <CacheProvider value={cacheRtl}>
             <ThemeProvider theme={themee}>
               <TextField
+                onChange={(e) => changeHandler(e)}
                 id="outlined-start-adornment"
                 sx={{
                   width: "100%",
@@ -106,10 +117,33 @@ const WithdrawGold = () => {
                       borderColor: "rgb(255,172,25)",
                     },
                   }}
+                  onClick={async (e) => {
+                    e.preventDefault();
+                    await axios
+                      .post(
+                        `${IPServer}/UserDashboard-GetRequest/get-request-gold/`,
+                        { gold_amount: parseFloat(goldAmount.value) },
+                        {
+                          headers: {
+                            Authorization: `Token ${cookies.token}`,
+                          },
+                        }
+                      )
+                      .then((res) => {
+                        console.log(res);
+                      })
+                      .catch((err) => {
+                        console.log(err);
+                      });
+                  }}
                 >
                   دریافت
                 </Button>
               </Box>
+              <Typography variant="h6" sx={{ color: "#fff", pb: 2 }}>
+                <span style={{ color: "rgb(255,172,25)" }}>کیف طلا:</span>
+                <span>{walletDataToken.wallet_gold_data}&nbsp;گرم</span>
+              </Typography>
             </ThemeProvider>
           </CacheProvider>
         </Paper>
