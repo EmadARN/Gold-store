@@ -6,14 +6,13 @@ import { IPServer } from "@/Config";
 import Desk from "@/Components/Desk/Desk";
 import axios from "axios";
 
+
 const MainDeskPage = ({
   walletDataToken,
   goldStockPrice,
   walletDataTokenError,
   goldStockPriceError,
 }) => {
-  console.log(goldStockPrice);
-
   return (
     <UserDashboard DrawerObj={DrawerObj} indexBtn={1}>
       <Desk goldStockPrice={goldStockPrice} walletDataToken={walletDataToken} />
@@ -25,7 +24,7 @@ export default MainDeskPage;
 export async function getServerSideProps(context) {
   const { req } = context;
   const cookies = parseCookies({ req });
-  const token = cookies["auth-token"];
+  const token = cookies["token"];
 
   let walletDataToken;
   let goldStockPrice;

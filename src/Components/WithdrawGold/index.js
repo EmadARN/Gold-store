@@ -1,10 +1,10 @@
 import React from "react";
 import WithdrawGold from "./WithdrawGold";
 
-const WithdrawGoldList = () => {
+const WithdrawGoldList = ({ walletDataToken }) => {
   return (
     <div>
-      <WithdrawGold />
+      <WithdrawGold walletDataToken={walletDataToken} />
     </div>
   );
 };

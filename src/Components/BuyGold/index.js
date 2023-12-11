@@ -1,10 +1,13 @@
 import React from "react";
 import BuyGold from "./BuyGold";
 
-const BuyGoldList = () => {
+const BuyGoldList = ({ walletDataToken, goldStockPrice }) => {
   return (
     <div>
-      <BuyGold />
+      <BuyGold
+        walletDataToken={walletDataToken}
+        goldStockPrice={goldStockPrice}
+      />
     </div>
   );
 };

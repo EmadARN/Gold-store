@@ -30,7 +30,7 @@ const VerifyCode = () => {
   const [phone_number2, setPhone_number2] = React.useState(
     cookies["phone-number"]
   );
-console.log("cookiessss" ,cookies);
+  console.log("cookiessss", cookies);
 
   const router = useRouter();
   return (
@@ -142,23 +142,25 @@ console.log("cookiessss" ,cookies);
                         code: verify_code,
                       })
                       .then((res) => {
-                        
-                          setCookie("token", res.data.token, {
-                            path: "/",
-                          });
-                          setCookie("user_type", res.data.user_type, {
-                            path: "/",
-                          });
-                          console.log(res.data);
-                        
+                        setCookie("token", res.data.token, {
+                          path: "/",
+                        });
+                        setCookie("user_type", res.data.user_type, {
+                          path: "/",
+                        });
+                        console.log(res.data);
+
                         if (res.data.signup_require) {
-                         router.push('/SignUpInfo')
-                        } else if (res.data.user_type === "customer") {
+                          router.push("/SignUpInfo");
+                        } else if (
+                          res.data.user_type === "customer" &&
+                          !res.data.signup_require
+                        ) {
                           router.push("/DeskPage");
                         } else {
                           router.push("/CashAmountAdmin");
                         }
-                      })
+                      });
                   }}
                 >
                   تایید

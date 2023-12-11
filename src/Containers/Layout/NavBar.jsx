@@ -17,6 +17,8 @@ import Link from "next/link";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 
+import { DashboardPath } from "./util/DashboarPath";
+
 const pages1 = [
   {
     id: 4,
@@ -44,6 +46,7 @@ const pages1 = [
 const NavBar = (props) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -201,7 +204,20 @@ const NavBar = (props) => {
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="ثبت نام">
-              {props.dashboard === "400" ? (
+              {props.dashboard === "200" ? (
+                <Link href={DashboardPath()}>
+                  <Button
+                    sx={{
+                      fontFamily: "Yekan",
+                      color: "#FFC436",
+                      border: "1px solid #FFC436",
+                      "&:hover": { backgroundColor: "rgba(204, 163, 69,0.4)" },
+                    }}
+                  >
+                    پروفایل
+                  </Button>
+                </Link>
+              ) : (
                 <Link href="/SignUp">
                   <Button
                     sx={{
@@ -212,19 +228,6 @@ const NavBar = (props) => {
                     }}
                   >
                     ورود | ثبت نام
-                  </Button>
-                </Link>
-              ) : (
-                <Link href="/DeskPage">
-                  <Button
-                    sx={{
-                      fontFamily: "Yekan",
-                      color: "#FFC436",
-                      border: "1px solid #FFC436",
-                      "&:hover": { backgroundColor: "rgba(204, 163, 69,0.4)" },
-                    }}
-                  >
-                    پروفایل
                   </Button>
                 </Link>
               )}

@@ -22,6 +22,8 @@ import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { Button, Paper } from "@mui/material";
 import Link from "next/link";
+import { useCookies } from "react-cookie";
+import { useRouter } from "next/router";
 
 const drawerWidth = 240;
 
@@ -105,6 +107,7 @@ export default function UserDashboard({ children, indexBtn, DrawerObj }) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const [index1, setIndex1] = React.useState();
+  const [cookies, setCookies, removeCookie] = useCookies(["phone_number"]);
   const handleIndex = (step) => {
     setIndex1(step);
   };
@@ -115,7 +118,7 @@ export default function UserDashboard({ children, indexBtn, DrawerObj }) {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-
+  const router = useRouter();
   return (
     <CacheProvider value={cacheRtl}>
       <ThemeProvider theme={themee}>
@@ -234,6 +237,10 @@ export default function UserDashboard({ children, indexBtn, DrawerObj }) {
                   >
                     <LogoutIcon />
                     <ListItemText
+                      onClick={() => {
+                        removeCookie("token");
+                        router.push("/");
+                      }}
                       primary={text}
                       sx={{
                         pl: 1,

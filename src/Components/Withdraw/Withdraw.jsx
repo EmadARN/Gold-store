@@ -12,6 +12,9 @@ import rtlPlugin from "stylis-plugin-rtl";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
 import numeral from "numeral";
+import { IPServer } from "@/Config";
+import axios from "axios";
+import { useCookies } from "react-cookie";
 const themee = createTheme({
   direction: "rtl",
 });
@@ -24,10 +27,13 @@ const cacheRtl = createCache({
 const Withdraw = (props) => {
   const [open, setOpen] = React.useState(true);
   const [textFieldValue, setTextFieldValue] = React.useState("");
+  const [cookies, setCookie] = useCookies(["token"]);
+  
   const handleTextFieldChange = (event) => {
     const newValue = numeral(event.target.value).format("0,0");
     setTextFieldValue(newValue);
   };
+
   return (
     <Box
       sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
@@ -50,7 +56,7 @@ const Withdraw = (props) => {
           }}
         >
           <Typography sx={{ color: "#fff", fontSize: "20px", py: 3 }}>
-             {props.BoxTitle}  :
+            {props.BoxTitle} :
           </Typography>
           <CacheProvider value={cacheRtl}>
             <ThemeProvider theme={themee}>
@@ -100,6 +106,27 @@ const Withdraw = (props) => {
               <Box sx={{ display: "flex", justifyContent: "center" }}>
                 <Button
                   variant="outlined"
+                  onClick={async (e) => {
+                    e.preventDefault();
+                    await axios
+                      .post(
+                        `${IPServer}/UserDashboard-GetRequest/get-request-money/`,
+                        {
+                          money_amount: textFieldValue.replace(",", ""),
+                        },
+                        {
+                          headers: {
+                            Authorization: `Token ${cookies.token}`,
+                          },
+                        }
+                      )
+                      .then((res) => {
+                        
+                      })
+                      .catch((err) => {
+                       
+                      });
+                  }}
                   sx={{
                     width: "100%",
                     fontSize: "16px",
@@ -119,9 +146,9 @@ const Withdraw = (props) => {
               </Box>
               <Typography variant="h6" sx={{ color: "#fff", pb: 2 }}>
                 <span style={{ color: "rgb(255,172,25)" }}>
-                    {props.walletcash}:
+                  {props.walletcash}:
                 </span>
-                <span>0&nbsp;ریال</span>
+                <span>{props.WalletData.wallet_money_data}&nbsp;ریال</span>
               </Typography>
             </ThemeProvider>
           </CacheProvider>

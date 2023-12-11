@@ -1,10 +1,11 @@
 import React from "react";
 import Withdraw from "./Withdraw";
 
-const WithdrawList = () => {
+const WithdrawList = ({WalletData}) => {
   return (
     <div>
       <Withdraw 
+      WalletData={WalletData}
       title={"برداشت"}
       BoxTitle={"مبلغ را وارد کنید"}
       inputLabel={"ریال"}
