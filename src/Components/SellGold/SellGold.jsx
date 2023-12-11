@@ -13,6 +13,9 @@ import InputLabel from "@mui/material/InputLabel";
 import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
 import numeral from "numeral";
+import { useCookies } from "react-cookie";
+import axios from "axios";
+import { IPServer } from "@/Config";
 const themee = createTheme({
   direction: "rtl",
 });
@@ -21,22 +24,25 @@ const cacheRtl = createCache({
   key: "muirtl",
   stylisPlugins: [rtlPlugin],
 });
-const SellGold = () => {
+const SellGold = ({ walletDataToken, goldStockPrice }) => {
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
   const [textFieldValue, setTextFieldValue] = React.useState("");
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+  const [goldTextField, setGoldTextField] = React.useState({ value: "" });
+  const [cookies] = useCookies(["token"]);
 
-  const handleChangeIndex = (index) => {
-    setValue(index);
-  };
   const handleTextFieldChange = (event) => {
     const newValue = numeral(event.target.value).format("0,0");
 
     setTextFieldValue(newValue);
   };
+  const goldTextFieldChange = (event) => {
+    const newValue = { ...goldTextField, value: event.target.value };
+
+    setGoldTextField(newValue);
+  };
+  var string = numeral(goldStockPrice.sale_price).format("0,0");
+
   return (
     <Box
       sx={{
@@ -88,7 +94,7 @@ const SellGold = () => {
                     fontWeight: "bold",
                   }}
                 >
-                  11.258.694
+                  {string}
                 </Typography>
                 <Typography
                   sx={{
@@ -172,6 +178,7 @@ const SellGold = () => {
                   }}
                 >
                   <FormControl
+                    onChange={(e) => goldTextFieldChange(e)}
                     sx={{
                       width: "100%",
 
@@ -225,6 +232,23 @@ const SellGold = () => {
 
         <Box sx={{ display: "flex", justifyContent: "center" }}>
           <Button
+            onClick={async (e) => {
+              e.preventDefault();
+              await axios
+                .post(
+                  `${IPServer}/UserDashboard-GoldBuySale/sale-gold/`,
+                  {
+                    gold_amount: parseFloat(goldTextField.value),
+                  },
+                  {
+                    headers: {
+                      Authorization: `Token ${cookies.token}`,
+                    },
+                  }
+                )
+                .then((res) => {})
+                .catch((err) => {});
+            }}
             variant="outlined"
             value={value}
             index={0}
@@ -243,6 +267,21 @@ const SellGold = () => {
           >
             خرید
           </Button>
+        </Box>
+        <Box display="flex" justifyContent="space-evenly">
+          <Box>
+            <Typography variant="h6" sx={{ color: "#fff", pb: 2 }}>
+              <span style={{ color: "rgb(255,172,25)" }}>کیف طلا:</span>
+              <span>{walletDataToken.wallet_gold_data}&nbsp;گرم</span>
+            </Typography>
+          </Box>
+
+          <Box>
+            <Typography variant="h6" sx={{ color: "#fff", pb: 2 }}>
+              <span style={{ color: "rgb(255,172,25)" }}>کیف پول:</span>
+              <span>{walletDataToken.wallet_money_data}&nbsp;ریال</span>
+            </Typography>
+          </Box>
         </Box>
       </Paper>
     </Box>
