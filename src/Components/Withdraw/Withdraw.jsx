@@ -28,8 +28,7 @@ const Withdraw = (props) => {
   const [open, setOpen] = React.useState(true);
   const [textFieldValue, setTextFieldValue] = React.useState("");
   const [cookies, setCookie] = useCookies(["token"]);
-  console.log(typeof textFieldValue);
-
+  
   const handleTextFieldChange = (event) => {
     const newValue = numeral(event.target.value).format("0,0");
     setTextFieldValue(newValue);
@@ -122,10 +121,10 @@ const Withdraw = (props) => {
                         }
                       )
                       .then((res) => {
-                        console.log(res);
+                        
                       })
                       .catch((err) => {
-                        console.log(err);
+                       
                       });
                   }}
                   sx={{
