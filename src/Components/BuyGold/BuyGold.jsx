@@ -13,6 +13,10 @@ import InputLabel from "@mui/material/InputLabel";
 import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
 import numeral from "numeral";
+import axios from "axios";
+import { IPServer } from "@/Config";
+import { useCookies } from "react-cookie";
+import Swal from "sweetalert2";
 const themee = createTheme({
   direction: "rtl",
 });
@@ -21,22 +25,30 @@ const cacheRtl = createCache({
   key: "muirtl",
   stylisPlugins: [rtlPlugin],
 });
-const BuyGold = () => {
+const BuyGold = ({ walletDataToken, goldStockPrice }) => {
   const theme = useTheme();
-  const [value, setValue] = React.useState(0);
-  const [textFieldValue, setTextFieldValue] = React.useState("");
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
 
-  const handleChangeIndex = (index) => {
-    setValue(index);
-  };
+  const [value, setValue] = React.useState(0);
+
+  const [textFieldValue, setTextFieldValue] = React.useState("");
+
+  const [goldValue, setGoldValue] = React.useState({
+    value: "",
+  });
+
+  const [cookies] = useCookies(["token"]);
+
   const handleTextFieldChange = (event) => {
     const newValue = numeral(event.target.value).format("0,0");
 
     setTextFieldValue(newValue);
   };
+
+  const goldTextfield = (e) => {
+    const newValue = { ...goldValue, value: e.target.value };
+    setGoldValue(newValue);
+  };
+  var string = numeral(goldStockPrice.buy_price).format("0,0");
   return (
     <Box
       sx={{
@@ -88,7 +100,7 @@ const BuyGold = () => {
                     fontWeight: "bold",
                   }}
                 >
-                  11.258.694
+                  {string}
                 </Typography>
                 <Typography
                   sx={{
@@ -138,7 +150,7 @@ const BuyGold = () => {
                         },
                       },
                     }}
-                    onChange={handleTextFieldChange}
+                    onChange={(e) => handleTextFieldChange(e)}
                   >
                     <InputLabel htmlFor="outlined-adornment-amount">
                       ارزش کل
@@ -172,6 +184,7 @@ const BuyGold = () => {
                   }}
                 >
                   <FormControl
+                    onChange={(e) => goldTextfield(e)}
                     sx={{
                       width: "100%",
 
@@ -225,6 +238,35 @@ const BuyGold = () => {
 
         <Box sx={{ display: "flex", justifyContent: "center" }}>
           <Button
+            onClick={async (e) => {
+              e.preventDefault();
+
+              await axios.post(
+                `${IPServer}/UserDashboard-GoldBuySale/buy-gold/`,
+                {
+                  gold_amount: parseFloat(goldValue.value),
+                },
+                {
+                  headers: {
+                    Authorization: `Token ${cookies.token}`,
+                  },
+                }
+              );
+              // .then((res) => {
+              //   Swal.fire({
+              //     title: res.response - fa,
+              //     text: "در صورت بروزرسانی نشدن کیف پول با ما تماس بگیرد!!!",
+              //     icon: "success",
+              //   });
+              // })
+              // .catch((err) => {
+              //   Swal.fire({
+              //     title: err.response - fa,
+              //     text: "در صورت بروزرسانی نشدن کیف پول با ما تماس بگیرد!!!",
+              //     icon: "success",
+              //   });
+              // });
+            }}
             variant="outlined"
             value={value}
             index={0}
@@ -243,6 +285,21 @@ const BuyGold = () => {
           >
             خرید
           </Button>
+        </Box>
+        <Box display="flex" justifyContent="space-evenly">
+          <Box>
+            <Typography variant="h6" sx={{ color: "#fff", pb: 2 }}>
+              <span style={{ color: "rgb(255,172,25)" }}>کیف طلا:</span>
+              <span>{walletDataToken.wallet_gold_data}&nbsp;گرم</span>
+            </Typography>
+          </Box>
+
+          <Box>
+            <Typography variant="h6" sx={{ color: "#fff", pb: 2 }}>
+              <span style={{ color: "rgb(255,172,25)" }}>کیف پول:</span>
+              <span>{walletDataToken.wallet_money_data}&nbsp;ریال</span>
+            </Typography>
+          </Box>
         </Box>
       </Paper>
     </Box>
