@@ -2,16 +2,19 @@ import React from "react";
 import Typography from "@mui/material/Typography";
 import { Box, Button, Container, Grid, Paper } from "@mui/material";
 import { useRouter } from "next/router";
+import numeral from "numeral";
 
 const Desk = ({ goldStockPrice, walletDataToken }) => {
-  console.log(walletDataToken);
+  var format1 = numeral(goldStockPrice.buy_price).format("0,0");
+  var format2 = numeral(goldStockPrice.sale_price).format("0,0");
+  var format3 = numeral(walletDataToken.wallet_money_data).format("0,0");
   const deskObj = [
     {
       id: 1,
       title: "قیمت خرید از گلدیار",
       subtitle: "(هر گرم طلا 18 عیار )",
       visibility: "visable",
-      price: goldStockPrice.buy_price,
+      price: format1,
       btn: "خرید",
       btnColor: "#41B62A",
       unit: "ریال",
@@ -23,7 +26,7 @@ const Desk = ({ goldStockPrice, walletDataToken }) => {
       title: "قیمت فروش به گلدیار",
       subtitle: "(هر گرم طلا 18 عیار )",
       visibility: "visable",
-      price: goldStockPrice.sale_price,
+      price: format2,
       btn: "فروش",
       btnColor: "#FF3F3F",
       unit: "ریال",
@@ -35,7 +38,7 @@ const Desk = ({ goldStockPrice, walletDataToken }) => {
       title: "موجودی کیف پول",
       subtitle: "(هر گرم طلا 18 عیار )",
       visibility: "hidden",
-      price: walletDataToken.wallet_money_data,
+      price: format3,
       btn: "افزایش موجودی",
       btnColor: "skyblue",
       unit: "ریال",
