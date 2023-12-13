@@ -20,7 +20,14 @@ const CashAmount = () => {
   const [cash, setCash] = useState(false);
   const [goldPopUp, setGoldPopUp] = useState(false);
 
-  const handleClose = () => {
+    const [cashAmount, setCashAmount] = useState('');
+    const [goldAmount, setGoldAmount] = useState('');
+
+    const [cashModalAmount, setCashModalAmount] = useState('');
+    const [goldModalAmount, setGoldModalAmount] = useState('');
+
+
+    const handleClose = () => {
     setCash(false);
   };
 
@@ -28,7 +35,21 @@ const CashAmount = () => {
     setGoldPopUp(false);
   };
 
-  const existingTheme = useTheme();
+    const updateCashAmount = () => {
+
+        console.log(cashModalAmount)
+        console.log(cashAmount)
+
+    };
+
+    const updateGoldAmount = () => {
+
+        console.log(goldModalAmount)
+        console.log(goldAmount)
+
+    };
+
+    const existingTheme = useTheme();
 
   const theme = React.useMemo(
     () =>
@@ -145,6 +166,9 @@ const CashAmount = () => {
         return (
           <Box display="flex" width="100%">
             <Button
+
+                name={params.row.phonenumber}
+
               sx={{
                 width: "45%",
                 padding: "6px 2px",
@@ -154,13 +178,20 @@ const CashAmount = () => {
                 fontWeight:"bold",
                 "&:hover": { backgroundColor: "rgba(20, 112, 44,0.7)" },
               }}
-              onClick={() => setCash(true)}
+              onClick={(e) => {
+
+                  setCashAmount(e.target.name)
+                  setCash(true)
+              }}
               variant="standard"
             >
               تغییر کیف پول
             </Button>
             <Button
-              sx={{
+
+                name={params.row.phonenumber}
+
+                sx={{
                 width: "45%",
                 padding: "0 20px",
                 backgroundColor: "rgb(255, 196, 54)",
@@ -168,7 +199,11 @@ const CashAmount = () => {
                 fontWeight:"bold",
                 "&:hover": { backgroundColor: "rgba(255, 196, 54,0.7)" },
               }}
-              onClick={() => setGoldPopUp(true)}
+              onClick={(e) => {
+
+                  setGoldAmount(e.target.name)
+                  setGoldPopUp(true)
+              }}
               variant="standard"
             >
               تغییر کیف طلا
@@ -188,6 +223,8 @@ const CashAmount = () => {
             </DialogTitle>
             <DialogContent sx={{ backgroundColor: "#272523" }}>
               <FormControl
+
+                  onChange={(e)=> setCashModalAmount(e.target.value)}
                 sx={{
                   width: "100%",
 
@@ -232,7 +269,7 @@ const CashAmount = () => {
               <Button sx={{ color: "red" }} onClick={handleClose}>
                 خروج
               </Button>
-              <Button sx={{ color: "#FFC436" }} onClick={handleClose}>
+              <Button sx={{ color: "#FFC436" }} onClick={updateCashAmount}>
                 تایید
               </Button>
             </DialogActions>
@@ -246,7 +283,9 @@ const CashAmount = () => {
             </DialogTitle>
             <DialogContent sx={{ backgroundColor: "#272523" }}>
               <FormControl
-                sx={{
+                  onChange={(e)=> setGoldModalAmount(e.target.value)}
+
+                  sx={{
                   width: "100%",
 
                   input: { color: "#FFC436", direction: "rtl", pr: 2 },
@@ -290,7 +329,7 @@ const CashAmount = () => {
               <Button sx={{ color: "red" }} onClick={GoldPopUpClose}>
                 خروج
               </Button>
-              <Button sx={{ color: "#FFC436" }} onClick={handleClose}>
+              <Button sx={{ color: "#FFC436" }} onClick={updateGoldAmount}>
                 تایید
               </Button>
             </DialogActions>
