@@ -11,44 +11,18 @@ import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import * as locales from "@mui/material/locale";
 import { AppBar, Box, Container, Tab, Tabs } from "@mui/material";
 import SwipeableViews from "react-swipeable-views";
+import { columnsBuy } from "./Utils/ColumnsGold";
+import { columnsSell } from "./Utils/ColumnsGold";
+import { columnsWithdraw } from "./Utils/ColumnsGold";
 
-const columns = [
-  { id: "name", minWidth: 130 },
-  { id: "price", label: "مبلغ", minWidth: 100 },
-  { id: "weight", label: "گرم", minWidth: 100 },
-  {
-    id: "history",
-    label: "تاریخ",
-    minWidth: 100,
-    align: "Center",
-    format: (value) => value.toLocaleString("en-US"),
-  },
-];
-const columnsHistore = [
-  { id: "name", minWidth: 130 },
-  { id: "weight", label: "گرم", minWidth: 100 },
-  {
-    id: "history",
-    label: "تاریخ",
-    minWidth: 100,
-    align: "Center",
-    format: (value) => value.toLocaleString("en-US"),
-  },
-];
-function createData(name, price, weight, history) {
-  return { name, price, weight, history };
-}
-
-const rowsBuyGold = [createData("خرید طلا", "11,111,111", 500, "1399/05/15 ")];
-const rowsSellGold = [createData("فروش طلا", "3,331,311", 1000, "1399/05/15 ")];
-const rowsWithdrawGold = [createData("برداشت طلا", 1000, "1399/05/15 ")];
 function a11yProps(index) {
   return {
     id: `full-width-tab-${index}`,
     "aria-controls": `full-width-tabpanel-${index}`,
   };
 }
-export default function TransactionGold() {
+
+export default function TransactionGold({ buyGold, sellGold, withdrawGold }) {
   const [locale, setLocale] = React.useState("faIR");
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -126,7 +100,7 @@ export default function TransactionGold() {
                 >
                   <TableHead>
                     <TableRow>
-                      {columns.map((column) => (
+                      {columnsBuy.map((column) => (
                         <TableCell
                           sx={{ bgcolor: "#272523", color: "#fff" }}
                           key={column.id}
@@ -139,20 +113,20 @@ export default function TransactionGold() {
                     </TableRow>
                   </TableHead>
                   <TableBody>
-                    {rowsBuyGold
+                    {buyGold
                       .slice(
                         page * rowsPerPage,
                         page * rowsPerPage + rowsPerPage
                       )
-                      .map((row) => {
+                      .map((row, index) => {
                         return (
                           <TableRow
                             hover
                             role="checkbox"
                             tabIndex={-1}
-                            key={row.code}
+                            key={index}
                           >
-                            {columns.map((column) => {
+                            {columnsBuy.map((column) => {
                               const value = row[column.id];
                               return (
                                 <TableCell
@@ -160,9 +134,7 @@ export default function TransactionGold() {
                                   align={column.align}
                                   sx={{ color: "#fff" }}
                                 >
-                                  {column.format && typeof value === "number"
-                                    ? column.format(value)
-                                    : value}
+                                  {value}
                                 </TableCell>
                               );
                             })}
@@ -183,7 +155,7 @@ export default function TransactionGold() {
                   }}
                   rowsPerPageOptions={[10, 25, 100]}
                   component="div"
-                  count={rowsBuyGold.length}
+                  count={buyGold.length}
                   rowsPerPage={rowsPerPage}
                   page={page}
                   onPageChange={handleChangePage}
@@ -198,7 +170,7 @@ export default function TransactionGold() {
                 >
                   <TableHead>
                     <TableRow>
-                      {columns.map((column) => (
+                      {columnsSell.map((column) => (
                         <TableCell
                           sx={{ bgcolor: "#272523", color: "#fff" }}
                           key={column.id}
@@ -211,20 +183,20 @@ export default function TransactionGold() {
                     </TableRow>
                   </TableHead>
                   <TableBody>
-                    {rowsSellGold
+                    {sellGold
                       .slice(
                         page * rowsPerPage,
                         page * rowsPerPage + rowsPerPage
                       )
-                      .map((row) => {
+                      .map((row, index) => {
                         return (
                           <TableRow
                             hover
                             role="checkbox"
                             tabIndex={-1}
-                            key={row.code}
+                            key={index}
                           >
-                            {columns.map((column) => {
+                            {columnsSell.map((column) => {
                               const value = row[column.id];
                               return (
                                 <TableCell
@@ -232,9 +204,7 @@ export default function TransactionGold() {
                                   align={column.align}
                                   sx={{ color: "#fff" }}
                                 >
-                                  {column.format && typeof value === "number"
-                                    ? column.format(value)
-                                    : value}
+                                  {value}
                                 </TableCell>
                               );
                             })}
@@ -255,7 +225,7 @@ export default function TransactionGold() {
                   }}
                   rowsPerPageOptions={[10, 25, 100]}
                   component="div"
-                  count={rowsSellGold.length}
+                  count={sellGold.length}
                   rowsPerPage={rowsPerPage}
                   page={page}
                   onPageChange={handleChangePage}
@@ -270,7 +240,7 @@ export default function TransactionGold() {
                 >
                   <TableHead>
                     <TableRow>
-                      {columnsHistore.map((column) => (
+                      {columnsWithdraw.map((column) => (
                         <TableCell
                           sx={{ bgcolor: "#272523", color: "#fff" }}
                           key={column.id}
@@ -283,20 +253,20 @@ export default function TransactionGold() {
                     </TableRow>
                   </TableHead>
                   <TableBody>
-                    {rowsWithdrawGold
+                    {withdrawGold
                       .slice(
                         page * rowsPerPage,
                         page * rowsPerPage + rowsPerPage
                       )
-                      .map((row) => {
+                      .map((row, index) => {
                         return (
                           <TableRow
                             hover
                             role="checkbox"
                             tabIndex={-1}
-                            key={row.code}
+                            key={index}
                           >
-                            {columns.map((column) => {
+                            {columnsWithdraw.map((column) => {
                               const value = row[column.id];
                               return (
                                 <TableCell
@@ -304,9 +274,7 @@ export default function TransactionGold() {
                                   align={column.align}
                                   sx={{ color: "#fff" }}
                                 >
-                                  {column.format && typeof value === "number"
-                                    ? column.format(value)
-                                    : value}
+                                  {value}
                                 </TableCell>
                               );
                             })}
@@ -327,7 +295,7 @@ export default function TransactionGold() {
                   }}
                   rowsPerPageOptions={[10, 25, 100]}
                   component="div"
-                  count={rowsWithdrawGold.length}
+                  count={withdrawGold.length}
                   rowsPerPage={rowsPerPage}
                   page={page}
                   onPageChange={handleChangePage}
