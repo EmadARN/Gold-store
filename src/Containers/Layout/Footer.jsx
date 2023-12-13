@@ -185,7 +185,10 @@ const Footer = (props) => {
             </Box>
           </Grid>
         </Grid>
+     <hr style={{border:'1px solid #FFC436' , width:"100%"}}/>
+     <Typography sx={{color:"#fff", margin:'auto',fontWeight:"bold", fontFamily:'Yekan',py:1}} >ساخته شده توسط آدلی کارا</Typography>
       </Grid>
+    
     </>
   );
 };

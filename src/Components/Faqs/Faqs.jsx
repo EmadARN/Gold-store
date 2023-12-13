@@ -71,10 +71,11 @@ function Faqs() {
       <Box>
         <Typography
           sx={{
-            color: "#fff",
+            color: "#FFC436",
             fontFamily: "Lalezar",
-            fontSize: "35px",
+            fontSize: { xs: "25px", md: "35px" },
             mt: 5,
+            fontWeight:"bold"
           }}
         >
           سوالات متداول
