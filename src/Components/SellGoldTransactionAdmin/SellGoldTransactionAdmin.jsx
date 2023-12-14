@@ -24,11 +24,12 @@ const SellGoldTransactionAdmin = ({ sellGoldAdmin }) => {
 
   const unAccepthandler = (e) => {
     setUn_acc_customer_id(e.target.name);
+
     axios
       .post(
-        `${IPServer}/AdminDashboard-GetRequest/prove-gold-get-request/`,
+        `${IPServer}/AdminDashboard-BuySale/prove-sale-request/`,
         {
-          get_request_id: un_acc_customer_id,
+          sale_request_id: un_acc_customer_id,
         },
         {
           headers: {
@@ -90,15 +91,22 @@ const SellGoldTransactionAdmin = ({ sellGoldAdmin }) => {
       width: 190,
     },
     {
-      field: "request_date",
-      headerName: " تاریخ برداشت   ",
+      field: "sale_date",
+      headerName: " تاریخ    ",
 
       type: "number",
       width: 190,
     },
     {
       field: "money_amount",
-      headerName: "  مقدار برداشت  ",
+      headerName: "مبلغ طلا",
+
+      type: "number",
+      width: 190,
+    },
+    {
+      field: "gold_amount",
+      headerName: "مقدار طلا",
 
       type: "number",
       width: 190,
@@ -149,15 +157,22 @@ const SellGoldTransactionAdmin = ({ sellGoldAdmin }) => {
       width: 190,
     },
     {
-      field: "request_date",
-      headerName: " تاریخ برداشت   ",
+      field: "sale_date",
+      headerName: " تاریخ    ",
 
       type: "number",
       width: 190,
     },
     {
       field: "money_amount",
-      headerName: "  مقدار برداشت  ",
+      headerName: "مبلغ طلا",
+
+      type: "number",
+      width: 190,
+    },
+    {
+      field: "gold_amount",
+      headerName: "مقدار طلا",
 
       type: "number",
       width: 190,
@@ -245,7 +260,7 @@ const SellGoldTransactionAdmin = ({ sellGoldAdmin }) => {
                 maxWidth: { xs: "100%" },
               }}
               density="comfortable"
-              rows={UnAcceptReqrows}
+              rows={un_acc_request}
               columns={UnAcceptedReq}
               initialState={{
                 pagination: {
@@ -281,7 +296,7 @@ const SellGoldTransactionAdmin = ({ sellGoldAdmin }) => {
                 maxWidth: { xs: "100%" },
               }}
               density="comfortable"
-              rows={sellGoldAdmin}
+              rows={AllWidthraw}
               columns={AllReqcolumns}
               initialState={{
                 pagination: {
