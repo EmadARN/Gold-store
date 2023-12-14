@@ -7,7 +7,7 @@ import { parseCookies } from "nookies";
 import { IPServer } from "@/Config";
 const GoldAmount = ({ settingData, settingDataError }) => {
   return (
-    <UserDashboard DrawerObj={DrawerObjAdmin} indexBtn={6}>
+    <UserDashboard DrawerObj={DrawerObjAdmin} indexBtn={8}>
       <GoldAmountMain settingData={settingData.data} />
     </UserDashboard>
   );

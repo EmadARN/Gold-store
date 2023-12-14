@@ -8,7 +8,7 @@ import React from "react";
 
 const AddingPriceAdmin = ({ settingData }) => {
   return (
-    <UserDashboard indexBtn={5} DrawerObj={DrawerObjAdmin}>
+    <UserDashboard indexBtn={7} DrawerObj={DrawerObjAdmin}>
       <AddingPrice settingData={settingData.data} />
     </UserDashboard>
   );

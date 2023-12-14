@@ -339,7 +339,7 @@ const TabPrice = ({ tabPrice }) => {
           </CacheProvider>
         </Paper>
       </Box>
-      <SwipeableViews index={value} onChangeIndex={handleChangeIndex}>
+      {/* <SwipeableViews index={value} onChangeIndex={handleChangeIndex}>
         <Box sx={{ display: "flex", justifyContent: "center" }}>
           <Button
             variant="outlined"
@@ -384,7 +384,7 @@ const TabPrice = ({ tabPrice }) => {
             محاسبه قیمت
           </Button>
         </Box>
-      </SwipeableViews>
+      </SwipeableViews> */}
     </Paper>
   );
 };

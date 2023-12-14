@@ -67,7 +67,6 @@ const GoldAmountMain = ({ settingData }) => {
         container
         display="flex"
         justifyContent="center"
-        height="110%"
         alignItems="center"
       >
         <Paper
