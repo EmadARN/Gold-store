@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { DataGrid, faIR } from "@mui/x-data-grid";
 import { Box, Button, TextField, Grid, Typography } from "@mui/material";
-
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
@@ -13,21 +12,23 @@ import InputAdornment from "@mui/material/InputAdornment";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import Paper from "@mui/material/Paper";
 import { Container } from "@mui/material";
-
+import axios from "axios";
+import { useCookies } from "react-cookie";
 import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
+import { IPServer } from "@/Config";
 
-const CashAmount = () => {
+const CashAmount = ({ AllMembers }) => {
+  const [members] = useState(AllMembers.data);
+  const [cookies] = useCookies(["token"]);
   const [cash, setCash] = useState(false);
   const [goldPopUp, setGoldPopUp] = useState(false);
+  const [cashAmount, setCashAmount] = useState("");
+  const [goldAmount, setGoldAmount] = useState("");
+  const [cashModalAmount, setCashModalAmount] = useState("");
+  const [goldModalAmount, setGoldModalAmount] = useState("");
+  const [refreshPageState, setRefreshPageState] = useState(false);
 
-    const [cashAmount, setCashAmount] = useState('');
-    const [goldAmount, setGoldAmount] = useState('');
-
-    const [cashModalAmount, setCashModalAmount] = useState('');
-    const [goldModalAmount, setGoldModalAmount] = useState('');
-
-
-    const handleClose = () => {
+  const handleClose = () => {
     setCash(false);
   };
 
@@ -35,21 +36,58 @@ const CashAmount = () => {
     setGoldPopUp(false);
   };
 
-    const updateCashAmount = () => {
+  function refreshPage() {
+    window.location.reload(refreshPageState);
+  }
 
-        console.log(cashModalAmount)
-        console.log(cashAmount)
+  const updateCashAmount = async () => {
+    await axios
+      .post(
+        `${IPServer}/AdminDashboard-DeskPage/change-user-wallet-money-amount/`,
+        {
+          phone_number: cashAmount,
+          money_amount: parseFloat(cashModalAmount),
+        },
+        {
+          headers: {
+            Authorization: `Token ${cookies.token}`,
+          },
+        }
+      )
+      .then((res) => {
+        handleClose();
+        refreshPage(setRefreshPageState(true));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
-    };
+  const updateGoldAmount = async () => {
+    await axios
+      .post(
+        `${IPServer}/AdminDashboard-DeskPage/change-user-wallet-gold-amount/`,
+        {
+          phone_number: goldAmount,
+          gold_amount: parseFloat(goldModalAmount),
+        },
+        {
+          headers: {
+            Authorization: `Token ${cookies.token}`,
+          },
+        }
+      )
+      .then((res) => {
+        handleClose();
+        refreshPage(setRefreshPageState(true));
+      })
 
-    const updateGoldAmount = () => {
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
-        console.log(goldModalAmount)
-        console.log(goldAmount)
-
-    };
-
-    const existingTheme = useTheme();
+  const existingTheme = useTheme();
 
   const theme = React.useMemo(
     () =>
@@ -59,100 +97,27 @@ const CashAmount = () => {
     [existingTheme]
   );
 
-  const rows = [
-    {
-      id: 1,
-      lastName: "احمدی",
-      firstName: "علی",
-      phonenumber: "09190978042",
-      cashamount: 20,
-      goldamount: "",
-    },
-    {
-      id: 2,
-      lastName: "حسینی",
-      firstName: "ممد",
-      phonenumber: "09190978042",
-      cashamount: 20,
-      goldamount: "",
-    },
-    {
-      id: 3,
-      lastName: "رضصایی",
-      firstName: "ساغر",
-      phonenumber: "09190978042",
-      cashamount: 20,
-      goldamount: "",
-    },
-    {
-      id: 4,
-      lastName: "خضری",
-      firstName: "رضا",
-      phonenumber: "09190978042",
-      cashamount: 20,
-      goldamount: "",
-    },
-    {
-      id: 5,
-      lastName: "حسینی",
-      firstName: "جانی",
-      phonenumber: "09190978042",
-      cashamount: 20,
-      goldamount: "",
-    },
-    {
-      id: 6,
-      lastName: "محمدی",
-      firstName: " مانی",
-      phonenumber: "09190978042",
-      cashamount: 20,
-      goldamount: "",
-    },
-    {
-      id: 7,
-      lastName: "صادقی",
-      firstName: "فریبرز",
-      phonenumber: "09190978042",
-      cashamount: 20,
-      goldamount: "",
-    },
-    {
-      id: 8,
-      lastName: "سالمی",
-      firstName: "حسن",
-      phonenumber: "09190978042",
-      cashamount: 20,
-      goldamount: "",
-    },
-    {
-      id: 9,
-      lastName: "احمدی",
-      firstName: "جواد",
-      phonenumber: "09190978042",
-      cashamount: 20,
-      goldamount: "",
-    },
-  ];
+  const rows = members;
 
   const columns = [
-    { field: "id", headerName: "ID", width: 70 },
-    { field: "firstName", headerName: "نام", width: 130, editable: false },
-    { field: "lastName", headerName: "نام خانوادگی", width: 130 },
+    { field: "id", headerName: "id", width: 70 },
+    { field: "first_name", headerName: "نام", width: 130, editable: false },
+    { field: "last_name", headerName: "نام خانوادگی", width: 130 },
     {
-      field: "phonenumber",
+      field: "phone_number",
       headerName: "شماره همراه ",
       type: "number",
       width: 190,
     },
     {
-      field: "cashamount",
+      field: "money_amount",
       headerName: " موجودی کیف پول ",
 
       type: "number",
       width: 190,
     },
     {
-      field: "goldamount",
+      field: "gold_amount",
       headerName: " موجودی طلا  ",
 
       type: "number",
@@ -166,43 +131,37 @@ const CashAmount = () => {
         return (
           <Box display="flex" width="100%">
             <Button
-
-                name={params.row.phonenumber}
-
+              name={params.row.phone_number}
               sx={{
                 width: "45%",
                 padding: "6px 2px",
                 mr: 2,
                 backgroundColor: "green",
                 color: "#fff",
-                fontWeight:"bold",
+                fontWeight: "bold",
                 "&:hover": { backgroundColor: "rgba(20, 112, 44,0.7)" },
               }}
               onClick={(e) => {
-
-                  setCashAmount(e.target.name)
-                  setCash(true)
+                setCashAmount(e.target.name);
+                setCash(true);
               }}
               variant="standard"
             >
               تغییر کیف پول
             </Button>
             <Button
-
-                name={params.row.phonenumber}
-
-                sx={{
+              name={params.row.phone_number}
+              sx={{
                 width: "45%",
                 padding: "0 20px",
                 backgroundColor: "rgb(255, 196, 54)",
                 color: "black",
-                fontWeight:"bold",
+                fontWeight: "bold",
                 "&:hover": { backgroundColor: "rgba(255, 196, 54,0.7)" },
               }}
               onClick={(e) => {
-
-                  setGoldAmount(e.target.name)
-                  setGoldPopUp(true)
+                setGoldAmount(e.target.name);
+                setGoldPopUp(true);
               }}
               variant="standard"
             >
@@ -215,137 +174,134 @@ const CashAmount = () => {
   ];
   return (
     <>
+      {cash ? (
+        <Dialog open={open} onClose={handleClose}>
+          <DialogTitle sx={{ backgroundColor: "#272523", color: "#FFC436" }}>
+            تغییر کیف پول کاربر
+          </DialogTitle>
+          <DialogContent sx={{ backgroundColor: "#272523" }}>
+            <FormControl
+              onChange={(e) => setCashModalAmount(e.target.value)}
+              sx={{
+                width: "100%",
 
-        {cash ? (
-          <Dialog open={open} onClose={handleClose}>
-            <DialogTitle sx={{ backgroundColor: "#272523", color: "#FFC436" }}>
-              تغییر کیف پول کاربر
-            </DialogTitle>
-            <DialogContent sx={{ backgroundColor: "#272523" }}>
-              <FormControl
+                input: { color: "#FFC436", direction: "rtl", pr: 2 },
 
-                  onChange={(e)=> setCashModalAmount(e.target.value)}
-                sx={{
-                  width: "100%",
-
-                  input: { color: "#FFC436", direction: "rtl", pr: 2 },
-
-                  "& .MuiInput-underline:after": {
-                    borderBottomColor: "#FFC436",
+                "& .MuiInput-underline:after": {
+                  borderBottomColor: "#FFC436",
+                },
+                "& .MuiOutlinedInput-root": {
+                  "& fieldset": {
+                    borderColor: "#fff",
+                    borderRadius: "10px",
                   },
-                  "& .MuiOutlinedInput-root": {
-                    "& fieldset": {
-                      borderColor: "#fff",
-                      borderRadius: "10px",
-                    },
-                    "&:hover fieldset": {
-                      borderColor: "#fff",
-                    },
-                    "&.Mui-focused fieldset": {
-                      borderColor: "#FFC436",
-                    },
+                  "&:hover fieldset": {
+                    borderColor: "#fff",
                   },
-                }}
-              >
-                <OutlinedInput
-                  id="outlined-adornment-amount"
-                  endAdornment={
-                    <InputAdornment
-                      sx={{
-                        "& .MuiTypography-root": {
-                          color: "#fff",
-                        },
-                      }}
-                      position="start"
-                    >
-                      ریال
-                    </InputAdornment>
-                  }
-                  label="Amount"
-                />
-              </FormControl>
-            </DialogContent>
-            <DialogActions sx={{ backgroundColor: "#272523" }}>
-              <Button sx={{ color: "red" }} onClick={handleClose}>
-                خروج
-              </Button>
-              <Button sx={{ color: "#FFC436" }} onClick={updateCashAmount}>
-                تایید
-              </Button>
-            </DialogActions>
-          </Dialog>
-        ) : null}
-
-        {goldPopUp ? (
-          <Dialog open={open} onClose={GoldPopUpClose}>
-            <DialogTitle sx={{ backgroundColor: "#272523", color: "#FFC436" }}>
-              تغییر کیف طلا کاربر
-            </DialogTitle>
-            <DialogContent sx={{ backgroundColor: "#272523" }}>
-              <FormControl
-                  onChange={(e)=> setGoldModalAmount(e.target.value)}
-
-                  sx={{
-                  width: "100%",
-
-                  input: { color: "#FFC436", direction: "rtl", pr: 2 },
-
-                  "& .MuiInput-underline:after": {
-                    borderBottomColor: "#FFC436",
+                  "&.Mui-focused fieldset": {
+                    borderColor: "#FFC436",
                   },
-                  "& .MuiOutlinedInput-root": {
-                    "& fieldset": {
-                      borderColor: "#fff",
-                      borderRadius: "10px",
-                    },
-                    "&:hover fieldset": {
-                      borderColor: "#fff",
-                    },
-                    "&.Mui-focused fieldset": {
-                      borderColor: "#FFC436",
-                    },
+                },
+              }}
+            >
+              <OutlinedInput
+                id="outlined-adornment-amount"
+                endAdornment={
+                  <InputAdornment
+                    sx={{
+                      "& .MuiTypography-root": {
+                        color: "#fff",
+                      },
+                    }}
+                    position="start"
+                  >
+                    ریال
+                  </InputAdornment>
+                }
+                label="Amount"
+              />
+            </FormControl>
+          </DialogContent>
+          <DialogActions sx={{ backgroundColor: "#272523" }}>
+            <Button sx={{ color: "red" }} onClick={handleClose}>
+              خروج
+            </Button>
+            <Button sx={{ color: "#FFC436" }} onClick={updateCashAmount}>
+              تایید
+            </Button>
+          </DialogActions>
+        </Dialog>
+      ) : null}
+
+      {goldPopUp ? (
+        <Dialog open={open} onClose={GoldPopUpClose}>
+          <DialogTitle sx={{ backgroundColor: "#272523", color: "#FFC436" }}>
+            تغییر کیف طلا کاربر
+          </DialogTitle>
+          <DialogContent sx={{ backgroundColor: "#272523" }}>
+            <FormControl
+              onChange={(e) => setGoldModalAmount(e.target.value)}
+              sx={{
+                width: "100%",
+
+                input: { color: "#FFC436", direction: "rtl", pr: 2 },
+
+                "& .MuiInput-underline:after": {
+                  borderBottomColor: "#FFC436",
+                },
+                "& .MuiOutlinedInput-root": {
+                  "& fieldset": {
+                    borderColor: "#fff",
+                    borderRadius: "10px",
                   },
-                }}
-              >
-                <OutlinedInput
-                  id="outlined-adornment-amount"
-                  endAdornment={
-                    <InputAdornment
-                      sx={{
-                        "& .MuiTypography-root": {
-                          color: "#fff",
-                        },
-                      }}
-                      position="start"
-                    >
-                      گرم
-                    </InputAdornment>
-                  }
-                  label="Amount"
-                />
-              </FormControl>
-            </DialogContent>
-            <DialogActions sx={{ backgroundColor: "#272523" }}>
-              <Button sx={{ color: "red" }} onClick={GoldPopUpClose}>
-                خروج
-              </Button>
-              <Button sx={{ color: "#FFC436" }} onClick={updateGoldAmount}>
-                تایید
-              </Button>
-            </DialogActions>
-          </Dialog>
-        ) : null}
-       
-          <ThemeProvider theme={theme}>
-          <Container sx={{mt:10}} >
+                  "&:hover fieldset": {
+                    borderColor: "#fff",
+                  },
+                  "&.Mui-focused fieldset": {
+                    borderColor: "#FFC436",
+                  },
+                },
+              }}
+            >
+              <OutlinedInput
+                id="outlined-adornment-amount"
+                endAdornment={
+                  <InputAdornment
+                    sx={{
+                      "& .MuiTypography-root": {
+                        color: "#fff",
+                      },
+                    }}
+                    position="start"
+                  >
+                    گرم
+                  </InputAdornment>
+                }
+                label="Amount"
+              />
+            </FormControl>
+          </DialogContent>
+          <DialogActions sx={{ backgroundColor: "#272523" }}>
+            <Button sx={{ color: "red" }} onClick={GoldPopUpClose}>
+              خروج
+            </Button>
+            <Button sx={{ color: "#FFC436" }} onClick={updateGoldAmount}>
+              تایید
+            </Button>
+          </DialogActions>
+        </Dialog>
+      ) : null}
+
+      <ThemeProvider theme={theme}>
+        <Container sx={{ mt: 10 }}>
           <Paper
-          sx={{
-            width: "100%",
-            overflow: "hidden",
-            display: "grid",
-            placeItems: "center",
-          }}
-        >
+            sx={{
+              width: "100%",
+              overflow: "hidden",
+              display: "grid",
+              placeItems: "center",
+            }}
+          >
             <DataGrid
               sx={{
                 "& .css-t89xny-MuiDataGrid-columnHeaderTitle": {
@@ -355,19 +311,19 @@ const CashAmount = () => {
                   marginRight: "5px",
                   textAlign: "center !important",
                 },
-                '& .muirtl-rtrcn9-MuiTablePagination-root':{
-                  color:"white"
+                "& .muirtl-rtrcn9-MuiTablePagination-root": {
+                  color: "white",
                 },
-                '& .muirtl-ptiqhd-MuiSvgIcon-root':{
-                  color:'white',
-                 
+                "& .muirtl-ptiqhd-MuiSvgIcon-root": {
+                  color: "white",
                 },
-                '& .MuiSvgIcon-root':{
-                  color:"white"
-                                },
-                width:"100%",
-                bgcolor: "#272523", color: "#fff",
-                maxWidth:{xs:"100%"}
+                "& .MuiSvgIcon-root": {
+                  color: "white",
+                },
+                width: "100%",
+                bgcolor: "#272523",
+                color: "#fff",
+                maxWidth: { xs: "100%" },
               }}
               density="comfortable"
               rows={rows}
@@ -378,12 +334,10 @@ const CashAmount = () => {
                 },
               }}
               pageSizeOptions={[5, 10]}
-            
             />
-            </Paper>
-            </Container>
-          </ThemeProvider>
-
+          </Paper>
+        </Container>
+      </ThemeProvider>
     </>
   );
 };
