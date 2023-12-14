@@ -11,10 +11,10 @@ import axios from "axios";
 import { IPServer } from "@/Config";
 import { useCookies } from "react-cookie";
 
-const SellGoldTransactionAdmin = ({ AllGoldWidthrawReq }) => {
+const SellGoldTransactionAdmin = ({ sellGoldAdmin }) => {
   const [value, setValue] = React.useState(0);
-  const [AllWidthraw] = useState(AllGoldWidthrawReq.all_request);
-  const [un_acc_request] = useState(AllGoldWidthrawReq.un_accept_request);
+  const [AllWidthraw] = useState(sellGoldAdmin.data);
+  const [un_acc_request] = useState(sellGoldAdmin.unacceptable_data);
   const [un_acc_customer_id, setUn_acc_customer_id] = useState("");
   const [cookies] = useCookies(["token"]);
 
@@ -281,7 +281,7 @@ const SellGoldTransactionAdmin = ({ AllGoldWidthrawReq }) => {
                 maxWidth: { xs: "100%" },
               }}
               density="comfortable"
-              rows={AllWidthrawReq}
+              rows={sellGoldAdmin}
               columns={AllReqcolumns}
               initialState={{
                 pagination: {

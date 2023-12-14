@@ -4,10 +4,10 @@ import { parseCookies } from "nookies";
 import axios from "axios";
 import { IPServer } from "@/Config";
 import SellGoldTransactionAdmin from "@/Components/SellGoldTransactionAdmin/SellGoldTransactionAdmin";
-const GoldWidtrawAdmin = ({ AllGoldWidthrawReq }) => {
+const GoldWidtrawAdmin = ({ sellGoldAdmin }) => {
   return (
     <UserDashboard DrawerObj={DrawerObjAdmin} indexBtn={6}>
-      <SellGoldTransactionAdmin AllGoldWidthrawReq={AllGoldWidthrawReq} />
+      <SellGoldTransactionAdmin sellGoldAdmin={sellGoldAdmin} />
     </UserDashboard>
   );
 };
@@ -19,12 +19,12 @@ export async function getServerSideProps(context) {
   const cookies = parseCookies({ req });
   const token = cookies["token"];
 
-  let AllGoldWidthrawReq;
-  let GoldWidthrawErrToken;
+  let sellGoldAdmin;
+  let sellGoldAdminErrToken;
 
   if (token) {
     try {
-      const { data: GoldWidthraw } = await axios.get(
+      const { data: sellGoldAdmin2 } = await axios.get(
         `${IPServer}/AdminDashboard-BuySale/sale-list/`,
         {
           headers: {
@@ -33,18 +33,18 @@ export async function getServerSideProps(context) {
         }
       );
 
-      AllGoldWidthrawReq = GoldWidthraw;
-      GoldWidthrawErrToken = "200";
+      sellGoldAdmin = sellGoldAdmin2;
+      sellGoldAdminErrToken = "200";
     } catch (error) {
-      AllGoldWidthrawReq: "";
-      GoldWidthrawErrToken: "400";
+      sellGoldAdmin: "";
+      sellGoldAdminErrToken: "400";
     }
   }
 
   return {
     props: {
-      AllGoldWidthrawReq,
-      GoldWidthrawErrToken,
+      sellGoldAdmin,
+      sellGoldAdminErrToken,
     },
   };
 }
