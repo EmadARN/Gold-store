@@ -1,12 +1,52 @@
 import CashWidtrawComponent from "@/Components/CashWidtrawComponent";
 import UserDashboard from "@/Containers/DashboardUser/UserDashboard";
 import { DrawerObjAdmin } from "@/Utils/DrawerObjectAdmin";
-const CashWidtraw = () => {
-    return ( 
-        <UserDashboard DrawerObj={DrawerObjAdmin} indexBtn={2}>
-        <CashWidtrawComponent />
-        </UserDashboard>
-     );
-}
- 
+import { parseCookies } from "nookies";
+import axios from "axios";
+import { IPServer } from "@/Config";
+const CashWidtraw = ({AllCustomersWidthrawRequest,CustomersWidthrawRequestTokenError}) => {
+
+   
+  return (
+    <UserDashboard DrawerObj={DrawerObjAdmin} indexBtn={2}>
+      <CashWidtrawComponent AllCustomersWidthrawRequest={AllCustomersWidthrawRequest}/>
+    </UserDashboard>
+  );
+};
+
 export default CashWidtraw;
+
+export async function getServerSideProps(context) {
+  const { req } = context;
+  const cookies = parseCookies({ req });
+  const token = cookies["token"];
+
+  let AllCustomersWidthrawRequest;
+  let CustomersWidthrawRequestTokenError;
+
+  if (token) {
+    try {
+      const { data: WidthrawReq } = await axios.get(
+        `${IPServer}/AdminDashboard-GetRequest/money-get-request-list/`,
+        {
+          headers: {
+            Authorization: `Token ${token}`,
+          },
+        }
+      );
+
+      AllCustomersWidthrawRequest = WidthrawReq;
+      CustomersWidthrawRequestTokenError = "200";
+    } catch (error) {
+        AllCustomersWidthrawRequest = "";
+        CustomersWidthrawRequestTokenError = "400";
+    }
+  }
+
+  return{
+    props:{
+        AllCustomersWidthrawRequest,
+        CustomersWidthrawRequestTokenError
+    }
+  }
+}
