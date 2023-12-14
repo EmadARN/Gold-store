@@ -27,26 +27,34 @@ const cacheRtl = createCache({
 });
 const BuyGold = ({ walletDataToken, goldStockPrice }) => {
   const theme = useTheme();
-
   const [value, setValue] = React.useState(0);
-
-  const [textFieldValue, setTextFieldValue] = React.useState("");
-
-  const [goldValue, setGoldValue] = React.useState({
-    value: "",
-  });
-
   const [cookies] = useCookies(["token"]);
+  const [textFieldValue, setTextFieldValue] = React.useState();
+  const [goldTextField, setGoldTextField] = React.useState();
 
+  // onChange Price
   const handleTextFieldChange = (event) => {
     const newValue = numeral(event.target.value).format("0,0");
-
     setTextFieldValue(newValue);
+
+    if (value == 0) {
+      const goldValue =
+        parseFloat(newValue.replace(",", "")) /
+        parseFloat(string.replace(",", ""));
+
+      setGoldTextField(goldValue.toFixed(3));
+    }
   };
 
-  const goldTextfield = (e) => {
-    const newValue = { ...goldValue, value: e.target.value };
-    setGoldValue(newValue);
+  //onChange Gold
+  const goldTextFieldHandler = (event) => {
+    const newValue = event.target.value;
+    setGoldTextField(newValue);
+
+    if (value == 0) {
+      const goldValue = newValue * parseFloat(string.replace(",", ""));
+      setTextFieldValue(numeral(goldValue).format("0,0"));
+    }
   };
   var string = numeral(goldStockPrice.buy_price).format("0,0");
   return (
@@ -184,7 +192,7 @@ const BuyGold = ({ walletDataToken, goldStockPrice }) => {
                   }}
                 >
                   <FormControl
-                    onChange={(e) => goldTextfield(e)}
+                    onChange={(e) => goldTextFieldHandler(e)}
                     sx={{
                       width: "100%",
 
@@ -214,6 +222,7 @@ const BuyGold = ({ walletDataToken, goldStockPrice }) => {
                       مقدار طلا
                     </InputLabel>
                     <OutlinedInput
+                      value={goldTextField}
                       id="outlined-adornment-amount"
                       endAdornment={
                         <InputAdornment

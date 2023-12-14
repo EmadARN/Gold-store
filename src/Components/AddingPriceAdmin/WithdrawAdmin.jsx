@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Box,
   Button,
@@ -7,12 +6,15 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-
+import React, { useState } from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import rtlPlugin from "stylis-plugin-rtl";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
-
+import numeral from "numeral";
+import { IPServer } from "@/Config";
+import axios from "axios";
+import { useCookies } from "react-cookie";
 const themee = createTheme({
   direction: "rtl",
 });
@@ -22,13 +24,26 @@ const cacheRtl = createCache({
   stylisPlugins: [rtlPlugin],
 });
 
-const GoldAmount = (props) => {
+const WithdrawAdmin = (props) => {
   const [open, setOpen] = React.useState(true);
+  const [cookies, setCookie] = useCookies(["token"]);
+  const [addingPrice, setAddingPrice] = useState();
+  const handleTextFieldChange = (event) => {
+    const newValue = numeral(event.target.value).format("0,0");
+    setTextFieldValue(newValue);
+  };
+
   return (
     <Box
       sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
     >
-      <div>
+      <div style={{ maxWidth: "800px" }}>
+        <Typography
+          variant="h3"
+          sx={{ color: "#fff", fontWeight: "bold", my: 5, textAlign: "center" }}
+        >
+          {props.title}
+        </Typography>
         <Paper
           sx={{
             bgcolor: "#272523",
@@ -46,7 +61,9 @@ const GoldAmount = (props) => {
             <ThemeProvider theme={themee}>
               <TextField
                 onChange={(e) => {
-                  props.onChange(e);
+                  const newValue = numeral(e.target.value).format("0,0");
+
+                  setAddingPrice(newValue);
                 }}
                 id="outlined-start-adornment"
                 sx={{
@@ -87,11 +104,30 @@ const GoldAmount = (props) => {
                     </InputAdornment>
                   ),
                 }}
+                value={addingPrice}
               />
               <Box sx={{ display: "flex", justifyContent: "center" }}>
                 <Button
-                  onClick={() => props.onClick()}
                   variant="outlined"
+                  onClick={async (e) => {
+                    e.preventDefault();
+                    await axios
+                      .post(
+                        `${IPServer}/AdminDashboard-Setting/change-gold-price/`,
+                        {
+                          gold_price: addingPrice.replace(",", ""),
+                        },
+                        {
+                          headers: {
+                            Authorization: `Token ${cookies.token}`,
+                          },
+                        }
+                      )
+                      .then((res) => {
+                        window.location.reload();
+                      })
+                      .catch((err) => {});
+                  }}
                   sx={{
                     width: "100%",
                     fontSize: "16px",
@@ -113,9 +149,7 @@ const GoldAmount = (props) => {
                 <span style={{ color: "rgb(255,172,25)" }}>
                   {props.walletcash}:
                 </span>
-                <span>
-                  {props.settingData}&nbsp;{props.unit}
-                </span>
+                <span>{props.walletValue}&nbsp;ریال</span>
               </Typography>
             </ThemeProvider>
           </CacheProvider>
@@ -125,4 +159,4 @@ const GoldAmount = (props) => {
   );
 };
 
-export default GoldAmount;
+export default WithdrawAdmin;
