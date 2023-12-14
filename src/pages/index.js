@@ -8,13 +8,7 @@ export default function Home({
   TabPriceTable,
   validationTokenError,
   TabPriceTableError,
-})
-
-
-{
-
-  console.log(validationToken)
-
+}) {
   return (
     <Layout dashboard={validationTokenError}>
       <HomeLand tabPrice={TabPriceTable} />
@@ -32,7 +26,6 @@ export async function getServerSideProps(context) {
   let TabPriceTableError;
 
   if (token) {
-
     try {
       const { data: ValdationToken2 } = await axios.get(
         `${IPServer}/Home/validate-token/`,
@@ -50,7 +43,7 @@ export async function getServerSideProps(context) {
       validationTokenError = "400";
     }
   } else {
-    console.log(token)
+    console.log(token);
 
     validationToken = `${token}`;
     validationTokenError = "400";

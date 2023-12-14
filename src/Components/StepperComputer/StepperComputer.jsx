@@ -11,7 +11,7 @@ import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
 import { Container, Fab } from "@mui/material";
 import DoneIcon from "@mui/icons-material/Done";
-import { steps } from "../../Utils/StepsObjext";
+import { steps } from "./Utils/StepsObjext";
 const themee = createTheme({
   direction: "rtl",
 });

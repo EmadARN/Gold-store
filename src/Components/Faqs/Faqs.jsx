@@ -7,7 +7,7 @@ import MuiAccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import { Box, Container, Grid } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { FaqsOb, FaqsOb2 } from "@/Utils/FaqsObjects";
+import { FaqsOb, FaqsOb2 } from "./Utils/FaqsObjects";
 
 const Accordion = styled((props) => (
   <MuiAccordion
@@ -75,7 +75,7 @@ function Faqs() {
             fontFamily: "Lalezar",
             fontSize: { xs: "25px", md: "35px" },
             mt: 5,
-            fontWeight:"bold"
+            fontWeight: "bold",
           }}
         >
           سوالات متداول
