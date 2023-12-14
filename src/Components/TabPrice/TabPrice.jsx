@@ -60,10 +60,12 @@ const cacheRtl = createCache({
 });
 const TabPrice = ({ tabPrice }) => {
   const [tabPrice1, setTabPrice1] = React.useState({ tabPrice });
-
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
-  const [textFieldValue, setTextFieldValue] = React.useState("");
+  const [textFieldValue, setTextFieldValue] = React.useState();
+  const [goldTextField, setGoldTextField] = React.useState();
+
+  //change TabIndex
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -72,10 +74,41 @@ const TabPrice = ({ tabPrice }) => {
     setValue(index);
   };
 
+  // onChange Price
   const handleTextFieldChange = (event) => {
     const newValue = numeral(event.target.value).format("0,0");
     setTextFieldValue(newValue);
+
+    if (value == 0) {
+      const goldValue =
+        parseFloat(newValue.replace(",", "")) /
+        parseFloat(string.replace(",", ""));
+
+      setGoldTextField(goldValue.toFixed(3));
+    } else {
+      const goldValue =
+        parseFloat(newValue.replace(",", "")) /
+        parseFloat(string2.replace(",", ""));
+
+      setGoldTextField(goldValue.toFixed(3));
+    }
   };
+
+  //onChange Gold
+  const goldTextFieldHandler = (event) => {
+    const newValue = event.target.value;
+    setGoldTextField(newValue);
+
+    if (value == 0) {
+      const goldValue = newValue * parseFloat(string.replace(",", ""));
+      setTextFieldValue(numeral(goldValue).format("0,0"));
+    } else {
+      const goldValue = newValue * parseFloat(string2.replace(",", ""));
+      setTextFieldValue(numeral(goldValue).format("0,0"));
+    }
+  };
+
+  //Format PriceTab
   var string = numeral(tabPrice1.tabPrice.buy_price).format("0,0");
   var string2 = numeral(tabPrice1.tabPrice.sale_price).format("0,0");
   return (
@@ -166,8 +199,20 @@ const TabPrice = ({ tabPrice }) => {
               variant="fullWidth"
               aria-label="full width tabs example"
             >
-              <Tab label="خرید" {...a11yProps(0)} />
-              <Tab label="فروش" {...a11yProps(1)} />
+              <Tab
+                onClick={() => {
+                  setGoldTextField(0), setTextFieldValue(0);
+                }}
+                label="خرید"
+                {...a11yProps(0)}
+              />
+              <Tab
+                onClick={() => {
+                  setGoldTextField(0), setTextFieldValue(0);
+                }}
+                label="فروش"
+                {...a11yProps(1)}
+              />
             </Tabs>
           </AppBar>
           <CacheProvider value={cacheRtl}>
@@ -242,6 +287,7 @@ const TabPrice = ({ tabPrice }) => {
                 }}
               >
                 <FormControl
+                  onChange={(e) => goldTextFieldHandler(e)}
                   sx={{
                     width: "100%",
 
@@ -271,6 +317,7 @@ const TabPrice = ({ tabPrice }) => {
                     مقدار طلا
                   </InputLabel>
                   <OutlinedInput
+                    value={goldTextField}
                     id="outlined-adornment-amount"
                     endAdornment={
                       <InputAdornment
