@@ -11,48 +11,34 @@ import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import * as locales from "@mui/material/locale";
 import { AppBar, Box, Container, Tab, Tabs } from "@mui/material";
 import SwipeableViews from "react-swipeable-views";
+import { columnsDeposit } from "./Utils/Columns";
+import { columnswithdraw } from "./Utils/Columns";
 
-const columns = [
-  { id: "name", minWidth: 170 },
-  { id: "code", label: "مبلغ", minWidth: 100 },
-  {
-    id: "population",
-    label: "تاریخ",
-    minWidth: 100,
-    align: "Center",
-    format: (value) => value.toLocaleString("en-US"),
-  },
-];
-
-function createData(name, code, population, size) {
-  return { name, code, population, size };
-}
-
-const rowsWithdraw = [createData("برداشت", "25,000,000", "1399/05/15 ")];
-const rowsDeposit = [createData("واریز", "5,000,000", "1399/05/15 ")];
 function a11yProps(index) {
   return {
     id: `full-width-tab-${index}`,
     "aria-controls": `full-width-tabpanel-${index}`,
   };
 }
-export default function Transaction() {
+export default function Transaction({ withdrawToken, depositToken }) {
   const [locale, setLocale] = React.useState("faIR");
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const [value, setValue] = React.useState(0);
+
+  const theme = useTheme();
+  const themeWithLocale = React.useMemo(
+    () => createTheme(theme, locales[locale]),
+    [locale, theme]
+  );
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
   const handleChangeIndex = (index) => {
     setValue(index);
   };
-  const theme = useTheme();
 
-  const themeWithLocale = React.useMemo(
-    () => createTheme(theme, locales[locale]),
-    [locale, theme]
-  );
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -65,6 +51,7 @@ export default function Transaction() {
   return (
     <ThemeProvider theme={themeWithLocale}>
       <Container maxWidth={"md"}>
+        {/* start Tab */}
         <AppBar position="static" sx={{ borderRadius: "10px 10px 0 0 " }}>
           <Tabs
             sx={{
@@ -89,7 +76,7 @@ export default function Transaction() {
             <Tab label="برداشت" {...a11yProps(1)} />
           </Tabs>
         </AppBar>
-
+        {/* end Tab */}
         <Paper
           sx={{
             width: "100%",
@@ -114,7 +101,7 @@ export default function Transaction() {
                 >
                   <TableHead>
                     <TableRow sx={{}}>
-                      {columns.map((column) => (
+                      {columnsDeposit.map((column) => (
                         <TableCell
                           sx={{ bgcolor: "#272523", color: "#fff" }}
                           key={column.id}
@@ -128,20 +115,20 @@ export default function Transaction() {
                   </TableHead>
 
                   <TableBody>
-                    {rowsDeposit
+                    {depositToken
                       .slice(
                         page * rowsPerPage,
                         page * rowsPerPage + rowsPerPage
                       )
-                      .map((row) => {
+                      .map((row, index) => {
                         return (
                           <TableRow
                             hover
                             role="checkbox"
                             tabIndex={-1}
-                            key={row.code}
+                            key={index}
                           >
-                            {columns.map((column) => {
+                            {columnsDeposit.map((column) => {
                               const value = row[column.id];
                               return (
                                 <TableCell
@@ -149,9 +136,7 @@ export default function Transaction() {
                                   align={column.align}
                                   sx={{ color: "#fff" }}
                                 >
-                                  {column.format && typeof value === "number"
-                                    ? column.format(value)
-                                    : value}
+                                  {value}
                                 </TableCell>
                               );
                             })}
@@ -172,7 +157,7 @@ export default function Transaction() {
                   }}
                   rowsPerPageOptions={[10, 25, 100]}
                   component="div"
-                  count={rowsDeposit.length}
+                  count={depositToken.length}
                   rowsPerPage={rowsPerPage}
                   page={page}
                   onPageChange={handleChangePage}
@@ -187,7 +172,7 @@ export default function Transaction() {
                 >
                   <TableHead>
                     <TableRow>
-                      {columns.map((column) => (
+                      {columnswithdraw.map((column) => (
                         <TableCell
                           sx={{ bgcolor: "#272523", color: "#fff" }}
                           key={column.id}
@@ -201,20 +186,20 @@ export default function Transaction() {
                   </TableHead>
 
                   <TableBody>
-                    {rowsWithdraw
+                    {withdrawToken
                       .slice(
                         page * rowsPerPage,
                         page * rowsPerPage + rowsPerPage
                       )
-                      .map((row) => {
+                      .map((row, index) => {
                         return (
                           <TableRow
                             hover
                             role="checkbox"
                             tabIndex={-1}
-                            key={row.code}
+                            key={index}
                           >
-                            {columns.map((column) => {
+                            {columnswithdraw.map((column) => {
                               const value = row[column.id];
                               return (
                                 <TableCell
@@ -222,9 +207,7 @@ export default function Transaction() {
                                   align={column.align}
                                   sx={{ color: "#fff" }}
                                 >
-                                  {column.format && typeof value === "number"
-                                    ? column.format(value)
-                                    : value}
+                                  {value}
                                 </TableCell>
                               );
                             })}
@@ -245,7 +228,7 @@ export default function Transaction() {
                   }}
                   rowsPerPageOptions={[10, 25, 100]}
                   component="div"
-                  count={rowsWithdraw.length}
+                  count={withdrawToken.length}
                   rowsPerPage={rowsPerPage}
                   page={page}
                   onPageChange={handleChangePage}

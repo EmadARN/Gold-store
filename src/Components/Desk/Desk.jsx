@@ -104,8 +104,8 @@ const Desk = ({ goldStockPrice, walletDataToken }) => {
                     sx={{
                       width: "80%",
                       my: 1,
-                      fontWeight: "bold",
-                      fontSize: "22px",
+                      fontWeight: "600",
+                      fontSize: { xs: "18px", md: "22px" },
                       color: "#222",
                       bgcolor: obj.btnColor,
                       display: obj.displayBtn,

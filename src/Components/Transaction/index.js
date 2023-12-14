@@ -3,7 +3,13 @@ import Transaction from "./Transaction";
 import TransactionGold from "./TransactionGold";
 import { Box, Typography } from "@mui/material";
 
-export const TransactionList = () => {
+export const TransactionList = ({
+  withdrawToken,
+  depositToken,
+  buyGold,
+  sellGold,
+  withdrawGold,
+}) => {
   return (
     <div>
       <Box sx={{ my: 4 }}>
@@ -33,7 +39,10 @@ export const TransactionList = () => {
             برداشت وجه
           </Typography>
         </Box>
-        <Transaction />
+        <Transaction
+          depositToken={depositToken}
+          withdrawToken={withdrawToken}
+        />
       </Box>
       <Box sx={{ my: 6 }}>
         <Typography
@@ -48,7 +57,11 @@ export const TransactionList = () => {
         >
           خرید و فروش (طلا)
         </Typography>
-        <TransactionGold />
+        <TransactionGold
+          buyGold={buyGold}
+          sellGold={sellGold}
+          withdrawGold={withdrawGold}
+        />
       </Box>
     </div>
   );

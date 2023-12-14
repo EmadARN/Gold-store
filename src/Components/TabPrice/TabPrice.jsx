@@ -312,7 +312,7 @@ const TabPrice = ({ tabPrice }) => {
               borderRadius: "10px",
             }}
           >
-            خرید
+            محاسبه قیمت
           </Button>
         </Box>
         <Box sx={{ display: "flex", justifyContent: "center" }}>
@@ -334,7 +334,7 @@ const TabPrice = ({ tabPrice }) => {
               borderColor: "#FFC436",
             }}
           >
-            فروش
+            محاسبه قیمت
           </Button>
         </Box>
       </SwipeableViews>
