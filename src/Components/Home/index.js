@@ -15,19 +15,20 @@ const HomeLand = ({ tabPrice }) => {
         <Grid ml={10} my={24} xs={12}>
           <DimondHeader />
           <DimondHeaderMobile />
+          <Grid
+            ml={5}
+            mt={8}
+            sx={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%,-50%)",
+            }}
+          >
+            <ArrowBottom />
+          </Grid>
         </Grid>
-        <Grid
-          ml={5}
-          mt={8}
-          sx={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%,-50%)",
-          }}
-        >
-          <ArrowBottom />
-        </Grid>
+
         <Grid
           container
           sx={{
