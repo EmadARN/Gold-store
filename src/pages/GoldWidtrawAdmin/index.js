@@ -5,11 +5,9 @@ import { parseCookies } from "nookies";
 import axios from "axios";
 import { IPServer } from "@/Config";
 const GoldWidtrawAdmin = ({ AllGoldWidthrawReq }) => {
-
-  
   return (
     <UserDashboard DrawerObj={DrawerObjAdmin} indexBtn={3}>
-      <GoldWidtrawComponent AllGoldWidthrawReq={AllGoldWidthrawReq}/>
+      <GoldWidtrawComponent AllGoldWidthrawReq={AllGoldWidthrawReq} />
     </UserDashboard>
   );
 };
@@ -35,11 +33,22 @@ export async function getServerSideProps(context) {
         }
       );
 
-      AllGoldWidthrawReq= GoldWidthraw;
-      GoldWidthrawErrToken="200";
+      AllGoldWidthrawReq = GoldWidthraw;
+      GoldWidthrawErrToken = "200";
     } catch (error) {
-      AllGoldWidthrawReq: "";
-      GoldWidthrawErrToken: "400";
+      AllGoldWidthrawReq = error.response.data;
+      GoldWidthrawErrToken = "400";
+      if (
+        error.response.data.detail ==
+        "You do not have permission to perform this action."
+      ) {
+        return {
+          redirect: {
+            permanent: false,
+            destination: "/",
+          },
+        };
+      }
     }
   }
 

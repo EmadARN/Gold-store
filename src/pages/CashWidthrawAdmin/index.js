@@ -38,8 +38,19 @@ export async function getServerSideProps(context) {
       AllCustomersWidthrawRequest = WidthrawReq;
       CustomersWidthrawRequestTokenError = "200";
     } catch (error) {
-        AllCustomersWidthrawRequest = "";
-        CustomersWidthrawRequestTokenError = "400";
+      AllCustomersWidthrawRequest = error.response.data;
+      CustomersWidthrawRequestTokenError = "400";
+      if (
+        error.response.data.detail ==
+        "You do not have permission to perform this action."
+      ) {
+        return {
+          redirect: {
+            permanent: false,
+            destination: "/",
+          },
+        };
+      }
     }
   }
 

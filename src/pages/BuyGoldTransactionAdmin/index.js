@@ -34,8 +34,19 @@ export async function getServerSideProps(ctx) {
       transactionList = transactionList2;
       transactionListError = "200";
     } catch (error) {
-      transactionList = "";
+      transactionList = error.response.data;
       transactionListError = "400";
+      if (
+        error.response.data.detail ==
+        "You do not have permission to perform this action."
+      ) {
+        return {
+          redirect: {
+            permanent: false,
+            destination: "/",
+          },
+        };
+      }
     }
   } else {
     return {

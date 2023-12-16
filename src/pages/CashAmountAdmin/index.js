@@ -5,11 +5,9 @@ import axios from "axios";
 import { IPServer } from "@/Config";
 import { parseCookies } from "nookies";
 const CashAmountPage = ({ AllMembers, AllMembersTokenError }) => {
-  
-
   return (
     <UserDashboard DrawerObj={DrawerObjAdmin} indexBtn={1}>
-      <CashAmount  AllMembers={AllMembers}/>
+      <CashAmount AllMembers={AllMembers} />
     </UserDashboard>
   );
 };
@@ -26,7 +24,7 @@ export async function getServerSideProps(context) {
 
   if (token) {
     try {
-      const { data: walletDataToken2 } = await axios.get(
+      const { data: AllMembersToken2 } = await axios.get(
         `${IPServer}/AdminDashboard-DeskPage/users-information-list/`,
         {
           headers: {
@@ -35,11 +33,22 @@ export async function getServerSideProps(context) {
         }
       );
 
-      AllMembers = walletDataToken2;
+      AllMembers = AllMembersToken2;
       AllMembersTokenError = "200";
     } catch (error) {
-      AllMembers = "";
+      AllMembers = error.response.data;
       AllMembersTokenError = "400";
+      if (
+        error.response.data.detail ==
+        "You do not have permission to perform this action."
+      ) {
+        return {
+          redirect: {
+            permanent: false,
+            destination: "/",
+          },
+        };
+      }
     }
   } else {
     return {

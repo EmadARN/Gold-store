@@ -5,10 +5,12 @@ import React from "react";
 import axios from "axios";
 import { parseCookies } from "nookies";
 import { IPServer } from "@/Config";
+
 const GoldAmount = ({ settingData, settingDataError }) => {
+  console.log("Error:", settingData);
   return (
     <UserDashboard DrawerObj={DrawerObjAdmin} indexBtn={8}>
-      <GoldAmountMain settingData={settingData.data} />
+      <GoldAmountMain settingData={{}} />
     </UserDashboard>
   );
 };
@@ -36,8 +38,19 @@ export async function getServerSideProps(ctx) {
       settingData = settingData2;
       settingDataError = "200";
     } catch (error) {
-      settingData = "";
+      settingData = error.response.data;
       settingDataError = "400";
+      if (
+        error.response.data.detail ==
+        "You do not have permission to perform this action."
+      ) {
+        return {
+          redirect: {
+            permanent: false,
+            destination: "/",
+          },
+        };
+      }
     }
   } else {
     return {

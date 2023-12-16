@@ -35,8 +35,19 @@ export async function getServerSideProps(ctx) {
       settingData = settingData2;
       settingDataError = "200";
     } catch (error) {
-      settingData = "";
+      settingData = error.response.data;
       settingDataError = "400";
+      if (
+        error.response.data.detail ==
+        "You do not have permission to perform this action."
+      ) {
+        return {
+          redirect: {
+            permanent: false,
+            destination: "/",
+          },
+        };
+      }
     }
   } else {
     return {

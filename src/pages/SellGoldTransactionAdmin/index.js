@@ -37,8 +37,19 @@ export async function getServerSideProps(context) {
       sellGoldAdmin = sellGoldAdmin2;
       sellGoldAdminErrToken = "200";
     } catch (error) {
-      sellGoldAdmin: "";
-      sellGoldAdminErrToken: "400";
+      sellGoldAdmin = error.response.data;
+      sellGoldAdminErrToken = "400";
+      if (
+        error.response.data.detail ==
+        "You do not have permission to perform this action."
+      ) {
+        return {
+          redirect: {
+            permanent: false,
+            destination: "/",
+          },
+        };
+      }
     }
   }
 
