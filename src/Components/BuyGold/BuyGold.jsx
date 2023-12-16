@@ -34,16 +34,12 @@ const BuyGold = ({ walletDataToken, goldStockPrice }) => {
 
   // onChange Price
   const handleTextFieldChange = (event) => {
-    const newValue = numeral(event.target.value).format("0,0");
-    setTextFieldValue(newValue);
+    var newValue = numeral(event.target.value);
+    setTextFieldValue(newValue.format("0,0"));
 
-    if (value == 0) {
-      const goldValue =
-        parseFloat(newValue.replace(",", "")) /
-        parseFloat(string.replace(",", ""));
-
-      setGoldTextField(goldValue.toFixed(3));
-    }
+    const goldValue =
+      parseFloat(newValue.value()) / parseFloat(string.replace(",", ""));
+    setGoldTextField(goldValue.toFixed(3));
   };
 
   //onChange Gold
@@ -51,10 +47,8 @@ const BuyGold = ({ walletDataToken, goldStockPrice }) => {
     const newValue = event.target.value;
     setGoldTextField(newValue);
 
-    if (value == 0) {
-      const goldValue = newValue * parseFloat(string.replace(",", ""));
-      setTextFieldValue(numeral(goldValue).format("0,0"));
-    }
+    const goldValue = newValue * parseFloat(string.replace(",", ""));
+    setTextFieldValue(numeral(goldValue).format("0,0"));
   };
   var string = numeral(goldStockPrice.buy_price).format("0,0");
   return (
@@ -250,31 +244,33 @@ const BuyGold = ({ walletDataToken, goldStockPrice }) => {
             onClick={async (e) => {
               e.preventDefault();
 
-              await axios.post(
-                `${IPServer}/UserDashboard-GoldBuySale/buy-gold/`,
-                {
-                  gold_amount: parseFloat(goldValue.value),
-                },
-                {
-                  headers: {
-                    Authorization: `Token ${cookies.token}`,
+              await axios
+                .post(
+                  `${IPServer}/UserDashboard-GoldBuySale/buy-gold/`,
+                  {
+                    gold_amount: parseFloat(goldTextField),
                   },
-                }
-              );
-              // .then((res) => {
-              //   Swal.fire({
-              //     title: res.response - fa,
-              //     text: "در صورت بروزرسانی نشدن کیف پول با ما تماس بگیرد!!!",
-              //     icon: "success",
-              //   });
-              // })
-              // .catch((err) => {
-              //   Swal.fire({
-              //     title: err.response - fa,
-              //     text: "در صورت بروزرسانی نشدن کیف پول با ما تماس بگیرد!!!",
-              //     icon: "success",
-              //   });
-              // });
+                  {
+                    headers: {
+                      Authorization: `Token ${cookies.token}`,
+                    },
+                  }
+                )
+                .then((res) => {
+                  Swal.fire({
+                    title: res.data.responseFA,
+
+                    text: "در صورت بوجود آمدن مشکل با پشتیبانی تماس بگیرید ",
+                    icon: "success",
+                  });
+                })
+                .catch((err) => {
+                  Swal.fire({
+                    title: err.data.responseFA,
+                    text: "در صورت بوجود آمدن مشکل با پشتیبانی تماس بگیرید ",
+                    icon: "error",
+                  });
+                });
             }}
             variant="outlined"
             value={value}

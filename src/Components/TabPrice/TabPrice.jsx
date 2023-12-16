@@ -76,19 +76,17 @@ const TabPrice = ({ tabPrice }) => {
 
   // onChange Price
   const handleTextFieldChange = (event) => {
-    const newValue = numeral(event.target.value).format("0,0");
-    setTextFieldValue(newValue);
+    var newValue = numeral(event.target.value);
+    setTextFieldValue(newValue.format("0,0"));
 
     if (value == 0) {
       const goldValue =
-        parseFloat(newValue.replace(",", "")) /
-        parseFloat(string.replace(",", ""));
+        parseFloat(newValue.value()) / parseFloat(string.replace(",", ""));
 
       setGoldTextField(goldValue.toFixed(3));
     } else {
       const goldValue =
-        parseFloat(newValue.replace(",", "")) /
-        parseFloat(string2.replace(",", ""));
+        parseFloat(newValue.value()) / parseFloat(string.replace(",", ""));
 
       setGoldTextField(goldValue.toFixed(3));
     }

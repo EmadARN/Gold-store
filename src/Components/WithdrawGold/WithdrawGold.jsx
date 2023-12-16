@@ -14,6 +14,7 @@ import createCache from "@emotion/cache";
 import { IPServer } from "@/Config";
 import axios from "axios";
 import { useCookies } from "react-cookie";
+import Swal from "sweetalert2";
 
 const themee = createTheme({
   direction: "rtl",
@@ -30,7 +31,6 @@ const WithdrawGold = ({ walletDataToken }) => {
     const newValue = { ...goldAmount, value: event.target.value };
     setGoldAmount(newValue);
   };
-
 
   const [cookies] = useCookies(["token"]);
   return (
@@ -130,10 +130,18 @@ const WithdrawGold = ({ walletDataToken }) => {
                         }
                       )
                       .then((res) => {
-                        console.log(res);
+                        Swal.fire({
+                          title: res.data.responseFA,
+                          text: "در صورت بوجود آمدن مشکل با پشتیبانی تماس بگیرید ",
+                          icon: "success",
+                        });
                       })
                       .catch((err) => {
-                        console.log(err);
+                        Swal.fire({
+                          // title: err.data.responseFA,
+                          text: "در صورت بوجود آمدن مشکل با پشتیبانی تماس بگیرید ",
+                          icon: "error",
+                        });
                       });
                   }}
                 >

@@ -7,8 +7,6 @@ import { parseCookies } from "nookies";
 import React from "react";
 
 const WithdrawPage = ({ WalletData, wallettTokenError }) => {
-  console.log(WalletData);
-  console.log(wallettTokenError);
   return (
     <UserDashboard DrawerObj={DrawerObj} indexBtn={3}>
       <WithdrawList WalletData={WalletData} />

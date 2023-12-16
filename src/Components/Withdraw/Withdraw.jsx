@@ -6,7 +6,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import rtlPlugin from "stylis-plugin-rtl";
 import { CacheProvider } from "@emotion/react";
@@ -15,6 +15,7 @@ import numeral from "numeral";
 import { IPServer } from "@/Config";
 import axios from "axios";
 import { useCookies } from "react-cookie";
+import Swal from "sweetalert2";
 const themee = createTheme({
   direction: "rtl",
 });
@@ -28,12 +29,31 @@ const Withdraw = (props) => {
   const [open, setOpen] = React.useState(true);
   const [textFieldValue, setTextFieldValue] = React.useState("");
   const [cookies, setCookie] = useCookies(["token"]);
-  
+
   const handleTextFieldChange = (event) => {
     const newValue = numeral(event.target.value).format("0,0");
     setTextFieldValue(newValue);
   };
-
+  useEffect(() => {
+    Swal.fire({
+      title:
+        " در صورت ناموفق بودن برداشت!! \n 1)     موجودی کیف پول بررسی شود.\n 2) در غیر اینصورت با پشتیبانی تماس بگیرید",
+      showClass: {
+        popup: `
+          animate__animated
+          animate__fadeInUp
+          animate__faster
+        `,
+      },
+      hideClass: {
+        popup: `
+          animate__animated
+          animate__fadeOutDown
+          animate__faster
+        `,
+      },
+    });
+  }, [1]);
   return (
     <Box
       sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
@@ -121,10 +141,18 @@ const Withdraw = (props) => {
                         }
                       )
                       .then((res) => {
-                        
+                        Swal.fire({
+                          title: "برداشت با موفقیت",
+                          text: "در صورت بوجود آمدن مشکل با پشتیبانی تماس بگیرید ",
+                          icon: "success",
+                        });
                       })
                       .catch((err) => {
-                       
+                        Swal.fire({
+                          title: "برداشت نا موفق",
+                          text: "در صورت بوجود آمدن مشکل با پشتیبانی تماس بگیرید ",
+                          icon: "error",
+                        });
                       });
                   }}
                   sx={{

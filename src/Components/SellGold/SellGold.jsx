@@ -16,6 +16,7 @@ import numeral from "numeral";
 import { useCookies } from "react-cookie";
 import axios from "axios";
 import { IPServer } from "@/Config";
+import Swal from "sweetalert2";
 const themee = createTheme({
   direction: "rtl",
 });
@@ -33,16 +34,13 @@ const SellGold = ({ walletDataToken, goldStockPrice }) => {
 
   // onChange Price
   const handleTextFieldChange = (event) => {
-    const newValue = numeral(event.target.value).format("0,0");
-    setTextFieldValue(newValue);
+    var newValue = numeral(event.target.value);
+    setTextFieldValue(newValue.format("0,0"));
 
-    if (value == 0) {
-      const goldValue =
-        parseFloat(newValue.replace(",", "")) /
-        parseFloat(string.replace(",", ""));
-
-      setGoldTextField(goldValue.toFixed(3));
-    }
+    const goldValue =
+      parseFloat(newValue.value()) / parseFloat(string.replace(",", ""));
+    console.log(parseFloat(parseFloat(newValue.value())));
+    setGoldTextField(goldValue.toFixed(3));
   };
 
   //onChange Gold
@@ -50,11 +48,11 @@ const SellGold = ({ walletDataToken, goldStockPrice }) => {
     const newValue = event.target.value;
     setGoldTextField(newValue);
 
-    if (value == 0) {
-      const goldValue = newValue * parseFloat(string.replace(",", ""));
-      setTextFieldValue(numeral(goldValue).format("0,0"));
-    }
+    const goldValue = newValue * parseFloat(string.replace(",", ""));
+    setTextFieldValue(numeral(goldValue).format("0,0"));
   };
+
+  //Sell price
   var string = numeral(goldStockPrice.sale_price).format("0,0");
 
   return (
@@ -253,7 +251,7 @@ const SellGold = ({ walletDataToken, goldStockPrice }) => {
                 .post(
                   `${IPServer}/UserDashboard-GoldBuySale/sale-gold/`,
                   {
-                    gold_amount: parseFloat(goldTextField.value),
+                    gold_amount: parseFloat(goldTextField),
                   },
                   {
                     headers: {
@@ -261,8 +259,20 @@ const SellGold = ({ walletDataToken, goldStockPrice }) => {
                     },
                   }
                 )
-                .then((res) => {})
-                .catch((err) => {});
+                .then((res) => {
+                  Swal.fire({
+                    title: res.data.responseFA,
+                    text: "در صورت بوجود آمدن مشکل با پشتیبانی تماس بگیرید ",
+                    icon: "success",
+                  });
+                })
+                .catch((err) => {
+                  Swal.fire({
+                    // title: err.data.responseFA,
+                    text: "در صورت بوجود آمدن مشکل با پشتیبانی تماس بگیرید ",
+                    icon: "error",
+                  });
+                });
             }}
             variant="outlined"
             value={value}
