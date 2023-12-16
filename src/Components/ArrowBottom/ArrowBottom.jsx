@@ -56,8 +56,8 @@ const ArrowBottom = () => {
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
-        mr: 7,
-        mt: 10,
+        mr: { xs: 8.3, xl: 10 },
+        mt: { xs: 15, lg: 25, xl: 20 },
         "@media (max-width:912px)": {
           display: "none",
         },
