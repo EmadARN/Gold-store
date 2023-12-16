@@ -7,10 +7,10 @@ import { parseCookies } from "nookies";
 import { IPServer } from "@/Config";
 
 const GoldAmount = ({ settingData, settingDataError }) => {
-  console.log("Error:", settingData);
+  console.log(settingData);
   return (
     <UserDashboard DrawerObj={DrawerObjAdmin} indexBtn={8}>
-      <GoldAmountMain settingData={{}} />
+      <GoldAmountMain settingData={{ settingData }} />
     </UserDashboard>
   );
 };

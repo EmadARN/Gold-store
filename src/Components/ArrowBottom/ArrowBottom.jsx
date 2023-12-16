@@ -55,7 +55,7 @@ const ArrowBottom = () => {
         display: "grid",
         placeItems: "center",
         mr: { xs: 8.3 },
-        mt: { xs: 15, lg: 25, xl: 20 },
+        mt: { xs: 10, lg: 15, xl: 20 },
         "@media (max-width:912px)": {
           display: "none",
         },
