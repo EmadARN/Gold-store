@@ -264,11 +264,12 @@ const SellGold = ({ walletDataToken, goldStockPrice }) => {
                     title: res.data.responseFA,
                     text: "در صورت بوجود آمدن مشکل با پشتیبانی تماس بگیرید ",
                     icon: "success",
-                  });
+                  }).then(() => window.location.reload());
                 })
                 .catch((err) => {
                   Swal.fire({
-                    // title: err.data.responseFA,
+                    title: err.response.data.responseFA,
+
                     text: "در صورت بوجود آمدن مشکل با پشتیبانی تماس بگیرید ",
                     icon: "error",
                   });
