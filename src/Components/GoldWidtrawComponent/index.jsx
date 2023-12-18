@@ -7,6 +7,7 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import { Container } from "@mui/material";
 import PropTypes from "prop-types";
+import Swal from "sweetalert2";
 import axios from "axios";
 import { IPServer } from "@/Config";
 import { useCookies } from "react-cookie";
@@ -22,6 +23,7 @@ const GoldWidtrawComponent = ({AllGoldWidthrawReq}) => {
   };
 
   const unAccepthandler =(e)=>{
+    e.preventDefault();
     setUn_acc_customer_id(e.target.name);
     axios.post(`${IPServer}/AdminDashboard-GetRequest/prove-gold-get-request/`,
     {
@@ -34,10 +36,18 @@ const GoldWidtrawComponent = ({AllGoldWidthrawReq}) => {
     }
     ).then((res)=>{
       
-      window.location.reload()
+      Swal.fire({
+        title: res.data.responseFA,
+        text: "در صورت بوجود آمدن مشکل با پشتیبانی تماس بگیرید ",
+        icon: "success",
+      }).then(() => window.location.reload());
      
     }).catch((err)=>{
-      console.log(err);
+      Swal.fire({
+        title: err.response.data.responseFA,
+        text: "در صورت بوجود آمدن مشکل با پشتیبانی تماس بگیرید ",
+        icon: "error",
+      });
     })
   }
 
