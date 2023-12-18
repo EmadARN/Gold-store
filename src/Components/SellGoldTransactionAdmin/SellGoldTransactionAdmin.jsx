@@ -10,6 +10,7 @@ import PropTypes from "prop-types";
 import axios from "axios";
 import { IPServer } from "@/Config";
 import { useCookies } from "react-cookie";
+import Swal from "sweetalert2";
 
 const SellGoldTransactionAdmin = ({ sellGoldAdmin }) => {
   const [value, setValue] = React.useState(0);
@@ -23,6 +24,7 @@ const SellGoldTransactionAdmin = ({ sellGoldAdmin }) => {
   };
 
   const unAccepthandler = (e) => {
+    e.preventDefault();
     setUn_acc_customer_id(e.target.name);
 
     axios
@@ -38,10 +40,19 @@ const SellGoldTransactionAdmin = ({ sellGoldAdmin }) => {
         }
       )
       .then((res) => {
-        window.location.reload();
+        Swal.fire({
+          title: res.data.responseFA,
+          text: "در صورت بوجود آمدن مشکل با پشتیبانی تماس بگیرید ",
+          icon: "success",
+        }).then(() => window.location.reload());
       })
       .catch((err) => {
-        console.log(err);
+       
+        Swal.fire({
+          title: err.response.data.responseFA,
+          text: "در صورت بوجود آمدن مشکل با پشتیبانی تماس بگیرید ",
+          icon: "error",
+        });
       });
   };
 
@@ -122,7 +133,7 @@ const SellGoldTransactionAdmin = ({ sellGoldAdmin }) => {
       sortable: false,
       width: 180,
       renderCell: (params) => {
-        console.log(params);
+    
         return (
           <Box display="flex">
             <Button
