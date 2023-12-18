@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { DataGrid, faIR } from "@mui/x-data-grid";
-import { Grid, Box, Typography, Button } from "@mui/material";
+import { Grid, Box, Typography, Button,Paper } from "@mui/material";
 import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
@@ -299,7 +299,15 @@ const SellGoldTransactionAdmin = ({ sellGoldAdmin }) => {
               />
             </Tabs>
           </Box>
+        
           <TabPanel value={value} index={0}>
+          <Paper
+            sx={{
+              width: "100%",
+              overflow: "hidden",
+              display: "grid",
+              placeItems: "center",
+            }}>
             <DataGrid
               sx={{
                 "& .css-t89xny-MuiDataGrid-columnHeaderTitle": {
@@ -333,9 +341,18 @@ const SellGoldTransactionAdmin = ({ sellGoldAdmin }) => {
               }}
               pageSizeOptions={[5, 10]}
             />
+             </Paper>
           </TabPanel>
+         
 
           <TabPanel value={value} index={1}>
+          <Paper
+            sx={{
+              width: "100%",
+               overflow: "hidden",
+              display: "grid",
+               placeItems: "center",
+            }}>
             <DataGrid
               sx={{
                 "& .css-t89xny-MuiDataGrid-columnHeaderTitle": {
@@ -369,6 +386,7 @@ const SellGoldTransactionAdmin = ({ sellGoldAdmin }) => {
               }}
               pageSizeOptions={[5, 10]}
             />
+             </Paper>
           </TabPanel>
         </Container>
       </ThemeProvider>
