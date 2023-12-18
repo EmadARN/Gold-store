@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { DataGrid, faIR } from "@mui/x-data-grid";
-import { Grid, Box, Typography, Button } from "@mui/material";
+import { Grid, Box, Typography, Button ,Paper} from "@mui/material";
 import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
@@ -288,8 +288,17 @@ const GoldWidtrawComponent = ({AllGoldWidthrawReq}) => {
             </Tabs>
           </Box>
           <TabPanel value={value} index={0}>
-          <DataGrid
+          <Box
             sx={{
+              width: "100%",
+               overflow: "hidden",
+              display: "grid",
+               placeItems: "center",
+            }}>
+          <DataGrid
+          
+            sx={{
+           
               "& .css-t89xny-MuiDataGrid-columnHeaderTitle": {
                 margin: "0 25px",
               },
@@ -322,9 +331,17 @@ const GoldWidtrawComponent = ({AllGoldWidthrawReq}) => {
             pageSizeOptions={[5, 10]}
            
           />
+          </Box>
           </TabPanel>
 
           <TabPanel value={value} index={1}>
+          <Paper
+            sx={{
+              width: "100%",
+               overflow: "hidden",
+              display: "grid",
+               placeItems: "center",
+            }}>
           <DataGrid
             sx={{
               "& .css-t89xny-MuiDataGrid-columnHeaderTitle": {
@@ -346,7 +363,7 @@ const GoldWidtrawComponent = ({AllGoldWidthrawReq}) => {
 
               bgcolor: "#272523",
               color: "#fff",
-              maxWidth: { xs: "100%" },
+              width: { xs: "100%" },
             }}
             density="comfortable"
             rows={AllWidthrawReq}
@@ -359,6 +376,7 @@ const GoldWidtrawComponent = ({AllGoldWidthrawReq}) => {
             pageSizeOptions={[5, 10]}
        
           />
+         </Paper>
           </TabPanel>
 
         </Container>
