@@ -15,6 +15,7 @@ import numeral from "numeral";
 import { IPServer } from "@/Config";
 import axios from "axios";
 import { useCookies } from "react-cookie";
+import Swal from "sweetalert2";
 const themee = createTheme({
   direction: "rtl",
 });
@@ -124,9 +125,21 @@ const WithdrawAdmin = (props) => {
                         }
                       )
                       .then((res) => {
-                        window.location.reload();
+                      
+                         Swal.fire({
+                           title: res.data.responseFA,
+                           text: "در صورت بوجود آمدن مشکل با پشتیبانی تماس بگیرید ",
+                           icon: "success",
+                         }).then(() => window.location.reload());
                       })
-                      .catch((err) => {});
+                      .catch((err) => {
+                        console.log(err);
+                         Swal.fire({
+                           title: err.response.data.responseFA,
+                           text: "در صورت بوجود آمدن مشکل با پشتیبانی تماس بگیرید ",
+                          icon: "error",
+                         });
+                      });
                   }}
                   sx={{
                     width: "100%",
