@@ -76,7 +76,7 @@ const Footer = (props) => {
               </Link>
             </Box>
 
-            <Box>
+            <Box mb={2}>
               <Link href="Contact" style={{ textDecoration: "none" }}>
                 <FooterButton variant="standard"> ارتباط با ما </FooterButton>
               </Link>
