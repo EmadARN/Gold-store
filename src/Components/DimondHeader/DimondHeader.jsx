@@ -1,6 +1,7 @@
-import { Box, styled } from "@mui/material";
+import { Box, Grid, styled } from "@mui/material";
 
 import React, { useEffect, useState } from "react";
+import ArrowBottom from "../ArrowBottom/ArrowBottom";
 const Ul = styled("ul")(({ theme }) => ({
   position: "relative",
   width: "600px",
@@ -166,7 +167,9 @@ const DimondHeader = () => {
         <Li1 className="li1">
           <Boxin1></Boxin1>
         </Li1>
-
+        <Grid sx={{}}>
+          <ArrowBottom />
+        </Grid>
         <Li2 className="li2">
           <Boxin2>بازار 24 ساعته</Boxin2>
         </Li2>
