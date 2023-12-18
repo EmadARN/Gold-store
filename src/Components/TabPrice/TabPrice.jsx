@@ -64,6 +64,7 @@ const TabPrice = ({ tabPrice }) => {
   const [value, setValue] = React.useState(0);
   const [textFieldValue, setTextFieldValue] = React.useState();
   const [goldTextField, setGoldTextField] = React.useState();
+  const [colorTab, setColorTab] = React.useState(false);
 
   //change TabIndex
   const handleChange = (event, newValue) => {
@@ -77,18 +78,22 @@ const TabPrice = ({ tabPrice }) => {
   // onChange Price
   const handleTextFieldChange = (event) => {
     var newValue = numeral(event.target.value);
-    setTextFieldValue(newValue.format("0,0"));
+    var newValueFormat = newValue.format("0,0");
+    setTextFieldValue(newValueFormat);
 
     if (value == 0) {
       const goldValue =
-        parseFloat(newValue.value()) / parseFloat(string.replace(",", ""));
+        parseFloat(newValue.value()) / parseFloat(string1.value());
 
       setGoldTextField(goldValue.toFixed(3));
     } else {
       const goldValue =
-        parseFloat(newValue.value()) / parseFloat(string.replace(",", ""));
+        parseFloat(newValue.value()) / parseFloat(string3.value());
 
       setGoldTextField(goldValue.toFixed(3));
+    }
+    if (newValueFormat == 0) {
+      setGoldTextField(0);
     }
   };
 
@@ -98,17 +103,20 @@ const TabPrice = ({ tabPrice }) => {
     setGoldTextField(newValue);
 
     if (value == 0) {
-      const goldValue = newValue * parseFloat(string.replace(",", ""));
+      const goldValue = parseFloat(newValue) * parseFloat(string1.value());
       setTextFieldValue(numeral(goldValue).format("0,0"));
     } else {
-      const goldValue = newValue * parseFloat(string2.replace(",", ""));
+      const goldValue = parseFloat(newValue) * parseFloat(string3.value());
       setTextFieldValue(numeral(goldValue).format("0,0"));
     }
   };
 
   //Format PriceTab
-  var string = numeral(tabPrice1.tabPrice.buy_price).format("0,0");
-  var string2 = numeral(tabPrice1.tabPrice.sale_price).format("0,0");
+  var string1 = numeral(tabPrice1.tabPrice.buy_price);
+  var string2 = string1.format("0,0");
+  var string3 = numeral(tabPrice1.tabPrice.sale_price);
+  var string4 = string3.format("0,0");
+
   return (
     <Paper
       sx={{
@@ -137,7 +145,7 @@ const TabPrice = ({ tabPrice }) => {
             قیمت خرید
           </Typography>
           <Box sx={{ color: "green", display: "flex", fontSize: "20px" }}>
-            {string}
+            {string2}
 
             <Typography sx={{ color: "green", pr: 1, fontSize: "20px" }}>
               ریال
@@ -155,7 +163,7 @@ const TabPrice = ({ tabPrice }) => {
             قیمت فروش
           </Typography>
           <Box sx={{ color: "red", display: "flex", fontSize: "20px" }}>
-            {string2}
+            {string4}
 
             <Typography sx={{ color: "red", pr: 1, fontSize: "20px" }}>
               ریال
@@ -198,15 +206,23 @@ const TabPrice = ({ tabPrice }) => {
               aria-label="full width tabs example"
             >
               <Tab
+                sx={{
+                  bgcolor: colorTab ? null : "#FFC436 !important",
+                  color: colorTab ? null : "#444 !important",
+                }}
                 onClick={() => {
-                  setGoldTextField(0), setTextFieldValue(0);
+                  setGoldTextField(0), setTextFieldValue(0), setColorTab(false);
                 }}
                 label="خرید"
                 {...a11yProps(0)}
               />
               <Tab
+                sx={{
+                  bgcolor: colorTab ? "#FFC436 !important" : null,
+                  color: colorTab ? "#444 !important" : null,
+                }}
                 onClick={() => {
-                  setGoldTextField(0), setTextFieldValue(0);
+                  setGoldTextField(0), setTextFieldValue(0), setColorTab(true);
                 }}
                 label="فروش"
                 {...a11yProps(1)}

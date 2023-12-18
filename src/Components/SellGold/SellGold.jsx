@@ -32,15 +32,24 @@ const SellGold = ({ walletDataToken, goldStockPrice }) => {
   const [textFieldValue, setTextFieldValue] = React.useState();
   const [goldTextField, setGoldTextField] = React.useState();
 
+  //Sell price
+  var string1 = numeral(goldStockPrice.sale_price);
+  var string2 = string1.format("0,0");
+
   // onChange Price
   const handleTextFieldChange = (event) => {
     var newValue = numeral(event.target.value);
-    setTextFieldValue(newValue.format("0,0"));
+    var newValueFormat = newValue.format("0,0");
+    setTextFieldValue(newValueFormat);
 
     const goldValue =
-      parseFloat(newValue.value()) / parseFloat(string.replace(",", ""));
-    console.log(parseFloat(parseFloat(newValue.value())));
+      parseFloat(newValue.value()) / parseFloat(string1.value());
+
     setGoldTextField(goldValue.toFixed(3));
+
+    if (newValueFormat == 0) {
+      setGoldTextField(0);
+    }
   };
 
   //onChange Gold
@@ -48,12 +57,28 @@ const SellGold = ({ walletDataToken, goldStockPrice }) => {
     const newValue = event.target.value;
     setGoldTextField(newValue);
 
-    const goldValue = newValue * parseFloat(string.replace(",", ""));
+    const goldValue = parseFloat(newValue) * parseFloat(string1.value());
     setTextFieldValue(numeral(goldValue).format("0,0"));
   };
+  // // onChange Price
+  // const handleTextFieldChange = (event) => {
+  //   var newValue = numeral(event.target.value);
+  //   setTextFieldValue(newValue.format("0,0"));
 
-  //Sell price
-  var string = numeral(goldStockPrice.sale_price).format("0,0");
+  //   const goldValue =
+  //     parseFloat(newValue.value()) / parseFloat(string.replace(",", ""));
+  //   console.log(parseFloat(parseFloat(newValue.value())));
+  //   setGoldTextField(goldValue.toFixed(3));
+  // };
+
+  // //onChange Gold
+  // const goldTextFieldHandler = (event) => {
+  //   const newValue = event.target.value;
+  //   setGoldTextField(newValue);
+
+  //   const goldValue = newValue * parseFloat(string.replace(",", ""));
+  //   setTextFieldValue(numeral(goldValue).format("0,0"));
+  // };
 
   return (
     <Box
@@ -106,7 +131,7 @@ const SellGold = ({ walletDataToken, goldStockPrice }) => {
                     fontWeight: "bold",
                   }}
                 >
-                  {string}
+                  {string2}
                 </Typography>
                 <Typography
                   sx={{
@@ -291,21 +316,27 @@ const SellGold = ({ walletDataToken, goldStockPrice }) => {
               borderColor: "#FFC436",
             }}
           >
-            خرید
+            فروش
           </Button>
         </Box>
         <Box display="flex" justifyContent="space-evenly">
           <Box>
             <Typography variant="h6" sx={{ color: "#fff", pb: 2 }}>
               <span style={{ color: "rgb(255,172,25)" }}>کیف طلا:</span>
-              <span>{walletDataToken.wallet_gold_data}&nbsp;گرم</span>
+              <span>
+                {walletDataToken.wallet_gold_data}
+                &nbsp;گرم
+              </span>
             </Typography>
           </Box>
 
           <Box>
             <Typography variant="h6" sx={{ color: "#fff", pb: 2 }}>
               <span style={{ color: "rgb(255,172,25)" }}>کیف پول:</span>
-              <span>{walletDataToken.wallet_money_data}&nbsp;ریال</span>
+              <span>
+                {numeral(walletDataToken.wallet_money_data).format("0,0")}
+                &nbsp;ریال
+              </span>
             </Typography>
           </Box>
         </Box>

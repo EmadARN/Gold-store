@@ -32,14 +32,23 @@ const BuyGold = ({ walletDataToken, goldStockPrice }) => {
   const [textFieldValue, setTextFieldValue] = React.useState();
   const [goldTextField, setGoldTextField] = React.useState();
 
+  var string1 = numeral(goldStockPrice.buy_price);
+  var string2 = string1.format("0,0");
+
   // onChange Price
   const handleTextFieldChange = (event) => {
     var newValue = numeral(event.target.value);
-    setTextFieldValue(newValue.format("0,0"));
+    var newValueFormat = newValue.format("0,0");
+    setTextFieldValue(newValueFormat);
 
     const goldValue =
-      parseFloat(newValue.value()) / parseFloat(string.replace(",", ""));
+      parseFloat(newValue.value()) / parseFloat(string1.value());
+
     setGoldTextField(goldValue.toFixed(3));
+
+    if (newValueFormat == 0) {
+      setGoldTextField(0);
+    }
   };
 
   //onChange Gold
@@ -47,10 +56,10 @@ const BuyGold = ({ walletDataToken, goldStockPrice }) => {
     const newValue = event.target.value;
     setGoldTextField(newValue);
 
-    const goldValue = newValue * parseFloat(string.replace(",", ""));
+    const goldValue = parseFloat(newValue) * parseFloat(string1.value());
     setTextFieldValue(numeral(goldValue).format("0,0"));
   };
-  var string = numeral(goldStockPrice.buy_price).format("0,0");
+
   return (
     <Box
       sx={{
@@ -102,7 +111,7 @@ const BuyGold = ({ walletDataToken, goldStockPrice }) => {
                     fontWeight: "bold",
                   }}
                 >
-                  {string}
+                  {string2}
                 </Typography>
                 <Typography
                   sx={{
@@ -301,7 +310,10 @@ const BuyGold = ({ walletDataToken, goldStockPrice }) => {
           <Box>
             <Typography variant="h6" sx={{ color: "#fff", pb: 2 }}>
               <span style={{ color: "rgb(255,172,25)" }}>کیف پول:</span>
-              <span>{walletDataToken.wallet_money_data}&nbsp;ریال</span>
+              <span>
+                {numeral(walletDataToken.wallet_money_data).format("0,0")}
+                &nbsp;ریال
+              </span>
             </Typography>
           </Box>
         </Box>
