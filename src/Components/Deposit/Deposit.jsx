@@ -24,7 +24,7 @@ const cacheRtl = createCache({
 
 const Deposit = () => {
   const [textFieldValue, setTextFieldValue] = React.useState("");
-  const [open, setOpen] = React.useState(true);
+
   const handleTextFieldChange = (event) => {
     const newValue = numeral(event.target.value).format("0,0");
     setTextFieldValue(newValue);
