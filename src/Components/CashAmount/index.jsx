@@ -4,10 +4,9 @@ import { Box, Button, TextField, Grid, Typography } from "@mui/material";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
+
 import InputAdornment from "@mui/material/InputAdornment";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import Paper from "@mui/material/Paper";
@@ -58,7 +57,7 @@ const CashAmount = ({ AllMembers }) => {
         setCash(false)
          Swal.fire({
            title: res.data.responseFA,
-          text: "در صورت بوجود آمدن مشکل با پشتیبانی تماس بگیرید ",
+          text: " تغیرات با موفقیت اعمال شد ",
           icon: "success",
          }).then(() => window.location.reload());
       })
@@ -90,7 +89,7 @@ const CashAmount = ({ AllMembers }) => {
         setGoldPopUp(false)
         Swal.fire({
           title: res.data.responseFA,
-          text: "در صورت بوجود آمدن مشکل با پشتیبانی تماس بگیرید ",
+          text: "  تغیرات با موفقیت اعمال شد ",
           icon: "success",
         }).then(() => window.location.reload());
       })
