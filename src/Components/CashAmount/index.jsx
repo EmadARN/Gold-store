@@ -14,6 +14,7 @@ import Paper from "@mui/material/Paper";
 import { Container } from "@mui/material";
 import axios from "axios";
 import { useCookies } from "react-cookie";
+import Swal from "sweetalert2";
 import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import { IPServer } from "@/Config";
 
@@ -26,7 +27,7 @@ const CashAmount = ({ AllMembers }) => {
   const [goldAmount, setGoldAmount] = useState("");
   const [cashModalAmount, setCashModalAmount] = useState("");
   const [goldModalAmount, setGoldModalAmount] = useState("");
-  const [refreshPageState, setRefreshPageState] = useState(false);
+ 
 
   const handleClose = () => {
     setCash(false);
@@ -36,11 +37,9 @@ const CashAmount = ({ AllMembers }) => {
     setGoldPopUp(false);
   };
 
-  function refreshPage() {
-    window.location.reload(refreshPageState);
-  }
 
-  const updateCashAmount = async () => {
+  const updateCashAmount = async (e) => {
+    e.preventDefault();
     await axios
       .post(
         `${IPServer}/AdminDashboard-DeskPage/change-user-wallet-money-amount/`,
@@ -55,15 +54,25 @@ const CashAmount = ({ AllMembers }) => {
         }
       )
       .then((res) => {
-        handleClose();
-        refreshPage(setRefreshPageState(true));
+
+        setCash(false)
+         Swal.fire({
+           title: res.data.responseFA,
+          text: "در صورت بوجود آمدن مشکل با پشتیبانی تماس بگیرید ",
+          icon: "success",
+         }).then(() => window.location.reload());
       })
       .catch((err) => {
-        console.log(err);
+         Swal.fire({
+           title: err.response.data.responseFA,
+          text: "در صورت بوجود آمدن مشکل با پشتیبانی تماس بگیرید ",
+           icon: "error",
+         });
       });
   };
 
-  const updateGoldAmount = async () => {
+  const updateGoldAmount = async (e) => {
+    e.preventDefault();
     await axios
       .post(
         `${IPServer}/AdminDashboard-DeskPage/change-user-wallet-gold-amount/`,
@@ -78,12 +87,20 @@ const CashAmount = ({ AllMembers }) => {
         }
       )
       .then((res) => {
-        handleClose();
-        refreshPage(setRefreshPageState(true));
+        setGoldPopUp(false)
+        Swal.fire({
+          title: res.data.responseFA,
+          text: "در صورت بوجود آمدن مشکل با پشتیبانی تماس بگیرید ",
+          icon: "success",
+        }).then(() => window.location.reload());
       })
 
       .catch((err) => {
-        console.log(err);
+        Swal.fire({
+          title: err.response.data.responseFA,
+          text: "در صورت بوجود آمدن مشکل با پشتیبانی تماس بگیرید ",
+          icon: "error",
+        });
       });
   };
 
@@ -226,7 +243,7 @@ const CashAmount = ({ AllMembers }) => {
             <Button sx={{ color: "red" }} onClick={handleClose}>
               خروج
             </Button>
-            <Button sx={{ color: "#FFC436" }} onClick={updateCashAmount}>
+            <Button sx={{ color: "#FFC436" }} onClick={(e)=>updateCashAmount(e)}>
               تایید
             </Button>
           </DialogActions>
@@ -285,7 +302,7 @@ const CashAmount = ({ AllMembers }) => {
             <Button sx={{ color: "red" }} onClick={GoldPopUpClose}>
               خروج
             </Button>
-            <Button sx={{ color: "#FFC436" }} onClick={updateGoldAmount}>
+            <Button sx={{ color: "#FFC436" }} onClick={(e)=>updateGoldAmount(e)}>
               تایید
             </Button>
           </DialogActions>
