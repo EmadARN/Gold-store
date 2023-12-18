@@ -141,7 +141,7 @@ const WithdrawGold = ({ walletDataToken }) => {
                       })
                       .catch((err) => {
                         Swal.fire({
-                          // title: err.data.responseFA,
+                          title: err.response.data.responseFA,
                           text: "در صورت بوجود آمدن مشکل با پشتیبانی تماس بگیرید ",
                           icon: "error",
                         });
