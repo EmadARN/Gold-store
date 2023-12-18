@@ -32,6 +32,7 @@ const SellGoldTransactionAdmin = ({ sellGoldAdmin }) => {
         `${IPServer}/AdminDashboard-BuySale/prove-sale-request/`,
         {
           sale_request_id: un_acc_customer_id,
+          prove_status:"accept"
         },
         {
           headers: {
@@ -55,6 +56,36 @@ const SellGoldTransactionAdmin = ({ sellGoldAdmin }) => {
         });
       });
   };
+
+
+  const denyHandler =(e)=>{
+    e.preventDefault();
+    axios.post(`${IPServer}/AdminDashboard-BuySale/prove-sale-request/`,
+    {
+      sale_request_id: un_acc_customer_id,
+      prove_status:"reject"
+
+    },
+    {
+      headers:{
+        Authorization:`Token ${cookies.token}`
+      }
+    }
+    ).then((res)=>{
+      Swal.fire({
+        title: res.data.responseFA,
+        text: " تغیرات با موفقیت اعمال شد",
+        icon: "success",
+      }).then(() => window.location.reload());
+     
+    }).catch((err)=>{
+      Swal.fire({
+        title: err.response.data.responseFA,
+        text: "در صورت بوجود آمدن مشکل با پشتیبانی تماس بگیرید ",
+        icon: "error",
+      });
+    })
+  }
 
   function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -135,7 +166,8 @@ const SellGoldTransactionAdmin = ({ sellGoldAdmin }) => {
       renderCell: (params) => {
     
         return (
-          <Box display="flex">
+          <>
+          <Box mr={2} display="flex">
             <Button
               name={params.row.id}
               sx={{
@@ -152,6 +184,27 @@ const SellGoldTransactionAdmin = ({ sellGoldAdmin }) => {
               تایید
             </Button>
           </Box>
+            <Box display="flex" >
+            <Button
+            name={params.row.id}
+              sx={{
+             
+                backgroundColor: "#ea1212",
+                fontWeight:"bold",
+                color: "#111",
+                "&:hover": { backgroundColor: "#ed4444" },
+              }}
+              onClick={(e) => {
+                setUn_acc_customer_id(e.target.name);
+                denyHandler(e)
+              }}
+              variant="standard"
+            >
+              رد درخواست
+            </Button>
+           
+          </Box>
+          </>
         );
       },
     },
@@ -275,7 +328,7 @@ const SellGoldTransactionAdmin = ({ sellGoldAdmin }) => {
               columns={UnAcceptedReq}
               initialState={{
                 pagination: {
-                  paginationModel: { page: 0, pageSize: 5 },
+                  paginationModel: { page: 0, pageSize: 50 },
                 },
               }}
               pageSizeOptions={[5, 10]}
