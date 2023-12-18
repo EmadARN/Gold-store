@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 import axios from "axios";
 import { IPServer } from "@/Config";
 import { useCookies } from "react-cookie";
+import Swal from "sweetalert2";
 
 const CashWidtrawComponent = ({AllCustomersWidthrawRequest}) => {
   const [value, setValue] = React.useState(0);
@@ -27,7 +28,8 @@ const CashWidtrawComponent = ({AllCustomersWidthrawRequest}) => {
     setValue(newValue);
   };
 
-  const unAccepthandler =()=>{
+  const unAccepthandler =(e)=>{
+    e.preventDefault();
     axios.post(`${IPServer}/AdminDashboard-GetRequest/prove-money-get-request/`,
     {
       get_request_id: un_acc_customer_id
@@ -38,10 +40,18 @@ const CashWidtrawComponent = ({AllCustomersWidthrawRequest}) => {
       }
     }
     ).then((res)=>{
-      window.location.reload()
+      Swal.fire({
+        title: res.data.responseFA,
+        text: "در صورت بوجود آمدن مشکل با پشتیبانی تماس بگیرید ",
+        icon: "success",
+      }).then(() => window.location.reload());
      
     }).catch((err)=>{
-      console.log(err);
+      Swal.fire({
+        title: err.response.data.responseFA,
+        text: "در صورت بوجود آمدن مشکل با پشتیبانی تماس بگیرید ",
+        icon: "error",
+      });
     })
   }
 
@@ -173,7 +183,7 @@ function a11yProps(index) {
               }}
               onClick={(e) => {
                 setUn_acc_customer_id(e.target.name);
-                unAccepthandler()
+                unAccepthandler(e)
              
               }}
               variant="standard"
