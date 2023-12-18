@@ -40,7 +40,8 @@ const AccordionSummary = styled((props) => (
   backgroundColor:
     theme.palette.mode === "dark" ? "rgba(199,195,139,0.95)" : "#272523",
   color: "#fff",
-  borderRadius: "10px",
+  borderRadius: "1px",
+
   "&:hover": {
     backgroundColor: "#FFC436",
     color: "#030f27",
