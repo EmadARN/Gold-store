@@ -34,26 +34,26 @@ const Withdraw = (props) => {
     const newValue = numeral(event.target.value).format("0,0");
     setTextFieldValue(newValue);
   };
-  useEffect(() => {
-    Swal.fire({
-      title:
-        " در صورت ناموفق بودن برداشت!! \n 1)     موجودی کیف پول بررسی شود.\n 2) در غیر اینصورت با پشتیبانی تماس بگیرید",
-      showClass: {
-        popup: `
-          animate__animated
-          animate__fadeInUp
-          animate__faster
-        `,
-      },
-      hideClass: {
-        popup: `
-          animate__animated
-          animate__fadeOutDown
-          animate__faster
-        `,
-      },
-    });
-  }, [1]);
+  // useEffect(() => {
+  //   Swal.fire({
+  //     title:
+  //       " در صورت ناموفق بودن برداشت!! \n 1)     موجودی کیف پول بررسی شود.\n 2) در غیر اینصورت با پشتیبانی تماس بگیرید",
+  //     showClass: {
+  //       popup: `
+  //         animate__animated
+  //         animate__fadeInUp
+  //         animate__faster
+  //       `,
+  //     },
+  //     hideClass: {
+  //       popup: `
+  //         animate__animated
+  //         animate__fadeOutDown
+  //         animate__faster
+  //       `,
+  //     },
+  //   });
+  // }, [1]);
   return (
     <Box
       sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
@@ -132,7 +132,7 @@ const Withdraw = (props) => {
                       .post(
                         `${IPServer}/UserDashboard-GetRequest/get-request-money/`,
                         {
-                          money_amount: textFieldValue.replace(",", ""),
+                          money_amount: textFieldValue,
                         },
                         {
                           headers: {
@@ -147,9 +147,12 @@ const Withdraw = (props) => {
                           icon: "success",
                         });
                       })
+                      .then(() => {
+                        window.location.reload();
+                      })
                       .catch((err) => {
                         Swal.fire({
-                          title: "برداشت نا موفق",
+                          title: err.response.data.responseFA,
                           text: "در صورت بوجود آمدن مشکل با پشتیبانی تماس بگیرید ",
                           icon: "error",
                         });
@@ -176,7 +179,10 @@ const Withdraw = (props) => {
                 <span style={{ color: "rgb(255,172,25)" }}>
                   {props.walletcash}:
                 </span>
-                <span>{props.WalletData.wallet_money_data}&nbsp;ریال</span>
+                <span>
+                  {numeral(props.WalletData.wallet_money_data).format("0,0")}
+                  &nbsp;ریال
+                </span>
               </Typography>
             </ThemeProvider>
           </CacheProvider>
