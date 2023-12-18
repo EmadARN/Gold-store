@@ -68,7 +68,16 @@ const Desk = ({ goldStockPrice, walletDataToken }) => {
       <Grid container>
         {deskObj.map((obj) => {
           return (
-            <Grid item xs={12} sm={12} md={6} lg={3} key={obj.id}>
+            <Grid
+              item
+              xs={12}
+              sm={12}
+              md={6}
+              lg={3}
+              key={obj.id}
+              pl={1}
+              sx={{ display: "grid", placeItems: "center" }}
+            >
               <Paper
                 sx={{
                   bgcolor: "#272523",

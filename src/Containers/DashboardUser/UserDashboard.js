@@ -18,10 +18,12 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import LogoutIcon from "@mui/icons-material/Logout";
-import { Button, Paper } from "@mui/material";
+import { Box, Button, Paper } from "@mui/material";
 import Link from "next/link";
 import { useCookies } from "react-cookie";
 import { useRouter } from "next/router";
+import { IPServer } from "@/Config";
+import axios from "axios";
 
 const drawerWidth = 240;
 
@@ -101,11 +103,14 @@ const cacheRtl = createCache({
   key: "muirtl",
   stylisPlugins: [rtlPlugin],
 });
+
 export default function UserDashboard({ children, indexBtn, DrawerObj }) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const [index1, setIndex1] = React.useState();
   const [cookies, setCookies, removeCookie] = useCookies(["phone_number"]);
+  const [name, setName] = React.useState();
+  const router = useRouter();
   const handleIndex = (step) => {
     setIndex1(step);
   };
@@ -116,7 +121,19 @@ export default function UserDashboard({ children, indexBtn, DrawerObj }) {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  const router = useRouter();
+  //Api for NameProfile
+  React.useEffect(() => {
+    axios
+      .get(`${IPServer}/UserDashboard-DeskPage/wallet-data/`, {
+        headers: {
+          Authorization: `Token ${cookies.token}`,
+        },
+      })
+      .then((res) => {
+        setName(res.data.name);
+      });
+  }, []);
+
   return (
     <CacheProvider value={cacheRtl}>
       <ThemeProvider theme={themee}>
@@ -144,9 +161,18 @@ export default function UserDashboard({ children, indexBtn, DrawerObj }) {
               >
                 <BtnMenu>منو</BtnMenu>
               </IconButton>
-              <Typography variant="h6" noWrap component="div">
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  pr: { xs: 1, md: 10 },
+                }}
+              >
+                <Typography variant="" sx={{ pr: 2 }}>
+                  {name}
+                </Typography>
                 <AccountBoxIcon sx={{ fontSize: "30px" }} />
-              </Typography>
+              </Box>
             </Toolbar>
           </AppBar>
           <Drawer

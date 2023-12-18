@@ -6,7 +6,6 @@ import { IPServer } from "@/Config";
 import Desk from "@/Components/Desk/Desk";
 import axios from "axios";
 
-
 const MainDeskPage = ({
   walletDataToken,
   goldStockPrice,
