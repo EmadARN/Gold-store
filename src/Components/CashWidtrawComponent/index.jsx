@@ -29,6 +29,8 @@ const CashWidtrawComponent = ({AllCustomersWidthrawRequest}) => {
   };
 
   const unAccepthandler =(e)=>{
+    console.log(e.target.id);
+    setUn_acc_customer_id(e.target.id);
     e.preventDefault();
     axios.post(`${IPServer}/AdminDashboard-GetRequest/prove-money-get-request/`,
     {
@@ -205,7 +207,7 @@ function a11yProps(index) {
           <>
           <Box mr={2} display="flex" >
             <Button
-            name={params.row.id}
+            id={params.row.id}
               sx={{
              
                 backgroundColor: "#41B62A",
@@ -214,7 +216,7 @@ function a11yProps(index) {
                 "&:hover": { backgroundColor: "rgba(65, 182, 42,0.8)" },
               }}
               onClick={(e) => {
-                setUn_acc_customer_id(e.target.name);
+               
                 unAccepthandler(e)
              
               }}
