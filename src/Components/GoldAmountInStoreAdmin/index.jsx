@@ -5,8 +5,10 @@ import { useState } from "react";
 import axios from "axios";
 import { IPServer } from "@/Config";
 import { useCookies } from "react-cookie";
+import Swal from "sweetalert2";
 
 const GoldAmountMain = ({ settingData }) => {
+
   const [goldPrice, setGoldPrice] = useState();
   const [cookies] = useCookies(["token"]);
   const [priceDifference, setPriceDifference] = useState();
@@ -31,9 +33,19 @@ const GoldAmountMain = ({ settingData }) => {
         }
       )
       .then((res) => {
-        window.location.reload();
+        Swal.fire({
+          title: res.data.responseFA,
+          text: "تغییرات با موفقیت اعمال شد         ",
+          icon: "success",
+        }).then(() => window.location.reload());
       })
-      .catch((err) => {});
+      .catch((err) => {
+        Swal.fire({
+          title: err.response.data.responseFA,
+          text: "در صورت بوجود آمدن مشکل با پشتیبانی تماس بگیرید ",
+         icon: "error",
+        });
+      });
   };
 
   // changePriceDifference
@@ -56,9 +68,19 @@ const GoldAmountMain = ({ settingData }) => {
         }
       )
       .then((res) => {
-        window.location.reload();
+        Swal.fire({
+          title: res.data.responseFA,
+          text: "تغیرات با موفقیت ثبت شد",
+          icon: "success",
+        }).then(() => window.location.reload());
       })
-      .catch((err) => {});
+      .catch((err) => {
+        Swal.fire({
+          title: err.response.data.responseFA,
+          text: "در صورت بوجود آمدن مشکل با پشتیبانی تماس بگیرید ",
+         icon: "error",
+        });
+      });
   };
 
   return (
@@ -86,7 +108,7 @@ const GoldAmountMain = ({ settingData }) => {
           }}
         >
           <Grid item mb={5} xs={12}>
-            <AdminPermission stock_status={settingData.stock_status} />
+            <AdminPermission stock_status={settingData.settingData.data.stock_status} />
           </Grid>
 
           <Grid
@@ -101,7 +123,7 @@ const GoldAmountMain = ({ settingData }) => {
                 inputLabel={"گرم"}
                 buttonText={"تایید"}
                 walletcash={" طلای موجود"}
-                settingData={settingData.total_gold_stock}
+                settingData={settingData.settingData.data.total_gold_stock}
                 unit={"گرم"}
                 onChange={(e) => changeGoldPrice(e)}
                 onClick={() => clickHandlerchangeGoldPrice()}
@@ -114,7 +136,7 @@ const GoldAmountMain = ({ settingData }) => {
                 inputLabel={"ریال"}
                 buttonText={"تایید"}
                 walletcash={"اختلاف قیمت فعلی"}
-                settingData={settingData.price_difference}
+                settingData={settingData.settingData.data.price_difference}
                 unit={"ریال"}
                 onChange={(e) => changePriceDifference(e)}
                 onClick={() => clickHandlerchangePriceDifference()}

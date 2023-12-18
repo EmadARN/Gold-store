@@ -23,7 +23,7 @@ const cacheRtl = createCache({
 });
 
 const GoldAmount = (props) => {
-  const [open, setOpen] = React.useState(true);
+
   return (
     <Box
       sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
