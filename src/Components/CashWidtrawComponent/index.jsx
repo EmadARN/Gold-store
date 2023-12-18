@@ -32,7 +32,8 @@ const CashWidtrawComponent = ({AllCustomersWidthrawRequest}) => {
     e.preventDefault();
     axios.post(`${IPServer}/AdminDashboard-GetRequest/prove-money-get-request/`,
     {
-      get_request_id: un_acc_customer_id
+      get_request_id: un_acc_customer_id,
+      request_type:"accept"
     },
     {
       headers:{
@@ -42,7 +43,37 @@ const CashWidtrawComponent = ({AllCustomersWidthrawRequest}) => {
     ).then((res)=>{
       Swal.fire({
         title: res.data.responseFA,
+        text: " تغیرات با موفقیت اعمال شد",
+        icon: "success",
+      }).then(() => window.location.reload());
+     
+    }).catch((err)=>{
+      Swal.fire({
+        title: err.response.data.responseFA,
         text: "در صورت بوجود آمدن مشکل با پشتیبانی تماس بگیرید ",
+        icon: "error",
+      });
+    })
+  }
+
+
+  const denyHandler =(e)=>{
+    e.preventDefault();
+    axios.post(`${IPServer}/AdminDashboard-GetRequest/prove-money-get-request/`,
+    {
+      get_request_id: un_acc_customer_id,
+      request_type:"reject"
+
+    },
+    {
+      headers:{
+        Authorization:`Token ${cookies.token}`
+      }
+    }
+    ).then((res)=>{
+      Swal.fire({
+        title: res.data.responseFA,
+        text: " تغیرات با موفقیت اعمال شد",
         icon: "success",
       }).then(() => window.location.reload());
      
@@ -171,7 +202,8 @@ function a11yProps(index) {
       width:180,
       renderCell: (params) => {
         return (
-          <Box display="flex" >
+          <>
+          <Box mr={2} display="flex" >
             <Button
             name={params.row.id}
               sx={{
@@ -192,6 +224,27 @@ function a11yProps(index) {
             </Button>
            
           </Box>
+                    <Box display="flex" >
+                    <Button
+                    name={params.row.id}
+                      sx={{
+                     
+                        backgroundColor: "#ea1212",
+                        fontWeight:"bold",
+                        color: "#111",
+                        "&:hover": { backgroundColor: "#ed4444" },
+                      }}
+                      onClick={(e) => {
+                        setUn_acc_customer_id(e.target.name);
+                        denyHandler(e)
+                      }}
+                      variant="standard"
+                    >
+                      رد درخواست
+                    </Button>
+                   
+                  </Box>
+                  </>
         );
       },
     },
