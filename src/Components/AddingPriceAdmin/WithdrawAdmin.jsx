@@ -30,7 +30,7 @@ const WithdrawAdmin = (props) => {
   const [addingPrice, setAddingPrice] = useState();
   const handleTextFieldChange = (event) => {
     const newValue = numeral(event.target.value).format("0,0");
-    setTextFieldValue(newValue);
+    setTextFieldValue(parseFloat(newValue));
   };
 
   return (
