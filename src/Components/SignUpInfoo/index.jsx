@@ -70,22 +70,23 @@ console.log(res.data);
             height: "100vh",
             display: "flex",
             justifyContent: "center",
+            width: "100%",
             backgroundImage: `url(${bg.src})`,
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
             backgroundPosition: "center",
-            width: "100%",
           }}
         >
           <Grid
             sx={{
               backgroundColor: "rgba(255,255,255,0.1)",
-              backdropFilter: "blur(15px)",
+              WebkitBackdropFilter: "blur(7px) !important",
+              backdropFilter: { xs: "blur(8px)", md: "blur(15px)" },
               boxShadow: "0 25px 445px rgba(0,0,0,0.1)",
               border: "1px solid rgba(255,255,255,0.5)",
-
               maxHeight: "70%",
-              mt: "8%",
+              maxWidth: { xs: "90%", md: "100%" },
+              mt: { xs: "40%", md: "8%" },
               borderRadius: "10px",
             }}
             item

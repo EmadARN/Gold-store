@@ -168,7 +168,7 @@ export default function UserDashboard({ children, indexBtn, DrawerObj }) {
                   pr: { xs: 1, md: 10 },
                 }}
               >
-                <Typography variant="" sx={{ pr: 2 }}>
+                <Typography variant="" sx={{ pr: 2 ,whiteSpace:"nowrap"}}>
                   {name}
                 </Typography>
                 <AccountBoxIcon sx={{ fontSize: "30px" }} />
@@ -194,9 +194,9 @@ export default function UserDashboard({ children, indexBtn, DrawerObj }) {
               <Link href={"/"} style={{ textDecoration: "none" }}>
                 <Typography
                   variant="h3"
-                  sx={{ color: "#FFC436", textAlign: "center", pt: 1 }}
+                  sx={{ color: "#FFC436", textAlign: "center", pt: 1 ,fontSize:{xs:"26px",md:"35px"}}}
                 >
-                  گلدیار
+                  طلای حسین
                 </Typography>
               </Link>
             </Paper>

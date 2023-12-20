@@ -40,7 +40,7 @@ const WithdrawGold = ({ walletDataToken }) => {
       <div style={{ maxWidth: "800px" }}>
         <Typography
           variant="h3"
-          sx={{ color: "#fff", fontWeight: "bold", my: 5, textAlign: "center" }}
+          sx={{ color: "#fff", fontWeight: "bold", my: 5, fontFamily:'Yekan',textAlign: "center",fontSize:{xs:"33px",md:'40px'} }}
         >
           دریافت طلا
         </Typography>

@@ -47,7 +47,6 @@ const NavBar = (props) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -66,9 +65,9 @@ const NavBar = (props) => {
     <AppBar position="static">
       <Container sx={{ backgroundColor: "#1C1B19" }} maxWidth="L">
         <Toolbar disableGutters>
-          <Box sx={{ display: { xs: "none", md: "block" } }}>
+          {/* <Box sx={{ display: { xs: "none", md: "block" } }}>
             <img width={40} height={40} src={props.image} />
-          </Box>
+          </Box> */}
           <Typography
             variant="h6"
             noWrap
@@ -79,13 +78,13 @@ const NavBar = (props) => {
               ml: 4,
               display: { xs: "none", md: "flex" },
               fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
+              fontWeight: 900,
+              
               color: "inherit",
               textDecoration: "none",
             }}
           >
-            طلایار
+            طلای حسین
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -150,9 +149,9 @@ const NavBar = (props) => {
               ))}
             </Menu>
           </Box>
-          <Box sx={{ display: { xs: "flex", md: "none" }, mr: 1 }}>
+          {/* <Box sx={{ display: { xs: "flex", md: "none" }, mr: 1 }}>
             <img width={40} height={40} src={props.image} />
-          </Box>
+          </Box> */}
 
           <Typography
             variant="h5"
@@ -165,12 +164,12 @@ const NavBar = (props) => {
               flexGrow: 1,
               fontFamily: "Yekan",
               fontWeight: 700,
-              letterSpacing: ".3rem",
+              
               color: "inherit",
               textDecoration: "none",
             }}
           >
-            طلایار
+            طلای حسین
           </Typography>
           <Box sx={{ flexGrow: 2, display: { xs: "none", md: "flex" } }}>
             {pages1.map((page) => (

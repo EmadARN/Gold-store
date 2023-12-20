@@ -16,6 +16,7 @@ import { IPServer } from "@/Config";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useCookies } from "react-cookie";
+import CircularIndeterminate from "./loading";
 
 const themee = createTheme({
   direction: "rtl",
@@ -28,7 +29,10 @@ const cacheRtl = createCache({
 
 export default function SignUpSide() {
   const [phone_number, setPhone_number] = React.useState("");
+  console.log(phone_number.length);
   const [cookies, setCookie] = useCookies(["phone-number"]);
+  const [loading, setLoading] = React.useState(false);
+
   const router = useRouter();
   return (
     <CacheProvider value={cacheRtl}>
@@ -49,11 +53,13 @@ export default function SignUpSide() {
           <Grid
             sx={{
               backgroundColor: "rgba(255,255,255,0.1)",
-              backdropFilter: "blur(10px)",
+              WebkitBackdropFilter: "blur(7px) !important",
+              backdropFilter: { xs: "blur(7px)", md: "blur(10px)" },
               boxShadow: "0 25px 445px rgba(0,0,0,0.1)",
               border: "1px solid rgba(255,255,255,0.5)",
               maxHeight: "70%",
-              mt: "8%",
+              maxWidth: { xs: "90%", md: "100%" },
+              mt: { xs: "40%", md: "8%" },
               borderRadius: "10px",
             }}
             item
@@ -85,69 +91,83 @@ export default function SignUpSide() {
                 ورود | ثبت نام
               </Typography>
               <Box component="form" noValidate sx={{ mt: 1 }}>
-                <TextField
-                  onChange={(e) => setPhone_number(e.target.value)}
+                <Box>
+                  <TextField
+                    onChange={(e) => setPhone_number(e.target.value)}
+                    sx={{
+                      width: "100%",
+
+                      input: { color: "#fff", direction: "rtl", pr: 2 },
+                      label: { color: "#000" },
+                      "& label.Mui-focused": {
+                        color: "#FFC436",
+                        fontWeight: "bold",
+                      },
+                      "& .MuiInput-underline:after": {
+                        borderBottomColor: "#fff",
+                      },
+                      "& .MuiOutlinedInput-root": {
+                        "& fieldset": {
+                          borderColor: "#fff",
+                          borderRadius: "10px",
+                        },
+                        "&:hover fieldset": {
+                          borderColor: "#fff",
+                        },
+                        "&.Mui-focused fieldset": {
+                          borderColor: "#FFC436",
+                        },
+                      },
+                    }}
+                    margin="normal"
+                    fullWidth
+                    id="number"
+                    label="شماره تلفن همراه"
+                    autoFocus
+                  />
+                </Box>
+
+                <Box
                   sx={{
                     width: "100%",
-
-                    input: { color: "#fff", direction: "rtl", pr: 2 },
-                    label: { color: "#000" },
-                    "& label.Mui-focused": {
-                      color: "#FFC436",
-                      fontWeight: "bold",
-                    },
-                    "& .MuiInput-underline:after": {
-                      borderBottomColor: "#fff",
-                    },
-                    "& .MuiOutlinedInput-root": {
-                      "& fieldset": {
-                        borderColor: "#fff",
-                        borderRadius: "10px",
-                      },
-                      "&:hover fieldset": {
-                        borderColor: "#fff",
-                      },
-                      "&.Mui-focused fieldset": {
-                        borderColor: "#FFC436",
-                      },
-                    },
-                  }}
-                  margin="normal"
-                  fullWidth
-                  id="number"
-                  label="شماره تلفن همراه"
-                  autoFocus
-                />
-
-                <Button
-                  type="submit"
-                  fullWidth
-                  variant="contained"
-                  sx={{
-                    mt: 3,
-                    mb: 2,
-                    backgroundColor: "#FFC436",
-                    color: "#111",
-                    fontWeight: "bold",
-                    "&:hover": { backgroundColor: "rgba(204, 163, 69,0.7)" },
-                  }}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    const PhoneNumb = axios({
-                      method: "GET",
-                      url: `${IPServer}/Authentication/send-code/phone-number=${phone_number}/`,
-                    })
-                      .then((res) => {
-                        setCookie("phone-number", phone_number, {
-                          path: "/",
-                        });
-                        router.push("/VerifyCode");
-                      })
-                      .catch((err) => {});
+                    display: "flex",
+                    justifyContent: "center",
                   }}
                 >
-                  ادامه
-                </Button>
+                  <Button
+                    disabled={phone_number.length == 11 ? false : true}
+                    type="submit"
+                    fullWidth
+                    variant="contained"
+                    sx={{
+                      width: "60%",
+                      mt: 3,
+                      mb: 2,
+                      backgroundColor: "#FFC436",
+                      color: "#111",
+                      fontWeight: "bold",
+                      "&:hover": { backgroundColor: "rgba(204, 163, 69,0.7)" },
+                    }}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setLoading(true);
+
+                      const PhoneNumb = axios({
+                        method: "GET",
+                        url: `${IPServer}/Authentication/send-code/phone-number=${phone_number}/`,
+                      })
+                        .then((res) => {
+                          setCookie("phone-number", phone_number, {
+                            path: "/",
+                          });
+                          router.push("/VerifyCode");
+                        })
+                        .catch((err) => {});
+                    }}
+                  >
+                    {loading ? <CircularIndeterminate /> : "ادامه"}
+                  </Button>
+                </Box>
               </Box>
             </Box>
           </Grid>

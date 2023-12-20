@@ -18,20 +18,22 @@ export const TransactionList = ({
             variant="h4"
             sx={{
               fontWeight: "bold",
-
+                  fontFamily:"Yekan",
+                  fontSize:{xs:"26px",md:'40px'},
               mb: 2,
             }}
           >
             واریز
           </Typography>
-          <Typography variant="h4" sx={{ px: 2 }}>
+          <Typography variant="h4" sx={{ px: 2 , fontFamily:"Yekan", fontSize:{xs:"26px",md:'40px'}}}>
             و
           </Typography>
           <Typography
             variant="h4"
             sx={{
               fontWeight: "bold",
-
+              fontFamily:"Yekan",
+              fontSize:{xs:"26px",md:'40px'},
               textAlign: "center",
               mb: 2,
             }}
@@ -50,7 +52,7 @@ export const TransactionList = ({
           sx={{
             color: "#fff",
             fontWeight: "bold",
-
+            fontFamily:"Yekan",
             textAlign: "center",
             mb: 2,
           }}

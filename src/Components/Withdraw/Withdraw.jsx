@@ -61,7 +61,7 @@ const Withdraw = (props) => {
       <div style={{ maxWidth: "800px" }}>
         <Typography
           variant="h3"
-          sx={{ color: "#fff", fontWeight: "bold", my: 5, textAlign: "center" }}
+          sx={{ color: "#fff", fontWeight: "bold", my: 5, textAlign: "center" ,fontFamily:'Yekan',fontSize:{xs:"36px",md:"45px"}}}
         >
           {props.title}
         </Typography>

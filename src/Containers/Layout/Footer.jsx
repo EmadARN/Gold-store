@@ -83,9 +83,9 @@ const Footer = (props) => {
             </Box>
           </Grid>
 
-          <Grid xs={2} sm={4} md={2} sx={{ mt: { xs: "10%", sm: "0" } }}>
+          {/* <Grid xs={2} sm={4} md={2} sx={{ mt: { xs: "10%", sm: "0" } }}>
             <img width={100} height={100} src={props.image} />
-          </Grid>
+          </Grid> */}
         </Grid>
 
         <Grid

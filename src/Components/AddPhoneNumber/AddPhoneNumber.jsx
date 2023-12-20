@@ -1,7 +1,6 @@
 import { Box, Button, Grid, Typography } from "@mui/material";
 import React from "react";
 
-
 const AddPhoneNumber = () => {
   return (
     <Grid
@@ -20,7 +19,7 @@ const AddPhoneNumber = () => {
         }}
       >
         <Typography color="#FFC436" fontFamily="Lalezar" variant="h3">
-          طلایار،
+          طلای حسین،
         </Typography>
         <Typography fontFamily="Lalezar" color="#fff" variant="h4">
           بازار امن طلا

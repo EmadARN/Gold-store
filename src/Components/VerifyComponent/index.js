@@ -14,6 +14,7 @@ import { useCookies } from "react-cookie";
 import { useRouter } from "next/router";
 import axios from "axios";
 import { IPServer } from "@/Config";
+import Link from "next/link";
 
 const themee = createTheme({
   direction: "rtl",
@@ -42,22 +43,23 @@ const VerifyCode = () => {
             height: "100vh",
             display: "flex",
             justifyContent: "center",
+            width: "100%",
             backgroundImage: `url(${bg.src})`,
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
             backgroundPosition: "center",
-            width: "100%",
           }}
         >
           <Grid
             sx={{
-              maxHeight: "70%",
-              mt: "8%",
               backgroundColor: "rgba(255,255,255,0.1)",
-              backdropFilter: "blur(10px)",
+              WebkitBackdropFilter: "blur(7px) !important",
+              backdropFilter: { xs: "blur(8px)", md: "blur(15px)" },
               boxShadow: "0 25px 445px rgba(0,0,0,0.1)",
               border: "1px solid rgba(255,255,255,0.5)",
-
+              maxHeight: "70%",
+              maxWidth: { xs: "90%", md: "100%" },
+              mt: { xs: "40%", md: "8%" },
               borderRadius: "10px",
             }}
             item
@@ -85,7 +87,7 @@ const VerifyCode = () => {
               >
                 کد تایید را وارد کنید
               </Typography>
-              <Box component="form" noValidate sx={{ mt: 1 }}>
+              <Box width="70%" component="form" noValidate sx={{ mt: 1 }}>
                 <TextField
                   onChange={(e) => setVerify_code(e.target.value)}
                   sx={{
@@ -121,8 +123,11 @@ const VerifyCode = () => {
                   autoComplete="email"
                   autoFocus
                 />
+              </Box>
 
+              <Box width="40%">
                 <Button
+                  disabled={verify_code.length == 6 ? false : true}
                   type="submit"
                   fullWidth
                   variant="contained"
@@ -165,6 +170,25 @@ const VerifyCode = () => {
                 >
                   تایید
                 </Button>
+              </Box>
+
+              <Box>
+                <Link href={"/VerifyNumber"}>
+                  <Button
+                    variant="text"
+                    sx={{
+                      mt: 1,
+                      fontSize: "18px",
+
+                      color: "#FFC436",
+                      fontWeight: "bold",
+                      "&:hover": { backgroundColor: "unset", color: "#222" },
+                    }}
+                  >
+                    {" "}
+                    ویرایش شماره همراه
+                  </Button>
+                </Link>
               </Box>
             </Box>
           </Grid>

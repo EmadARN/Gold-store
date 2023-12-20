@@ -144,7 +144,7 @@ const TabPrice = ({ tabPrice }) => {
           <Typography variant="h5" sx={{ color: "#fff", textAlign: "center" }}>
             قیمت خرید
           </Typography>
-          <Box sx={{ color: "green", display: "flex", fontSize: "20px" }}>
+          <Box sx={{ color: "green", display: "flex", fontSize: "20px",alignItems:"center" , pr: {xs:2,md:1}}}>
             {string2}
 
             <Typography sx={{ color: "green", pr: 1, fontSize: "20px" }}>
@@ -162,7 +162,7 @@ const TabPrice = ({ tabPrice }) => {
           <Typography variant="h5" sx={{ color: "#fff", textAlign: "center" }}>
             قیمت فروش
           </Typography>
-          <Box sx={{ color: "red", display: "flex", fontSize: "20px" }}>
+          <Box sx={{ color: "red", display: "flex", fontSize: "20px",alignItems:"center",pl: {xs:2,md:1} }}>
             {string4}
 
             <Typography sx={{ color: "red", pr: 1, fontSize: "20px" }}>

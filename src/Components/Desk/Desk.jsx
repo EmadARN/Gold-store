@@ -11,7 +11,7 @@ const Desk = ({ goldStockPrice, walletDataToken }) => {
   const deskObj = [
     {
       id: 1,
-      title: "قیمت خرید از گلدیار",
+      title: "قیمت خرید از طلای حسین",
       subtitle: "(هر گرم طلا 18 عیار )",
       visibility: "visable",
       price: format1,
@@ -23,7 +23,7 @@ const Desk = ({ goldStockPrice, walletDataToken }) => {
     },
     {
       id: 2,
-      title: "قیمت فروش به گلدیار",
+      title: "قیمت فروش به طلای حسین",
       subtitle: "(هر گرم طلا 18 عیار )",
       visibility: "visable",
       price: format2,
@@ -60,7 +60,7 @@ const Desk = ({ goldStockPrice, walletDataToken }) => {
       <Box
         sx={{ margin: "auto", display: "block", textAlign: "center", mb: 10 }}
       >
-        <Typography variant="h3" sx={{ color: "#fff" }}>
+        <Typography fontFamily="Yekan" variant="h3" sx={{ color: "#fff" ,fontWeight:"bold"}}>
           میز کار
         </Typography>
       </Box>

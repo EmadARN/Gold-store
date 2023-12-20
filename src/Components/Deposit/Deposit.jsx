@@ -39,7 +39,8 @@ const Deposit = () => {
           sx={{
             color: "#fff",
             fontWeight: "bold",
-
+              fontFamily:"Yekan",
+              fontSize:{xs:"30px",md:"40px"},
             textAlign: "center",
             my: 6,
           }}
