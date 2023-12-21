@@ -1,4 +1,4 @@
-import HomeLand from "@/Components/Home";
+import HomeLand from "@/Components/Home/Home";
 import Layout from "@/Containers/Layout";
 import axios from "axios";
 import { parseCookies } from "nookies";

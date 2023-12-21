@@ -1,4 +1,4 @@
-import { TransactionList } from "@/Components/Transaction";
+import { TransactionList } from "@/Components/Transaction/TransactionMain";
 import UserDashboard from "@/Containers/DashboardUser/UserDashboard";
 import { DrawerObj } from "@/Utils/DrawerObjects";
 import React from "react";
