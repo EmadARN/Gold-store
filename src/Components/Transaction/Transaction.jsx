@@ -9,17 +9,43 @@ import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import * as locales from "@mui/material/locale";
-import { AppBar, Box, Container, Tab, Tabs } from "@mui/material";
-import SwipeableViews from "react-swipeable-views";
+import { AppBar, Box, Container, Tab, Tabs, Typography } from "@mui/material";
 import { columnsDeposit } from "./Utils/Columns";
 import { columnswithdraw } from "./Utils/Columns";
+import PropTypes from "prop-types";
+function CustomTabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <section
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box sx={{ p: 3 }}>
+          <Box>{children}</Box>
+        </Box>
+      )}
+    </section>
+  );
+}
+
+CustomTabPanel.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired,
+};
 
 function a11yProps(index) {
   return {
-    id: `full-width-tab-${index}`,
-    "aria-controls": `full-width-tabpanel-${index}`,
+    id: `simple-tab-${index}`,
+    "aria-controls": `simple-tabpanel-${index}`,
   };
 }
+
 export default function Transaction({ withdrawToken, depositToken }) {
   const [locale, setLocale] = React.useState("faIR");
   const [page, setPage] = React.useState(0);
@@ -56,13 +82,12 @@ export default function Transaction({ withdrawToken, depositToken }) {
           <Tabs
             sx={{
               bgcolor: "#3C3A36",
-
               width: { xs: "100%", md: "100%" },
               borderRadius: "10px 10px 0 0 ",
               "& .MuiButtonBase-root": {
                 color: "#FFC436",
-                fontSize: "20px",
-                fontWeight: "bold",
+                fontSize: { xs: "15px", md: "20px" },
+               
               },
             }}
             value={value}
@@ -92,8 +117,8 @@ export default function Transaction({ withdrawToken, depositToken }) {
               color: "#fff",
             }}
           >
-            <SwipeableViews index={value} onChangeIndex={handleChangeIndex}>
-              <Box>
+            <CustomTabPanel value={value} index={0}>
+              <section>
                 <Table
                   stickyHeader
                   aria-label="sticky table"
@@ -163,8 +188,10 @@ export default function Transaction({ withdrawToken, depositToken }) {
                   onPageChange={handleChangePage}
                   onRowsPerPageChange={handleChangeRowsPerPage}
                 />
-              </Box>
-              <Box>
+              </section>
+            </CustomTabPanel>
+            <CustomTabPanel value={value} index={1}>
+              <section>
                 <Table
                   stickyHeader
                   aria-label="sticky table"
@@ -234,8 +261,8 @@ export default function Transaction({ withdrawToken, depositToken }) {
                   onPageChange={handleChangePage}
                   onRowsPerPageChange={handleChangeRowsPerPage}
                 />
-              </Box>
-            </SwipeableViews>
+              </section>
+            </CustomTabPanel>
           </TableContainer>
         </Paper>
       </Container>

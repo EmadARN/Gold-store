@@ -33,33 +33,28 @@ const SignUpInfo = () => {
 
   const router = useRouter();
 
-const [inpInfo , setInpInfo] = useState({})
+  const [inpInfo, setInpInfo] = useState({});
 
-const InputHandler =(e ,propertyName)=>{
-  setInpInfo({...inpInfo , [propertyName]: e.target.value})
-}
+  const InputHandler = (e, propertyName) => {
+    setInpInfo({ ...inpInfo, [propertyName]: e.target.value });
+  };
 
-
-
-const submit =(e)=>{
-  e.preventDefault();
-  axios.post(`${IPServer}/Authentication/sign-up/`,inpInfo,
-  {
-    headers:{
-Authorization: `Token ${cookies["token"]}`
-    }
-  },
-
-  ).then((res)=>{
-console.log(res.data);
-    router.push('/DeskPage')
-    
-  }).catch((err)=>{
-    console.log(err);
-  })
-
-}
-
+  const submit = (e) => {
+    e.preventDefault();
+    axios
+      .post(`${IPServer}/Authentication/sign-up/`, inpInfo, {
+        headers: {
+          Authorization: `Token ${cookies["token"]}`,
+        },
+      })
+      .then((res) => {
+        console.log(res.data);
+        router.push("/DeskPage");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <CacheProvider value={cacheRtl}>
@@ -67,7 +62,8 @@ console.log(res.data);
         <Grid
           container
           sx={{
-            height: "100vh",
+            minHeight: "100vh !important",
+            height: "auto !important",
             display: "flex",
             justifyContent: "center",
             width: "100%",
@@ -81,13 +77,15 @@ console.log(res.data);
             sx={{
               backgroundColor: "rgba(255,255,255,0.1)",
               WebkitBackdropFilter: "blur(7px) !important",
-              backdropFilter: { xs: "blur(8px)", md: "blur(15px)" },
+              backdropFilter: { xs: "blur(7px)", md: "blur(10px)" },
               boxShadow: "0 25px 445px rgba(0,0,0,0.1)",
               border: "1px solid rgba(255,255,255,0.5)",
               maxHeight: "70%",
               maxWidth: { xs: "90%", md: "100%" },
-              mt: { xs: "40%", md: "8%" },
+              mt: 4,
               borderRadius: "10px",
+              maxHeight: "550px !important",
+              height: "auto !important",
             }}
             item
             xs={12}
@@ -148,7 +146,7 @@ console.log(res.data);
                   name="email"
                   autoComplete="email"
                   autoFocus
-                  onChange={(e)=>InputHandler(e, "first_name")}
+                  onChange={(e) => InputHandler(e, "first_name")}
                 />
 
                 <TextField
@@ -184,7 +182,7 @@ console.log(res.data);
                   name="email"
                   autoComplete="email"
                   autoFocus
-                  onChange={(e)=>InputHandler(e, "last_name")}
+                  onChange={(e) => InputHandler(e, "last_name")}
                 />
 
                 <TextField
@@ -220,7 +218,7 @@ console.log(res.data);
                   name="email"
                   autoComplete="email"
                   autoFocus
-                  onChange={(e)=>InputHandler(e, "national_code")}
+                  onChange={(e) => InputHandler(e, "national_code")}
                 />
 
                 <TextField
@@ -256,7 +254,7 @@ console.log(res.data);
                   name="email"
                   autoComplete="email"
                   autoFocus
-                  onChange={(e)=>InputHandler(e, "email")}
+                  onChange={(e) => InputHandler(e, "email")}
                 />
 
                 <Button
@@ -271,7 +269,7 @@ console.log(res.data);
                     fontWeight: "bold",
                     "&:hover": { backgroundColor: "rgba(204, 163, 69,0.7)" },
                   }}
-                  onClick={(e)=>submit(e)}
+                  onClick={(e) => submit(e)}
                 >
                   تایید
                 </Button>

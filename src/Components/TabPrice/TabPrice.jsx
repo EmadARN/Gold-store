@@ -1,6 +1,5 @@
 import * as React from "react";
 import PropTypes from "prop-types";
-import SwipeableViews from "react-swipeable-views";
 import { useTheme } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Tabs from "@mui/material/Tabs";
@@ -141,13 +140,33 @@ const TabPrice = ({ tabPrice }) => {
         }}
       >
         <Box>
-          <Typography variant="h5" sx={{ color: "#fff", textAlign: "center" }}>
+          <Typography
+            sx={{
+              color: "#fff",
+              textAlign: "center",
+              fontSize: { xs: "20px", md: "30px" },
+            }}
+          >
             قیمت خرید
           </Typography>
-          <Box sx={{ color: "green", display: "flex", fontSize: "20px",alignItems:"center" , pr: {xs:2,md:1}}}>
+          <Box
+            sx={{
+              color: "green",
+              display: "flex",
+              fontSize: { xs: "15px", md: "20px" },
+              alignItems: "center",
+              pr: { xs: 2, md: 1 },
+            }}
+          >
             {string2}
 
-            <Typography sx={{ color: "green", pr: 1, fontSize: "20px" }}>
+            <Typography
+              sx={{
+                color: "green",
+                pr: 1,
+                fontSize: { xs: "14px", md: "20px" },
+              }}
+            >
               ریال
             </Typography>
           </Box>
@@ -159,13 +178,29 @@ const TabPrice = ({ tabPrice }) => {
           }}
         />
         <Box>
-          <Typography variant="h5" sx={{ color: "#fff", textAlign: "center" }}>
+          <Typography
+            sx={{
+              color: "#fff",
+              textAlign: "center",
+              fontSize: { xs: "20px", md: "30px" },
+            }}
+          >
             قیمت فروش
           </Typography>
-          <Box sx={{ color: "red", display: "flex", fontSize: "20px",alignItems:"center",pl: {xs:2,md:1} }}>
+          <Box
+            sx={{
+              color: "red",
+              display: "flex",
+              fontSize: { xs: "15px", md: "20px" },
+              alignItems: "center",
+              pl: { xs: 2, md: 1 },
+            }}
+          >
             {string4}
 
-            <Typography sx={{ color: "red", pr: 1, fontSize: "20px" }}>
+            <Typography
+              sx={{ color: "red", pr: 1, fontSize: { xs: "14px", md: "20px" } }}
+            >
               ریال
             </Typography>
           </Box>
@@ -236,7 +271,7 @@ const TabPrice = ({ tabPrice }) => {
                   mt: 3,
                   bgcolor: "#272523",
 
-                  width: { xs: "100%", md: "90%" },
+                  width: { xs: "95%", md: "90%" },
                   borderRadius: "10px",
                   mx: "auto",
                 }}
@@ -295,7 +330,7 @@ const TabPrice = ({ tabPrice }) => {
                   mt: 2,
                   bgcolor: "#272523",
 
-                  width: { xs: "100%", md: "90%" },
+                  width: { xs: "95%", md: "90%" },
                   borderRadius: "10px",
                   mx: "auto",
                 }}
@@ -353,52 +388,7 @@ const TabPrice = ({ tabPrice }) => {
           </CacheProvider>
         </Paper>
       </Box>
-      {/* <SwipeableViews index={value} onChangeIndex={handleChangeIndex}>
-        <Box sx={{ display: "flex", justifyContent: "center" }}>
-          <Button
-            variant="outlined"
-            value={value}
-            index={0}
-            dir={theme.direction}
-            sx={{
-              "&:hover": {
-                borderColor: "#FFC436",
-              },
-              my: 3,
-              width: "60%",
-              color: "#FFC436",
-              fontSize: "20px",
-              fontWeight: "bold",
-              borderColor: "#FFC436",
-              borderRadius: "10px",
-            }}
-          >
-            محاسبه قیمت
-          </Button>
-        </Box>
-        <Box sx={{ display: "flex", justifyContent: "center" }}>
-          <Button
-            variant="outlined"
-            value={value}
-            index={1}
-            dir={theme.direction}
-            sx={{
-              "&:hover": {
-                borderColor: "#FFC436",
-              },
 
-              my: 3,
-              width: "60%",
-              color: "#FFC436",
-              fontSize: "20px",
-              fontWeight: "bold",
-              borderColor: "#FFC436",
-            }}
-          >
-            محاسبه قیمت
-          </Button>
-        </Box>
-      </SwipeableViews> */}
     </Paper>
   );
 };

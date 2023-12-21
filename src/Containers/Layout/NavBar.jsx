@@ -68,6 +68,7 @@ const NavBar = (props) => {
           {/* <Box sx={{ display: { xs: "none", md: "block" } }}>
             <img width={40} height={40} src={props.image} />
           </Box> */}
+
           <Typography
             variant="h6"
             noWrap
@@ -79,7 +80,7 @@ const NavBar = (props) => {
               display: { xs: "none", md: "flex" },
               fontFamily: "monospace",
               fontWeight: 900,
-              
+
               color: "inherit",
               textDecoration: "none",
             }}
@@ -164,7 +165,7 @@ const NavBar = (props) => {
               flexGrow: 1,
               fontFamily: "Yekan",
               fontWeight: 700,
-              
+
               color: "inherit",
               textDecoration: "none",
             }}

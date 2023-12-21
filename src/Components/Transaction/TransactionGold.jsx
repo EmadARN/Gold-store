@@ -10,15 +10,40 @@ import TableRow from "@mui/material/TableRow";
 import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import * as locales from "@mui/material/locale";
 import { AppBar, Box, Container, Tab, Tabs } from "@mui/material";
-import SwipeableViews from "react-swipeable-views";
 import { columnsBuy } from "./Utils/ColumnsGold";
 import { columnsSell } from "./Utils/ColumnsGold";
 import { columnsWithdraw } from "./Utils/ColumnsGold";
+import PropTypes from "prop-types";
+function CustomTabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <section
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box sx={{ p: 3 }}>
+          <Box>{children}</Box>
+        </Box>
+      )}
+    </section>
+  );
+}
+
+CustomTabPanel.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired,
+};
 
 function a11yProps(index) {
   return {
-    id: `full-width-tab-${index}`,
-    "aria-controls": `full-width-tabpanel-${index}`,
+    id: `simple-tab-${index}`,
+    "aria-controls": `simple-tabpanel-${index}`,
   };
 }
 
@@ -60,7 +85,7 @@ export default function TransactionGold({ buyGold, sellGold, withdrawGold }) {
               borderRadius: "10px 10px 0 0 ",
               "& .MuiButtonBase-root": {
                 color: "#FFC436",
-                fontSize: "20px",
+                fontSize: { xs: "15px", md: "20px" },
                 fontWeight: "bold",
               },
             }}
@@ -91,7 +116,7 @@ export default function TransactionGold({ buyGold, sellGold, withdrawGold }) {
               color: "#fff",
             }}
           >
-            <SwipeableViews index={value} onChangeIndex={handleChangeIndex}>
+            <CustomTabPanel value={value} index={0}>
               <Box>
                 <Table
                   stickyHeader
@@ -162,6 +187,9 @@ export default function TransactionGold({ buyGold, sellGold, withdrawGold }) {
                   onRowsPerPageChange={handleChangeRowsPerPage}
                 />
               </Box>
+            </CustomTabPanel>
+
+            <CustomTabPanel value={value} index={1}>
               <Box>
                 <Table
                   stickyHeader
@@ -232,6 +260,10 @@ export default function TransactionGold({ buyGold, sellGold, withdrawGold }) {
                   onRowsPerPageChange={handleChangeRowsPerPage}
                 />
               </Box>
+            </CustomTabPanel>
+
+            <CustomTabPanel value={value} index={2}>
+              {" "}
               <Box>
                 <Table
                   stickyHeader
@@ -302,7 +334,7 @@ export default function TransactionGold({ buyGold, sellGold, withdrawGold }) {
                   onRowsPerPageChange={handleChangeRowsPerPage}
                 />
               </Box>
-            </SwipeableViews>
+            </CustomTabPanel>
           </TableContainer>
         </Paper>
       </Container>

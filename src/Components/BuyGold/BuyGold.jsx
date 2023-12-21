@@ -85,6 +85,7 @@ const BuyGold = ({ walletDataToken, goldStockPrice }) => {
               width: { xs: "100%", md: "100%" },
               bgcolor: "#3C3A36",
               borderRadius: "15px",
+              overflow: "hidden",
             }}
           >
             <AppBar position="static" sx={{ borderRadius: "10px" }}>
@@ -93,13 +94,18 @@ const BuyGold = ({ walletDataToken, goldStockPrice }) => {
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
-
+                  borderRadius: "15px 15px 0 0",
                   bgcolor: "#3C3A36",
                   py: 2,
                 }}
               >
                 <Typography
-                  sx={{ fontSize: "22px", fontWeight: "bolder", pr: 10 }}
+                  sx={{
+                    fontSize: { xs: "16px", md: "22px" },
+                    fontWeight: "bolder",
+                    pr: 10,
+                    whiteSpace: { xs: "nowrap", md: "wrap" },
+                  }}
                 >
                   قیمت خرید:
                 </Typography>
@@ -107,7 +113,7 @@ const BuyGold = ({ walletDataToken, goldStockPrice }) => {
                   sx={{
                     color: "green",
                     display: "flex",
-                    fontSize: "22px",
+                    fontSize: { xs: "16px", md: "22px" },
                     fontWeight: "bold",
                   }}
                 >
@@ -117,7 +123,7 @@ const BuyGold = ({ walletDataToken, goldStockPrice }) => {
                   sx={{
                     pl: 1,
                     color: "green",
-                    fontSize: "22px",
+                    fontSize: { xs: "16px", md: "22px" },
                     fontWeight: "bold",
                   }}
                 >
