@@ -6,14 +6,19 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 const ContactUs = () => {
   return (
     <>
-      <Box sx={{ display: "flex", justifyContent: "center" }}>
+      <Box
+        sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+      >
         <Typography
           fontWeight="bold"
           color="#FFC436"
           fontFamily="Lalazar"
           mr={4}
           mt={5}
-          sx={{ fontSize: { xs: "25px", md: "35px" } }}
+          sx={{
+            fontSize: { xs: "25px", md: "35px" },
+            display: { xs: "none", md: "flex" },
+          }}
         >
           ارتباط با طلای حسین
         </Typography>
@@ -37,13 +42,14 @@ const ContactUs = () => {
         >
           <Grid item>
             <img
+              style={{ borderRadius: "40px" }}
               width={300}
-              src="https://static.vecteezy.com/system/resources/thumbnails/009/384/688/small/contact-us-buttons-clipart-design-illustration-free-png.png"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpUl24UpIZMPPIdWEefzYFyV9fgalLZ2qb5w&usqp=CAU"
             />
           </Grid>
 
           <Grid item>
-            <Box mb={1} display="flex" alignItems="center">
+            <Box mb={1} mt={1} display="flex" alignItems="center">
               <span>
                 <PhoneEnabledIcon sx={{ color: "#FFC436", ml: 2, mt: 1 }} />
               </span>
@@ -52,7 +58,7 @@ const ContactUs = () => {
               </Typography>
             </Box>
 
-            <Box mb={1} display="flex" alignItems="center">
+            <Box mb={1} mt={1} display="flex" alignItems="center">
               <span>
                 <AccessTimeIcon sx={{ color: "#FFC436", ml: 2, mt: 1 }} />
               </span>
@@ -61,7 +67,7 @@ const ContactUs = () => {
               </Typography>
             </Box>
 
-            <Box display="flex">
+            <Box display="flex" mt={2}>
               <span>
                 <LocationOnIcon sx={{ color: "#FFC436", ml: 2, mt: 1 }} />
               </span>
