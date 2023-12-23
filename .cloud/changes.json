@@ -1,0 +1,25 @@
+{
+    "new": [],
+    "count_of_new": 0,
+    "modify": [
+        {
+            "path2": ".git"
+        },
+        {
+            "path2": ".git/FETCH_HEAD"
+        },
+        {
+            "path2": ".git/index"
+        },
+        {
+            "path2": ".git/objects"
+        },
+        {
+            "path2": "src/Components/SellGold/SellGold.jsx"
+        }
+    ],
+    "count_of_modify": 5,
+    "delete": [],
+    "count_of_delete": 0,
+    "log_identifier": "mm5cks17fqv64nt8ogduzagcnn2mn3u5d7ai7538oucywmdaa8"
+}
