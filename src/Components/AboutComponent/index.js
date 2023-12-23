@@ -1,9 +1,9 @@
-import Layout from "@/Containers/Layout";
+
 
 import { Box, Grid, Typography } from "@mui/material";
 const AboutComponent = () => {
   return (
-    <Layout>
+  
       <Grid container display="flex" justifyContent="center" sx={{ p: {xs:1,md:8} }}>
         <Typography
           color="#FFC436"
@@ -58,7 +58,7 @@ const AboutComponent = () => {
           </Grid>
         </Grid>
       </Grid>
-    </Layout>
+ 
   );
 };
 
