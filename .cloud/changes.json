@@ -1,25 +1,1446 @@
 {
-    "new": [],
-    "count_of_new": 0,
+    "new": [
+        {
+            "path2": ".next"
+        },
+        {
+            "path2": ".git/objects/02"
+        },
+        {
+            "path2": ".git/objects/14"
+        },
+        {
+            "path2": ".git/objects/18"
+        },
+        {
+            "path2": ".git/objects/1a"
+        },
+        {
+            "path2": ".git/objects/1e"
+        },
+        {
+            "path2": ".git/objects/3d"
+        },
+        {
+            "path2": ".git/objects/3e"
+        },
+        {
+            "path2": ".git/objects/67"
+        },
+        {
+            "path2": ".git/objects/68"
+        },
+        {
+            "path2": ".git/objects/69"
+        },
+        {
+            "path2": ".git/objects/6e"
+        },
+        {
+            "path2": ".git/objects/76"
+        },
+        {
+            "path2": ".git/objects/8c"
+        },
+        {
+            "path2": ".git/objects/92"
+        },
+        {
+            "path2": ".git/objects/94"
+        },
+        {
+            "path2": ".git/objects/ad"
+        },
+        {
+            "path2": ".git/objects/be"
+        },
+        {
+            "path2": ".git/objects/bf"
+        },
+        {
+            "path2": ".git/objects/c3"
+        },
+        {
+            "path2": ".git/objects/c7"
+        },
+        {
+            "path2": ".git/objects/dd"
+        },
+        {
+            "path2": ".git/objects/e9"
+        },
+        {
+            "path2": ".git/objects/ef"
+        },
+        {
+            "path2": ".git/objects/f0"
+        },
+        {
+            "path2": ".git/objects/f1"
+        },
+        {
+            "path2": ".git/objects/f8"
+        },
+        {
+            "path2": ".git/objects/fa"
+        },
+        {
+            "path2": ".git/objects/01/f2894693b6169a7f58c69039a4e21c18bbb5f6"
+        },
+        {
+            "path2": ".git/objects/02/cf8d268a729e930f759482f6bc946dc90a4a22"
+        },
+        {
+            "path2": ".git/objects/03/d40abc305f095e71ab21a0f505d460aa8cfa93"
+        },
+        {
+            "path2": ".git/objects/06/b58a4c20bf478e20cf496db73740441ae5eb65"
+        },
+        {
+            "path2": ".git/objects/0b/03ae7c7769318f2cbc841f5fd6e7e05097a9de"
+        },
+        {
+            "path2": ".git/objects/0b/bb4ac62b08bcce290a10c5c1ebe24a27cd06ae"
+        },
+        {
+            "path2": ".git/objects/13/55f103a3bbd229c182689b85840bff27e7cfc2"
+        },
+        {
+            "path2": ".git/objects/14/00120ed51a6738818afb1d51a6ddfcaf8148a9"
+        },
+        {
+            "path2": ".git/objects/18/ddcf6d041719af31d750dcbefbaa06b8b972b7"
+        },
+        {
+            "path2": ".git/objects/19/15685ad8437688b02cf86c85d0617b0fdb38a0"
+        },
+        {
+            "path2": ".git/objects/19/3f2e8deaf946bb1da2388b7056cad69611ea45"
+        },
+        {
+            "path2": ".git/objects/1a/ba11544a641b0483990869b136221417e4cd71"
+        },
+        {
+            "path2": ".git/objects/1b/be54e491fd1e860ebea036554d2d40cc896380"
+        },
+        {
+            "path2": ".git/objects/1c/92723f6505a5eee1674432bc5b4fa669ef580c"
+        },
+        {
+            "path2": ".git/objects/1e/b494db6bdf365f705b05b0152adb555eccf08d"
+        },
+        {
+            "path2": ".git/objects/20/31e18342b43dd2f13e3324105a1f7910a52dd0"
+        },
+        {
+            "path2": ".git/objects/22/40f01cbbc9059c1a06e76d0e4fb75ef3639b1d"
+        },
+        {
+            "path2": ".git/objects/29/116e4ff1a529481e7c47036f70e0d001061cb3"
+        },
+        {
+            "path2": ".git/objects/2d/1b02667beab5b21ca38a02fc5c5cfcebbcff9f"
+        },
+        {
+            "path2": ".git/objects/34/388835735ee3023d0172f328d9db97279d364a"
+        },
+        {
+            "path2": ".git/objects/35/08bfe7cf8ef69a4d080eb228a0790a84f241cd"
+        },
+        {
+            "path2": ".git/objects/35/52d633a7fe6475372281a38662df866a150827"
+        },
+        {
+            "path2": ".git/objects/38/0e03429fd8a4abeb09b0e7fd83412838cc955c"
+        },
+        {
+            "path2": ".git/objects/3a/e0fe71575f62aca426949347e9909b99997cd1"
+        },
+        {
+            "path2": ".git/objects/3d/853dc4fff6208c2e6d232b4542c3845d15f7ce"
+        },
+        {
+            "path2": ".git/objects/3e/2bd04ffa6e4fe00b1efc4b680777ddfbf2ed89"
+        },
+        {
+            "path2": ".git/objects/56/ff2924ed99f6601640954e44fbaa5035849972"
+        },
+        {
+            "path2": ".git/objects/59/e31f0ff1a88bcc2ebb060f079428fdda221088"
+        },
+        {
+            "path2": ".git/objects/5d/1afff5353efdbf8409aba5fb41cb92359fd59d"
+        },
+        {
+            "path2": ".git/objects/60/2bcb689db46a71e3f5c7562367b262853cedbe"
+        },
+        {
+            "path2": ".git/objects/63/9ebabf4d9182192ed8528a2daaacb66bf9d072"
+        },
+        {
+            "path2": ".git/objects/67/f25aecfb1f8a6d5dbf8aa33a58609adc3b3f0f"
+        },
+        {
+            "path2": ".git/objects/68/525b7cef23dc48ee8655665472e85c71d3bbfe"
+        },
+        {
+            "path2": ".git/objects/69/bb81c7ad1912c8ed8cc46d8f5ff26aaf9461b9"
+        },
+        {
+            "path2": ".git/objects/69/e77c8b57d4f95c633b5c48ce690f221e192c33"
+        },
+        {
+            "path2": ".git/objects/6e/9e446b72b1c6dac62eac81e14f6b8afb098250"
+        },
+        {
+            "path2": ".git/objects/71/a37e7ef0fbd3f7ef028a52db4843ec57e324db"
+        },
+        {
+            "path2": ".git/objects/73/1dbcd6d099e4f97a8685a39a93c692b42e260e"
+        },
+        {
+            "path2": ".git/objects/73/8daffb212bdc32ee2b809623b82e6f41a2d652"
+        },
+        {
+            "path2": ".git/objects/74/6194e406196e241d2a2713b9d49a211114155c"
+        },
+        {
+            "path2": ".git/objects/76/b2b6820ed202cf6c44899acb5d4130d55e60d0"
+        },
+        {
+            "path2": ".git/objects/7f/7c91891381e55b784de06e63c647bf4cd2a0e2"
+        },
+        {
+            "path2": ".git/objects/89/1f56a6ed7fc461cf814e34ffed5ad12598c062"
+        },
+        {
+            "path2": ".git/objects/8c/d0cd7df1df8491d721ab1b5b494d61ce99924c"
+        },
+        {
+            "path2": ".git/objects/8e/e0b7d01284520dc9c5567ab8cc10f7400862ae"
+        },
+        {
+            "path2": ".git/objects/8e/e6e3b7673160804918965720a3a02aa633c9e0"
+        },
+        {
+            "path2": ".git/objects/90/eb1e257b60c1dfb136181a69d643f6b71a816d"
+        },
+        {
+            "path2": ".git/objects/92/1bccadb0cf50245b1017e2d9c58b0c2c039f9c"
+        },
+        {
+            "path2": ".git/objects/93/3189c1a3483e951ec92a193a63134f5966744b"
+        },
+        {
+            "path2": ".git/objects/94/e2df301bd79add2d5006415066fd889e39cf88"
+        },
+        {
+            "path2": ".git/objects/9d/f4c70655cc01b46f8c201ff6805314e7a2c6be"
+        },
+        {
+            "path2": ".git/objects/a0/096cec11c4487be1cdaa472751cea8bf025f43"
+        },
+        {
+            "path2": ".git/objects/a2/135c40bc8d964e5b6e859b48afc2243385c5d8"
+        },
+        {
+            "path2": ".git/objects/a3/bb4493a529061d0aecdafa34125ef0861e60f0"
+        },
+        {
+            "path2": ".git/objects/a6/b273b98a3b59170b9106f372169afb61b5489e"
+        },
+        {
+            "path2": ".git/objects/a7/76b492a75a999aac748f0007348eb569e3794d"
+        },
+        {
+            "path2": ".git/objects/ac/7ff50f196d0964a8fb7b2b539e100bc0ff3e74"
+        },
+        {
+            "path2": ".git/objects/ad/c59981aec592ee546b725a7426431330eb4689"
+        },
+        {
+            "path2": ".git/objects/ae/5117e33930239e36d88868bb9156dd689b5d8e"
+        },
+        {
+            "path2": ".git/objects/b3/c919710ab4a68a2e167d986c471dc0e73e97fe"
+        },
+        {
+            "path2": ".git/objects/b6/219160b12def4c62061531cde35969af48bb71"
+        },
+        {
+            "path2": ".git/objects/b7/33d2b97ca997a4d0cd22bb998e96fd4ad89e98"
+        },
+        {
+            "path2": ".git/objects/b9/d590a132ea5cd8217b3a9abb06b4fad410a2c9"
+        },
+        {
+            "path2": ".git/objects/ba/568b23915072fad4583ff398021bceb75011ab"
+        },
+        {
+            "path2": ".git/objects/bd/3e587a64096b82ee12ac599df15255e47ecd07"
+        },
+        {
+            "path2": ".git/objects/bd/e3859ca5469a0a7f21131daf9782430e222872"
+        },
+        {
+            "path2": ".git/objects/be/f449a9afcb830521fe333b56be8388d38c50bd"
+        },
+        {
+            "path2": ".git/objects/bf/c578fb0d97e9a4cf4a89e1cca11caf629cc516"
+        },
+        {
+            "path2": ".git/objects/c2/0770a697bab8e52ca8078f3013abae33d8a1b0"
+        },
+        {
+            "path2": ".git/objects/c2/8409f6ebd66f7cf6c18ebcb777bceb241aaf74"
+        },
+        {
+            "path2": ".git/objects/c3/1efa3b36c2d910d3e0990080036d3245a9eebf"
+        },
+        {
+            "path2": ".git/objects/c5/015c7922c4d583b8bec2c7a9bac87553f38074"
+        },
+        {
+            "path2": ".git/objects/c6/d8bc6d35fc7c1eb05a943f9b9ef983a7719274"
+        },
+        {
+            "path2": ".git/objects/c7/e26d310e84eac52bf233d99e0c4b3072c8d978"
+        },
+        {
+            "path2": ".git/objects/ce/c0fca98815636429930b109ee6481bdbfaf549"
+        },
+        {
+            "path2": ".git/objects/d1/1ca117357ef76bf86e596a8e59b47feaa1135d"
+        },
+        {
+            "path2": ".git/objects/d8/dd296cf06000f59cdd3d8a4fdc2acba9a40e80"
+        },
+        {
+            "path2": ".git/objects/db/5db7bcda358a500d62fe0bac2ded6f12a0ee64"
+        },
+        {
+            "path2": ".git/objects/dd/edd3f2dde59ebdf4137e27ec4224fb61b3a6cc"
+        },
+        {
+            "path2": ".git/objects/dd/f0c1ee94d97ee7bfb169fee14926c6935591f2"
+        },
+        {
+            "path2": ".git/objects/e9/08d1933e850c980bfa8ac3f537787cb81176ed"
+        },
+        {
+            "path2": ".git/objects/e9/0b755eb8d4be2fb381705a0a4facf258bebbeb"
+        },
+        {
+            "path2": ".git/objects/ef/2959aa337f7ff920a50a2b74bdd2374b66d293"
+        },
+        {
+            "path2": ".git/objects/f0/8bce3ec6278a760a008cb8c3fbe0ed7af901f5"
+        },
+        {
+            "path2": ".git/objects/f1/eca44522fcf7bdbd9c0704097ff39f3886d357"
+        },
+        {
+            "path2": ".git/objects/f4/5493641cddf8a69cb1cdf1af6231bca612f5ee"
+        },
+        {
+            "path2": ".git/objects/f8/78a10bc92d6eac03b5f375b4c5dd149235572f"
+        },
+        {
+            "path2": ".git/objects/fa/763d28228073e4a12a51f3916f78d7a4363c17"
+        },
+        {
+            "path2": ".git/objects/pack/pack-8a51ef966a9c98c07c520aa4f815ded17053d0c5.idx"
+        },
+        {
+            "path2": ".git/objects/pack/pack-8a51ef966a9c98c07c520aa4f815ded17053d0c5.pack"
+        },
+        {
+            "path2": ".git/objects/pack/pack-8a51ef966a9c98c07c520aa4f815ded17053d0c5.rev"
+        },
+        {
+            "path2": ".next/build-manifest.json"
+        },
+        {
+            "path2": ".next/package.json"
+        },
+        {
+            "path2": ".next/react-loadable-manifest.json"
+        },
+        {
+            "path2": ".next/trace"
+        },
+        {
+            "path2": ".next/cache"
+        },
+        {
+            "path2": ".next/server"
+        },
+        {
+            "path2": ".next/static"
+        },
+        {
+            "path2": ".next/cache/swc"
+        },
+        {
+            "path2": ".next/cache/webpack"
+        },
+        {
+            "path2": ".next/cache/swc/plugins"
+        },
+        {
+            "path2": ".next/cache/swc/plugins/v7_windows_x86_64_0.104.14"
+        },
+        {
+            "path2": ".next/cache/webpack/client-development"
+        },
+        {
+            "path2": ".next/cache/webpack/server-development"
+        },
+        {
+            "path2": ".next/cache/webpack/client-development/0.pack.gz"
+        },
+        {
+            "path2": ".next/cache/webpack/client-development/1.pack.gz"
+        },
+        {
+            "path2": ".next/cache/webpack/client-development/2.pack.gz"
+        },
+        {
+            "path2": ".next/cache/webpack/client-development/3.pack.gz"
+        },
+        {
+            "path2": ".next/cache/webpack/client-development/4.pack.gz"
+        },
+        {
+            "path2": ".next/cache/webpack/client-development/index.pack.gz"
+        },
+        {
+            "path2": ".next/cache/webpack/client-development/index.pack.gz.old"
+        },
+        {
+            "path2": ".next/cache/webpack/server-development/0.pack.gz"
+        },
+        {
+            "path2": ".next/cache/webpack/server-development/1.pack.gz"
+        },
+        {
+            "path2": ".next/cache/webpack/server-development/2.pack.gz"
+        },
+        {
+            "path2": ".next/cache/webpack/server-development/3.pack.gz"
+        },
+        {
+            "path2": ".next/cache/webpack/server-development/4.pack.gz"
+        },
+        {
+            "path2": ".next/cache/webpack/server-development/index.pack.gz"
+        },
+        {
+            "path2": ".next/cache/webpack/server-development/index.pack.gz.old"
+        },
+        {
+            "path2": ".next/server/middleware-build-manifest.js"
+        },
+        {
+            "path2": ".next/server/middleware-manifest.json"
+        },
+        {
+            "path2": ".next/server/middleware-react-loadable-manifest.js"
+        },
+        {
+            "path2": ".next/server/next-font-manifest.js"
+        },
+        {
+            "path2": ".next/server/next-font-manifest.json"
+        },
+        {
+            "path2": ".next/server/pages-manifest.json"
+        },
+        {
+            "path2": ".next/server/webpack-runtime.js"
+        },
+        {
+            "path2": ".next/server/pages"
+        },
+        {
+            "path2": ".next/server/vendor-chunks"
+        },
+        {
+            "path2": ".next/server/pages/index.js"
+        },
+        {
+            "path2": ".next/server/pages/SignUp.js"
+        },
+        {
+            "path2": ".next/server/pages/VerifyCode.js"
+        },
+        {
+            "path2": ".next/server/pages/VerifyNumber.js"
+        },
+        {
+            "path2": ".next/server/pages/_app.js"
+        },
+        {
+            "path2": ".next/server/pages/_document.js"
+        },
+        {
+            "path2": ".next/server/pages/_error.js"
+        },
+        {
+            "path2": ".next/server/vendor-chunks/@babel.js"
+        },
+        {
+            "path2": ".next/server/vendor-chunks/@mui.js"
+        },
+        {
+            "path2": ".next/server/vendor-chunks/@swc.js"
+        },
+        {
+            "path2": ".next/server/vendor-chunks/next.js"
+        },
+        {
+            "path2": ".next/static/chunks"
+        },
+        {
+            "path2": ".next/static/development"
+        },
+        {
+            "path2": ".next/static/media"
+        },
+        {
+            "path2": ".next/static/webpack"
+        },
+        {
+            "path2": ".next/static/chunks/main.js"
+        },
+        {
+            "path2": ".next/static/chunks/polyfills.js"
+        },
+        {
+            "path2": ".next/static/chunks/react-refresh.js"
+        },
+        {
+            "path2": ".next/static/chunks/webpack.js"
+        },
+        {
+            "path2": ".next/static/chunks/pages"
+        },
+        {
+            "path2": ".next/static/chunks/pages/index.js"
+        },
+        {
+            "path2": ".next/static/chunks/pages/SignUp.js"
+        },
+        {
+            "path2": ".next/static/chunks/pages/VerifyCode.js"
+        },
+        {
+            "path2": ".next/static/chunks/pages/VerifyNumber.js"
+        },
+        {
+            "path2": ".next/static/chunks/pages/_app.js"
+        },
+        {
+            "path2": ".next/static/chunks/pages/_error.js"
+        },
+        {
+            "path2": ".next/static/development/_buildManifest.js"
+        },
+        {
+            "path2": ".next/static/development/_ssgManifest.js"
+        },
+        {
+            "path2": ".next/static/media/Lalezar-Regular.3ae96930.ttf"
+        },
+        {
+            "path2": ".next/static/media/pexels-michael-steinberg-321464.9247bbcf.jpg"
+        },
+        {
+            "path2": ".next/static/media/Yekan.c5b34135.ttf"
+        },
+        {
+            "path2": ".next/static/webpack/16ded196eadc3059.webpack.hot-update.json"
+        },
+        {
+            "path2": ".next/static/webpack/36da841dd500adbb.webpack.hot-update.json"
+        },
+        {
+            "path2": ".next/static/webpack/436fcb587942089c.webpack.hot-update.json"
+        },
+        {
+            "path2": ".next/static/webpack/4a799da126ac875d.webpack.hot-update.json"
+        },
+        {
+            "path2": ".next/static/webpack/59822eba4a0959ae.webpack.hot-update.json"
+        },
+        {
+            "path2": ".next/static/webpack/633457081244afec._.hot-update.json"
+        },
+        {
+            "path2": ".next/static/webpack/6fe4d252fab65bd5.webpack.hot-update.json"
+        },
+        {
+            "path2": ".next/static/webpack/dd347d6813fd05d9.webpack.hot-update.json"
+        },
+        {
+            "path2": ".next/static/webpack/ee723cc4c09e7d58.webpack.hot-update.json"
+        },
+        {
+            "path2": ".next/static/webpack/webpack.16ded196eadc3059.hot-update.js"
+        },
+        {
+            "path2": ".next/static/webpack/webpack.36da841dd500adbb.hot-update.js"
+        },
+        {
+            "path2": ".next/static/webpack/webpack.436fcb587942089c.hot-update.js"
+        },
+        {
+            "path2": ".next/static/webpack/webpack.4a799da126ac875d.hot-update.js"
+        },
+        {
+            "path2": ".next/static/webpack/webpack.59822eba4a0959ae.hot-update.js"
+        },
+        {
+            "path2": ".next/static/webpack/webpack.6fe4d252fab65bd5.hot-update.js"
+        },
+        {
+            "path2": ".next/static/webpack/webpack.dd347d6813fd05d9.hot-update.js"
+        },
+        {
+            "path2": ".next/static/webpack/webpack.ee723cc4c09e7d58.hot-update.js"
+        },
+        {
+            "path2": ".next/static/webpack/pages"
+        },
+        {
+            "path2": ".next/static/webpack/pages/index.59822eba4a0959ae.hot-update.js"
+        },
+        {
+            "path2": "src/Components/Transaction/TransactionMain.jsx"
+        }
+    ],
+    "count_of_new": 206,
     "modify": [
         {
+            "path2": ".gitignore"
+        },
+        {
+            "path2": "jsconfig.json"
+        },
+        {
+            "path2": "next.config.js"
+        },
+        {
+            "path2": "package-lock.json"
+        },
+        {
+            "path2": "package.json"
+        },
+        {
+            "path2": "README.md"
+        },
+        {
+            "path2": "server.js"
+        },
+        {
             "path2": ".git"
+        },
+        {
+            "path2": ".idea"
+        },
+        {
+            "path2": "src"
+        },
+        {
+            "path2": ".git/COMMIT_EDITMSG"
+        },
+        {
+            "path2": ".git/config"
+        },
+        {
+            "path2": ".git/description"
         },
         {
             "path2": ".git/FETCH_HEAD"
         },
         {
+            "path2": ".git/HEAD"
+        },
+        {
             "path2": ".git/index"
+        },
+        {
+            "path2": ".git/ORIG_HEAD"
+        },
+        {
+            "path2": ".git/packed-refs"
+        },
+        {
+            "path2": ".git/hooks"
+        },
+        {
+            "path2": ".git/info"
+        },
+        {
+            "path2": ".git/logs"
         },
         {
             "path2": ".git/objects"
         },
         {
+            "path2": ".git/hooks/applypatch-msg.sample"
+        },
+        {
+            "path2": ".git/hooks/commit-msg.sample"
+        },
+        {
+            "path2": ".git/hooks/fsmonitor-watchman.sample"
+        },
+        {
+            "path2": ".git/hooks/post-update.sample"
+        },
+        {
+            "path2": ".git/hooks/pre-applypatch.sample"
+        },
+        {
+            "path2": ".git/hooks/pre-commit.sample"
+        },
+        {
+            "path2": ".git/hooks/pre-merge-commit.sample"
+        },
+        {
+            "path2": ".git/hooks/pre-push.sample"
+        },
+        {
+            "path2": ".git/hooks/pre-rebase.sample"
+        },
+        {
+            "path2": ".git/hooks/pre-receive.sample"
+        },
+        {
+            "path2": ".git/hooks/prepare-commit-msg.sample"
+        },
+        {
+            "path2": ".git/hooks/push-to-checkout.sample"
+        },
+        {
+            "path2": ".git/hooks/sendemail-validate.sample"
+        },
+        {
+            "path2": ".git/hooks/update.sample"
+        },
+        {
+            "path2": ".git/info/exclude"
+        },
+        {
+            "path2": ".git/logs/HEAD"
+        },
+        {
+            "path2": ".git/logs/refs/heads"
+        },
+        {
+            "path2": ".git/logs/refs/heads/main"
+        },
+        {
+            "path2": ".git/logs/refs/remotes/origin"
+        },
+        {
+            "path2": ".git/logs/refs/remotes/origin/HEAD"
+        },
+        {
+            "path2": ".git/logs/refs/remotes/origin/main"
+        },
+        {
+            "path2": ".git/objects/01"
+        },
+        {
+            "path2": ".git/objects/03"
+        },
+        {
+            "path2": ".git/objects/06"
+        },
+        {
+            "path2": ".git/objects/0b"
+        },
+        {
+            "path2": ".git/objects/13"
+        },
+        {
+            "path2": ".git/objects/19"
+        },
+        {
+            "path2": ".git/objects/1b"
+        },
+        {
+            "path2": ".git/objects/1c"
+        },
+        {
+            "path2": ".git/objects/20"
+        },
+        {
+            "path2": ".git/objects/22"
+        },
+        {
+            "path2": ".git/objects/29"
+        },
+        {
+            "path2": ".git/objects/2d"
+        },
+        {
+            "path2": ".git/objects/34"
+        },
+        {
+            "path2": ".git/objects/35"
+        },
+        {
+            "path2": ".git/objects/38"
+        },
+        {
+            "path2": ".git/objects/3a"
+        },
+        {
+            "path2": ".git/objects/56"
+        },
+        {
+            "path2": ".git/objects/59"
+        },
+        {
+            "path2": ".git/objects/5d"
+        },
+        {
+            "path2": ".git/objects/60"
+        },
+        {
+            "path2": ".git/objects/63"
+        },
+        {
+            "path2": ".git/objects/71"
+        },
+        {
+            "path2": ".git/objects/73"
+        },
+        {
+            "path2": ".git/objects/74"
+        },
+        {
+            "path2": ".git/objects/7f"
+        },
+        {
+            "path2": ".git/objects/89"
+        },
+        {
+            "path2": ".git/objects/8e"
+        },
+        {
+            "path2": ".git/objects/90"
+        },
+        {
+            "path2": ".git/objects/93"
+        },
+        {
+            "path2": ".git/objects/9d"
+        },
+        {
+            "path2": ".git/objects/a0"
+        },
+        {
+            "path2": ".git/objects/a2"
+        },
+        {
+            "path2": ".git/objects/a3"
+        },
+        {
+            "path2": ".git/objects/a6"
+        },
+        {
+            "path2": ".git/objects/a7"
+        },
+        {
+            "path2": ".git/objects/ac"
+        },
+        {
+            "path2": ".git/objects/ae"
+        },
+        {
+            "path2": ".git/objects/b3"
+        },
+        {
+            "path2": ".git/objects/b6"
+        },
+        {
+            "path2": ".git/objects/b7"
+        },
+        {
+            "path2": ".git/objects/b9"
+        },
+        {
+            "path2": ".git/objects/ba"
+        },
+        {
+            "path2": ".git/objects/bd"
+        },
+        {
+            "path2": ".git/objects/c2"
+        },
+        {
+            "path2": ".git/objects/c5"
+        },
+        {
+            "path2": ".git/objects/c6"
+        },
+        {
+            "path2": ".git/objects/ce"
+        },
+        {
+            "path2": ".git/objects/d1"
+        },
+        {
+            "path2": ".git/objects/d8"
+        },
+        {
+            "path2": ".git/objects/db"
+        },
+        {
+            "path2": ".git/objects/f4"
+        },
+        {
+            "path2": ".git/objects/pack"
+        },
+        {
+            "path2": ".git/objects/0b/371b60e2a4a3b7612931b0adae7f71ba909394"
+        },
+        {
+            "path2": ".git/objects/5d/4c2e72e22af8bc926399a031a8eafed2259ada"
+        },
+        {
+            "path2": ".git/objects/d1/dae7b774dc69b8a0c730fe72804f82bac0249c"
+        },
+        {
+            "path2": ".git/refs/heads"
+        },
+        {
+            "path2": ".git/refs/heads/main"
+        },
+        {
+            "path2": ".git/refs/remotes/origin"
+        },
+        {
+            "path2": ".git/refs/remotes/origin/HEAD"
+        },
+        {
+            "path2": ".git/refs/remotes/origin/main"
+        },
+        {
+            "path2": ".idea/Gold-store.iml"
+        },
+        {
+            "path2": ".idea/modules.xml"
+        },
+        {
+            "path2": ".idea/vcs.xml"
+        },
+        {
+            "path2": ".idea/inspectionProfiles"
+        },
+        {
+            "path2": ".idea/inspectionProfiles/Project_Default.xml"
+        },
+        {
+            "path2": "src/Asset"
+        },
+        {
+            "path2": "src/Components"
+        },
+        {
+            "path2": "src/Config"
+        },
+        {
+            "path2": "src/Containers"
+        },
+        {
+            "path2": "src/pages"
+        },
+        {
+            "path2": "src/styles"
+        },
+        {
+            "path2": "src/Utils"
+        },
+        {
+            "path2": "src/Asset/Lalezar-Regular.ttf"
+        },
+        {
+            "path2": "src/Asset/pexels-michael-steinberg-321464.jpg"
+        },
+        {
+            "path2": "src/Asset/Triangles-1.1s-183px.gif"
+        },
+        {
+            "path2": "src/Asset/Yekan.ttf"
+        },
+        {
+            "path2": "src/Components/AboutComponent"
+        },
+        {
+            "path2": "src/Components/AddingPriceAdmin"
+        },
+        {
+            "path2": "src/Components/AddPhoneNumber"
+        },
+        {
+            "path2": "src/Components/AdminPermission"
+        },
+        {
+            "path2": "src/Components/Animate"
+        },
+        {
+            "path2": "src/Components/ArrowBottom"
+        },
+        {
+            "path2": "src/Components/BuyGold"
+        },
+        {
+            "path2": "src/Components/BuyGoldTransaction"
+        },
+        {
+            "path2": "src/Components/CashAmount"
+        },
+        {
+            "path2": "src/Components/CashWidtrawComponent"
+        },
+        {
+            "path2": "src/Components/contact_us"
+        },
+        {
+            "path2": "src/Components/Deposit"
+        },
+        {
+            "path2": "src/Components/Desk"
+        },
+        {
+            "path2": "src/Components/DimondHeader"
+        },
+        {
+            "path2": "src/Components/DimondHeaderMobile"
+        },
+        {
+            "path2": "src/Components/Faqs"
+        },
+        {
+            "path2": "src/Components/GoldAmountInStoreAdmin"
+        },
+        {
+            "path2": "src/Components/GoldWidtrawComponent"
+        },
+        {
+            "path2": "src/Components/Home"
+        },
+        {
+            "path2": "src/Components/SellGold"
+        },
+        {
+            "path2": "src/Components/SellGoldTransactionAdmin"
+        },
+        {
+            "path2": "src/Components/signUp component"
+        },
+        {
+            "path2": "src/Components/SignUpInfoo"
+        },
+        {
+            "path2": "src/Components/StepperComputer"
+        },
+        {
+            "path2": "src/Components/StepperPhone"
+        },
+        {
+            "path2": "src/Components/TabPrice"
+        },
+        {
+            "path2": "src/Components/Transaction"
+        },
+        {
+            "path2": "src/Components/TransactionComponent"
+        },
+        {
+            "path2": "src/Components/VerifyComponent"
+        },
+        {
+            "path2": "src/Components/Withdraw"
+        },
+        {
+            "path2": "src/Components/WithdrawGold"
+        },
+        {
+            "path2": "src/Components/AboutComponent/index.js"
+        },
+        {
+            "path2": "src/Components/AddingPriceAdmin/index.jsx"
+        },
+        {
+            "path2": "src/Components/AddingPriceAdmin/WithdrawAdmin.jsx"
+        },
+        {
+            "path2": "src/Components/AddPhoneNumber/AddPhoneNumber.jsx"
+        },
+        {
+            "path2": "src/Components/AddPhoneNumber/index.js"
+        },
+        {
+            "path2": "src/Components/AddPhoneNumber/TextFeild.jsx"
+        },
+        {
+            "path2": "src/Components/AdminPermission/index.jsx"
+        },
+        {
+            "path2": "src/Components/Animate/Animate.jsx"
+        },
+        {
+            "path2": "src/Components/ArrowBottom/ArrowBottom.jsx"
+        },
+        {
+            "path2": "src/Components/BuyGold/BuyGold.jsx"
+        },
+        {
+            "path2": "src/Components/BuyGold/index.js"
+        },
+        {
+            "path2": "src/Components/BuyGoldTransaction/BuyGoldTransaction.jsx"
+        },
+        {
+            "path2": "src/Components/BuyGoldTransaction/Utils"
+        },
+        {
+            "path2": "src/Components/BuyGoldTransaction/Utils/Columns.js"
+        },
+        {
+            "path2": "src/Components/CashAmount/index.jsx"
+        },
+        {
+            "path2": "src/Components/CashWidtrawComponent/index.jsx"
+        },
+        {
+            "path2": "src/Components/contact_us/ContactUs.js"
+        },
+        {
+            "path2": "src/Components/Deposit/Deposit.jsx"
+        },
+        {
+            "path2": "src/Components/Deposit/index.js"
+        },
+        {
+            "path2": "src/Components/Desk/Desk.jsx"
+        },
+        {
+            "path2": "src/Components/DimondHeader/DimondHeader.jsx"
+        },
+        {
+            "path2": "src/Components/DimondHeaderMobile/DimondHeaderMobile.jsx"
+        },
+        {
+            "path2": "src/Components/Faqs/Faqs.jsx"
+        },
+        {
+            "path2": "src/Components/Faqs/index.js"
+        },
+        {
+            "path2": "src/Components/Faqs/Utils"
+        },
+        {
+            "path2": "src/Components/Faqs/Utils/FaqsObjects.js"
+        },
+        {
+            "path2": "src/Components/GoldAmountInStoreAdmin/GoldAmount.jsx"
+        },
+        {
+            "path2": "src/Components/GoldAmountInStoreAdmin/index.jsx"
+        },
+        {
+            "path2": "src/Components/GoldAmountInStoreAdmin/Pricedifrences.jsx"
+        },
+        {
+            "path2": "src/Components/GoldWidtrawComponent/index.jsx"
+        },
+        {
+            "path2": "src/Components/Home/Home.jsx"
+        },
+        {
+            "path2": "src/Components/SellGold/index.js"
+        },
+        {
             "path2": "src/Components/SellGold/SellGold.jsx"
+        },
+        {
+            "path2": "src/Components/SellGoldTransactionAdmin/SellGoldTransactionAdmin.jsx"
+        },
+        {
+            "path2": "src/Components/signUp component/index.js"
+        },
+        {
+            "path2": "src/Components/signUp component/loading.jsx"
+        },
+        {
+            "path2": "src/Components/SignUpInfoo/index.jsx"
+        },
+        {
+            "path2": "src/Components/StepperComputer/index.js"
+        },
+        {
+            "path2": "src/Components/StepperComputer/StepperComputer.jsx"
+        },
+        {
+            "path2": "src/Components/StepperComputer/Utils"
+        },
+        {
+            "path2": "src/Components/StepperComputer/Utils/StepsObjext.js"
+        },
+        {
+            "path2": "src/Components/StepperPhone/index.js"
+        },
+        {
+            "path2": "src/Components/StepperPhone/Stepper.jsx"
+        },
+        {
+            "path2": "src/Components/StepperPhone/Utils"
+        },
+        {
+            "path2": "src/Components/StepperPhone/Utils/StepsObjext.js"
+        },
+        {
+            "path2": "src/Components/TabPrice/TabPrice.jsx"
+        },
+        {
+            "path2": "src/Components/Transaction/Transaction.jsx"
+        },
+        {
+            "path2": "src/Components/Transaction/TransactionGold.jsx"
+        },
+        {
+            "path2": "src/Components/Transaction/Utils"
+        },
+        {
+            "path2": "src/Components/Transaction/Utils/Columns.js"
+        },
+        {
+            "path2": "src/Components/Transaction/Utils/ColumnsGold.js"
+        },
+        {
+            "path2": "src/Components/TransactionComponent/index.jsx"
+        },
+        {
+            "path2": "src/Components/TransactionComponent/Utils"
+        },
+        {
+            "path2": "src/Components/TransactionComponent/Utils/Columns.js"
+        },
+        {
+            "path2": "src/Components/VerifyComponent/index.js"
+        },
+        {
+            "path2": "src/Components/Withdraw/index.js"
+        },
+        {
+            "path2": "src/Components/Withdraw/Withdraw.jsx"
+        },
+        {
+            "path2": "src/Components/WithdrawGold/index.js"
+        },
+        {
+            "path2": "src/Components/WithdrawGold/WithdrawGold.jsx"
+        },
+        {
+            "path2": "src/Config/index.js"
+        },
+        {
+            "path2": "src/Containers/DashboardUser"
+        },
+        {
+            "path2": "src/Containers/Layout"
+        },
+        {
+            "path2": "src/Containers/DashboardUser/UserDashboard.js"
+        },
+        {
+            "path2": "src/Containers/Layout/Footer.jsx"
+        },
+        {
+            "path2": "src/Containers/Layout/index.js"
+        },
+        {
+            "path2": "src/Containers/Layout/NavBar.jsx"
+        },
+        {
+            "path2": "src/Containers/Layout/util"
+        },
+        {
+            "path2": "src/Containers/Layout/util/DashboarPath.js"
+        },
+        {
+            "path2": "src/pages/index.js"
+        },
+        {
+            "path2": "src/pages/_app.js"
+        },
+        {
+            "path2": "src/pages/_document.js"
+        },
+        {
+            "path2": "src/pages/About"
+        },
+        {
+            "path2": "src/pages/AddingPriceAdmin"
+        },
+        {
+            "path2": "src/pages/api"
+        },
+        {
+            "path2": "src/pages/BuyGoldPage"
+        },
+        {
+            "path2": "src/pages/BuyGoldTransactionAdmin"
+        },
+        {
+            "path2": "src/pages/CashAmountAdmin"
+        },
+        {
+            "path2": "src/pages/CashWidthrawAdmin"
+        },
+        {
+            "path2": "src/pages/Contact"
+        },
+        {
+            "path2": "src/pages/DepositPage"
+        },
+        {
+            "path2": "src/pages/DeskPage"
+        },
+        {
+            "path2": "src/pages/Faqs"
+        },
+        {
+            "path2": "src/pages/GoldAmountStoreAdmin"
+        },
+        {
+            "path2": "src/pages/GoldWidtrawAdmin"
+        },
+        {
+            "path2": "src/pages/SellGoldPage"
+        },
+        {
+            "path2": "src/pages/SellGoldTransactionAdmin"
+        },
+        {
+            "path2": "src/pages/SignUp"
+        },
+        {
+            "path2": "src/pages/SignUpInfo"
+        },
+        {
+            "path2": "src/pages/TransactionPage"
+        },
+        {
+            "path2": "src/pages/TransactionsRecordAdmin"
+        },
+        {
+            "path2": "src/pages/VerifyCode"
+        },
+        {
+            "path2": "src/pages/VerifyNumber"
+        },
+        {
+            "path2": "src/pages/WithdrawGoldPage"
+        },
+        {
+            "path2": "src/pages/WithdrawPage"
+        },
+        {
+            "path2": "src/pages/About/index.js"
+        },
+        {
+            "path2": "src/pages/AddingPriceAdmin/index.js"
+        },
+        {
+            "path2": "src/pages/api/hello.js"
+        },
+        {
+            "path2": "src/pages/BuyGoldPage/index.js"
+        },
+        {
+            "path2": "src/pages/BuyGoldTransactionAdmin/index.js"
+        },
+        {
+            "path2": "src/pages/CashAmountAdmin/index.js"
+        },
+        {
+            "path2": "src/pages/CashWidthrawAdmin/index.js"
+        },
+        {
+            "path2": "src/pages/Contact/index.js"
+        },
+        {
+            "path2": "src/pages/DepositPage/index.js"
+        },
+        {
+            "path2": "src/pages/DeskPage/index.js"
+        },
+        {
+            "path2": "src/pages/Faqs/index.js"
+        },
+        {
+            "path2": "src/pages/GoldAmountStoreAdmin/index.js"
+        },
+        {
+            "path2": "src/pages/GoldWidtrawAdmin/index.js"
+        },
+        {
+            "path2": "src/pages/SellGoldPage/index.js"
+        },
+        {
+            "path2": "src/pages/SellGoldTransactionAdmin/index.js"
+        },
+        {
+            "path2": "src/pages/SignUp/index.js"
+        },
+        {
+            "path2": "src/pages/SignUpInfo/index.js"
+        },
+        {
+            "path2": "src/pages/TransactionPage/index.js"
+        },
+        {
+            "path2": "src/pages/TransactionsRecordAdmin/index.js"
+        },
+        {
+            "path2": "src/pages/VerifyCode/index.js"
+        },
+        {
+            "path2": "src/pages/VerifyNumber/index.js"
+        },
+        {
+            "path2": "src/pages/WithdrawGoldPage/index.js"
+        },
+        {
+            "path2": "src/pages/WithdrawPage/index.js"
+        },
+        {
+            "path2": "src/styles/globals.css"
+        },
+        {
+            "path2": "src/styles/Home.module.css"
+        },
+        {
+            "path2": "src/Utils/DrawerObjectAdmin.js"
+        },
+        {
+            "path2": "src/Utils/DrawerObjects.js"
         }
     ],
-    "count_of_modify": 5,
-    "delete": [],
-    "count_of_delete": 0,
-    "log_identifier": "mm5cks17fqv64nt8ogduzagcnn2mn3u5d7ai7538oucywmdaa8"
+    "count_of_modify": 271,
+    "delete": [
+        {
+            "path2": "src/Components/Transaction/TransActionMain.jsx"
+        }
+    ],
+    "count_of_delete": 1,
+    "log_identifier": "96hfqd36ya2vqgco55m9huiygnawjvateactgsxchvrec5mbi6"
 }
