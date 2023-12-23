@@ -136,9 +136,7 @@ const WithdrawGold = ({ walletDataToken }) => {
                           icon: "success",
                         });
                       })
-                      .then(() => {
-                        window.location.reload();
-                      })
+                     
                       .catch((err) => {
                         Swal.fire({
                           title: err.response.data.responseFA,

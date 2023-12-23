@@ -59,7 +59,7 @@ const CashAmount = ({ AllMembers }) => {
            title: res.data.responseFA,
           text: " تغیرات با موفقیت اعمال شد ",
           icon: "success",
-         }).then(() => window.location.reload());
+         })
       })
       .catch((err) => {
          Swal.fire({
