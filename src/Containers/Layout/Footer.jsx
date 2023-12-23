@@ -100,14 +100,16 @@ const Footer = (props) => {
             item
             display="flex"
             alignItems="center"
-            whiteSpace="nowrap"
-            sx={{ ml: { xs: "2%", sm: "0" } }}
+            sx={{
+              ml: { xs: "2%", sm: "0" },
+            }}
           >
             <Typography
               fontFamily="Yekan"
               color="white"
               fontSize={20}
               variant="h5"
+              sx={{ whiteSpace: "nowrap" }}
             >
               آدرس :
             </Typography>
@@ -124,7 +126,12 @@ const Footer = (props) => {
 
           <Grid item display="flex" flexDirection="column" alignItems="center">
             <Box display="flex" alignItems="center">
-              <Typography fontFamily="Yekan" color="white" fontSize={20}>
+              <Typography
+                fontFamily="Yekan"
+                color="white"
+                fontSize={20}
+                sx={{ whiteSpace: "nowrap" }}
+              >
                 {" "}
                 تلفن :{" "}
               </Typography>
@@ -185,10 +192,19 @@ const Footer = (props) => {
             </Box>
           </Grid>
         </Grid>
-     <hr style={{border:'1px solid #FFC436' , width:"100%"}}/>
-     <Typography sx={{color:"#fff", margin:'auto',fontWeight:"bold", fontFamily:'Yekan',py:1}} >ساخته شده توسط آدلی کارا</Typography>
+        <hr style={{ border: "1px solid #FFC436", width: "100%" }} />
+        <Typography
+          sx={{
+            color: "#fff",
+            margin: "auto",
+            fontWeight: "bold",
+            fontFamily: "Yekan",
+            py: 1,
+          }}
+        >
+          ساخته شده توسط آدلی کارا
+        </Typography>
       </Grid>
-    
     </>
   );
 };

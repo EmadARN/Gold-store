@@ -61,7 +61,14 @@ const Withdraw = (props) => {
       <div style={{ maxWidth: "800px" }}>
         <Typography
           variant="h3"
-          sx={{ color: "#fff", fontWeight: "bold", my: 5, textAlign: "center" ,fontFamily:'Yekan',fontSize:{xs:"36px",md:"45px"}}}
+          sx={{
+            color: "#fff",
+            fontWeight: "bold",
+            my: 5,
+            textAlign: "center",
+            fontFamily: "Yekan",
+            fontSize: { xs: "36px", md: "45px" },
+          }}
         >
           {props.title}
         </Typography>
@@ -142,7 +149,7 @@ const Withdraw = (props) => {
                       )
                       .then((res) => {
                         Swal.fire({
-                          title: "برداشت با موفقیت",
+                          title: res.data.responseFA,
                           text: "در صورت بوجود آمدن مشکل با پشتیبانی تماس بگیرید ",
                           icon: "success",
                         });
