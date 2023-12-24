@@ -40,7 +40,8 @@ export default function SignUpSide() {
         <Grid
           container
           sx={{
-            height: "100vh",
+            minHeight: "100vh !important",
+            height: "auto !important",
             display: "flex",
             justifyContent: "center",
             width: "100%",
@@ -59,8 +60,10 @@ export default function SignUpSide() {
               border: "1px solid rgba(255,255,255,0.5)",
               maxHeight: "70%",
               maxWidth: { xs: "90%", md: "100%" },
-              mt: { xs: "40%", md: "8%" },
+              mt: 4,
               borderRadius: "10px",
+              maxHeight: "550px !important",
+              height: "auto !important",
             }}
             item
             xs={12}
@@ -96,7 +99,7 @@ export default function SignUpSide() {
                     onChange={(e) => setPhone_number(e.target.value)}
                     sx={{
                       width: "100%",
-
+                      
                       input: { color: "#fff", direction: "rtl", pr: 2 },
                       label: { color: "#000" },
                       "& label.Mui-focused": {

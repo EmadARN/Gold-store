@@ -40,7 +40,8 @@ const VerifyCode = () => {
         <Grid
           container
           sx={{
-            height: "100vh",
+            minHeight: "100vh !important",
+            height: "auto !important",
             display: "flex",
             justifyContent: "center",
             width: "100%",
@@ -54,13 +55,15 @@ const VerifyCode = () => {
             sx={{
               backgroundColor: "rgba(255,255,255,0.1)",
               WebkitBackdropFilter: "blur(7px) !important",
-              backdropFilter: { xs: "blur(8px)", md: "blur(15px)" },
+              backdropFilter: { xs: "blur(7px)", md: "blur(10px)" },
               boxShadow: "0 25px 445px rgba(0,0,0,0.1)",
               border: "1px solid rgba(255,255,255,0.5)",
               maxHeight: "70%",
               maxWidth: { xs: "90%", md: "100%" },
-              mt: { xs: "40%", md: "8%" },
+              mt: 4,
               borderRadius: "10px",
+              maxHeight: "550px !important",
+              height: "auto !important",
             }}
             item
             xs={12}
