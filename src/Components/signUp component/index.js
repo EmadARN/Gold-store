@@ -16,7 +16,7 @@ import { IPServer } from "@/Config";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useCookies } from "react-cookie";
-import CircularIndeterminate from "./loading";
+import CircularIndeterminate from "../loader/loading";
 
 const themee = createTheme({
   direction: "rtl",

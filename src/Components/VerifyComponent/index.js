@@ -15,6 +15,8 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import { IPServer } from "@/Config";
 import Link from "next/link";
+import CircularIndeterminate from "../loader/loading";
+
 
 const themee = createTheme({
   direction: "rtl",
@@ -31,7 +33,7 @@ const VerifyCode = () => {
   const [phone_number2, setPhone_number2] = React.useState(
     cookies["phone-number"]
   );
-  console.log("cookiessss", cookies);
+  const [loading, setLoading] = React.useState(false);
 
   const router = useRouter();
   return (
@@ -144,6 +146,7 @@ const VerifyCode = () => {
                   }}
                   onClick={(e) => {
                     e.preventDefault();
+                    setLoading(true);
                     axios
                       .post(`${IPServer}/Authentication/prove-auth-code/`, {
                         phone_number: phone_number2,
@@ -171,7 +174,7 @@ const VerifyCode = () => {
                       });
                   }}
                 >
-                  تایید
+                 {loading ? <CircularIndeterminate /> : "تایید"}
                 </Button>
               </Box>
 

@@ -6,6 +6,7 @@ import axios from "axios";
 import { parseCookies } from "nookies";
 import React from "react";
 
+
 const BuyGoldPage = ({ walletDataToken, goldStockPrice }) => {
   return (
     <UserDashboard indexBtn={4} DrawerObj={DrawerObj}>
