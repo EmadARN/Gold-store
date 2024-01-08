@@ -93,15 +93,15 @@ export default function SignUpSide() {
               >
                 ورود | ثبت نام
               </Typography>
-              <Box component="form" noValidate sx={{ mt: 1 }}>
-                <Box>
+              
+                <Box width="50%">
                   <TextField
                     onChange={(e) => setPhone_number(e.target.value)}
                     sx={{
                       width: "100%",
                       
                       input: { color: "#fff", direction: "rtl", pr: 2 },
-                      label: { color: "#000" },
+                      label: { color: "#fff" ,fontSize:'17px',fontFamily:'Yekan' },
                       "& label.Mui-focused": {
                         color: "#FFC436",
                         fontWeight: "bold",
@@ -132,7 +132,7 @@ export default function SignUpSide() {
 
                 <Box
                   sx={{
-                    width: "100%",
+                   width:"50%",
                     display: "flex",
                     justifyContent: "center",
                   }}
@@ -171,7 +171,7 @@ export default function SignUpSide() {
                     {loading ? <CircularIndeterminate /> : "ادامه"}
                   </Button>
                 </Box>
-              </Box>
+            
             </Box>
           </Grid>
         </Grid>

@@ -102,6 +102,7 @@ const Footer = (props) => {
             alignItems="center"
             sx={{
               ml: { xs: "2%", sm: "0" },
+              mb:{xs:'2%',md:'0'}
             }}
           >
             <Typography
@@ -113,14 +114,16 @@ const Footer = (props) => {
             >
               آدرس :
             </Typography>
-            <Typography
+            <Typography 
+            sx={{fontSize:{xs:"15px",md:'20px'}}}
               fontFamily="Yekan"
               color="#fff"
               variant="h6"
               mr={1}
               fontWeight="bold"
+              whiteSpace="nowrap"
             >
-              زنجان سفر اباد خیابان 12 نبش نانوایی
+            زنجان.اسلام آباد.جنب بانک سپه.طلای حسین
             </Typography>
           </Grid>
 
@@ -135,9 +138,22 @@ const Footer = (props) => {
                 {" "}
                 تلفن :{" "}
               </Typography>
-              <Typography fontFamily="Yekan" mr={1} color="#fff" variant="h6">
-                024-2424-2424-24
+              <Box display="flex" flexDirection="column" >
+                <Box display="flex" alignItems="center">
+                 
+              <Typography ml={2} fontFamily="Yekan" mr={1} color="#fff" variant="h6">
+              09126411239
               </Typography>
+              <span style={{fontFamily:"Yekan",color:'#fff'}}>مسعودی</span>
+              </Box>
+              <Box display="flex" alignItems="center">
+                 
+                 <Typography ml={2} fontFamily="Yekan" mr={1} color="#fff" variant="h6">
+                 09122429712
+                 </Typography>
+                 <span style={{fontFamily:"Yekan",color:'#fff'}}>موسوی</span>
+                 </Box>
+              </Box>
             </Box>
 
             <Box mt={1} display="flex" alignItems="center">

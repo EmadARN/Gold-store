@@ -54,7 +54,7 @@ const ContactUs = () => {
                 <PhoneEnabledIcon sx={{ color: "#FFC436", ml: 2, mt: 1 }} />
               </span>
               <Typography fontFamily="Yekan" color="#fff" variant="h6">
-                012131242
+             09126411239
               </Typography>
             </Box>
 
@@ -72,7 +72,7 @@ const ContactUs = () => {
                 <LocationOnIcon sx={{ color: "#FFC436", ml: 2, mt: 1 }} />
               </span>
               <Typography fontFamily="Yekan" color="#fff" variant="h6">
-                در این فیلد آدرس مغازه درج خواهد شد
+                زنجان.اسلام آباد.جنب بانک سپه.طلای حسین
               </Typography>
             </Box>
           </Grid>

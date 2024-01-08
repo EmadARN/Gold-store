@@ -92,14 +92,14 @@ const VerifyCode = () => {
               >
                 کد تایید را وارد کنید
               </Typography>
-              <Box width="70%" component="form" noValidate sx={{ mt: 1 }}>
+              <Box width="50%" component="form" noValidate sx={{ mt: 1 }}>
                 <TextField
                   onChange={(e) => setVerify_code(e.target.value)}
                   sx={{
                     width: "100%",
 
                     input: { color: "#fff", direction: "rtl", pr: 2 },
-                    label: { color: "black" },
+                    label: { color: "#fff" ,fontSize:'17px',fontFamily:'Yekan' },
                     "& label.Mui-focused": {
                       color: "#FFC436",
                       fontWeight: "bold",
@@ -130,7 +130,7 @@ const VerifyCode = () => {
                 />
               </Box>
 
-              <Box width="40%">
+              <Box width="30%">
                 <Button
                   disabled={verify_code.length == 6 ? false : true}
                   type="submit"

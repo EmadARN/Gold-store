@@ -80,11 +80,11 @@ const SignUpInfo = () => {
               backdropFilter: { xs: "blur(7px)", md: "blur(10px)" },
               boxShadow: "0 25px 445px rgba(0,0,0,0.1)",
               border: "1px solid rgba(255,255,255,0.5)",
-              maxHeight: "70%",
+              
               maxWidth: { xs: "90%", md: "100%" },
               mt: 4,
               borderRadius: "10px",
-              maxHeight: "550px !important",
+              maxHeight: "680px !important",
               height: "auto !important",
             }}
             item
@@ -118,7 +118,7 @@ const SignUpInfo = () => {
                     width: "100%",
 
                     input: { color: "#fff", direction: "rtl", pr: 2 },
-                    label: { color: "#000" },
+                    label: { color: "#fff" ,fontSize:'20px',fontFamily:'Yekan' },
                     "& label.Mui-focused": {
                       color: "#FFC436",
                       fontWeight: "bold",
@@ -154,7 +154,7 @@ const SignUpInfo = () => {
                     width: "100%",
 
                     input: { color: "#fff", direction: "rtl", pr: 2 },
-                    label: { color: "#000" },
+                    label: { color: "#fff" ,fontSize:'20px',fontFamily:'Yekan' },
                     "& label.Mui-focused": {
                       color: "#FFC436",
                       fontWeight: "bold",
@@ -190,7 +190,7 @@ const SignUpInfo = () => {
                     width: "100%",
 
                     input: { color: "#fff", direction: "rtl", pr: 2 },
-                    label: { color: "#000" },
+                    label: { color: "#fff" ,fontSize:'20px',fontFamily:'Yekan' },
                     "& label.Mui-focused": {
                       color: "#FFC436",
                       fontWeight: "bold",
@@ -220,13 +220,83 @@ const SignUpInfo = () => {
                   autoFocus
                   onChange={(e) => InputHandler(e, "national_code")}
                 />
+                <TextField
+                  sx={{
+                    width: "100%",
+
+                    input: { color: "#fff", direction: "rtl", pr: 2 },
+                    label: { color: "#fff" ,fontSize:'20px',fontFamily:'Yekan' },
+                    "& label.Mui-focused": {
+                      color: "#FFC436",
+                      fontWeight: "bold",
+                    },
+                    "& .MuiInput-underline:after": {
+                      borderBottomColor: "#fff",
+                    },
+                    "& .MuiOutlinedInput-root": {
+                      "& fieldset": {
+                        borderColor: "#fff",
+                        borderRadius: "10px",
+                      },
+                      "&:hover fieldset": {
+                        borderColor: "#fff",
+                      },
+                      "&.Mui-focused fieldset": {
+                        borderColor: "#FFC436",
+                      },
+                    },
+                  }}
+                  margin="normal"
+                  fullWidth
+                  id="number"
+                  label="شماره کارت"
+                  name="email"
+                  autoComplete="email"
+                  autoFocus
+                  onChange={(e) => InputHandler(e, "email")}
+                />
+                <TextField
+                  sx={{
+                    width: "100%",
+
+                    input: { color: "#fff", direction: "rtl", pr: 2 },
+                    label: { color: "#fff" ,fontSize:'20px',fontFamily:'Yekan' },
+                    "& label.Mui-focused": {
+                      color: "#FFC436",
+                      fontWeight: "bold",
+                    },
+                    "& .MuiInput-underline:after": {
+                      borderBottomColor: "#fff",
+                    },
+                    "& .MuiOutlinedInput-root": {
+                      "& fieldset": {
+                        borderColor: "#fff",
+                        borderRadius: "10px",
+                      },
+                      "&:hover fieldset": {
+                        borderColor: "#fff",
+                      },
+                      "&.Mui-focused fieldset": {
+                        borderColor: "#FFC436",
+                      },
+                    },
+                  }}
+                  margin="normal"
+                  fullWidth
+                  id="number"
+                  label="شماره شبا"
+                  name="email"
+                  autoComplete="email"
+                  autoFocus
+                  onChange={(e) => InputHandler(e, "email")}
+                />
 
                 <TextField
                   sx={{
                     width: "100%",
 
                     input: { color: "#fff", direction: "rtl", pr: 2 },
-                    label: { color: "#000" },
+                    label: { color: "#fff" ,fontSize:'20px',fontFamily:'Yekan' },
                     "& label.Mui-focused": {
                       color: "#FFC436",
                       fontWeight: "bold",
