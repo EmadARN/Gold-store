@@ -20,9 +20,9 @@ const FooterButton = styled("button")(({ theme }) => ({
   border: "none",
   fontWeight: "100",
   fontFamily: "Lalezar",
-  transition: "all ease-out .6s",
+  transition: "all ease-out .2s",
   "&:hover": {
-    borderBottom: "1px solid #FFC436",
+   color:"#777",
 
     cursor: "pointer",
   },

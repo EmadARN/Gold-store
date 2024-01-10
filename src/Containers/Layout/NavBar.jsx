@@ -193,7 +193,7 @@ const NavBar = (props) => {
                     fontSize: "20px",
                     transition: "all ease-out .6s",
 
-                    "&:hover": { borderBottom: "1px solid  #FFC436" },
+                    "&:hover": { backgroundColor: "#FFC436",color:'#111' },
                   }}
                 >
                   {page.text}
