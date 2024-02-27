@@ -1,31 +1,20 @@
 
 
 import { Box, Grid, Typography } from "@mui/material";
+import {GridOne, GridThree, GridTwo, TypoOne} from "@/Components/AboutComponent/Style";
 const AboutComponent = () => {
   return (
   
-      <Grid container display="flex" justifyContent="center" sx={{ p: {xs:1,md:8} }}>
+      <Grid container display="flex" justifyContent="center" sx={GridOne}>
         <Typography
-          color="#FFC436"
-          fontWeight="bold"
-          fontFamily="Lalazar"
-          mr={4}
-          mt={5}
-          sx={{ fontSize: { xs: "25px", md: "35px" } }}
+          sx={TypoOne}
         >
           درباره طلای حسین
         </Typography>
 
         <Grid
           item
-          sx={{
-            border: "1px solid #2B2926",
-            borderRadius: "60px",
-            backgroundColor: "#2B2926",
-            
-             
-        
-          }}
+          sx={GridTwo}
           container
           display="flex"
           justifyContent="space-around"
@@ -42,7 +31,7 @@ const AboutComponent = () => {
               fontFamily="Yekan"
               textAlign="justify"
               
-              sx={{ p: 5, height: "100%", lineHeight: "40px" ,}}
+              sx={GridThree}
             >
               لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
               استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله

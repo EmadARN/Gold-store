@@ -1,5 +1,14 @@
 import { Box, Button, Grid, Typography } from "@mui/material";
 import React from "react";
+import {
+    BoxOneSx,
+    BoxThreeSx,
+    BoxtwoSx, ButtonOneSx, GridFourSx,
+    GridOneSx,
+    GridThreeSx,
+    GridTwoSx,
+    TypoOneSx
+} from "@/Components/AddPhoneNumber/Style";
 
 const AddPhoneNumber = () => {
   return (
@@ -9,14 +18,10 @@ const AddPhoneNumber = () => {
       justifyContent="center"
       alignItems="center"
       flexDirection="column"
-      sx={{ mr: { xs: "8%", md: "0" } }}
+      sx={GridOneSx}
     >
       <Grid
-        sx={{
-          display: { xs: "flex" },
-          justifyContent: { xs: "center", md: "start" },
-          alignItems: "center",
-        }}
+        sx={GridTwoSx}
       >
         <Typography color="#FFC436" fontFamily="Lalezar" variant="h3">
           طلای حسین،
@@ -26,15 +31,10 @@ const AddPhoneNumber = () => {
         </Typography>
       </Grid>
 
-      <Grid sx={{ display: { xs: "none", md: "flex" } }} mt={2} display="flex">
+      <Grid sx={GridThreeSx} mt={2} display="flex">
         <Box
           ml={3}
-          sx={{
-            border: "1px solid #FFC436",
-            borderRadius: "10px",
-            padding: "5px 10px",
-            backgroundColor: "rgba(157, 121, 24,0.4)",
-          }}
+          sx={BoxOneSx}
         >
           <Typography
             fontWeight="bold"
@@ -49,12 +49,7 @@ const AddPhoneNumber = () => {
 
         <Box
           ml={3}
-          sx={{
-            border: "1px solid #FFC436",
-            borderRadius: "10px",
-            padding: "5px 10px",
-            backgroundColor: "rgba(157, 121, 24,0.4)",
-          }}
+          sx={BoxtwoSx}
         >
           <Typography
             fontWeight="bold"
@@ -68,12 +63,7 @@ const AddPhoneNumber = () => {
         </Box>
 
         <Box
-          sx={{
-            border: "1px solid #FFC436",
-            borderRadius: "10px",
-            padding: "5px 10px",
-            backgroundColor: "rgba(157, 121, 24,0.4)",
-          }}
+          sx={BoxThreeSx}
         >
           <Typography
             fontWeight="bold"
@@ -90,7 +80,7 @@ const AddPhoneNumber = () => {
       <Grid mb={3} display="flex" flexDirection="column" mt={3}>
         <Typography
           mr={8}
-          sx={{ display: { xs: "none", md: "flex" } }}
+          sx={TypoOneSx}
           mb={1}
           fontFamily="Yekan"
           color="#fff"
@@ -102,27 +92,11 @@ const AddPhoneNumber = () => {
 
       <Grid
         mb={3}
-        sx={{
-          width: { xs: "100%", sm: "80%" },
-          display: "flex",
-          justifyContent: "center",
-        }}
+        sx={GridFourSx}
       >
         <Button
           variant="contained"
-          sx={{
-            bgcolor: "#FFC436",
-            color: "#000",
-            fontSize: "18px",
-            fontWeight: "bold",
-            px: 10,
-            transition: "all .3s ease-in ",
-            "&:hover": {
-              bgcolor: "#FFC436",
-              letterSpacing: "2px",
-              transition: "all .3s ease-in ",
-            },
-          }}
+          sx={ButtonOneSx}
         >
           ثبت نام
         </Button>

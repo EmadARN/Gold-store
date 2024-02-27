@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b859cc4e-743e-4716-b7ef-cd9f2a9925ea" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/AboutComponent/Style.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/AddPhoneNumber/Style.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/AddingPriceAdmin/Style.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/AdminPermission/Style.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Animate/Style.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/ArrowBottom/Style.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/BuyGold/Style.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/DimondHeader/Data.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/DimondHeaderMobile/Data.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/DimondHeaderMobile/Style.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Faqs/Style.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/AboutComponent/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/AboutComponent/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/AddPhoneNumber/AddPhoneNumber.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/AddPhoneNumber/AddPhoneNumber.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/AddPhoneNumber/TextFeild.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/AddPhoneNumber/TextFeild.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/AddingPriceAdmin/WithdrawAdmin.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/AddingPriceAdmin/WithdrawAdmin.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/AdminPermission/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/AdminPermission/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Animate/Animate.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Animate/Animate.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/ArrowBottom/ArrowBottom.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ArrowBottom/ArrowBottom.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/BuyGold/BuyGold.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/BuyGold/BuyGold.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/BuyGoldTransaction/BuyGoldTransaction.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/BuyGoldTransaction/BuyGoldTransaction.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/CashAmount/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/CashAmount/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/CashWidtrawComponent/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/CashWidtrawComponent/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Deposit/Deposit.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Deposit/Deposit.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Desk/Desk.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Desk/Desk.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/DimondHeader/DimondHeader.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/DimondHeader/DimondHeader.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/DimondHeaderMobile/DimondHeaderMobile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/DimondHeaderMobile/DimondHeaderMobile.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Faqs/Faqs.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Faqs/Faqs.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/contact_us/ContactUs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/contact_us/ContactUs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Amirhbbii&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="ec2a7726-0c6c-4cef-99d3-9858f157efe8" />
+        <option name="url" value="https://github.com/EmadARN/Gold-store.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2coD9GMwf24ud8tJF1S0De09AEB" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Gold/Gold-store&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2023.3.3\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b859cc4e-743e-4716-b7ef-cd9f2a9925ea" name="Changes" comment="" />
+      <created>1708768884630</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1708768884630</updated>
+      <workItem from="1708768885689" duration="5048000" />
+      <workItem from="1708962772740" duration="177000" />
+      <workItem from="1709013443123" duration="1817000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

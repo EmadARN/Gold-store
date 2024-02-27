@@ -3,6 +3,17 @@ import Typography from "@mui/material/Typography";
 import { Box, Button, Container, Grid, Paper } from "@mui/material";
 import { useRouter } from "next/router";
 import numeral from "numeral";
+import {
+  BoxOneSx,
+  BoxTwoSx,
+  GridOneSx,
+  PaperOneSx,
+  TypoFourSx,
+  TypoThreeSx,
+  TypoTwoSx,
+  buttononeSx,
+  typoOneSx,
+} from "./Style";
 
 const Desk = ({ goldStockPrice, walletDataToken }) => {
   var format1 = numeral(goldStockPrice.buy_price).format("0,0");
@@ -57,10 +68,8 @@ const Desk = ({ goldStockPrice, walletDataToken }) => {
   const router = useRouter();
   return (
     <Box>
-      <Box
-        sx={{ margin: "auto", display: "block", textAlign: "center", mb: 10 }}
-      >
-        <Typography fontFamily="Yekan" variant="h3" sx={{ color: "#fff" ,fontWeight:"bold"}}>
+      <Box sx={BoxOneSx}>
+        <Typography fontFamily="Yekan" variant="h3" sx={typoOneSx}>
           میز کار
         </Typography>
       </Box>
@@ -76,54 +85,24 @@ const Desk = ({ goldStockPrice, walletDataToken }) => {
               lg={3}
               key={obj.id}
               pl={1}
-              sx={{ display: "grid", placeItems: "center" }}
+              sx={GridOneSx}
             >
-              <Paper
-                sx={{
-                  bgcolor: "#272523",
-                  maxWidth: "280px",
-                  width: "100%",
-                  borderRadius: "7px",
-                  height: "280px",
-                  p: 4,
-                  my: 2,
-                  pr: 3,
-                }}
-              >
+              <Paper sx={PaperOneSx}>
                 <Box>
-                  <Typography variant="h6" sx={{ color: "#fff" }}>
+                  <Typography variant="h6" sx={TypoTwoSx}>
                     {obj.title} :
                   </Typography>
-                  <Typography
-                    variant="h6"
-                    sx={{ color: "gray", visibility: obj.visibility }}
-                  >
+                  <Typography variant="h6" sx={TypoThreeSx}>
                     {obj.subtitle}
                   </Typography>
                 </Box>
-                <Typography
-                  sx={{ color: "#fff", textAlign: "end", py: 3 }}
-                  variant="h5"
-                >
+                <Typography sx={TypoFourSx} variant="h5">
                   {obj.price} &nbsp;{obj.unit}
                 </Typography>
-                <Box sx={{ display: "flex", justifyContent: "center" }}>
+                <Box sx={BoxTwoSx}>
                   <Button
                     onClick={() => router.push(obj.page)}
-                    sx={{
-                      width: "80%",
-                      my: 1,
-                      fontWeight: "600",
-                      fontSize: { xs: "18px", md: "22px" },
-                      color: "#222",
-                      bgcolor: obj.btnColor,
-                      display: obj.displayBtn,
-                      "&:hover": {
-                        bgcolor: obj.btnColor,
-                        opacity: 0.8,
-                      },
-                      whiteSpace: "nowrap",
-                    }}
+                    sx={buttononeSx}
                     variant="contained"
                   >
                     {obj.btn}

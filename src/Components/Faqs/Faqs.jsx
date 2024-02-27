@@ -8,6 +8,7 @@ import Typography from "@mui/material/Typography";
 import { Box, Container, Grid } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { FaqsOb, FaqsOb2 } from "./Utils/FaqsObjects";
+import {TypoOneSx, TypoThreeSx, TypotwoSx} from "@/Components/Faqs/Style";
 
 const Accordion = styled((props) => (
   <MuiAccordion
@@ -71,26 +72,15 @@ function Faqs() {
     <Container maxWidth={"xl"} sx={{ mb: 6 }}>
       <Box>
         <Typography
-          sx={{
-            color: "#FFC436",
-            fontFamily: "Lalezar",
-            fontSize: { xs: "25px", md: "35px" },
-            mt: 5,
-            fontWeight: "bold",
-          }}
+          sx={TypoOneSx}
         >
           سوالات متداول
         </Typography>
       </Box>
-      <Grid container sx={{ mt: 10 }} spacing={1}>
+      <Grid container mt={8} spacing={1}>
         <Box>
           <Typography
-            sx={{
-              color: "#fff",
-              fontSize: "22px",
-              fontWeight: "bolder",
-              pr: 1,
-            }}
+            sx={TypotwoSx}
           >
             درباره طلای آب شده
           </Typography>
@@ -108,11 +98,7 @@ function Faqs() {
                 <AccordionDetails>
                   <Typography
                     variant="h6"
-                    sx={{
-                      fontWeight: "700",
-                      color: "#444",
-                      textAlign: "justify",
-                    }}
+                    sx={TypoThreeSx}
                   >
                     {accordian.description}
                   </Typography>
@@ -124,12 +110,7 @@ function Faqs() {
         <Grid item xs={12} sm={12} md={12} sx={{ mt: 5 }}>
           <Box>
             <Typography
-              sx={{
-                color: "#fff",
-                fontSize: "22px",
-                fontWeight: "bolder",
-                pr: 1,
-              }}
+              sx={TypotwoSx}
             >
               درباره سامانه
             </Typography>
@@ -146,11 +127,7 @@ function Faqs() {
                 <AccordionDetails>
                   <Typography
                     variant="h6"
-                    sx={{
-                      fontWeight: "700",
-                      color: "#444",
-                      textAlign: "justify",
-                    }}
+                    sx={TypoThreeSx}
                   >
                     {accordian.description}
                   </Typography>

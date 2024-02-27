@@ -3,6 +3,7 @@ import { Box, Button, Paper, Typography, Grid } from "@mui/material";
 import Switch from "@mui/material/Switch";
 import axios from "axios";
 import { useCookies } from "react-cookie";
+import {PaperOneSx, SpanOneSx, SwichOneSx, SwitchTwoSX} from "@/Components/AdminPermission/Style";
 
 const AdminPermission = ({ stock_status }) => {
   const [cookies] = useCookies(["token"]);
@@ -19,29 +20,14 @@ const AdminPermission = ({ stock_status }) => {
   };
   return (
     <Paper
-      sx={{
-        bgcolor: "#272523",
-        maxWidth: "500px",
-        width: "100%",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        borderRadius: "10px",
-        height: "auto",
-        py: 1.5,
-        px: 2,
-      }}
+      sx={PaperOneSx}
     >
       {stock_status ? (
         <>
           <Switch
             onChange={() => switchHandler()}
             defaultChecked
-            sx={{
-              "& .MuiButtonBase-root ": {
-                color: "#FFC436 !important",
-              },
-            }}
+            sx={SwitchOneSx}
           />
           <Typography
             whiteSpace="nowrap"
@@ -66,11 +52,7 @@ const AdminPermission = ({ stock_status }) => {
         <>
           <Switch
             onChange={() => switchHandler()}
-            sx={{
-              "& .MuiButtonBase-root ": {
-                color: "#FFC436 !important",
-              },
-            }}
+            sx={SwitchTwoSX}
           />
           <Typography
             whiteSpace="nowrap"
@@ -81,11 +63,7 @@ const AdminPermission = ({ stock_status }) => {
           >
             وضعیت خرید فروش :
             <span
-              style={{
-                color: "red",
-                fontWeight: "bold",
-                fontFamily: "Yekan",
-              }}
+              style={SpanOneSx}
             >
               غیر فعال
             </span>
