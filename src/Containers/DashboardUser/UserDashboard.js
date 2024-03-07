@@ -5,7 +5,7 @@ import createCache from "@emotion/cache";
 import * as React from "react";
 import { styled, useTheme } from "@mui/material/styles";
 import Drawer from "@mui/material/Drawer";
-import MuiAppBar from "@mui/material/AppBar";
+
 import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
@@ -25,76 +25,24 @@ import { useRouter } from "next/router";
 import { IPServer } from "@/Config";
 import axios from "axios";
 
+import {
+  BoxMain,
+  BtnMenu,
+  button_name,
+  hossein_gold_typo,
+  icon_button,
+  link_style,
+  list_item_text,
+  main_style,
+  Toolbar,
+  typo_box,
+  typo_name,
+  AppBar,
+  Main,
+  DrawerHeader,
+} from "./Style";
 const drawerWidth = 240;
 
-const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
-  ({ theme, open }) => ({
-    flexGrow: 1,
-    padding: theme.spacing(3),
-    transition: theme.transitions.create("margin", {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    marginLeft: `-${drawerWidth}px`,
-    ...(open && {
-      transition: theme.transitions.create("margin", {
-        easing: theme.transitions.easing.easeOut,
-        duration: theme.transitions.duration.enteringScreen,
-      }),
-      marginLeft: 0,
-    }),
-  })
-);
-const BoxMain = styled("div")(({ theme }) => ({
-  display: "flex",
-  height: "100vh",
-}));
-const BtnMenu = styled("div")(({ theme }) => ({
-  paddingLeft: 30,
-  paddingRight: 30,
-  paddingBottom: 5,
-  paddingTop: 5,
-  borderRadius: "4px",
-  backgroundColor: "#FFC436",
-  color: "#000",
-  fontSize: "20px",
-  fontWeight: "bolder",
-  boxShadow:
-    "rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px",
-  transition: "all 1s ease",
-  "&:hover": {
-    px: 6,
-    backgroundColorr: "#FFC436",
-    opacity: "0.8",
-    boxShadow:
-      "#FFC436 0px 2px 30px,#FFC436 0px 7px 90px -3px,#FFC436 0px -3px 30px ",
-  },
-}));
-const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => prop !== "open",
-})(({ theme, open }) => ({
-  transition: theme.transitions.create(["margin", "width"], {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  ...(open && {
-    width: `calc(100% - ${drawerWidth}px)`,
-    marginLeft: `${drawerWidth}px`,
-    transition: theme.transitions.create(["margin", "width"], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  }),
-}));
-
-const DrawerHeader = styled("div")(({ theme }) => ({
-  display: "flex",
-  alignItems: "center",
-  padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
-  ...theme.mixins.toolbar,
-  justifyContent: "flex-end",
-}));
 const themee = createTheme({
   direction: "rtl",
 });
@@ -139,36 +87,24 @@ export default function UserDashboard({ children, indexBtn, DrawerObj }) {
       <ThemeProvider theme={themee}>
         <BoxMain className="active-bg" sx={{}}>
           <AppBar
+            drawerWidth={drawerWidth}
             position="fixed"
             open={open}
             className="active-Header"
             sx={{ bgcolor: "#3C3A36" }}
           >
-            <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+            <Toolbar sx={Toolbar}>
               <IconButton
                 color="inherit"
                 aria-label="open drawer"
                 onClick={handleDrawerOpen}
                 edge="start"
-                sx={{
-                  mr: 2,
-                  ...(open && {
-                    display: "flex",
-                    opacity: "0",
-                    cursor: "auto",
-                  }),
-                }}
+                sx={icon_button(open)}
               >
                 <BtnMenu>منو</BtnMenu>
               </IconButton>
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  pr: { xs: 1, md: 10 },
-                }}
-              >
-                <Typography variant="" sx={{ pr: 2 ,whiteSpace:"nowrap"}}>
+              <Box sx={typo_box}>
+                <Typography variant="" sx={typo_name}>
                   {name}
                 </Typography>
                 <AccountBoxIcon sx={{ fontSize: "30px" }} />
@@ -176,26 +112,14 @@ export default function UserDashboard({ children, indexBtn, DrawerObj }) {
             </Toolbar>
           </AppBar>
           <Drawer
-            sx={{
-              width: drawerWidth,
-              flexShrink: 0,
-
-              "& .MuiDrawer-paper": {
-                width: drawerWidth,
-                boxSizing: "border-box",
-                bgcolor: "#272523",
-              },
-            }}
+            sx={drawer_style(drawerWidth)}
             variant="persistent"
             anchor="left"
             open={open}
           >
             <Paper sx={{ bgcolor: "#272523" }}>
               <Link href={"/"} style={{ textDecoration: "none" }}>
-                <Typography
-                  variant="h3"
-                  sx={{ color: "#FFC436", textAlign: "center", pt: 1 ,fontSize:{xs:"26px",md:"35px"}}}
-                >
+                <Typography variant="h3" sx={hossein_gold_typo}>
                   طلای حسین
                 </Typography>
               </Link>
@@ -215,32 +139,10 @@ export default function UserDashboard({ children, indexBtn, DrawerObj }) {
               {DrawerObj.map((text, index) => {
                 return (
                   <ListItem key={index} disablePadding>
-                    <Link
-                      href={text.toPage}
-                      style={{
-                        textDecoration: "none",
-                        width: "100%",
-                      }}
-                    >
+                    <Link href={text.toPage} style={link_style}>
                       <Divider sx={{ bgcolor: "#000" }} />
                       <Button
-                        sx={{
-                          bgcolor: index + 1 === indexBtn ? "#FFC436" : null,
-                          color: index + 1 == indexBtn ? "#000" : "#fff",
-                          width: "100%",
-                          display: "flex",
-                          justifyContent: "start",
-                          pl: 2,
-                          py: 1,
-                          fontSize: "20px",
-                          fontWeight: "bold",
-                          borderRadius: "0",
-                          "&:hover": {
-                            bgcolor: "#FFC436",
-                            color: "#000",
-                            borderRadius: "0",
-                          },
-                        }}
+                        sx={button_name(index, indexBtn)}
                         onClick={() => handleIndex(index)}
                       >
                         {text.name}
@@ -266,13 +168,7 @@ export default function UserDashboard({ children, indexBtn, DrawerObj }) {
                         router.push("/");
                       }}
                       primary={text}
-                      sx={{
-                        pl: 1,
-                        "& .MuiTypography-root": {
-                          fontSize: "20px",
-                          fontWeight: "bold",
-                        },
-                      }}
+                      sx={list_item_text}
                     />
                   </ListItemButton>
                 </ListItem>
@@ -280,14 +176,9 @@ export default function UserDashboard({ children, indexBtn, DrawerObj }) {
             </List>
           </Drawer>
           <Main
+            drawerWidth={drawerWidth}
             open={open}
-            sx={{
-              flexWrap: "wrap",
-              ...(open && {
-                width: `calc(50% - ${drawerWidth}px)`,
-                position: { xs: "absolute", sm: "static" },
-              }),
-            }}
+            sx={main_style(drawerWidth, open)}
           >
             <DrawerHeader />
 
