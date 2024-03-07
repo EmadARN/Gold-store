@@ -5,6 +5,7 @@ import Paper from "@mui/material/Paper";
 import { Container, Typography } from "@mui/material";
 import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import { columns } from "./Utils/Columns";
+import { DataGridStyle } from "./Style";
 
 const TransactionComponent = ({ transactionList }) => {
   const existingTheme = useTheme();
@@ -27,37 +28,9 @@ const TransactionComponent = ({ transactionList }) => {
 
       <ThemeProvider theme={theme}>
         <Container sx={{ mt: 5 }}>
-          <Paper
-            sx={{
-              width: "100%",
-              overflow: "hidden",
-              display: "grid",
-              placeItems: "center",
-            }}
-          >
+          <Paper sx={DataGridPaper}>
             <DataGrid
-              sx={{
-                "& .css-t89xny-MuiDataGrid-columnHeaderTitle": {
-                  margin: "0 25px",
-                },
-                "& .MuiDataGrid-cellContent": {
-                  marginRight: "5px",
-                  textAlign: "center !important",
-                },
-                "& .muirtl-rtrcn9-MuiTablePagination-root": {
-                  color: "white",
-                },
-                "& .muirtl-ptiqhd-MuiSvgIcon-root": {
-                  color: "white",
-                },
-                "& .MuiSvgIcon-root": {
-                  color: "white",
-                },
-                width: "100%",
-                bgcolor: "#272523",
-                color: "#fff",
-                maxWidth: { xs: "100%" },
-              }}
+              sx={DataGridStyle}
               density="comfortable"
               rows={transactionList}
               columns={columns}

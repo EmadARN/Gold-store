@@ -13,6 +13,13 @@ import { AppBar, Box, Container, Tab, Tabs, Typography } from "@mui/material";
 import { columnsDeposit } from "./Utils/Columns";
 import { columnswithdraw } from "./Utils/Columns";
 import PropTypes from "prop-types";
+import {
+  TableCellStyle,
+  TableContainerStyle,
+  TablepaginationStyle,
+  TrancactionPaper,
+  TransactionTap,
+} from "./Style";
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -80,16 +87,7 @@ export default function Transaction({ withdrawToken, depositToken }) {
         {/* start Tab */}
         <AppBar position="static" sx={{ borderRadius: "10px 10px 0 0 " }}>
           <Tabs
-            sx={{
-              bgcolor: "#3C3A36",
-              width: { xs: "100%", md: "100%" },
-              borderRadius: "10px 10px 0 0 ",
-              "& .MuiButtonBase-root": {
-                color: "#FFC436",
-                fontSize: { xs: "15px", md: "20px" },
-               
-              },
-            }}
+            sx={TransactionTap}
             value={value}
             onChange={handleChange}
             indicatorColor="#FFC436"
@@ -102,21 +100,8 @@ export default function Transaction({ withdrawToken, depositToken }) {
           </Tabs>
         </AppBar>
         {/* end Tab */}
-        <Paper
-          sx={{
-            width: "100%",
-            overflow: "hidden",
-            display: "grid",
-            placeItems: "center",
-          }}
-        >
-          <TableContainer
-            sx={{
-              maxHeight: 440,
-              bgcolor: "#272523",
-              color: "#fff",
-            }}
-          >
+        <Paper sx={TrancactionPaper}>
+          <TableContainer sx={TableContainerStyle}>
             <CustomTabPanel value={value} index={0}>
               <section>
                 <Table
@@ -171,15 +156,7 @@ export default function Transaction({ withdrawToken, depositToken }) {
                   </TableBody>
                 </Table>
                 <TablePagination
-                  sx={{
-                    bgcolor: "#272523",
-                    width: "100%",
-                    color: "#fff",
-                    "& .MuiButtonBase-root, .MuiSvgIcon-root ": {
-                      color: "#fff",
-                    },
-                    direction: "ltr",
-                  }}
+                  sx={TablepaginationStyle}
                   rowsPerPageOptions={[10, 25, 100]}
                   component="div"
                   count={depositToken.length}
@@ -201,7 +178,7 @@ export default function Transaction({ withdrawToken, depositToken }) {
                     <TableRow>
                       {columnswithdraw.map((column) => (
                         <TableCell
-                          sx={{ bgcolor: "#272523", color: "#fff" }}
+                          sx={TableCellStyle}
                           key={column.id}
                           align={column.align}
                           style={{ minWidth: column.minWidth }}
@@ -244,15 +221,7 @@ export default function Transaction({ withdrawToken, depositToken }) {
                   </TableBody>
                 </Table>
                 <TablePagination
-                  sx={{
-                    bgcolor: "#272523",
-                    width: "100%",
-                    color: "#fff",
-                    "& .MuiButtonBase-root, .MuiSvgIcon-root ": {
-                      color: "#fff",
-                    },
-                    direction: "ltr",
-                  }}
+                  sx={TablepaginationStyle}
                   rowsPerPageOptions={[10, 25, 100]}
                   component="div"
                   count={withdrawToken.length}

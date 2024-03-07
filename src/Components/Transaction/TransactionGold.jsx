@@ -14,6 +14,13 @@ import { columnsBuy } from "./Utils/ColumnsGold";
 import { columnsSell } from "./Utils/ColumnsGold";
 import { columnsWithdraw } from "./Utils/ColumnsGold";
 import PropTypes from "prop-types";
+import {
+  TableCellStyle,
+  TableContainerStyle,
+  TablepaginationStyle,
+  TrancactionPaper,
+  TransactionTap,
+} from "./Style";
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -78,17 +85,7 @@ export default function TransactionGold({ buyGold, sellGold, withdrawGold }) {
       <Container maxWidth={"md"}>
         <AppBar position="static" sx={{ borderRadius: "10px 10px 0 0 " }}>
           <Tabs
-            sx={{
-              bgcolor: "#3C3A36",
-
-              width: { xs: "100%", md: "100%" },
-              borderRadius: "10px 10px 0 0 ",
-              "& .MuiButtonBase-root": {
-                color: "#FFC436",
-                fontSize: { xs: "15px", md: "20px" },
-                fontWeight: "bold",
-              },
-            }}
+            sx={TransactionTap}
             value={value}
             onChange={handleChange}
             indicatorColor="#FFC436"
@@ -101,21 +98,8 @@ export default function TransactionGold({ buyGold, sellGold, withdrawGold }) {
             <Tab label="برداشت" {...a11yProps(2)} />
           </Tabs>
         </AppBar>
-        <Paper
-          sx={{
-            width: "100%",
-            display: "grid",
-            placeItems: "center",
-            overflow: "hidden",
-          }}
-        >
-          <TableContainer
-            sx={{
-              maxHeight: 440,
-              bgcolor: "#272523",
-              color: "#fff",
-            }}
-          >
+        <Paper sx={TrancactionPaper}>
+          <TableContainer sx={TableContainerStyle}>
             <CustomTabPanel value={value} index={0}>
               <Box>
                 <Table
@@ -127,7 +111,7 @@ export default function TransactionGold({ buyGold, sellGold, withdrawGold }) {
                     <TableRow>
                       {columnsBuy.map((column) => (
                         <TableCell
-                          sx={{ bgcolor: "#272523", color: "#fff" }}
+                          sx={TableCellStyle}
                           key={column.id}
                           align={column.align}
                           style={{ minWidth: column.minWidth }}
@@ -169,15 +153,7 @@ export default function TransactionGold({ buyGold, sellGold, withdrawGold }) {
                   </TableBody>
                 </Table>
                 <TablePagination
-                  sx={{
-                    bgcolor: "#272523",
-                    width: "100%",
-                    color: "#fff",
-                    "& .MuiButtonBase-root, .MuiSvgIcon-root ": {
-                      color: "#fff",
-                    },
-                    direction: "ltr",
-                  }}
+                  sx={TablepaginationStyle}
                   rowsPerPageOptions={[10, 25, 100]}
                   component="div"
                   count={buyGold.length}
@@ -200,7 +176,7 @@ export default function TransactionGold({ buyGold, sellGold, withdrawGold }) {
                     <TableRow>
                       {columnsSell.map((column) => (
                         <TableCell
-                          sx={{ bgcolor: "#272523", color: "#fff" }}
+                          sx={TableCellStyle}
                           key={column.id}
                           align={column.align}
                           style={{ minWidth: column.minWidth }}
@@ -242,15 +218,7 @@ export default function TransactionGold({ buyGold, sellGold, withdrawGold }) {
                   </TableBody>
                 </Table>
                 <TablePagination
-                  sx={{
-                    bgcolor: "#272523",
-                    width: "100%",
-                    color: "#fff",
-                    "& .MuiButtonBase-root, .MuiSvgIcon-root ": {
-                      color: "#fff",
-                    },
-                    direction: "ltr",
-                  }}
+                  sx={TablepaginationStyle}
                   rowsPerPageOptions={[10, 25, 100]}
                   component="div"
                   count={sellGold.length}
@@ -274,7 +242,7 @@ export default function TransactionGold({ buyGold, sellGold, withdrawGold }) {
                     <TableRow>
                       {columnsWithdraw.map((column) => (
                         <TableCell
-                          sx={{ bgcolor: "#272523", color: "#fff" }}
+                          sx={TableCellStyle}
                           key={column.id}
                           align={column.align}
                           style={{ minWidth: column.minWidth }}
@@ -316,15 +284,7 @@ export default function TransactionGold({ buyGold, sellGold, withdrawGold }) {
                   </TableBody>
                 </Table>
                 <TablePagination
-                  sx={{
-                    bgcolor: "#272523",
-                    width: "100%",
-                    color: "#fff",
-                    "& .MuiButtonBase-root, .MuiSvgIcon-root ": {
-                      color: "#fff",
-                    },
-                    direction: "ltr",
-                  }}
+                  sx={TablepaginationStyle}
                   rowsPerPageOptions={[10, 25, 100]}
                   component="div"
                   count={withdrawGold.length}
