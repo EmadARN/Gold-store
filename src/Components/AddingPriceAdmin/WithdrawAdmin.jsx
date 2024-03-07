@@ -16,6 +16,15 @@ import { IPServer } from "@/Config";
 import axios from "axios";
 import { useCookies } from "react-cookie";
 import Swal from "sweetalert2";
+import {
+  BoxOneSx,
+  BoxSx, BoxTwoSx, ButtonOneSx,
+  DivOneSx, InputAdornmentSx,
+  PaperOneSx, SpanOneSx,
+  TextFildOneSx,
+  TypoOneSx, TypoTowSx,
+  TypotwoSx
+} from "@/Components/AddingPriceAdmin/Style";
 const themee = createTheme({
   direction: "rtl",
 });
@@ -36,26 +45,19 @@ const WithdrawAdmin = (props) => {
 
   return (
     <Box
-      sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+      sx={BoxOneSx}
     >
-      <div style={{ maxWidth: "800px" }}>
+      <div style={DivOneSx}>
         <Typography
           variant="h3"
-          sx={{ color: "#fff", fontWeight: "bold", my: 5, textAlign: "center" }}
+          sx={TypoOneSx}
         >
           {props.title}
         </Typography>
         <Paper
-          sx={{
-            bgcolor: "#272523",
-            width: "100%",
-
-            borderRadius: "10px",
-            height: "100%",
-            px: 6,
-          }}
+          sx={PaperOneSx}
         >
-          <Typography sx={{ color: "#fff", fontSize: "20px", py: 3 }}>
+          <Typography sx={TypotwoSx}>
             {props.BoxTitle} :
           </Typography>
           <CacheProvider value={cacheRtl}>
@@ -67,38 +69,11 @@ const WithdrawAdmin = (props) => {
                   setAddingPrice(newValue);
                 }}
                 id="outlined-start-adornment"
-                sx={{
-                  width: "100%",
-
-                  input: { color: "#FFC436", direction: "rtl", pr: 2 },
-
-                  "& .MuiInput-underline:after": {
-                    borderBottomColor: "#FFC436",
-                  },
-                  "& .MuiOutlinedInput-root": {
-                    "& fieldset": {
-                      borderColor: "#272523",
-                    },
-                    "&:hover fieldset": {
-                      borderColor: "#fff",
-                    },
-                    "& fieldset": {
-                      borderColor: "#fff",
-                      borderRadius: "8px",
-                    },
-                    "&.Mui-focused fieldset": {
-                      borderColor: "rgb(255,172,25)",
-                    },
-                  },
-                }}
+                sx={TextFildOneSx}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment
-                      sx={{
-                        "& .MuiTypography-root": {
-                          color: "#fff",
-                        },
-                      }}
+                      sx={InputAdornmentSx}
                       position="start"
                     >
                       {props.inputLabel}
@@ -107,7 +82,7 @@ const WithdrawAdmin = (props) => {
                 }}
                 value={addingPrice}
               />
-              <Box sx={{ display: "flex", justifyContent: "center" }}>
+              <Box sx={BoxTwoSx}>
                 <Button
                   variant="outlined"
                   onClick={async (e) => {
@@ -141,25 +116,13 @@ const WithdrawAdmin = (props) => {
                          });
                       });
                   }}
-                  sx={{
-                    width: "100%",
-                    fontSize: "16px",
-                    fontWeight: "bold",
-                    my: 5,
-                    mx: { xs: 2, md: 10 },
-                    borderRadius: "7px",
-                    color: "rgb(255,172,25)",
-                    borderColor: "rgb(255,172,25)",
-                    "&:hover": {
-                      borderColor: "rgb(255,172,25)",
-                    },
-                  }}
+                  sx={ButtonOneSx}
                 >
                   {props.buttonText}
                 </Button>
               </Box>
-              <Typography variant="h6" sx={{ color: "#fff", pb: 2 }}>
-                <span style={{ color: "rgb(255,172,25)" }}>
+              <Typography variant="h6" sx={TypoTowSx}>
+                <span style={SpanOneSx}>
                   {props.walletcash}:
                 </span>
                 <span>{props.walletValue}&nbsp;ریال</span>

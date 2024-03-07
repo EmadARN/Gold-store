@@ -15,7 +15,19 @@ import { useCookies } from "react-cookie";
 import Swal from "sweetalert2";
 import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import { IPServer } from "@/Config";
-import CircularIndeterminate from "../loader/loading";
+import {
+  ButtonFourSx,
+  buttonOneSx,
+  ButtonThreeSx,
+  ButtonTwoSx,
+  DataGridSx,
+  DialogContentSx,
+  DialogTitlex,
+  DigitaltitleSx,
+  FormControlSx,
+  InputAdornmentSx,
+  PaperSx,
+} from "./Style";
 
 const CashAmount = ({ AllMembers }) => {
   const [members] = useState(AllMembers.data);
@@ -26,7 +38,6 @@ const CashAmount = ({ AllMembers }) => {
   const [goldAmount, setGoldAmount] = useState("");
   const [cashModalAmount, setCashModalAmount] = useState("");
   const [goldModalAmount, setGoldModalAmount] = useState("");
-  const [loading, setLoading] = React.useState(false);
  
 
   const handleClose = () => {
@@ -36,7 +47,6 @@ const CashAmount = ({ AllMembers }) => {
   const GoldPopUpClose = () => {
     setGoldPopUp(false);
   };
-
 
   const updateCashAmount = async (e) => {
     e.preventDefault();
@@ -63,11 +73,11 @@ const CashAmount = ({ AllMembers }) => {
       }).then(() => window.location.reload());
       })
       .catch((err) => {
-         Swal.fire({
-           title: err.response.data.responseFA,
+        Swal.fire({
+          title: err.response.data.responseFA,
           text: "در صورت بوجود آمدن مشکل با پشتیبانی تماس بگیرید ",
-           icon: "error",
-         });
+          icon: "error",
+        });
       });
   };
 
@@ -88,7 +98,7 @@ const CashAmount = ({ AllMembers }) => {
         }
       )
       .then((res) => {
-        setGoldPopUp(false)
+        setGoldPopUp(false);
         Swal.fire({
           title: res.data.responseFA,
           text: "  تغیرات با موفقیت اعمال شد ",
@@ -150,15 +160,7 @@ const CashAmount = ({ AllMembers }) => {
           <Box display="flex" width="100%">
             <Button
               name={params.row.phone_number}
-              sx={{
-                width: "45%",
-                padding: "6px 2px",
-                mr: 2,
-                backgroundColor: "green",
-                color: "#fff",
-                fontWeight: "bold",
-                "&:hover": { backgroundColor: "rgba(20, 112, 44,0.7)" },
-              }}
+              sx={buttonOneSx}
               onClick={(e) => {
                 setCashAmount(e.target.name);
                 setCash(true);
@@ -169,14 +171,7 @@ const CashAmount = ({ AllMembers }) => {
             </Button>
             <Button
               name={params.row.phone_number}
-              sx={{
-                width: "45%",
-                padding: "0 20px",
-                backgroundColor: "rgb(255, 196, 54)",
-                color: "black",
-                fontWeight: "bold",
-                "&:hover": { backgroundColor: "rgba(255, 196, 54,0.7)" },
-              }}
+              sx={ButtonTwoSx}
               onClick={(e) => {
                 setGoldAmount(e.target.name);
                 setGoldPopUp(true);
@@ -194,45 +189,16 @@ const CashAmount = ({ AllMembers }) => {
     <>
       {cash ? (
         <Dialog open={open} onClose={handleClose}>
-          <DialogTitle sx={{ backgroundColor: "#272523", color: "#FFC436" }}>
-            تغییر کیف پول کاربر
-          </DialogTitle>
-          <DialogContent sx={{ backgroundColor: "#272523" }}>
+          <DialogTitle sx={DialogTitlex}>تغییر کیف پول کاربر</DialogTitle>
+          <DialogContent sx={DialogContentSx}>
             <FormControl
               onChange={(e) => setCashModalAmount(e.target.value)}
-              sx={{
-                width: "100%",
-
-                input: { color: "#FFC436", direction: "rtl", pr: 2 },
-
-                "& .MuiInput-underline:after": {
-                  borderBottomColor: "#FFC436",
-                },
-                "& .MuiOutlinedInput-root": {
-                  "& fieldset": {
-                    borderColor: "#fff",
-                    borderRadius: "10px",
-                  },
-                  "&:hover fieldset": {
-                    borderColor: "#fff",
-                  },
-                  "&.Mui-focused fieldset": {
-                    borderColor: "#FFC436",
-                  },
-                },
-              }}
+              sx={FormControlSx}
             >
               <OutlinedInput
                 id="outlined-adornment-amount"
                 endAdornment={
-                  <InputAdornment
-                    sx={{
-                      "& .MuiTypography-root": {
-                        color: "#fff",
-                      },
-                    }}
-                    position="start"
-                  >
+                  <InputAdornment sx={InputAdornmentSx} position="start">
                     ریال
                   </InputAdornment>
                 }
@@ -240,12 +206,12 @@ const CashAmount = ({ AllMembers }) => {
               />
             </FormControl>
           </DialogContent>
-          <DialogActions sx={{ backgroundColor: "#272523" }}>
-            <Button sx={{ color: "red" }} onClick={handleClose}>
+          <DialogActions sx={DialogContentSx}>
+            <Button sx={ButtonThreeSx} onClick={handleClose}>
               خروج
             </Button>
             <Button sx={{ color: "#FFC436" }} onClick={(e)=>updateCashAmount(e)}>
-            {loading ? <CircularIndeterminate color="#FFC436" /> : "تایید"}
+              تایید
             </Button>
           </DialogActions>
         </Dialog>
@@ -253,45 +219,16 @@ const CashAmount = ({ AllMembers }) => {
 
       {goldPopUp ? (
         <Dialog open={open} onClose={GoldPopUpClose}>
-          <DialogTitle sx={{ backgroundColor: "#272523", color: "#FFC436" }}>
-            تغییر کیف طلا کاربر
-          </DialogTitle>
-          <DialogContent sx={{ backgroundColor: "#272523" }}>
+          <DialogTitle sx={DigitaltitleSx}>تغییر کیف طلا کاربر</DialogTitle>
+          <DialogContent sx={DialogContentSx}>
             <FormControl
               onChange={(e) => setGoldModalAmount(e.target.value)}
-              sx={{
-                width: "100%",
-
-                input: { color: "#FFC436", direction: "rtl", pr: 2 },
-
-                "& .MuiInput-underline:after": {
-                  borderBottomColor: "#FFC436",
-                },
-                "& .MuiOutlinedInput-root": {
-                  "& fieldset": {
-                    borderColor: "#fff",
-                    borderRadius: "10px",
-                  },
-                  "&:hover fieldset": {
-                    borderColor: "#fff",
-                  },
-                  "&.Mui-focused fieldset": {
-                    borderColor: "#FFC436",
-                  },
-                },
-              }}
+              sx={FormControlSx}
             >
               <OutlinedInput
                 id="outlined-adornment-amount"
                 endAdornment={
-                  <InputAdornment
-                    sx={{
-                      "& .MuiTypography-root": {
-                        color: "#fff",
-                      },
-                    }}
-                    position="start"
-                  >
+                  <InputAdornment sx={InputAdornmentSx} position="start">
                     گرم
                   </InputAdornment>
                 }
@@ -299,12 +236,12 @@ const CashAmount = ({ AllMembers }) => {
               />
             </FormControl>
           </DialogContent>
-          <DialogActions sx={{ backgroundColor: "#272523" }}>
-            <Button sx={{ color: "red" }} onClick={GoldPopUpClose}>
+          <DialogActions sx={DialogContentSx}>
+            <Button sx={ButtonThreeSx} onClick={GoldPopUpClose}>
               خروج
             </Button>
             <Button sx={{ color: "#FFC436" }} onClick={(e)=>updateGoldAmount(e)}>
-            {loading ? <CircularIndeterminate color="#FFC436" /> : "تایید"}
+              تایید
             </Button>
           </DialogActions>
         </Dialog>
@@ -312,37 +249,9 @@ const CashAmount = ({ AllMembers }) => {
 
       <ThemeProvider theme={theme}>
         <Container sx={{ mt: 10 }}>
-          <Paper
-            sx={{
-              width: "100%",
-              overflow: "hidden",
-              display: "grid",
-              placeItems: "center",
-            }}
-          >
+          <Paper sx={PaperSx}>
             <DataGrid
-              sx={{
-                "& .css-t89xny-MuiDataGrid-columnHeaderTitle": {
-                  margin: "0 25px",
-                },
-                "& .MuiDataGrid-cellContent": {
-                  marginRight: "5px",
-                  textAlign: "center !important",
-                },
-                "& .muirtl-rtrcn9-MuiTablePagination-root": {
-                  color: "white",
-                },
-                "& .muirtl-ptiqhd-MuiSvgIcon-root": {
-                  color: "white",
-                },
-                "& .MuiSvgIcon-root": {
-                  color: "white",
-                },
-                width: "100%",
-                bgcolor: "#272523",
-                color: "#fff",
-                maxWidth: { xs: "100%" },
-              }}
+              sx={DataGridSx}
               density="comfortable"
               rows={rows}
               columns={columns}

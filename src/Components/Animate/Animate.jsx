@@ -1,21 +1,8 @@
 import { Box, Button, styled } from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
 import anime from "animejs";
-const Cotainer = styled("div")(({ theme }) => ({
-  minWidth: "400px",
-  width: "400px",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  flexWrap: "wrap",
-}));
-const DivOne = styled("div")(({ theme }) => ({
-  position: "relative",
-  width: "40px",
-  height: "40px",
-  backgroundColor: "#FFC436",
-  scale: "0.45",
-}));
+import {BoxOneSX, Cotainer, DivOne} from "@/Components/Animate/Style";
+
 
 export const Animate = () => {
   const animation = useRef(null);
@@ -84,13 +71,7 @@ export const Animate = () => {
   }, []);
   return (
     <Box
-      sx={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-
-        mt: 12,
-      }}
+      sx={BoxOneSX}
     >
       <Cotainer>
         {Array.from({ length: 100 }, ( i) => (

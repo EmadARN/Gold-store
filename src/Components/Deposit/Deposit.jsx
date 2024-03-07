@@ -13,6 +13,17 @@ import rtlPlugin from "stylis-plugin-rtl";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
 import numeral from "numeral";
+import {
+  BoxOneSx,
+  BoxTwoSx,
+  ButtononeSx,
+  GridOneSx,
+  InputAdornmentSx,
+  PaperoneSx,
+  TextFildOneSx,
+  TypoOneSx,
+  typoTwoSx,
+} from "./Style";
 const themee = createTheme({
   direction: "rtl",
 });
@@ -30,73 +41,21 @@ const Deposit = () => {
     setTextFieldValue(newValue);
   };
   return (
-    <Box
-      sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
-    >
-      <Grid sx={{ maxWidth: "800px" }}>
-        <Typography
-          variant="h3"
-          sx={{
-            color: "#fff",
-            fontWeight: "bold",
-              fontFamily:"Yekan",
-              fontSize:{xs:"30px",md:"40px"},
-            textAlign: "center",
-            my: 6,
-          }}
-        >
+    <Box sx={BoxOneSx}>
+      <Grid sx={GridOneSx}>
+        <Typography variant="h3" sx={TypoOneSx}>
           واریز
         </Typography>
-        <Paper
-          sx={{
-            bgcolor: "#272523",
-            width: "100%",
-            borderRadius: "10px",
-            height: "280px",
-            px: 10,
-          }}
-        >
-          <Typography sx={{ color: "#fff", fontSize: "20px", py: 3 }}>
-            مبلغ را وارد کنید:
-          </Typography>
+        <Paper sx={PaperoneSx}>
+          <Typography sx={typoTwoSx}>مبلغ را وارد کنید:</Typography>
           <CacheProvider value={cacheRtl}>
             <ThemeProvider theme={themee}>
               <TextField
                 id="outlined-start-adornment"
-                sx={{
-                  width: "100%",
-
-                  input: { color: "#FFC436", direction: "rtl", pr: 2 },
-
-                  "& .MuiInput-underline:after": {
-                    borderBottomColor: "#FFC436",
-                  },
-                  "& .MuiOutlinedInput-root": {
-                    "& fieldset": {
-                      borderColor: "#272523",
-                    },
-                    "&:hover fieldset": {
-                      borderColor: "#fff",
-                    },
-                    "& fieldset": {
-                      borderColor: "#fff",
-                      borderRadius: "8px",
-                    },
-                    "&.Mui-focused fieldset": {
-                      borderColor: "rgb(255,172,25)",
-                    },
-                  },
-                }}
+                sx={TextFildOneSx}
                 InputProps={{
                   endAdornment: (
-                    <InputAdornment
-                      sx={{
-                        "& .MuiTypography-root": {
-                          color: "#fff",
-                        },
-                      }}
-                      position="start"
-                    >
+                    <InputAdornment sx={InputAdornmentSx} position="start">
                       ریال
                     </InputAdornment>
                   ),
@@ -105,24 +64,8 @@ const Deposit = () => {
                 value={textFieldValue}
               />
 
-              <Box sx={{ display: "flex", justifyContent: "center" }}>
-                <Button
-                  variant="outlined"
-                  sx={{
-                    width: "70%",
-                    fontSize: "16px",
-                    fontWeight: "bold",
-                    py: 1,
-                    my: 6,
-                    mx: 6,
-                    borderRadius: "7px",
-                    color: "rgb(255,172,25)",
-                    borderColor: "rgb(255,172,25)",
-                    "&:hover": {
-                      borderColor: "rgb(255,172,25)",
-                    },
-                  }}
-                >
+              <Box sx={BoxTwoSx}>
+                <Button variant="outlined" sx={ButtononeSx}>
                   واریز
                 </Button>
               </Box>
