@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-
 import TextField from "@mui/material/TextField";
 import { useRouter } from "next/router";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import rtlPlugin from "stylis-plugin-rtl";
@@ -18,6 +16,13 @@ import axios from "axios";
 import { IPServer } from "@/Config";
 
 import { CookiesProvider, useCookies } from "react-cookie";
+import {
+  ButtonStyle2,
+  ContentGrid,
+  FirstBox,
+  InputStyle,
+  MainGrid,
+} from "../signUp component/Style";
 
 const themee = createTheme({
   direction: "rtl",
@@ -59,34 +64,9 @@ const SignUpInfo = () => {
   return (
     <CacheProvider value={cacheRtl}>
       <ThemeProvider theme={themee}>
-        <Grid
-          container
-          sx={{
-            minHeight: "100vh !important",
-            height: "auto !important",
-            display: "flex",
-            justifyContent: "center",
-            width: "100%",
-            backgroundImage: `url(${bg.src})`,
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
+        <Grid container sx={MainGrid}>
           <Grid
-            sx={{
-              backgroundColor: "rgba(255,255,255,0.1)",
-              WebkitBackdropFilter: "blur(7px) !important",
-              backdropFilter: { xs: "blur(7px)", md: "blur(10px)" },
-              boxShadow: "0 25px 445px rgba(0,0,0,0.1)",
-              border: "1px solid rgba(255,255,255,0.5)",
-              
-              maxWidth: { xs: "90%", md: "100%" },
-              mt: 4,
-              borderRadius: "10px",
-              maxHeight: "680px !important",
-              height: "auto !important",
-            }}
+            sx={ContentGrid}
             item
             xs={12}
             sm={8}
@@ -95,15 +75,7 @@ const SignUpInfo = () => {
             elevation={6}
             square
           >
-            <Box
-              sx={{
-                my: 10,
-                mx: 4,
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-              }}
-            >
+            <Box sx={FirstBox}>
               <Typography
                 color="#fff"
                 fontFamily="Lalezar"
@@ -114,31 +86,7 @@ const SignUpInfo = () => {
               </Typography>
               <Box component="form" noValidate sx={{ mt: 1 }}>
                 <TextField
-                  sx={{
-                    width: "100%",
-
-                    input: { color: "#fff", direction: "rtl", pr: 2 },
-                    label: { color: "#fff" ,fontSize:'20px',fontFamily:'Yekan' },
-                    "& label.Mui-focused": {
-                      color: "#FFC436",
-                      fontWeight: "bold",
-                    },
-                    "& .MuiInput-underline:after": {
-                      borderBottomColor: "#fff",
-                    },
-                    "& .MuiOutlinedInput-root": {
-                      "& fieldset": {
-                        borderColor: "#fff",
-                        borderRadius: "10px",
-                      },
-                      "&:hover fieldset": {
-                        borderColor: "#fff",
-                      },
-                      "&.Mui-focused fieldset": {
-                        borderColor: "#FFC436",
-                      },
-                    },
-                  }}
+                  sx={InputStyle}
                   margin="normal"
                   fullWidth
                   id="number"
@@ -150,31 +98,7 @@ const SignUpInfo = () => {
                 />
 
                 <TextField
-                  sx={{
-                    width: "100%",
-
-                    input: { color: "#fff", direction: "rtl", pr: 2 },
-                    label: { color: "#fff" ,fontSize:'20px',fontFamily:'Yekan' },
-                    "& label.Mui-focused": {
-                      color: "#FFC436",
-                      fontWeight: "bold",
-                    },
-                    "& .MuiInput-underline:after": {
-                      borderBottomColor: "#fff",
-                    },
-                    "& .MuiOutlinedInput-root": {
-                      "& fieldset": {
-                        borderColor: "#fff",
-                        borderRadius: "10px",
-                      },
-                      "&:hover fieldset": {
-                        borderColor: "#fff",
-                      },
-                      "&.Mui-focused fieldset": {
-                        borderColor: "#FFC436",
-                      },
-                    },
-                  }}
+                  sx={InputStyle}
                   margin="normal"
                   fullWidth
                   id="number"
@@ -186,31 +110,7 @@ const SignUpInfo = () => {
                 />
 
                 <TextField
-                  sx={{
-                    width: "100%",
-
-                    input: { color: "#fff", direction: "rtl", pr: 2 },
-                    label: { color: "#fff" ,fontSize:'20px',fontFamily:'Yekan' },
-                    "& label.Mui-focused": {
-                      color: "#FFC436",
-                      fontWeight: "bold",
-                    },
-                    "& .MuiInput-underline:after": {
-                      borderBottomColor: "#fff",
-                    },
-                    "& .MuiOutlinedInput-root": {
-                      "& fieldset": {
-                        borderColor: "#fff",
-                        borderRadius: "10px",
-                      },
-                      "&:hover fieldset": {
-                        borderColor: "#fff",
-                      },
-                      "&.Mui-focused fieldset": {
-                        borderColor: "#FFC436",
-                      },
-                    },
-                  }}
+                  sx={InputStyle}
                   margin="normal"
                   fullWidth
                   id="number"
@@ -221,31 +121,7 @@ const SignUpInfo = () => {
                   onChange={(e) => InputHandler(e, "national_code")}
                 />
                 <TextField
-                  sx={{
-                    width: "100%",
-
-                    input: { color: "#fff", direction: "rtl", pr: 2 },
-                    label: { color: "#fff" ,fontSize:'20px',fontFamily:'Yekan' },
-                    "& label.Mui-focused": {
-                      color: "#FFC436",
-                      fontWeight: "bold",
-                    },
-                    "& .MuiInput-underline:after": {
-                      borderBottomColor: "#fff",
-                    },
-                    "& .MuiOutlinedInput-root": {
-                      "& fieldset": {
-                        borderColor: "#fff",
-                        borderRadius: "10px",
-                      },
-                      "&:hover fieldset": {
-                        borderColor: "#fff",
-                      },
-                      "&.Mui-focused fieldset": {
-                        borderColor: "#FFC436",
-                      },
-                    },
-                  }}
+                  sx={InputStyle}
                   margin="normal"
                   fullWidth
                   id="number"
@@ -256,31 +132,7 @@ const SignUpInfo = () => {
                   onChange={(e) => InputHandler(e, "email")}
                 />
                 <TextField
-                  sx={{
-                    width: "100%",
-
-                    input: { color: "#fff", direction: "rtl", pr: 2 },
-                    label: { color: "#fff" ,fontSize:'20px',fontFamily:'Yekan' },
-                    "& label.Mui-focused": {
-                      color: "#FFC436",
-                      fontWeight: "bold",
-                    },
-                    "& .MuiInput-underline:after": {
-                      borderBottomColor: "#fff",
-                    },
-                    "& .MuiOutlinedInput-root": {
-                      "& fieldset": {
-                        borderColor: "#fff",
-                        borderRadius: "10px",
-                      },
-                      "&:hover fieldset": {
-                        borderColor: "#fff",
-                      },
-                      "&.Mui-focused fieldset": {
-                        borderColor: "#FFC436",
-                      },
-                    },
-                  }}
+                  sx={InputStyle}
                   margin="normal"
                   fullWidth
                   id="number"
@@ -292,31 +144,7 @@ const SignUpInfo = () => {
                 />
 
                 <TextField
-                  sx={{
-                    width: "100%",
-
-                    input: { color: "#fff", direction: "rtl", pr: 2 },
-                    label: { color: "#fff" ,fontSize:'20px',fontFamily:'Yekan' },
-                    "& label.Mui-focused": {
-                      color: "#FFC436",
-                      fontWeight: "bold",
-                    },
-                    "& .MuiInput-underline:after": {
-                      borderBottomColor: "#fff",
-                    },
-                    "& .MuiOutlinedInput-root": {
-                      "& fieldset": {
-                        borderColor: "#fff",
-                        borderRadius: "10px",
-                      },
-                      "&:hover fieldset": {
-                        borderColor: "#fff",
-                      },
-                      "&.Mui-focused fieldset": {
-                        borderColor: "#FFC436",
-                      },
-                    },
-                  }}
+                  sx={InputStyle}
                   margin="normal"
                   fullWidth
                   id="number"
@@ -331,14 +159,7 @@ const SignUpInfo = () => {
                   type="submit"
                   fullWidth
                   variant="contained"
-                  sx={{
-                    mt: 3,
-                    mb: 2,
-                    backgroundColor: "#FFC436",
-                    color: "#111",
-                    fontWeight: "bold",
-                    "&:hover": { backgroundColor: "rgba(204, 163, 69,0.7)" },
-                  }}
+                  sx={ButtonStyle2}
                   onClick={(e) => submit(e)}
                 >
                   تایید
