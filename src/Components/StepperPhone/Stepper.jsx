@@ -11,6 +11,7 @@ import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
 import DoneIcon from "@mui/icons-material/Done";
 import { steps } from "./Utils/StepsObjext";
+import { BoxGold2, FabStyle, FlexBox, MainBox, TypographyStyle } from "./Style";
 
 const themee = createTheme({
   direction: "rtl",
@@ -38,61 +39,22 @@ export default function VerticalLinearStepper() {
   return (
     <CacheProvider value={cacheRtl}>
       <ThemeProvider theme={themee}>
-        <Box
-          sx={{
-            maxWidth: 500,
-            "@media (min-width:912px)": {
-              display: "none",
-            },
-          }}
-        >
+        <Box sx={MainBox}>
           <Stepper activeStep={activeStep} orientation="vertical">
             {steps.map((step, index) => (
               <Step key={index}>
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                  }}
-                  onClick={handleStep(index)}
-                >
+                <Box sx={FlexBox} onClick={handleStep(index)}>
                   {activeStep == index ? (
-                    <Box
-                      sx={{
-                        boxShadow:
-                          "#FFC436 0px 2px 30px,#FFC436 0px 7px 90px -3px,#FFC436 0px -3px 30px ",
-
-                        bgcolor: "rgb(39,37,35)",
-                        borderRadius: "8px",
-                        color: "#fff",
-                      }}
-                    >
-                      <Box
-                        sx={{
-                          display: "flex",
-                          alignItems: "center",
-                        }}
-                      >
+                    <Box sx={BoxGold2}>
+                      <Box sx={FlexBox}>
                         <Fab
-                          sx={{
-                            width: "15px",
-                            height: "1px",
-                            px: 1.8,
-                            color: activeStep == index ? "#111" : "#fff",
-                            bgcolor: activeStep == index ? "#FFC436" : "#fff",
-                          }}
+                          sx={FabStyle(activeStep, index)}
                           aria-label="add"
                           color="inherit"
                         >
                           {activeStep >= index + 1 ? <DoneIcon /> : step.id}
                         </Fab>
-                        <Typography
-                          sx={{
-                            cursor: "pointer",
-                            pl: 2,
-                            color: activeStep == index ? "#FFC436" : "#fff",
-                          }}
-                        >
+                        <Typography sx={TypographyStyle(activeStep, index)}>
                           {step.label}
                         </Typography>
                       </Box>
@@ -105,25 +67,13 @@ export default function VerticalLinearStepper() {
                   ) : (
                     <>
                       <Fab
-                        sx={{
-                          width: "15px",
-                          height: "1px",
-                          px: 1.8,
-
-                          bgcolor: activeStep == index ? "#FFC436" : "#fff",
-                        }}
+                        sx={FabStyle(activeStep, index)}
                         aria-label="add"
                         color="inherit"
                       >
                         {activeStep >= index + 1 ? <DoneIcon /> : step.id}
                       </Fab>
-                      <Typography
-                        sx={{
-                          cursor: "pointer",
-                          pl: 2,
-                          color: activeStep == index ? "#FFC436" : "#fff",
-                        }}
-                      >
+                      <Typography sx={TypographyStyle(activeStep, index)}>
                         {step.label}
                       </Typography>
                     </>
