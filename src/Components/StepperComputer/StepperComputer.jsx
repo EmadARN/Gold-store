@@ -2,8 +2,6 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
-import StepButton from "@mui/material/StepButton";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import rtlPlugin from "stylis-plugin-rtl";
@@ -12,6 +10,13 @@ import createCache from "@emotion/cache";
 import { Container, Fab } from "@mui/material";
 import DoneIcon from "@mui/icons-material/Done";
 import { steps } from "./Utils/StepsObjext";
+import {
+  FirstBox,
+  GoldBox,
+  MapBox,
+  SteperStyle,
+  TypographyStyle,
+} from "./Style";
 const themee = createTheme({
   direction: "rtl",
 });
@@ -44,36 +49,16 @@ export default function StepperComputer() {
     <CacheProvider value={cacheRtl}>
       <ThemeProvider theme={themee}>
         <Container maxWidth={"xl"}>
-          <Box
-            sx={{
-              width: "100%",
-              display: "flex",
-              justifyContent: "space-evenly",
-              "@media (max-width:912px)": {
-                display: "none",
-              },
-            }}
-          >
+          <Box sx={FirstBox}>
             <Stepper
               nonLinear
               activeStep={activeStep}
               orientation="vertical"
-              sx={{
-                display: "flex",
-                alignItems: "start",
-                justifyContent: "center",
-              }}
+              sx={SteperStyle}
             >
               {steps.map((label, index) => (
                 <Step key={label} completed={completed[index]}>
-                  <Box
-                    color="inherit"
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                    }}
-                    onClick={handleStep(index)}
-                  >
+                  <Box color="inherit" sx={MapBox} onClick={handleStep(index)}>
                     <Fab
                       sx={{
                         width: "15px",
@@ -100,24 +85,12 @@ export default function StepperComputer() {
               ))}
             </Stepper>
 
-            <Box
-              sx={{
-                boxShadow:
-                  "#FFC436 0px 2px 30px,#FFC436 0px 7px 90px -3px,#FFC436 0px -3px 30px ",
-
-                bgcolor: "rgb(39,37,35)",
-                borderRadius: "8px",
-                color: "#fff",
-                width: "30%",
-              }}
-            >
+            <Box sx={GoldBox}>
               {/* {(activeStep % activeStep.length).toFixed()} */}
               {steps.map((label, index) => {
                 if (activeStep === index) {
                   return (
-                    <Typography
-                      sx={{ mt: 5, mb: 1, p: 2, textAlign: "justify" }}
-                    >
+                    <Typography sx={TypographyStyle}>
                       {label.description}
                     </Typography>
                   );
