@@ -6,7 +6,6 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import FormControl from "@mui/material/FormControl";
-
 import InputAdornment from "@mui/material/InputAdornment";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import Paper from "@mui/material/Paper";
@@ -16,6 +15,7 @@ import { useCookies } from "react-cookie";
 import Swal from "sweetalert2";
 import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import { IPServer } from "@/Config";
+import CircularIndeterminate from "../loader/loading";
 
 const CashAmount = ({ AllMembers }) => {
   const [members] = useState(AllMembers.data);
@@ -26,6 +26,7 @@ const CashAmount = ({ AllMembers }) => {
   const [goldAmount, setGoldAmount] = useState("");
   const [cashModalAmount, setCashModalAmount] = useState("");
   const [goldModalAmount, setGoldModalAmount] = useState("");
+  const [loading, setLoading] = React.useState(false);
  
 
   const handleClose = () => {
@@ -39,6 +40,7 @@ const CashAmount = ({ AllMembers }) => {
 
   const updateCashAmount = async (e) => {
     e.preventDefault();
+    setLoading(true);
     await axios
       .post(
         `${IPServer}/AdminDashboard-DeskPage/change-user-wallet-money-amount/`,
@@ -53,13 +55,12 @@ const CashAmount = ({ AllMembers }) => {
         }
       )
       .then((res) => {
-
         setCash(false)
-         Swal.fire({
-           title: res.data.responseFA,
-          text: " تغیرات با موفقیت اعمال شد ",
-          icon: "success",
-         })
+          Swal.fire({
+        title: res.data.responseFA,
+        text: " تغیرات با موفقیت اعمال شد",
+        icon: "success",
+      }).then(() => window.location.reload());
       })
       .catch((err) => {
          Swal.fire({
@@ -72,6 +73,7 @@ const CashAmount = ({ AllMembers }) => {
 
   const updateGoldAmount = async (e) => {
     e.preventDefault();
+    setLoading(true);
     await axios
       .post(
         `${IPServer}/AdminDashboard-DeskPage/change-user-wallet-gold-amount/`,
@@ -243,7 +245,7 @@ const CashAmount = ({ AllMembers }) => {
               خروج
             </Button>
             <Button sx={{ color: "#FFC436" }} onClick={(e)=>updateCashAmount(e)}>
-              تایید
+            {loading ? <CircularIndeterminate color="#FFC436" /> : "تایید"}
             </Button>
           </DialogActions>
         </Dialog>
@@ -302,7 +304,7 @@ const CashAmount = ({ AllMembers }) => {
               خروج
             </Button>
             <Button sx={{ color: "#FFC436" }} onClick={(e)=>updateGoldAmount(e)}>
-              تایید
+            {loading ? <CircularIndeterminate color="#FFC436" /> : "تایید"}
             </Button>
           </DialogActions>
         </Dialog>

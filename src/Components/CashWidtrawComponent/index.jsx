@@ -10,14 +10,14 @@ import axios from "axios";
 import { IPServer } from "@/Config";
 import { useCookies } from "react-cookie";
 import Swal from "sweetalert2";
-
+import CircularIndeterminate from "../loader/loading";
 const CashWidtrawComponent = ({AllCustomersWidthrawRequest}) => {
   const [value, setValue] = React.useState(0);
   const [AllWidthraw] = useState(AllCustomersWidthrawRequest.all_request)
   const [un_acc_request] =useState(AllCustomersWidthrawRequest.un_accept_request)
   const [cookies] = useCookies(["token"]);
   const [un_acc_customer_id,setUn_acc_customer_id] = useState('')
-
+  const [loading, setLoading] = React.useState(false);
 
 
  
@@ -29,7 +29,7 @@ const CashWidtrawComponent = ({AllCustomersWidthrawRequest}) => {
   };
 
   const unAccepthandler =(e)=>{
-    console.log(e.target.id);
+    setLoading(true);
     setUn_acc_customer_id(e.target.id);
     e.preventDefault();
     axios.post(`${IPServer}/AdminDashboard-GetRequest/prove-money-get-request/`,
@@ -61,6 +61,7 @@ const CashWidtrawComponent = ({AllCustomersWidthrawRequest}) => {
 
   const denyHandler =(e)=>{
     e.preventDefault();
+    setLoading(true);
     axios.post(`${IPServer}/AdminDashboard-GetRequest/prove-money-get-request/`,
     {
       get_request_id: un_acc_customer_id,
@@ -222,7 +223,7 @@ function a11yProps(index) {
               }}
               variant="standard"
             >
-              تایید
+               {loading ? <CircularIndeterminate color="#222" /> : "تایید"}
             </Button>
            
           </Box>
@@ -242,7 +243,7 @@ function a11yProps(index) {
                       }}
                       variant="standard"
                     >
-                      رد درخواست
+                     {loading ? <CircularIndeterminate color="#FFC436" /> : "رد درخواست"}
                     </Button>
                    
                   </Box>
