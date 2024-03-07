@@ -17,6 +17,23 @@ import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
 import DiamondIcon from "@mui/icons-material/Diamond";
 import numeral from "numeral";
+import {
+  BuyTypo,
+  FormControlPaper,
+  FormControlStyle,
+  PaperBox,
+  PaperBox2,
+  RialBox,
+  RialTypo,
+  SellBox,
+  SellRial,
+  SellTypo,
+  TabItem,
+  TabItem2,
+  TabPaper,
+  TabPricePaper,
+  TabsItem,
+} from "./Style";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -117,58 +134,14 @@ const TabPrice = ({ tabPrice }) => {
   var string4 = string3.format("0,0");
 
   return (
-    <Paper
-      sx={{
-        maxWidth: "550px",
-        width: { xs: "100%", md: "550px" },
-        margin: "auto",
-        mt: 10,
-        bgcolor: " rgba(39,37,35,.55)",
-
-        boxShadow:
-          "rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px",
-        borderRadius: "30px",
-      }}
-    >
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-evenly",
-          alignItems: "center",
-          pt: 2,
-        }}
-      >
+    <Paper sx={TabPricePaper}>
+      <Box sx={PaperBox}>
         <Box>
-          <Typography
-            sx={{
-              color: "#fff",
-              textAlign: "center",
-              fontSize: { xs: "20px", md: "30px" },
-            }}
-          >
-            قیمت خرید
-          </Typography>
-          <Box
-            sx={{
-              color: "green",
-              display: "flex",
-              fontSize: { xs: "15px", md: "20px" },
-              alignItems: "center",
-              pr: { xs: 2, md: 1 },
-            }}
-          >
+          <Typography sx={BuyTypo}>قیمت خرید</Typography>
+          <Box sx={RialBox}>
             {string2}
 
-            <Typography
-              sx={{
-                color: "green",
-                pr: 1,
-                fontSize: { xs: "14px", md: "20px" },
-              }}
-            >
-              ریال
-            </Typography>
+            <Typography sx={RialTypo}>ریال</Typography>
           </Box>
         </Box>
         <DiamondIcon
@@ -178,61 +151,19 @@ const TabPrice = ({ tabPrice }) => {
           }}
         />
         <Box>
-          <Typography
-            sx={{
-              color: "#fff",
-              textAlign: "center",
-              fontSize: { xs: "20px", md: "30px" },
-            }}
-          >
-            قیمت فروش
-          </Typography>
-          <Box
-            sx={{
-              color: "red",
-              display: "flex",
-              fontSize: { xs: "15px", md: "20px" },
-              alignItems: "center",
-              pl: { xs: 2, md: 1 },
-            }}
-          >
+          <Typography sx={SellTypo}>قیمت فروش</Typography>
+          <Box sx={SellBox}>
             {string4}
 
-            <Typography
-              sx={{ color: "red", pr: 1, fontSize: { xs: "14px", md: "20px" } }}
-            >
-              ریال
-            </Typography>
+            <Typography sx={SellRial}>ریال</Typography>
           </Box>
         </Box>
       </Box>
-      <Box sx={{ margin: "auto", px: 3, pt: 5, borderRadius: "15px" }}>
-        <Paper
-          elevation={10}
-          sx={{
-            height: "250px",
-            bgcolor: "#3C3A36",
-
-            width: { xs: "100%", md: "100%" },
-            borderRadius: "30px",
-            boxShadow:
-              "rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px",
-            inset: "20px",
-          }}
-        >
+      <Box sx={PaperBox2}>
+        <Paper elevation={10} sx={TabPaper}>
           <AppBar position="static" sx={{ borderRadius: "10px" }}>
             <Tabs
-              sx={{
-                bgcolor: "#3C3A36",
-
-                width: { xs: "100%", md: "100%" },
-                borderRadius: "10px",
-                "& .MuiButtonBase-root": {
-                  color: "#FFC436",
-                  fontSize: "20px",
-                  fontWeight: "bold",
-                },
-              }}
+              sx={TabsItem}
               value={value}
               onChange={handleChange}
               indicatorColor="#FFC436"
@@ -241,10 +172,7 @@ const TabPrice = ({ tabPrice }) => {
               aria-label="full width tabs example"
             >
               <Tab
-                sx={{
-                  bgcolor: colorTab ? null : "#FFC436 !important",
-                  color: colorTab ? null : "#444 !important",
-                }}
+                sx={TabItem(colorTab)}
                 onClick={() => {
                   setGoldTextField(0), setTextFieldValue(0), setColorTab(false);
                 }}
@@ -252,10 +180,7 @@ const TabPrice = ({ tabPrice }) => {
                 {...a11yProps(0)}
               />
               <Tab
-                sx={{
-                  bgcolor: colorTab ? "#FFC436 !important" : null,
-                  color: colorTab ? "#444 !important" : null,
-                }}
+                sx={TabItem2(colorTab)}
                 onClick={() => {
                   setGoldTextField(0), setTextFieldValue(0), setColorTab(true);
                 }}
@@ -266,41 +191,9 @@ const TabPrice = ({ tabPrice }) => {
           </AppBar>
           <CacheProvider value={cacheRtl}>
             <ThemeProvider theme={themee}>
-              <Paper
-                sx={{
-                  mt: 3,
-                  bgcolor: "#272523",
-
-                  width: { xs: "95%", md: "90%" },
-                  borderRadius: "10px",
-                  mx: "auto",
-                }}
-              >
+              <Paper sx={FormControlPaper}>
                 <FormControl
-                  sx={{
-                    width: "100%",
-
-                    input: { color: "#FFC436", direction: "rtl", pr: 2 },
-                    label: { color: "#fff" },
-                    "& label.Mui-focused": {
-                      color: "#FFC436",
-                    },
-                    "& .MuiInput-underline:after": {
-                      borderBottomColor: "#FFC436",
-                    },
-                    "& .MuiOutlinedInput-root": {
-                      "& fieldset": {
-                        borderColor: "#272523",
-                        borderRadius: "10px",
-                      },
-                      "&:hover fieldset": {
-                        borderColor: "#fff",
-                      },
-                      "&.Mui-focused fieldset": {
-                        borderColor: "#FFC436",
-                      },
-                    },
-                  }}
+                  sx={FormControlStyle}
                   onChange={handleTextFieldChange}
                 >
                   <InputLabel htmlFor="outlined-adornment-amount">
@@ -325,42 +218,10 @@ const TabPrice = ({ tabPrice }) => {
                   />
                 </FormControl>
               </Paper>
-              <Paper
-                sx={{
-                  mt: 2,
-                  bgcolor: "#272523",
-
-                  width: { xs: "95%", md: "90%" },
-                  borderRadius: "10px",
-                  mx: "auto",
-                }}
-              >
+              <Paper sx={FormControlPaper}>
                 <FormControl
                   onChange={(e) => goldTextFieldHandler(e)}
-                  sx={{
-                    width: "100%",
-
-                    input: { color: "#FFC436", direction: "rtl", pr: 2 },
-                    label: { color: "#fff", fontWeight: "bold" },
-                    "& label.Mui-focused": {
-                      color: "#FFC436",
-                    },
-                    "& .MuiInput-underline:after": {
-                      borderBottomColor: "#FFC436",
-                    },
-                    "& .MuiOutlinedInput-root": {
-                      "& fieldset": {
-                        borderColor: "#272523",
-                        borderRadius: "10px",
-                      },
-                      "&:hover fieldset": {
-                        borderColor: "#fff",
-                      },
-                      "&.Mui-focused fieldset": {
-                        borderColor: "#FFC436",
-                      },
-                    },
-                  }}
+                  sx={FormControlStyle}
                 >
                   <InputLabel htmlFor="outlined-adornment-amount">
                     مقدار طلا
@@ -388,7 +249,6 @@ const TabPrice = ({ tabPrice }) => {
           </CacheProvider>
         </Paper>
       </Box>
-
     </Paper>
   );
 };
