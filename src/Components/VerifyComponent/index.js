@@ -16,7 +16,14 @@ import axios from "axios";
 import { IPServer } from "@/Config";
 import Link from "next/link";
 import CircularIndeterminate from "../loader/loading";
-
+import {
+  EditNumberBtn,
+  InnerGrid,
+  MainVerifyBox,
+  VerifyButton,
+  VerifyMainGrid,
+  VerifytextField,
+} from "./Style";
 
 const themee = createTheme({
   direction: "rtl",
@@ -39,34 +46,9 @@ const VerifyCode = () => {
   return (
     <CacheProvider value={cacheRtl}>
       <ThemeProvider theme={themee}>
-        <Grid
-          container
-          sx={{
-            minHeight: "100vh !important",
-            height: "auto !important",
-            display: "flex",
-            justifyContent: "center",
-            width: "100%",
-            backgroundImage: `url(${bg.src})`,
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
+        <Grid container sx={VerifyMainGrid}>
           <Grid
-            sx={{
-              backgroundColor: "rgba(255,255,255,0.1)",
-              WebkitBackdropFilter: "blur(7px) !important",
-              backdropFilter: { xs: "blur(7px)", md: "blur(10px)" },
-              boxShadow: "0 25px 445px rgba(0,0,0,0.1)",
-              border: "1px solid rgba(255,255,255,0.5)",
-              maxHeight: "70%",
-              maxWidth: { xs: "90%", md: "100%" },
-              mt: 4,
-              borderRadius: "10px",
-              maxHeight: "550px !important",
-              height: "auto !important",
-            }}
+            sx={InnerGrid}
             item
             xs={12}
             sm={8}
@@ -75,15 +57,7 @@ const VerifyCode = () => {
             elevation={6}
             square
           >
-            <Box
-              sx={{
-                my: 20,
-                mx: 4,
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-              }}
-            >
+            <Box sx={MainVerifyBox}>
               <Typography
                 color="#fff"
                 fontFamily="Lalezar"
@@ -95,31 +69,7 @@ const VerifyCode = () => {
               <Box width="50%" component="form" noValidate sx={{ mt: 1 }}>
                 <TextField
                   onChange={(e) => setVerify_code(e.target.value)}
-                  sx={{
-                    width: "100%",
-
-                    input: { color: "#fff", direction: "rtl", pr: 2 },
-                    label: { color: "#fff" ,fontSize:'17px',fontFamily:'Yekan' },
-                    "& label.Mui-focused": {
-                      color: "#FFC436",
-                      fontWeight: "bold",
-                    },
-                    "& .MuiInput-underline:after": {
-                      borderBottomColor: "#fff",
-                    },
-                    "& .MuiOutlinedInput-root": {
-                      "& fieldset": {
-                        borderColor: "#fff",
-                        borderRadius: "10px",
-                      },
-                      "&:hover fieldset": {
-                        borderColor: "#fff",
-                      },
-                      "&.Mui-focused fieldset": {
-                        borderColor: "#FFC436",
-                      },
-                    },
-                  }}
+                  sx={VerifytextField}
                   margin="normal"
                   fullWidth
                   id="number"
@@ -136,14 +86,7 @@ const VerifyCode = () => {
                   type="submit"
                   fullWidth
                   variant="contained"
-                  sx={{
-                    mt: 3,
-                    mb: 2,
-                    backgroundColor: "#FFC436",
-                    color: "#111",
-                    fontWeight: "bold",
-                    "&:hover": { backgroundColor: "rgba(204, 163, 69,0.7)" },
-                  }}
+                  sx={VerifyButton}
                   onClick={(e) => {
                     e.preventDefault();
                     setLoading(true);
@@ -174,23 +117,13 @@ const VerifyCode = () => {
                       });
                   }}
                 >
-                 {loading ? <CircularIndeterminate /> : "تایید"}
+                  {loading ? <CircularIndeterminate color="#222" /> : "تایید"}
                 </Button>
               </Box>
 
               <Box>
                 <Link href={"/VerifyNumber"}>
-                  <Button
-                    variant="text"
-                    sx={{
-                      mt: 1,
-                      fontSize: "18px",
-
-                      color: "#FFC436",
-                      fontWeight: "bold",
-                      "&:hover": { backgroundColor: "unset", color: "#222" },
-                    }}
-                  >
+                  <Button variant="text" sx={EditNumberBtn}>
                     {" "}
                     ویرایش شماره همراه
                   </Button>
