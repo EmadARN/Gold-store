@@ -1,13 +1,17 @@
-export const MainGrid = {
-  minHeight: "100vh !important",
-  height: "auto !important",
-  display: "flex",
-  justifyContent: "center",
-  width: "100%",
-  backgroundImage: `url(${bg.src})`,
-  backgroundRepeat: "no-repeat",
-  backgroundSize: "cover",
-  backgroundPosition: "center",
+export const MainGrid = (bg)=> {
+  const S1 ={
+    minHeight: "100vh !important",
+    height: "auto !important",
+    display: "flex",
+    justifyContent: "center",
+    width: "100%",
+    backgroundImage: `url(${bg.src})`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  }
+  
+  return S1
 };
 
 export const ContentGrid = {

@@ -45,7 +45,7 @@ export default function SignUpSide() {
   return (
     <CacheProvider value={cacheRtl}>
       <ThemeProvider theme={themee}>
-        <Grid container sx={MainGrid}>
+        <Grid container sx={MainGrid(bg)}>
           <Grid
             sx={ContentGrid}
             item
