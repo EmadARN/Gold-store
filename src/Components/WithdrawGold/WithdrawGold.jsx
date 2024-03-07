@@ -15,6 +15,7 @@ import { IPServer } from "@/Config";
 import axios from "axios";
 import { useCookies } from "react-cookie";
 import Swal from "sweetalert2";
+import { FirstBox, get_button, get_gold_typo, last_typo, widthraw_gold_input, withdraw_gold_paper } from "./Style";
 
 const themee = createTheme({
   direction: "rtl",
@@ -35,24 +36,19 @@ const WithdrawGold = ({ walletDataToken }) => {
   const [cookies] = useCookies(["token"]);
   return (
     <Box
-      sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+      sx={FirstBox}
     >
       <div style={{ maxWidth: "800px" }}>
         <Typography
           variant="h3"
-          sx={{ color: "#fff", fontWeight: "bold", my: 5, fontFamily:'Yekan',textAlign: "center",fontSize:{xs:"33px",md:'40px'} }}
+          sx={get_gold_typo}
         >
           دریافت طلا
         </Typography>
         <Paper
-          sx={{
-            bgcolor: "#272523",
-            width: "100%",
-
-            borderRadius: "10px",
-            height: "100%",
-            px: 6,
-          }}
+          sx={
+            withdraw_gold_paper
+          }
         >
           <Typography sx={{ color: "#fff", fontSize: "20px", py: 3 }}>
             مقدار را وارد کنید:
@@ -62,30 +58,9 @@ const WithdrawGold = ({ walletDataToken }) => {
               <TextField
                 onChange={(e) => changeHandler(e)}
                 id="outlined-start-adornment"
-                sx={{
-                  width: "100%",
-
-                  input: { color: "#FFC436", direction: "rtl", pr: 2 },
-
-                  "& .MuiInput-underline:after": {
-                    borderBottomColor: "#FFC436",
-                  },
-                  "& .MuiOutlinedInput-root": {
-                    "& fieldset": {
-                      borderColor: "#272523",
-                    },
-                    "&:hover fieldset": {
-                      borderColor: "#fff",
-                    },
-                    "& fieldset": {
-                      borderColor: "#fff",
-                      borderRadius: "8px",
-                    },
-                    "&.Mui-focused fieldset": {
-                      borderColor: "rgb(255,172,25)",
-                    },
-                  },
-                }}
+                sx={
+                  widthraw_gold_input
+                }
                 InputProps={{
                   endAdornment: (
                     <InputAdornment
@@ -104,19 +79,9 @@ const WithdrawGold = ({ walletDataToken }) => {
               <Box sx={{ display: "flex", justifyContent: "center" }}>
                 <Button
                   variant="outlined"
-                  sx={{
-                    width: "100%",
-                    fontSize: "16px",
-                    fontWeight: "bold",
-                    my: 5,
-                    mx: { xs: 2, md: 10 },
-                    borderRadius: "7px",
-                    color: "rgb(255,172,25)",
-                    borderColor: "rgb(255,172,25)",
-                    "&:hover": {
-                      borderColor: "rgb(255,172,25)",
-                    },
-                  }}
+                  sx={
+                    get_button
+                  }
                   onClick={async (e) => {
                     e.preventDefault();
                     await axios
@@ -149,7 +114,7 @@ const WithdrawGold = ({ walletDataToken }) => {
                   دریافت
                 </Button>
               </Box>
-              <Typography variant="h6" sx={{ color: "#fff", pb: 2 }}>
+              <Typography variant="h6" sx={last_typo}>
                 <span style={{ color: "rgb(255,172,25)" }}>کیف طلا:</span>
                 <span>{walletDataToken.wallet_gold_data}&nbsp;گرم</span>
               </Typography>

@@ -16,6 +16,15 @@ import { IPServer } from "@/Config";
 import axios from "axios";
 import { useCookies } from "react-cookie";
 import Swal from "sweetalert2";
+import {
+  Typo2,
+  WidtrawMainBox,
+  WidtrawTypo,
+  span_typo,
+  widtra_input,
+  widtra_paper,
+  widtraw_button,
+} from "./Style";
 const themee = createTheme({
   direction: "rtl",
 });
@@ -55,64 +64,18 @@ const Withdraw = (props) => {
   //   });
   // }, [1]);
   return (
-    <Box
-      sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
-    >
+    <Box sx={WidtrawMainBox}>
       <div style={{ maxWidth: "800px" }}>
-        <Typography
-          variant="h3"
-          sx={{
-            color: "#fff",
-            fontWeight: "bold",
-            my: 5,
-            textAlign: "center",
-            fontFamily: "Yekan",
-            fontSize: { xs: "36px", md: "45px" },
-          }}
-        >
+        <Typography variant="h3" sx={WidtrawTypo}>
           {props.title}
         </Typography>
-        <Paper
-          sx={{
-            bgcolor: "#272523",
-            width: "100%",
-
-            borderRadius: "10px",
-            height: "100%",
-            px: 6,
-          }}
-        >
-          <Typography sx={{ color: "#fff", fontSize: "20px", py: 3 }}>
-            {props.BoxTitle} :
-          </Typography>
+        <Paper sx={widtra_paper}>
+          <Typography sx={Typo2}>{props.BoxTitle} :</Typography>
           <CacheProvider value={cacheRtl}>
             <ThemeProvider theme={themee}>
               <TextField
                 id="outlined-start-adornment"
-                sx={{
-                  width: "100%",
-
-                  input: { color: "#FFC436", direction: "rtl", pr: 2 },
-
-                  "& .MuiInput-underline:after": {
-                    borderBottomColor: "#FFC436",
-                  },
-                  "& .MuiOutlinedInput-root": {
-                    "& fieldset": {
-                      borderColor: "#272523",
-                    },
-                    "&:hover fieldset": {
-                      borderColor: "#fff",
-                    },
-                    "& fieldset": {
-                      borderColor: "#fff",
-                      borderRadius: "8px",
-                    },
-                    "&.Mui-focused fieldset": {
-                      borderColor: "rgb(255,172,25)",
-                    },
-                  },
-                }}
+                sx={widtra_input}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment
@@ -130,7 +93,7 @@ const Withdraw = (props) => {
                 onChange={handleTextFieldChange}
                 value={textFieldValue}
               />
-              <Box sx={{ display: "flex", justifyContent: "center" }}>
+              <Box display="flex" justifyContent="center">
                 <Button
                   variant="outlined"
                   onClick={async (e) => {
@@ -154,8 +117,7 @@ const Withdraw = (props) => {
                           icon: "success",
                         });
                       })
-                 
-                      
+
                       .catch((err) => {
                         Swal.fire({
                           title: err.response.data.responseFA,
@@ -164,24 +126,12 @@ const Withdraw = (props) => {
                         });
                       });
                   }}
-                  sx={{
-                    width: "100%",
-                    fontSize: "16px",
-                    fontWeight: "bold",
-                    my: 5,
-                    mx: { xs: 2, md: 10 },
-                    borderRadius: "7px",
-                    color: "rgb(255,172,25)",
-                    borderColor: "rgb(255,172,25)",
-                    "&:hover": {
-                      borderColor: "rgb(255,172,25)",
-                    },
-                  }}
+                  sx={widtraw_button}
                 >
                   {props.buttonText}
                 </Button>
               </Box>
-              <Typography variant="h6" sx={{ color: "#fff", pb: 2 }}>
+              <Typography variant="h6" sx={span_typo}>
                 <span style={{ color: "rgb(255,172,25)" }}>
                   {props.walletcash}:
                 </span>
