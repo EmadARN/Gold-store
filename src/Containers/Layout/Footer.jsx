@@ -1,37 +1,28 @@
-import {
-  Box,
-  Button,
-  Grid,
-  Typography,
-  createTheme,
-  styled,
-} from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import React from "react";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import Link from "next/link";
-
-const FooterButton = styled("button")(({ theme }) => ({
-  all: "unset",
-  color: "#E3E8E7ff",
-  fontSize: "18px",
-  backgroundColor: "none",
-  border: "none",
-  fontWeight: "100",
-  fontFamily: "Lalezar",
-  transition: "all ease-out .2s",
-  "&:hover": {
-   color:"#777",
-
-    cursor: "pointer",
-  },
-}));
+import {
+  FooterButton,
+  Footer_Grid,
+  Grid2,
+  address_grid,
+  adress_typo,
+  footer_icon,
+  footer_link,
+  hr_style,
+  made_by_adlikara_typo,
+  span_style,
+} from "./FotterStyle";
 
 const Footer = (props) => {
+  var color;
+
   return (
     <>
-      <Grid sx={{ backgroundColor: "#2d2c2a" }} container>
+      <Grid sx={Footer_Grid} container>
         {/* footer buttons */}
         <Grid
           mt={4}
@@ -47,15 +38,15 @@ const Footer = (props) => {
             alignItems="center"
             display="flex"
             flexDirection="column"
-            sx={{ marginLeft: { xs: "8%", sm: "0" } }}
+            sx={Grid2}
           >
             <Box mb={2}>
-              <Link href="/" style={{ textDecoration: "none" }}>
+              <Link href="/" style={footer_link}>
                 <FooterButton variant="standard">صفحه اصلی</FooterButton>
               </Link>
             </Box>
             <Box mb={2}>
-              <Link href="/About" style={{ textDecoration: "none" }}>
+              <Link href="/About" style={footer_link}>
                 <FooterButton variant="standard"> درباره ما</FooterButton>
               </Link>
             </Box>
@@ -71,13 +62,13 @@ const Footer = (props) => {
             flexDirection="column"
           >
             <Box mb={2}>
-              <Link href="/Faqs" style={{ textDecoration: "none" }}>
+              <Link href="/Faqs" style={footer_link}>
                 <FooterButton variant="standard"> سوالات متداول</FooterButton>
               </Link>
             </Box>
 
             <Box mb={2}>
-              <Link href="Contact" style={{ textDecoration: "none" }}>
+              <Link href="Contact" style={footer_link}>
                 <FooterButton variant="standard"> ارتباط با ما </FooterButton>
               </Link>
             </Box>
@@ -96,15 +87,7 @@ const Footer = (props) => {
           justifyContent="space-around"
           alignItems="center"
         >
-          <Grid
-            item
-            display="flex"
-            alignItems="center"
-            sx={{
-              ml: { xs: "2%", sm: "0" },
-              mb:{xs:'2%',md:'0'}
-            }}
-          >
+          <Grid item display="flex" alignItems="center" sx={address_grid}>
             <Typography
               fontFamily="Yekan"
               color="white"
@@ -114,8 +97,8 @@ const Footer = (props) => {
             >
               آدرس :
             </Typography>
-            <Typography 
-            sx={{fontSize:{xs:"15px",md:'20px'}}}
+            <Typography
+              sx={adress_typo}
               fontFamily="Yekan"
               color="#fff"
               variant="h6"
@@ -123,7 +106,7 @@ const Footer = (props) => {
               fontWeight="bold"
               whiteSpace="nowrap"
             >
-            زنجان.اسلام آباد.جنب بانک سپه.طلای حسین
+              زنجان.اسلام آباد.جنب بانک سپه.طلای حسین
             </Typography>
           </Grid>
 
@@ -138,86 +121,43 @@ const Footer = (props) => {
                 {" "}
                 تلفن :{" "}
               </Typography>
-              <Box display="flex" flexDirection="column" >
+              <Box display="flex" flexDirection="column">
                 <Box display="flex" alignItems="center">
-                 
-              <Typography ml={2} fontFamily="Yekan" mr={1} color="#fff" variant="h6">
-              09126411239
-              </Typography>
-              <span style={{fontFamily:"Yekan",color:'#fff'}}>مسعودی</span>
-              </Box>
-              <Box display="flex" alignItems="center">
-                 
-                 <Typography ml={2} fontFamily="Yekan" mr={1} color="#fff" variant="h6">
-                 09122429712
-                 </Typography>
-                 <span style={{fontFamily:"Yekan",color:'#fff'}}>موسوی</span>
-                 </Box>
+                  <Typography
+                    ml={2}
+                    fontFamily="Yekan"
+                    mr={1}
+                    color="#fff"
+                    variant="h6"
+                  >
+                    09126411239
+                  </Typography>
+                  <span style={span_style}>مسعودی</span>
+                </Box>
+                <Box display="flex" alignItems="center">
+                  <Typography
+                    ml={2}
+                    fontFamily="Yekan"
+                    mr={1}
+                    color="#fff"
+                    variant="h6"
+                  >
+                    09122429712
+                  </Typography>
+                  <span style={span_style}>موسوی</span>
+                </Box>
               </Box>
             </Box>
 
             <Box mt={1} display="flex" alignItems="center">
-              <TelegramIcon
-                sx={{
-                  ml: 3,
-                  color: "#FFC436",
-                  cursor: "pointer",
-                  fontSize: "30px",
-                  border: "1px solid #FFC436",
-                  padding: "5px",
-                  transition: "all ease-out .5s",
-                  "&:hover": {
-                    borderRadius: "50%",
-                    color: "skyblue",
-                    borderColor: "skyblue",
-                  },
-                }}
-              />
-              <WhatsAppIcon
-                sx={{
-                  ml: 3,
-                  color: "#FFC436",
-                  cursor: "pointer",
-                  fontSize: "30px",
-                  border: "1px solid #FFC436",
-                  padding: "5px",
-                  transition: "all ease-out .5s",
-                  "&:hover": {
-                    borderRadius: "50%",
-                    color: "green",
-                    borderColor: "green",
-                  },
-                }}
-              />
-              <InstagramIcon
-                sx={{
-                  ml: 3,
-                  color: "#FFC436",
-                  fontSize: "30px",
-                  cursor: "pointer",
-                  border: "1px solid #FFC436",
-                  padding: "5px",
-                  transition: "all ease-out .5s",
-                  "&:hover": {
-                    borderRadius: "50%",
-                    color: "red",
-                    borderColor: "red",
-                  },
-                }}
-              />
+              <TelegramIcon sx={footer_icon((color = "skyblue"))} />
+              <WhatsAppIcon sx={footer_icon((color = "green"))} />
+              <InstagramIcon sx={footer_icon((color = "red"))} />
             </Box>
           </Grid>
         </Grid>
-        <hr style={{ border: "1px solid #FFC436", width: "100%" }} />
-        <Typography
-          sx={{
-            color: "#fff",
-            margin: "auto",
-            fontWeight: "bold",
-            fontFamily: "Yekan",
-            py: 1,
-          }}
-        >
+        <hr style={hr_style} />
+        <Typography sx={made_by_adlikara_typo}>
           ساخته شده توسط آدلی کارا
         </Typography>
       </Grid>
