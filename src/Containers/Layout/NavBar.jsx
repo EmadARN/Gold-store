@@ -11,59 +11,39 @@ import {
   Tooltip,
   Typography,
 } from "@mui/material";
-import React from "react";
-
+import React, { useState } from "react";
 import Link from "next/link";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-
 import { DashboardPath } from "./util/DashboarPath";
-
-const pages1 = [
-  {
-    id: 4,
-    link: "/",
-    text: "خانه",
-  },
-  {
-    id: 1,
-    link: "/About",
-    text: "درباره ما",
-  },
-
-  {
-    id: 2,
-    link: "/Faqs",
-    text: "سوالات متداول",
-  },
-  {
-    id: 3,
-    link: "/Contact",
-    text: "ارتباط با ما",
-  },
-];
+import { pages1 } from "./data";
+import {
+  button_text,
+  container_style,
+  gold_store_name_typo,
+  icon_box,
+  map_box,
+  menu_style,
+  profile_button,
+  xs_typo,
+} from "./NavbarStyle";
 
 const NavBar = (props) => {
+  const [navlink, setNavlink] = useState(pages1);
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
   return (
     <AppBar position="static">
-      <Container sx={{ backgroundColor: "#1C1B19" }} maxWidth="L">
+      <Container sx={container_style} maxWidth="L">
         <Toolbar disableGutters>
           {/* <Box sx={{ display: { xs: "none", md: "block" } }}>
             <img width={40} height={40} src={props.image} />
@@ -74,21 +54,12 @@ const NavBar = (props) => {
             noWrap
             component="a"
             href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              ml: 4,
-              display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
-              fontWeight: 900,
-
-              color: "inherit",
-              textDecoration: "none",
-            }}
+            sx={gold_store_name_typo}
           >
             طلای حسین
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          <Box sx={icon_box}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -113,20 +84,9 @@ const NavBar = (props) => {
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
-              sx={{
-                display: {
-                  xs: "block",
-                  md: "none",
-                  "& .MuiPaper-root": {
-                    width: "100vw",
-                    height: "100vh",
-                    transition: "all 2s ease-in-out",
-                    backgroundColor: "#3C3A36",
-                  },
-                },
-              }}
+              sx={menu_style}
             >
-              {pages1.map((page) => (
+              {navlink.map((page) => (
                 <Link key={page.id} href={page.link}>
                   <MenuItem
                     onClick={handleCloseNavMenu}
@@ -159,21 +119,12 @@ const NavBar = (props) => {
             noWrap
             component="a"
             href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
-              flexGrow: 1,
-              fontFamily: "Yekan",
-              fontWeight: 700,
-
-              color: "inherit",
-              textDecoration: "none",
-            }}
+            sx={xs_typo}
           >
             طلای حسین
           </Typography>
-          <Box sx={{ flexGrow: 2, display: { xs: "none", md: "flex" } }}>
-            {pages1.map((page) => (
+          <Box sx={map_box}>
+            {navlink.map((page) => (
               <Link
                 style={{ textDecoration: "none" }}
                 className="myLink"
@@ -182,19 +133,7 @@ const NavBar = (props) => {
                 <Button
                   key={page.id}
                   onClick={handleCloseNavMenu}
-                  sx={{
-                    textDecoration: "none",
-
-                    my: 2,
-                    mx: 2,
-                    color: "white",
-                    fontFamily: "Yekan",
-                    display: "block",
-                    fontSize: "20px",
-                    transition: "all ease-out .6s",
-
-                    "&:hover": { backgroundColor: "#FFC436",color:'#111' },
-                  }}
+                  sx={button_text}
                 >
                   {page.text}
                 </Button>
@@ -206,29 +145,11 @@ const NavBar = (props) => {
             <Tooltip title="ثبت نام">
               {props.dashboard === "200" ? (
                 <Link href={DashboardPath()}>
-                  <Button
-                    sx={{
-                      fontFamily: "Yekan",
-                      color: "#FFC436",
-                      border: "1px solid #FFC436",
-                      "&:hover": { backgroundColor: "rgba(204, 163, 69,0.4)" },
-                    }}
-                  >
-                    پروفایل
-                  </Button>
+                  <Button sx={profile_button}>پروفایل</Button>
                 </Link>
               ) : (
                 <Link href="/SignUp">
-                  <Button
-                    sx={{
-                      fontFamily: "Yekan",
-                      color: "#FFC436",
-                      border: "1px solid #FFC436",
-                      "&:hover": { backgroundColor: "rgba(204, 163, 69,0.4)" },
-                    }}
-                  >
-                    ورود | ثبت نام
-                  </Button>
+                  <Button sx={profile_button}>ورود | ثبت نام</Button>
                 </Link>
               )}
             </Tooltip>
