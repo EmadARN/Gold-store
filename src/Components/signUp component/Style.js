@@ -1,5 +1,5 @@
-export const MainGrid = (bg)=> {
-  const S1 ={
+export const MainGrid = (bg) => {
+  const S1 = {
     minHeight: "100vh !important",
     height: "auto !important",
     display: "flex",
@@ -9,9 +9,9 @@ export const MainGrid = (bg)=> {
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     backgroundPosition: "center",
-  }
-  
-  return S1
+  };
+
+  return S1;
 };
 
 export const ContentGrid = {
@@ -29,6 +29,7 @@ export const ContentGrid = {
 };
 
 export const FirstBox = {
+
   my: 20,
   mx: 4,
   display: "flex",

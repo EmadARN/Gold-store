@@ -92,17 +92,18 @@ export default function SignUpSide() {
                     e.preventDefault();
                     setLoading(true);
 
-                    const PhoneNumb = axios({
+                    axios({
                       method: "GET",
                       url: `${IPServer}/Authentication/send-code/phone-number=${phone_number}/`,
                     })
                       .then((res) => {
+                        console.log(res);
                         setCookie("phone-number", phone_number, {
                           path: "/",
                         });
                         router.push("/VerifyCode");
                       })
-                      .catch((err) => {});
+                      .catch((err) => {console.log(err);});
                   }}
                 >
                   {loading ? <CircularIndeterminate color="#222" /> : "ادامه"}

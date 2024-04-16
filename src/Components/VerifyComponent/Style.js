@@ -1,13 +1,18 @@
-export const VerifyMainGrid = {
-  minHeight: "100vh !important",
-  height: "auto !important",
-  display: "flex",
-  justifyContent: "center",
-  width: "100%",
-  backgroundImage: `url(${bg.src})`,
-  backgroundRepeat: "no-repeat",
-  backgroundSize: "cover",
-  backgroundPosition: "center",
+export const VerifyMainGrid =(bg)=> {
+  const S2 ={
+    minHeight: "100vh !important",
+    height: "auto !important",
+    display: "flex",
+    justifyContent: "center",
+    width: "100%",
+    backgroundImage: `url(${bg.src})`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  }
+
+  return S2
+
 };
 
 export const InnerGrid = {
@@ -25,6 +30,7 @@ export const InnerGrid = {
 };
 
 export const MainVerifyBox = {
+
   my: 20,
   mx: 4,
   display: "flex",

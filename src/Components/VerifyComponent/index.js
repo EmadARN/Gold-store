@@ -46,7 +46,7 @@ const VerifyCode = () => {
   return (
     <CacheProvider value={cacheRtl}>
       <ThemeProvider theme={themee}>
-        <Grid container sx={VerifyMainGrid}>
+        <Grid container sx={VerifyMainGrid(bg)}>
           <Grid
             sx={InnerGrid}
             item
