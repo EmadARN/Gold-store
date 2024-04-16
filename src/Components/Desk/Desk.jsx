@@ -59,6 +59,8 @@ const Desk = ({ goldStockPrice, walletDataToken }) => {
     {
       id: 4,
       title: "موجودی کیف طلا",
+      subtitle: "(هر گرم طلا 18 عیار )",
+      btn: " موجودی کیف پول",
       price: walletDataToken.wallet_gold_data,
       unit: "گرم",
       displayBtn: "none",
@@ -92,7 +94,7 @@ const Desk = ({ goldStockPrice, walletDataToken }) => {
                   <Typography variant="h6" sx={TypoTwoSx}>
                     {obj.title} :
                   </Typography>
-                  <Typography variant="h6" sx={TypoThreeSx}>
+                  <Typography variant="h6" sx={TypoThreeSx(obj.visibility)}>
                     {obj.subtitle}
                   </Typography>
                 </Box>
@@ -102,7 +104,7 @@ const Desk = ({ goldStockPrice, walletDataToken }) => {
                 <Box sx={BoxTwoSx}>
                   <Button
                     onClick={() => router.push(obj.page)}
-                    sx={buttononeSx}
+                    sx={buttononeSx(obj.btnColor,obj.displayBtn)}
                     variant="contained"
                   >
                     {obj.btn}

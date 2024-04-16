@@ -1,3 +1,5 @@
+import { Visibility } from "@mui/icons-material";
+
 export const BoxOneSx = {
   margin: "auto",
   display: "block",
@@ -17,20 +19,31 @@ export const PaperOneSx = {
   pr: 3,
 };
 export const TypoTwoSx = { color: "#fff" };
-export const TypoThreeSx = { color: "gray" }; //visibility: obj.visibility*
+export const TypoThreeSx = (vs)=>
+{ const S4 ={color: "gray" ,Visibility:vs}
+return S4
+}; //visibility: obj.visibility*
 export const TypoFourSx = { color: "#fff", textAlign: "end", py: 3 };
 export const BoxTwoSx = { display: "flex", justifyContent: "center" };
-export const buttononeSx = {
-  width: "80%",
-  my: 1,
-  fontWeight: "600",
-  fontSize: { xs: "18px", md: "22px" },
-  color: "#222",
-  // bgcolor: obj.btnColor,
-  // display: obj.displayBtn,
-  "&:hover": {
+export const buttononeSx = (bg,dis)=>{
+
+  const S2 ={
+    width: "80%",
+    my: 1,
+    fontWeight: "600",
+    fontSize: { xs: "18px", md: "22px" },
+    color: "#222",
     // bgcolor: obj.btnColor,
-    opacity: 0.8,
-  },
-  whiteSpace: "nowrap",
+    display: dis,
+    "&:hover": {
+       bgcolor:bg,
+      opacity: 0.8,
+    },
+    whiteSpace: "nowrap",
+    backgroundColor :bg,
+  
+  }
+
+  return S2
+
 };
