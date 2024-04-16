@@ -41,7 +41,6 @@ import {
   Main,
   DrawerHeader,
   drawer_style,
- 
 } from "./Style";
 const drawerWidth = 240;
 
