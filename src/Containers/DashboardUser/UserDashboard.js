@@ -34,12 +34,14 @@ import {
   link_style,
   list_item_text,
   main_style,
-  Toolbar,
+  Toolbar2,
   typo_box,
   typo_name,
   AppBar,
   Main,
   DrawerHeader,
+  drawer_style,
+ 
 } from "./Style";
 const drawerWidth = 240;
 
@@ -93,7 +95,7 @@ export default function UserDashboard({ children, indexBtn, DrawerObj }) {
             className="active-Header"
             sx={{ bgcolor: "#3C3A36" }}
           >
-            <Toolbar sx={Toolbar}>
+            <Toolbar sx={Toolbar2}>
               <IconButton
                 color="inherit"
                 aria-label="open drawer"

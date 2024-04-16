@@ -27,7 +27,7 @@ export const BtnMenu = styled("div")(({ theme }) => ({
   },
 }));
 
-export const Toolbar = {
+export const Toolbar2 = {
   display: "flex",
   justifyContent: "space-between",
 };
