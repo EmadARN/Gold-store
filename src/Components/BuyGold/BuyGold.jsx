@@ -25,6 +25,7 @@ import {
   BoxTwoSx,
   FormCntrlSx,
   FormCntrolSx,
+  InputAdonmentSx,
   PaperFourSx,
   PaperOneSx,
   PaperThreeSx,
@@ -105,7 +106,7 @@ const BuyGold = ({ walletDataToken, goldStockPrice }) => {
                       value={textFieldValue}
                       id="outlined-adornment-amount"
                       endAdornment={
-                        <InputAdornment sx={InputAdornment} position="start">
+                        <InputAdornment sx={InputAdonmentSx} position="start">
                           ریال
                         </InputAdornment>
                       }
