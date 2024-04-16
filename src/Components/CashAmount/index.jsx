@@ -32,6 +32,7 @@ import {
 const CashAmount = ({ AllMembers }) => {
   const [members] = useState(AllMembers.data);
   const [cookies] = useCookies(["token"]);
+  const [ loading , setLoading] = useState(false)
   const [cash, setCash] = useState(false);
   const [goldPopUp, setGoldPopUp] = useState(false);
   const [cashAmount, setCashAmount] = useState("");
