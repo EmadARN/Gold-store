@@ -3,7 +3,7 @@ import { Box, Button, Paper, Typography, Grid } from "@mui/material";
 import Switch from "@mui/material/Switch";
 import axios from "axios";
 import { useCookies } from "react-cookie";
-import {PaperOneSx, SpanOneSx, SwichOneSx, SwitchTwoSX} from "@/Components/AdminPermission/Style";
+import {PaperOneSx, SpanOneSx, SwichOneSx, SwitchOneSx, SwitchTwoSX} from "@/Components/AdminPermission/Style";
 
 const AdminPermission = ({ stock_status }) => {
   const [cookies] = useCookies(["token"]);
