@@ -5,7 +5,7 @@ import axios from "axios";
 import { IPServer } from "@/Config";
 import SellGoldTransactionAdmin from "@/Components/SellGoldTransactionAdmin/SellGoldTransactionAdmin";
 const GoldWidtrawAdmin = ({ sellGoldAdmin }) => {
-  console.log("sellGoldAdmin:", sellGoldAdmin);
+
   return (
     <UserDashboard DrawerObj={DrawerObjAdmin} indexBtn={6}>
       <SellGoldTransactionAdmin sellGoldAdmin={sellGoldAdmin} />

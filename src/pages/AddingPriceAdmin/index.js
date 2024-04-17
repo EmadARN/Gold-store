@@ -7,6 +7,7 @@ import { parseCookies } from "nookies";
 import React from "react";
 
 const AddingPriceAdmin = ({ settingData }) => {
+  console.log(settingData);
   return (
     <UserDashboard indexBtn={7} DrawerObj={DrawerObjAdmin}>
       <AddingPrice settingData={settingData.data} />

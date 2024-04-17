@@ -1,9 +1,11 @@
 export const VerifyMainGrid =(bg)=> {
   const S2 ={
     minHeight: "100vh !important",
+    
     height: "auto !important",
     display: "flex",
     justifyContent: "center",
+    alignItems:"center",
     width: "100%",
     backgroundImage: `url(${bg.src})`,
     backgroundRepeat: "no-repeat",

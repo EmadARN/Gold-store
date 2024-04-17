@@ -5,7 +5,7 @@ import Paper from "@mui/material/Paper";
 import { Container, Typography } from "@mui/material";
 import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import { columns } from "./Utils/Columns";
-import { DataGridStyle } from "./Style";
+import { DataGridPaper, DataGridStyle } from "./Style";
 
 const TransactionComponent = ({ transactionList }) => {
   const existingTheme = useTheme();
