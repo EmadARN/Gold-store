@@ -4,6 +4,7 @@ export const MainGrid = (bg) => {
     height: "auto !important",
     display: "flex",
     justifyContent: "center",
+    alignItems:"center",
     width: "100%",
     backgroundImage: `url(${bg.src})`,
     backgroundRepeat: "no-repeat",

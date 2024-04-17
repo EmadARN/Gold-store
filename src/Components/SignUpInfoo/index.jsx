@@ -17,12 +17,12 @@ import { IPServer } from "@/Config";
 
 import { CookiesProvider, useCookies } from "react-cookie";
 import {
-  ButtonStyle2,
-  ContentGrid,
-  FirstBox,
-  InputStyle,
-  MainGrid,
-} from "../signUp component/Style";
+  ButtonStyle3,
+  ContentGrid2,
+  FirstBox2,
+  InputStyle2,
+  MainGrid2,
+} from "./Style";
 
 const themee = createTheme({
   direction: "rtl",
@@ -64,9 +64,9 @@ const SignUpInfo = () => {
   return (
     <CacheProvider value={cacheRtl}>
       <ThemeProvider theme={themee}>
-        <Grid container sx={MainGrid}>
+        <Grid container sx={MainGrid2(bg)}>
           <Grid
-            sx={ContentGrid}
+            sx={ContentGrid2}
             item
             xs={12}
             sm={8}
@@ -75,7 +75,7 @@ const SignUpInfo = () => {
             elevation={6}
             square
           >
-            <Box sx={FirstBox}>
+            <Box sx={FirstBox2}>
               <Typography
                 color="#fff"
                 fontFamily="Lalezar"
@@ -86,7 +86,7 @@ const SignUpInfo = () => {
               </Typography>
               <Box component="form" noValidate sx={{ mt: 1 }}>
                 <TextField
-                  sx={InputStyle}
+                  sx={InputStyle2}
                   margin="normal"
                   fullWidth
                   id="number"
@@ -98,7 +98,7 @@ const SignUpInfo = () => {
                 />
 
                 <TextField
-                  sx={InputStyle}
+                  sx={InputStyle2}
                   margin="normal"
                   fullWidth
                   id="number"
@@ -110,7 +110,7 @@ const SignUpInfo = () => {
                 />
 
                 <TextField
-                  sx={InputStyle}
+                  sx={InputStyle2}
                   margin="normal"
                   fullWidth
                   id="number"
@@ -121,7 +121,7 @@ const SignUpInfo = () => {
                   onChange={(e) => InputHandler(e, "national_code")}
                 />
                 <TextField
-                  sx={InputStyle}
+                  sx={InputStyle2}
                   margin="normal"
                   fullWidth
                   id="number"
@@ -132,7 +132,7 @@ const SignUpInfo = () => {
                   onChange={(e) => InputHandler(e, "email")}
                 />
                 <TextField
-                  sx={InputStyle}
+                  sx={InputStyle2}
                   margin="normal"
                   fullWidth
                   id="number"
@@ -144,7 +144,7 @@ const SignUpInfo = () => {
                 />
 
                 <TextField
-                  sx={InputStyle}
+                  sx={InputStyle2}
                   margin="normal"
                   fullWidth
                   id="number"
@@ -159,7 +159,7 @@ const SignUpInfo = () => {
                   type="submit"
                   fullWidth
                   variant="contained"
-                  sx={ButtonStyle2}
+                  sx={ButtonStyle3}
                   onClick={(e) => submit(e)}
                 >
                   تایید

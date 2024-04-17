@@ -95,7 +95,7 @@ const SellGoldTransactionAdmin = ({ sellGoldAdmin }) => {
     const { children, value, index, ...other } = props;
 
     return (
-      <div
+      <Box
         role="tabpanel"
         hidden={value !== index}
         id={`simple-tabpanel-${index}`}
@@ -103,11 +103,11 @@ const SellGoldTransactionAdmin = ({ sellGoldAdmin }) => {
         {...other}
       >
         {value === index && (
-          <Box>
+      
             <Typography>{children}</Typography>
-          </Box>
+        
         )}
-      </div>
+      </Box>
     );
   }
 
@@ -254,11 +254,7 @@ const SellGoldTransactionAdmin = ({ sellGoldAdmin }) => {
           </Box>
 
           <TabPanel value={value} index={0}>
-            <Paper
-              sx={
-              PaperStyle
-              }
-            >
+           
               <DataGrid
                 sx={
                   DataGridStyle
@@ -273,15 +269,11 @@ const SellGoldTransactionAdmin = ({ sellGoldAdmin }) => {
                 }}
                 pageSizeOptions={[5, 10]}
               />
-            </Paper>
+          
           </TabPanel>
 
           <TabPanel value={value} index={1}>
-            <Paper
-              sx={
-              PaperStyle
-              }
-            >
+           
               <DataGrid
                 sx={
             DataGridStyle
@@ -296,7 +288,7 @@ const SellGoldTransactionAdmin = ({ sellGoldAdmin }) => {
                 }}
                 pageSizeOptions={[5, 10]}
               />
-            </Paper>
+           
           </TabPanel>
         </Container>
       </ThemeProvider>

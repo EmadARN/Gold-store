@@ -287,14 +287,10 @@ const GoldWidtrawComponent = ({AllGoldWidthrawReq}) => {
               />
             </Tabs>
           </Box>
+
+          <Box width='100%'>
           <TabPanel value={value} index={0}>
-          <Box
-            sx={{
-              width: "100%",
-               overflow: "hidden",
-              display: "grid",
-               placeItems: "center",
-            }}>
+          
           <DataGrid
           
             sx={{
@@ -331,17 +327,11 @@ const GoldWidtrawComponent = ({AllGoldWidthrawReq}) => {
             pageSizeOptions={[5, 10]}
            
           />
-          </Box>
+         
           </TabPanel>
 
           <TabPanel value={value} index={1}>
-          <Paper
-            sx={{
-              width: "100%",
-               overflow: "hidden",
-              display: "grid",
-               placeItems: "center",
-            }}>
+         
           <DataGrid
             sx={{
               "& .css-t89xny-MuiDataGrid-columnHeaderTitle": {
@@ -376,9 +366,9 @@ const GoldWidtrawComponent = ({AllGoldWidthrawReq}) => {
             pageSizeOptions={[5, 10]}
        
           />
-         </Paper>
+        
           </TabPanel>
-
+          </Box>
         </Container>
       </ThemeProvider>
     </>
