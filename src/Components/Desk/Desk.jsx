@@ -64,6 +64,7 @@ const Desk = ({ goldStockPrice, walletDataToken }) => {
       price: walletDataToken.wallet_gold_data,
       unit: "گرم",
       displayBtn: "none",
+     
     },
   ];
 
@@ -76,7 +77,7 @@ const Desk = ({ goldStockPrice, walletDataToken }) => {
         </Typography>
       </Box>
 
-      <Grid container>
+      <Grid container sx={{display:"flex",justifyContent:"center",alignItems:"center"}} >
         {deskObj.map((obj) => {
           return (
             <Grid

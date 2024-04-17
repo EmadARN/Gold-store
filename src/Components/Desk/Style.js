@@ -1,4 +1,4 @@
-import { Visibility } from "@mui/icons-material";
+
 
 export const BoxOneSx = {
   margin: "auto",
@@ -7,13 +7,14 @@ export const BoxOneSx = {
   mb: 10,
 };
 export const typoOneSx = { color: "#fff", fontWeight: "bold" };
-export const GridOneSx = { display: "grid", placeItems: "center" };
+export const GridOneSx = { display: "flex", justifyContent: "center",width:"100%",m:"auto",};
 export const PaperOneSx = {
   bgcolor: "#272523",
   maxWidth: "280px",
   width: "100%",
   borderRadius: "7px",
   height: "280px",
+  
   p: 4,
   my: 2,
   pr: 3,
