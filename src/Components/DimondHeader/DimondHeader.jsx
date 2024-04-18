@@ -89,7 +89,7 @@ const DimondHeader = () => {
           <Boxin2
             sx={{
               fontWeight: { xs: "none", sm: "bold" },
-              fontSize: { xs: "6px", sm: "12px", md: "16px", xl: "18px" },
+              fontSize: { xs: "8px", sm: "12px", md: "16px", xl: "18px" },
             }}
           >
             بازار 24 ساعته
@@ -124,7 +124,8 @@ const DimondHeader = () => {
           <Boxin4
             sx={{
               fontWeight: { xs: "none", sm: "bold" },
-              fontSize: { xs: "6px", sm: "12px", md: "16px", xl: "18px" },
+              
+              fontSize: { xs: "8px", sm: "12px", md: "16px", xl: "18px" },
             }}
           >
             امکان تحویل فیزیکی
