@@ -3,13 +3,27 @@ import Layout from "@/Containers/Layout";
 import axios from "axios";
 import { parseCookies } from "nookies";
 import { IPServer } from "@/Config";
+import { useEffect, useState } from "react";
+import Loader from "@/Components/PreLoader/Pre-Loader";
 export default function Home({
   validationToken,
   TabPriceTable,
   validationTokenError,
   TabPriceTableError,
 }) {
-  return (
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fakeDataFetch = () => {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 2000);
+    };
+    fakeDataFetch();
+  }, []);
+  return isLoading ? (
+    <Loader />
+  ) : (
     <Layout dashboard={validationTokenError}>
       <HomeLand tabPrice={TabPriceTable} />
     </Layout>
@@ -52,12 +66,14 @@ export async function getServerSideProps(context) {
     const { data: TabPriceTable2 } = await axios.get(
       `${IPServer}/Home/gold-stock-price/`
     );
-
+console.log("tttttttttttttttttttt",TabPriceTable2);
     TabPriceTable = TabPriceTable2;
     TabPriceTableError = "200";
   } catch (error) {
+    console.log("eeeeeeeeeeeeeeeeeee",error);
     TabPriceTable = "";
     TabPriceTableError = "400";
+
   }
   return {
     props: {
