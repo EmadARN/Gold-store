@@ -86,6 +86,7 @@ const SellGold = ({ walletDataToken, goldStockPrice }) => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+       
       }}
     >
       <Paper
@@ -95,6 +96,7 @@ const SellGold = ({ walletDataToken, goldStockPrice }) => {
           mt: 10,
           bgcolor: "rgb(39,37,35)",
           borderRadius: "15px",
+          p:{xs:2,md:1}
         }}
       >
         <Box>
@@ -106,6 +108,7 @@ const SellGold = ({ walletDataToken, goldStockPrice }) => {
               bgcolor: "#3C3A36",
               borderRadius: "15px",
               overflow: "hidden",
+              
             }}
           >
             <AppBar position="static" sx={{ borderRadius: "10px" }}>
@@ -327,7 +330,7 @@ const SellGold = ({ walletDataToken, goldStockPrice }) => {
         </Box>
         <Box display="flex" justifyContent="space-evenly">
           <Box>
-            <Typography variant="h6" sx={{ color: "#fff", pb: 2 }}>
+            <Typography  sx={{ color: "#fff", p: 1 }}>
               <span style={{ color: "rgb(255,172,25)" }}>کیف طلا:</span>
               <span>
                 {walletDataToken.wallet_gold_data}
@@ -337,7 +340,7 @@ const SellGold = ({ walletDataToken, goldStockPrice }) => {
           </Box>
 
           <Box>
-            <Typography variant="h6" sx={{ color: "#fff", pb: 2 }}>
+            <Typography  sx={{ color: "#fff", p: 1 }}>
               <span style={{ color: "rgb(255,172,25)" }}>کیف پول:</span>
               <span>
                 {numeral(walletDataToken.wallet_money_data).format("0,0")}

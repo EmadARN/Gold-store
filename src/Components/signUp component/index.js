@@ -71,6 +71,7 @@ export default function SignUpSide() {
 
               <Box width="50%">
                 <TextField
+                
                   onChange={(e) => setPhone_number(e.target.value)}
                   sx={InputStyle}
                   margin="normal"

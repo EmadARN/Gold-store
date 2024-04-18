@@ -56,7 +56,7 @@ const NavBar = (props) => {
             href="#app-bar-with-responsive-menu"
             sx={gold_store_name_typo}
           >
-            طلای حسین
+            طلای آدلی کارا
           </Typography>
 
           <Box sx={icon_box}>
@@ -121,7 +121,7 @@ const NavBar = (props) => {
             href="#app-bar-with-responsive-menu"
             sx={xs_typo}
           >
-            طلای حسین
+            طلای آدلی کارا
           </Typography>
           <Box sx={map_box}>
             {navlink.map((page) => (

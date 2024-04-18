@@ -7,9 +7,7 @@ import { BoxoneSx, GridOneSx, ImageOneSx, SpanSx, TypoOneSx } from "./Style";
 const ContactUs = () => {
   return (
     <>
-      <Box
-        sx={BoxoneSx}
-      >
+      <Box sx={BoxoneSx}>
         <Typography
           fontWeight="bold"
           color="#FFC436"
@@ -18,7 +16,7 @@ const ContactUs = () => {
           mt={5}
           sx={TypoOneSx}
         >
-          ارتباط با طلای حسین
+          ارتباط با طلای آدلی کارا
         </Typography>
       </Box>
 
@@ -46,7 +44,7 @@ const ContactUs = () => {
                 <PhoneEnabledIcon sx={SpanSx} />
               </span>
               <Typography fontFamily="Yekan" color="#fff" variant="h6">
-             09126411239
+                09126411239
               </Typography>
             </Box>
 
@@ -64,7 +62,7 @@ const ContactUs = () => {
                 <LocationOnIcon sx={SpanSx} />
               </span>
               <Typography fontFamily="Yekan" color="#fff" variant="h6">
-                زنجان.اسلام آباد.جنب بانک سپه.طلای حسین
+                زنجان.اسلام آباد.جنب بانک سپه.طلای آدلی کارا
               </Typography>
             </Box>
           </Grid>

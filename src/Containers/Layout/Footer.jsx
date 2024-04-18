@@ -106,7 +106,7 @@ const Footer = (props) => {
               fontWeight="bold"
               whiteSpace="nowrap"
             >
-              زنجان.اسلام آباد.جنب بانک سپه.طلای حسین
+             
             </Typography>
           </Grid>
 
@@ -130,7 +130,7 @@ const Footer = (props) => {
                     color="#fff"
                     variant="h6"
                   >
-                    09126411239
+                    000000000
                   </Typography>
                   <span style={span_style}>مسعودی</span>
                 </Box>
@@ -142,7 +142,7 @@ const Footer = (props) => {
                     color="#fff"
                     variant="h6"
                   >
-                    09122429712
+                    000000000
                   </Typography>
                   <span style={span_style}>موسوی</span>
                 </Box>

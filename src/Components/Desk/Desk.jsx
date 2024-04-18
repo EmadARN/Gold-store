@@ -22,7 +22,7 @@ const Desk = ({ goldStockPrice, walletDataToken }) => {
   const deskObj = [
     {
       id: 1,
-      title: "قیمت خرید از طلای حسین",
+      title: "قیمت خرید از طلای آدلی کارا",
       subtitle: "(هر گرم طلا 18 عیار )",
       visibility: "visable",
       price: format1,
@@ -34,7 +34,7 @@ const Desk = ({ goldStockPrice, walletDataToken }) => {
     },
     {
       id: 2,
-      title: "قیمت فروش به طلای حسین",
+      title: "قیمت فروش به طلای آدلی کارا",
       subtitle: "(هر گرم طلا 18 عیار )",
       visibility: "visable",
       price: format2,
@@ -64,7 +64,6 @@ const Desk = ({ goldStockPrice, walletDataToken }) => {
       price: walletDataToken.wallet_gold_data,
       unit: "گرم",
       displayBtn: "none",
-     
     },
   ];
 
@@ -77,7 +76,10 @@ const Desk = ({ goldStockPrice, walletDataToken }) => {
         </Typography>
       </Box>
 
-      <Grid container sx={{display:"flex",justifyContent:"center",alignItems:"center"}} >
+      <Grid
+        container
+    
+      >
         {deskObj.map((obj) => {
           return (
             <Grid
@@ -105,7 +107,7 @@ const Desk = ({ goldStockPrice, walletDataToken }) => {
                 <Box sx={BoxTwoSx}>
                   <Button
                     onClick={() => router.push(obj.page)}
-                    sx={buttononeSx(obj.btnColor,obj.displayBtn)}
+                    sx={buttononeSx(obj.btnColor, obj.displayBtn)}
                     variant="contained"
                   >
                     {obj.btn}

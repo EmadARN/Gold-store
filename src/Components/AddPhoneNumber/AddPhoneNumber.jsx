@@ -1,13 +1,15 @@
 import { Box, Button, Grid, Typography } from "@mui/material";
 import React from "react";
 import {
-    BoxOneSx,
-    BoxThreeSx,
-    BoxtwoSx, ButtonOneSx, GridFourSx,
-    GridOneSx,
-    GridThreeSx,
-    GridTwoSx,
-    TypoOneSx
+  BoxOneSx,
+  BoxThreeSx,
+  BoxtwoSx,
+  ButtonOneSx,
+  GridFourSx,
+  GridOneSx,
+  GridThreeSx,
+  GridTwoSx,
+  TypoOneSx,
 } from "@/Components/AddPhoneNumber/Style";
 
 const AddPhoneNumber = () => {
@@ -20,11 +22,9 @@ const AddPhoneNumber = () => {
       flexDirection="column"
       sx={GridOneSx}
     >
-      <Grid
-        sx={GridTwoSx}
-      >
+      <Grid sx={GridTwoSx}>
         <Typography color="#FFC436" fontFamily="Lalezar" variant="h3">
-          طلای حسین،
+          طلای آدلی کارا،
         </Typography>
         <Typography fontFamily="Lalezar" color="#fff" variant="h4">
           بازار امن طلا
@@ -32,10 +32,7 @@ const AddPhoneNumber = () => {
       </Grid>
 
       <Grid sx={GridThreeSx} mt={2} display="flex">
-        <Box
-          ml={3}
-          sx={BoxOneSx}
-        >
+        <Box ml={3} sx={BoxOneSx}>
           <Typography
             fontWeight="bold"
             fontFamily="Yekan"
@@ -47,10 +44,7 @@ const AddPhoneNumber = () => {
           </Typography>
         </Box>
 
-        <Box
-          ml={3}
-          sx={BoxtwoSx}
-        >
+        <Box ml={3} sx={BoxtwoSx}>
           <Typography
             fontWeight="bold"
             fontFamily="Yekan"
@@ -62,9 +56,7 @@ const AddPhoneNumber = () => {
           </Typography>
         </Box>
 
-        <Box
-          sx={BoxThreeSx}
-        >
+        <Box sx={BoxThreeSx}>
           <Typography
             fontWeight="bold"
             fontFamily="Yekan"
@@ -90,14 +82,8 @@ const AddPhoneNumber = () => {
         </Typography>
       </Grid>
 
-      <Grid
-        mb={3}
-        sx={GridFourSx}
-      >
-        <Button
-          variant="contained"
-          sx={ButtonOneSx}
-        >
+      <Grid mb={3} sx={GridFourSx}>
+        <Button variant="contained" sx={ButtonOneSx}>
           ثبت نام
         </Button>
       </Grid>

@@ -7,7 +7,7 @@ export const BoxOneSx = {
   mb: 10,
 };
 export const typoOneSx = { color: "#fff", fontWeight: "bold" };
-export const GridOneSx = { display: "flex", justifyContent: "center",width:"100%",m:"auto",};
+export const GridOneSx = { display: "flex", justifyContent: "center",width:"100%",m:"auto",alignItem:"center"};
 export const PaperOneSx = {
   bgcolor: "#272523",
   maxWidth: "280px",
