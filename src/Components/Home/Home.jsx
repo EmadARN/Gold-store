@@ -6,15 +6,26 @@ import { Animate } from "../Animate/Animate";
 import StepperComputerList from "../StepperComputer";
 import StepperList from "../StepperPhone";
 import TabPrice from "../TabPrice/TabPrice";
+import Home_page_desc from "../home-page-disription";
 
 const HomeLand = ({ tabPrice }) => {
   return (
     <>
       <Container maxWidth="xl">
-        <Grid ml={10} my={24} xs={12}>
+        <Grid ml={10} mt={19} xs={12}>
           <DimondHeader />
-          <DimondHeaderMobile />
-         
+          {/* <DimondHeaderMobile /> */}
+        </Grid>
+
+        <Grid
+          sx={{ border: "2pxs olid red" }}
+          mb={20}
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          width="100%"
+        >
+          <Home_page_desc />
         </Grid>
 
         <Grid
@@ -38,6 +49,7 @@ const HomeLand = ({ tabPrice }) => {
           >
             <Animate />
           </Grid>
+
           <Grid
             item
             xs={12}
