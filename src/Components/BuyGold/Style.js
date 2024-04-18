@@ -9,6 +9,7 @@ export const PaperOneSx = {
   mt: 10,
   bgcolor: "rgb(39,37,35)",
   borderRadius: "15px",
+  p:{xs:2,md:1}
 };
 export const PapertwoSx = {
   height: "250px",
@@ -124,7 +125,7 @@ export const BButtonThreeSx = {
   fontWeight: "bold",
   borderColor: "#FFC436",
 };
-export const TypoFiveVsSixSX = { color: "#fff", pb: 2 };
+export const TypoFiveVsSixSX = { color: "#fff",   p:1};
 
 export const InputAdonmentSx = {
   "& .MuiTypography-root": {

@@ -182,14 +182,14 @@ const BuyGold = ({ walletDataToken, goldStockPrice }) => {
         </Box>
         <Box display="flex" justifyContent="space-evenly">
           <Box>
-            <Typography variant="h6" sx={TypoFiveVsSixSX}>
+            <Typography sx={TypoFiveVsSixSX}>
               <span style={SpanSx}>کیف طلا:</span>
               <span>{walletDataToken.wallet_gold_data}&nbsp;گرم</span>
             </Typography>
           </Box>
 
           <Box>
-            <Typography variant="h6" sx={TypoFiveVsSixSX}>
+            <Typography  sx={TypoFiveVsSixSX}>
               <span style={SpanSx}>کیف پول:</span>
               <span>
                 {numeral(walletDataToken.wallet_money_data).format("0,0")}

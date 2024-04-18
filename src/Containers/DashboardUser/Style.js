@@ -1,8 +1,10 @@
 import { styled, useTheme } from "@mui/material/styles";
 import MuiAppBar from "@mui/material/AppBar";
 export const BoxMain = styled("div")(({ theme }) => ({
-  display: "flex",
-  height: "100vh",
+  display: "grid",
+  placeItems:"center"
+
+  
 }));
 
 export const BtnMenu = styled("div")(({ theme }) => ({
