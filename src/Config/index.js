@@ -1,1 +1,1 @@
-export const IPServer = "http://10.4.0.146:8000";
+export const IPServer = "https://gold.backend-adlikara.ir";
