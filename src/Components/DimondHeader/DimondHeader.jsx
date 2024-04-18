@@ -45,11 +45,17 @@ const DimondHeader = () => {
   const isXXXlargeScreen = useMediaQuery("(min-width: 1250px) ");
   return (
     <Box sx={BoxOneSx}>
-      <Ul
-        sx={{
-          opacity: fade ? 1 : 0,
-          transition: fade ? "all 4s ease-in-out" : null,
-        }}
+      <Grid
+        sx={Ul(
+          fade,
+          isSmallScreen,
+          isSmallScreenPlus,
+          isMediumScreen,
+          islargeScreen,
+          isXlargeScreen,
+          isXXlargeScreen,
+          isXXXlargeScreen
+        )}
       >
         <Box
           sx={Li1(
@@ -80,18 +86,14 @@ const DimondHeader = () => {
           )}
           className="li2"
         >
-          {window.innerWidth < 600 ? (
-            <Boxin6></Boxin6>
-          ) : (
-            <Boxin2
-              sx={{
-                fontWeight: { xs: "none", sm: "bold" },
-                fontSize: { xs: "8px", sm: "15px", md: "16px", xl: "18px" },
-              }}
-            >
-              بازار 24 ساعته
-            </Boxin2>
-          )}
+          <Boxin2
+            sx={{
+              fontWeight: { xs: "none", sm: "bold" },
+              fontSize: { xs: "6px", sm: "12px", md: "16px", xl: "18px" },
+            }}
+          >
+            بازار 24 ساعته
+          </Boxin2>
         </Box>
         <Box
           sx={Li3(
@@ -119,18 +121,14 @@ const DimondHeader = () => {
           )}
           className="li4"
         >
-          {window.innerWidth < 600 ? (
-            <Boxin7></Boxin7>
-          ) : (
-            <Boxin4
-              sx={{
-                fontWeight: { xs: "none", sm: "bold" },
-                fontSize: { xs: "8px", sm: "15px", md: "16px", xl: "18px" },
-              }}
-            >
-              امکان تحویل فیزیکی
-            </Boxin4>
-          )}
+          <Boxin4
+            sx={{
+              fontWeight: { xs: "none", sm: "bold" },
+              fontSize: { xs: "6px", sm: "12px", md: "16px", xl: "18px" },
+            }}
+          >
+            امکان تحویل فیزیکی
+          </Boxin4>
         </Box>
         <Box
           sx={Li5(
@@ -146,7 +144,7 @@ const DimondHeader = () => {
         >
           <Boxin5></Boxin5>
         </Box>
-      </Ul>
+      </Grid>
     </Box>
   );
 };

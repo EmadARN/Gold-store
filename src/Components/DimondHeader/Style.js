@@ -2,11 +2,53 @@ import { styled } from "@mui/material/styles";
 import { img1, img2, img3 } from "@/Components/DimondHeader/Data";
 import React, { useEffect } from "react";
 
-export const Ul = styled("ul")(({ theme }) => ({
-  position: "relative",
-  width: "600px",
-  height: "150px",
-}));
+export const Ul = (
+  fade,
+  isSmallScreen,
+  isSmallScreenPlus,
+  isMediumScreen,
+  islargeScreen,
+  isXlargeScreen,
+  isXXlargeScreen,
+  isXXXlargeScreen
+) => {
+  const style = {
+    position: "relative",
+    width: isSmallScreen
+      ? "500px"
+      : isSmallScreenPlus
+      ? "550px"
+      : isMediumScreen
+      ? "500px"
+      : islargeScreen
+      ? "540px"
+      : isXlargeScreen
+      ? "560px"
+      : isXXlargeScreen
+      ? "600px"
+      : isXXXlargeScreen
+      ? "600px"
+      : "600px",
+    height: isSmallScreen
+      ? "190px"
+      : isSmallScreenPlus
+      ? "210px"
+      : isMediumScreen
+      ? "250px"
+      : islargeScreen
+      ? "250px"
+      : isXlargeScreen
+      ? "250px"
+      : isXXlargeScreen
+      ? "240px"
+      : isXXXlargeScreen
+      ? "150px"
+      : "150px",
+    opacity: fade ? 1 : 0,
+    transition: fade ? "all 4s ease-in-out" : null,
+  };
+  return style;
+};
 export const Li1 = (
   isSmallScreen,
   isSmallScreenPlus,
@@ -20,11 +62,11 @@ export const Li1 = (
     listStyle: "none",
     position: "absolute",
     width: isSmallScreen
-      ? "0px"
+      ? "60px"
       : isSmallScreenPlus
-      ? "0px"
+      ? "70px"
       : isMediumScreen
-      ? "0"
+      ? "90px"
       : islargeScreen
       ? "120px"
       : isXlargeScreen
@@ -35,11 +77,11 @@ export const Li1 = (
       ? "160px"
       : "155px",
     height: isSmallScreen
-      ? "0px"
+      ? "60px"
       : isSmallScreenPlus
-      ? "0px"
+      ? "70px"
       : isMediumScreen
-      ? "0x"
+      ? "90px"
       : islargeScreen
       ? "120px"
       : isXlargeScreen
@@ -71,7 +113,7 @@ export const Li1 = (
       : isSmallScreenPlus
       ? "-6%"
       : isMediumScreen
-      ? "-12%"
+      ? "0%"
       : islargeScreen
       ? 0
       : isXlargeScreen
@@ -100,11 +142,11 @@ export const Li2 = (
     listStyle: "none",
     position: "absolute",
     width: isSmallScreen
-      ? "70px"
+      ? "60px"
       : isSmallScreenPlus
       ? "70px"
       : isMediumScreen
-      ? "100px"
+      ? "90px"
       : islargeScreen
       ? "120px"
       : isXlargeScreen
@@ -115,11 +157,11 @@ export const Li2 = (
       ? "160px"
       : "155px",
     height: isSmallScreen
-      ? "70px"
+      ? "60px"
       : isSmallScreenPlus
       ? "70px"
       : isMediumScreen
-      ? "100px"
+      ? "90px"
       : islargeScreen
       ? "120px"
       : isXlargeScreen
@@ -137,7 +179,7 @@ export const Li2 = (
       : isSmallScreenPlus
       ? "-6%"
       : isMediumScreen
-      ? "-12%"
+      ? "0%"
       : islargeScreen
       ? 0
       : isXlargeScreen
@@ -181,11 +223,11 @@ export const Li3 = (
     listStyle: "none",
     position: "absolute",
     width: isSmallScreen
-      ? "70px"
+      ? "60px"
       : isSmallScreenPlus
       ? "70px"
       : isMediumScreen
-      ? "100px"
+      ? "90px"
       : islargeScreen
       ? "120px"
       : isXlargeScreen
@@ -196,11 +238,11 @@ export const Li3 = (
       ? "160px"
       : "155px",
     height: isSmallScreen
-      ? "70px"
+      ? "60px"
       : isSmallScreenPlus
       ? "70px"
       : isMediumScreen
-      ? "100px"
+      ? "90px"
       : islargeScreen
       ? "120px"
       : isXlargeScreen
@@ -220,7 +262,7 @@ export const Li3 = (
       : isMediumScreen
       ? "40%"
       : islargeScreen
-      ? "38%"
+      ? "42%"
       : isXlargeScreen
       ? "38%"
       : isXXlargeScreen
@@ -261,11 +303,11 @@ export const Li4 = (
     listStyle: "none",
     position: "absolute",
     width: isSmallScreen
-      ? "70px"
+      ? "60px"
       : isSmallScreenPlus
       ? "70px"
       : isMediumScreen
-      ? "100px"
+      ? "90px"
       : islargeScreen
       ? "120px"
       : isXlargeScreen
@@ -276,11 +318,11 @@ export const Li4 = (
       ? "160px"
       : "155px",
     height: isSmallScreen
-      ? "70px"
+      ? "60px"
       : isSmallScreenPlus
       ? "70px"
       : isMediumScreen
-      ? "100px"
+      ? "90px"
       : islargeScreen
       ? "120px"
       : isXlargeScreen
@@ -342,11 +384,11 @@ export const Li5 = (
     listStyle: "none",
     position: "absolute",
     width: isSmallScreen
-      ? "0px"
+      ? "60px"
       : isSmallScreenPlus
-      ? "0px"
+      ? "70px"
       : isMediumScreen
-      ? "0"
+      ? "90px"
       : islargeScreen
       ? "120px"
       : isXlargeScreen
@@ -357,11 +399,11 @@ export const Li5 = (
       ? "160px"
       : "155px",
     height: isSmallScreen
-      ? "0px"
+      ? "60px"
       : isSmallScreenPlus
-      ? "0px"
+      ? "70px"
       : isMediumScreen
-      ? "0"
+      ? "90px"
       : islargeScreen
       ? "120px"
       : isXlargeScreen
@@ -377,13 +419,13 @@ export const Li5 = (
     left: isSmallScreen
       ? "80%"
       : isSmallScreenPlus
-      ? "78%"
+      ? "76%"
       : isMediumScreen
       ? "78%"
       : islargeScreen
-      ? "78%"
+      ? "84%"
       : isXlargeScreen
-      ? "78%"
+      ? "82%"
       : isXXlargeScreen
       ? "91%"
       : isXXXlargeScreen
@@ -420,8 +462,8 @@ export const Boxin1 = styled("div")(({ theme }) => ({
 export const Boxin2 = styled("div")(({ theme }) => ({
   transform: "rotate(-45deg)",
   position: "absolute",
-  top: "60px",
-  right: "40px",
+  top: window.innerWidth < 578 ? "25px" : "60px",
+  right: window.innerWidth < 578 ? "16px" : "40px",
 
   color: "#fff",
   animation: "span4 1.5s ease-in-out infinite alternate",
@@ -439,8 +481,8 @@ export const Boxin2 = styled("div")(({ theme }) => ({
 export const Boxin4 = styled("div")(({ theme }) => ({
   transform: "rotate(-45deg)",
   position: "absolute",
-  top: "60px",
-  right: "15px",
+  top: window.innerWidth < 578 ? "25px" : "60px",
+  right: window.innerWidth < 578 ? "16px" : "40px",
   color: "#fff",
   animation: "span4 1.5s ease-in-out infinite alternate",
   "@keyframes span4": {
