@@ -14,7 +14,7 @@ const HomeLand = ({ tabPrice }) => {
       <Container maxWidth="xl">
         <Grid ml={10} mt={19} xs={12}>
           <DimondHeader />
-          {/* <DimondHeaderMobile /> */}
+          <DimondHeaderMobile />
         </Grid>
 
         <Grid

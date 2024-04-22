@@ -1,126 +1,105 @@
 import { styled } from "@mui/material/styles";
 import { img1, img2, img3 } from "@/Components/DimondHeader/Data";
-import React, { useEffect } from "react";
 
 export const Ul = (
   fade,
-  isSmallScreen,
-  isSmallScreenPlus,
-  isMediumScreen,
-  islargeScreen,
-  isXlargeScreen,
-  isXXlargeScreen,
-  isXXXlargeScreen
+  ExtraSmall,
+  Small,
+  Medium,
+  Large,
+  ExtraLarge,
+  XXLarge
 ) => {
   const style = {
     position: "relative",
-    width: isSmallScreen
+    width: ExtraSmall
       ? "500px"
-      : isSmallScreenPlus
+      : Small
       ? "550px"
-      : isMediumScreen
+      : Medium
       ? "500px"
-      : islargeScreen
+      : Large
       ? "540px"
-      : isXlargeScreen
+      : ExtraLarge
       ? "560px"
-      : isXXlargeScreen
-      ? "600px"
-      : isXXXlargeScreen
+      : XXLarge
       ? "600px"
       : "600px",
-    height: isSmallScreen
+    height: ExtraSmall
       ? "190px"
-      : isSmallScreenPlus
+      : Small
       ? "210px"
-      : isMediumScreen
+      : Medium
       ? "250px"
-      : islargeScreen
+      : Large
       ? "250px"
-      : isXlargeScreen
-      ? "250px"
-      : isXXlargeScreen
+      : ExtraLarge
+      ? "200px"
+      : XXLarge
       ? "240px"
-      : isXXXlargeScreen
-      ? "150px"
       : "150px",
     opacity: fade ? 1 : 0,
     transition: fade ? "all 4s ease-in-out" : null,
+    ml: { xs: 0, sm: 8, md: 0, lg: 2, xl: 0 },
   };
   return style;
 };
-export const Li1 = (
-  isSmallScreen,
-  isSmallScreenPlus,
-  isMediumScreen,
-  islargeScreen,
-  isXlargeScreen,
-  isXXlargeScreen,
-  isXXXlargeScreen
-) => {
+export const Li1 = (ExtraSmall, Small, Medium, Large, ExtraLarge, XXLarge) => {
   const style = {
     listStyle: "none",
     position: "absolute",
-    width: isSmallScreen
+    width: ExtraSmall
       ? "60px"
-      : isSmallScreenPlus
+      : Small
       ? "70px"
-      : isMediumScreen
+      : Medium
       ? "90px"
-      : islargeScreen
+      : Large
       ? "120px"
-      : isXlargeScreen
+      : ExtraLarge
       ? "140px"
-      : isXXlargeScreen
-      ? "160px"
-      : isXXXlargeScreen
+      : XXLarge
       ? "160px"
       : "155px",
-    height: isSmallScreen
+    height: ExtraSmall
       ? "60px"
-      : isSmallScreenPlus
+      : Small
       ? "70px"
-      : isMediumScreen
+      : Medium
       ? "90px"
-      : islargeScreen
+      : Large
       ? "120px"
-      : isXlargeScreen
+      : ExtraLarge
       ? "140px"
-      : isXXlargeScreen
-      ? "160px"
-      : isXXXlargeScreen
+      : XXLarge
       ? "160px"
       : "155px",
-    margin: isSmallScreen
+    margin: ExtraSmall
       ? "-25px"
-      : isSmallScreenPlus
+      : Small
       ? "-30px"
-      : isMediumScreen
+      : Medium
       ? "-35px"
-      : islargeScreen
+      : Large
       ? "-55px"
-      : isXlargeScreen
+      : ExtraLarge
       ? "-65px"
-      : isXXlargeScreen
-      ? "-85px"
-      : isXXXlargeScreen
+      : XXLarge
       ? "-85px"
       : "-85px",
     transform: "rotate(45deg)",
     top: 0,
-    left: isSmallScreen
+    left: ExtraSmall
       ? "-12%"
-      : isSmallScreenPlus
-      ? "-6%"
-      : isMediumScreen
-      ? "0%"
-      : islargeScreen
+      : Small
+      ? "10%"
+      : Medium
+      ? "2.5%"
+      : Large
       ? 0
-      : isXlargeScreen
+      : ExtraLarge
       ? 0
-      : isXXlargeScreen
-      ? 0
-      : isXXXlargeScreen
+      : XXLarge
       ? 0
       : 0,
     transition: ".5s",
@@ -129,79 +108,63 @@ export const Li1 = (
   };
   return style;
 };
-export const Li2 = (
-  isSmallScreen,
-  isSmallScreenPlus,
-  isMediumScreen,
-  islargeScreen,
-  isXlargeScreen,
-  isXXlargeScreen,
-  isXXXlargeScreen
-) => {
+export const Li2 = (ExtraSmall, Small, Medium, Large, ExtraLarge, XXLarge) => {
   const style = {
     listStyle: "none",
     position: "absolute",
-    width: isSmallScreen
+    width: ExtraSmall
       ? "60px"
-      : isSmallScreenPlus
+      : Small
       ? "70px"
-      : isMediumScreen
+      : Medium
       ? "90px"
-      : islargeScreen
+      : Large
       ? "120px"
-      : isXlargeScreen
+      : ExtraLarge
       ? "140px"
-      : isXXlargeScreen
-      ? "160px"
-      : isXXXlargeScreen
+      : XXLarge
       ? "160px"
       : "155px",
-    height: isSmallScreen
+    height: ExtraSmall
       ? "60px"
-      : isSmallScreenPlus
+      : Small
       ? "70px"
-      : isMediumScreen
+      : Medium
       ? "90px"
-      : islargeScreen
+      : Large
       ? "120px"
-      : isXlargeScreen
+      : ExtraLarge
       ? "140px"
-      : isXXlargeScreen
-      ? "160px"
-      : isXXXlargeScreen
+      : XXLarge
       ? "160px"
       : "155px",
     transform: "rotate(45deg)",
     transition: ".5s",
     top: 0,
-    left: isSmallScreen
+    left: ExtraSmall
       ? "-10%"
-      : isSmallScreenPlus
-      ? "-6%"
-      : isMediumScreen
-      ? "0%"
-      : islargeScreen
+      : Small
+      ? "10%"
+      : Medium
+      ? "2%"
+      : Large
       ? 0
-      : isXlargeScreen
+      : ExtraLarge
       ? 0
-      : isXXlargeScreen
-      ? 0
-      : isXXXlargeScreen
+      : XXLarge
       ? 0
       : 0,
-    margin: isSmallScreen
+    margin: ExtraSmall
       ? "35px"
-      : isSmallScreenPlus
+      : Small
       ? "35px"
-      : isMediumScreen
+      : Medium
       ? "50px"
-      : islargeScreen
+      : Large
       ? "50px"
-      : isXlargeScreen
+      : ExtraLarge
       ? "50px"
-      : isXXlargeScreen
-      ? "50px"
-      : isXXXlargeScreen
+      : XXLarge
       ? "50px"
       : "50px",
     overfllow: "hidden",
@@ -210,79 +173,63 @@ export const Li2 = (
   };
   return style;
 };
-export const Li3 = (
-  isSmallScreen,
-  isSmallScreenPlus,
-  isMediumScreen,
-  islargeScreen,
-  isXlargeScreen,
-  isXXlargeScreen,
-  isXXXlargeScreen
-) => {
+export const Li3 = (ExtraSmall, Small, Medium, Large, ExtraLarge, XXLarge) => {
   const style = {
     listStyle: "none",
     position: "absolute",
-    width: isSmallScreen
+    width: ExtraSmall
       ? "60px"
-      : isSmallScreenPlus
+      : Small
       ? "70px"
-      : isMediumScreen
+      : Medium
       ? "90px"
-      : islargeScreen
+      : Large
       ? "120px"
-      : isXlargeScreen
+      : ExtraLarge
       ? "140px"
-      : isXXlargeScreen
-      ? "160px"
-      : isXXXlargeScreen
+      : XXLarge
       ? "160px"
       : "155px",
-    height: isSmallScreen
+    height: ExtraSmall
       ? "60px"
-      : isSmallScreenPlus
+      : Small
       ? "70px"
-      : isMediumScreen
+      : Medium
       ? "90px"
-      : islargeScreen
+      : Large
       ? "120px"
-      : isXlargeScreen
+      : ExtraLarge
       ? "140px"
-      : isXXlargeScreen
-      ? "160px"
-      : isXXXlargeScreen
+      : XXLarge
       ? "160px"
       : "155px",
     transform: "rotate(45deg)",
     transition: ".5s",
     top: 0,
-    left: isSmallScreen
+    left: ExtraSmall
       ? "35%"
-      : isSmallScreenPlus
+      : Small
       ? "34%"
-      : isMediumScreen
-      ? "40%"
-      : islargeScreen
-      ? "42%"
-      : isXlargeScreen
+      : Medium
+      ? "34%"
+      : Large
       ? "38%"
-      : isXXlargeScreen
-      ? "45%"
-      : isXXXlargeScreen
+      : ExtraLarge
+      ? "39%"
+      : XXLarge
       ? "45%"
       : "45%",
-    margin: isSmallScreen
+    margin: ExtraSmall
       ? "-27px"
-      : isSmallScreenPlus
+      : Small
       ? "-25px"
-      : isMediumScreen
-      ? "-39px"
-      : islargeScreen
+      : Medium
+      ? "-32px"
+      : Large
       ? "-55px"
-      : isXlargeScreen
+      : ExtraLarge
       ? "-63px"
-      : isXXlargeScreen
-      ? "-85px"
-      : isXXXlargeScreen
+      : XXLarge
       ? "-85px"
       : "-85px",
     overflow: "hidden",
@@ -290,80 +237,64 @@ export const Li3 = (
   };
   return style;
 };
-export const Li4 = (
-  isSmallScreen,
-  isSmallScreenPlus,
-  isMediumScreen,
-  islargeScreen,
-  isXlargeScreen,
-  isXXlargeScreen,
-  isXXXlargeScreen
-) => {
+export const Li4 = (ExtraSmall, Small, Medium, Large, ExtraLarge, XXLarge) => {
   const style = {
     listStyle: "none",
     position: "absolute",
-    width: isSmallScreen
+    width: ExtraSmall
       ? "60px"
-      : isSmallScreenPlus
+      : Small
       ? "70px"
-      : isMediumScreen
+      : Medium
       ? "90px"
-      : islargeScreen
+      : Large
       ? "120px"
-      : isXlargeScreen
+      : ExtraLarge
       ? "140px"
-      : isXXlargeScreen
-      ? "160px"
-      : isXXXlargeScreen
+      : XXLarge
       ? "160px"
       : "155px",
-    height: isSmallScreen
+    height: ExtraSmall
       ? "60px"
-      : isSmallScreenPlus
+      : Small
       ? "70px"
-      : isMediumScreen
+      : Medium
       ? "90px"
-      : islargeScreen
+      : Large
       ? "120px"
-      : isXlargeScreen
+      : ExtraLarge
       ? "140px"
-      : isXXlargeScreen
-      ? "160px"
-      : isXXXlargeScreen
+      : XXLarge
       ? "160px"
       : "155px",
     transform: "rotate(45deg)",
     transition: ".5s",
     top: 0,
-    left: isSmallScreen
+    left: ExtraSmall
       ? "35%"
-      : isSmallScreenPlus
-      ? "37%"
-      : isMediumScreen
+      : Small
+      ? "35%"
+      : Medium
+      ? "35%"
+      : Large
       ? "40%"
-      : islargeScreen
+      : ExtraLarge
       ? "40%"
-      : isXlargeScreen
-      ? "40%"
-      : isXXlargeScreen
-      ? "47%"
-      : isXXXlargeScreen
+      : XXLarge
       ? "47%"
       : "47%",
-    margin: isSmallScreen
+    margin: ExtraSmall
       ? "34px"
-      : isSmallScreenPlus
-      ? "37px"
-      : isMediumScreen
+      : Small
+      ? "35px"
+      : Medium
       ? "50px"
-      : islargeScreen
+      : Large
       ? "50px"
-      : isXlargeScreen
+      : ExtraLarge
+      ? "50px"
+      : XXLarge
       ? "45px"
-      : isXXlargeScreen
-      ? "45px"
-      : isXXXlargeScreen
-      ? "46px"
       : "46px",
     overfllow: "hidden",
     backgroundColor: "#1C1B19",
@@ -371,79 +302,63 @@ export const Li4 = (
   };
   return style;
 };
-export const Li5 = (
-  isSmallScreen,
-  isSmallScreenPlus,
-  isMediumScreen,
-  islargeScreen,
-  isXlargeScreen,
-  isXXlargeScreen,
-  isXXXlargeScreen
-) => {
+export const Li5 = (ExtraSmall, Small, Medium, Large, ExtraLarge, XXLarge) => {
   const style = {
     listStyle: "none",
     position: "absolute",
-    width: isSmallScreen
+    width: ExtraSmall
       ? "60px"
-      : isSmallScreenPlus
+      : Small
       ? "70px"
-      : isMediumScreen
+      : Medium
       ? "90px"
-      : islargeScreen
+      : Large
       ? "120px"
-      : isXlargeScreen
+      : ExtraLarge
       ? "140px"
-      : isXXlargeScreen
-      ? "160px"
-      : isXXXlargeScreen
+      : XXLarge
       ? "160px"
       : "155px",
-    height: isSmallScreen
+    height: ExtraSmall
       ? "60px"
-      : isSmallScreenPlus
+      : Small
       ? "70px"
-      : isMediumScreen
+      : Medium
       ? "90px"
-      : islargeScreen
+      : Large
       ? "120px"
-      : isXlargeScreen
+      : ExtraLarge
       ? "140px"
-      : isXXlargeScreen
-      ? "160px"
-      : isXXXlargeScreen
+      : XXLarge
       ? "160px"
       : "155px",
     transform: "rotate(45deg)",
     transition: ".5s",
     top: 0,
-    left: isSmallScreen
+    left: ExtraSmall
       ? "80%"
-      : isSmallScreenPlus
-      ? "76%"
-      : isMediumScreen
-      ? "78%"
-      : islargeScreen
-      ? "84%"
-      : isXlargeScreen
+      : Small
+      ? "60%"
+      : Medium
+      ? "68%"
+      : Large
+      ? "77%"
+      : ExtraLarge
       ? "82%"
-      : isXXlargeScreen
-      ? "91%"
-      : isXXXlargeScreen
+      : XXLarge
       ? "91%"
       : "91%",
-    margin: isSmallScreen
+    margin: ExtraSmall
       ? "-20px"
-      : isSmallScreenPlus
+      : Small
       ? "-28px"
-      : isMediumScreen
+      : Medium
       ? "-34px"
-      : islargeScreen
-      ? "-55px"
-      : isXlargeScreen
+      : Large
+      ? "-51px"
+      : ExtraLarge
       ? "-70px"
-      : isXXlargeScreen
-      ? "-85px"
-      : isXXXlargeScreen
+      : XXLarge
       ? "-85px"
       : "-84px",
     overfllow: "hidden",
@@ -459,12 +374,36 @@ export const Boxin1 = styled("div")(({ theme }) => ({
   height: "100%",
 }));
 
-export const Boxin2 = styled("div")(({ theme }) => ({
+export const Boxin2 = {
   transform: "rotate(-45deg)",
   position: "absolute",
-  top: window.innerWidth < 578 ? "25px" : "60px",
-  right: window.innerWidth < 578 ? "16px" : "40px",
-
+  top: { sm: "30px", md: "70px", lg: "60px" },
+  right: { sm: "15px", md: "40px", lg: "30px", xl: "40px" },
+  fontWeight: "bold",
+  fontSize: { sm: "10px", md: "15px", lg: "16px" },
+  color: "#fff",
+  textWrap: "nowrap",
+  animation: "span4 1.5s ease-in-out infinite alternate",
+  "@keyframes span4": {
+    "0%": {
+      opacity: "0",
+    },
+    "100%": {
+      opacity: "1",
+      scale: "1.2",
+    },
+  },
+  textShadow: "0px 2px 18px rgba(255, 196, 54, 1)",
+};
+export const Boxin4 = {
+  transform: "rotate(-45deg)",
+  position: "absolute",
+  top: { sm: "30px", md: "60px", lg: "55px", xl: "60px" },
+  right: { sm: "15px", md: "20px", lg: "10px", xl: "20px" },
+  fontWeight: "bold",
+  fontSize: "18px",
+  fontSize: { sm: "10px", md: "15px", lg: "16px" },
+  textWrap: "nowrap",
   color: "#fff",
   animation: "span4 1.5s ease-in-out infinite alternate",
   "@keyframes span4": {
@@ -477,25 +416,7 @@ export const Boxin2 = styled("div")(({ theme }) => ({
     },
   },
   textShadow: "0px 2px 18px rgba(255, 196, 54, 1)",
-}));
-export const Boxin4 = styled("div")(({ theme }) => ({
-  transform: "rotate(-45deg)",
-  position: "absolute",
-  top: window.innerWidth < 578 ? "25px" : "60px",
-  right: window.innerWidth < 578 ? "16px" : "40px",
-  color: "#fff",
-  animation: "span4 1.5s ease-in-out infinite alternate",
-  "@keyframes span4": {
-    "0%": {
-      opacity: "0",
-    },
-    "100%": {
-      opacity: "1",
-      scale: "1.2",
-    },
-  },
-  textShadow: "0px 2px 18px rgba(255, 196, 54, 1)",
-}));
+};
 export const Boxin3 = styled("div")(({ theme }) => ({
   backgroundImage: `url(${img2})`,
   backgroundSize: "cover",
@@ -530,7 +451,7 @@ export const BoxOneSx = {
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  // "@media (max-width:912px)": {
-  //   display: "none",
-  // },
+  "@media (max-width:700px)": {
+    display: "none",
+  },
 };

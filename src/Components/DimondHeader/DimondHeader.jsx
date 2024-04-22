@@ -24,49 +24,21 @@ const DimondHeader = () => {
   useEffect(() => {
     setFadeOut(true);
   });
-  const isSmallScreen = useMediaQuery(
-    "(min-width: 200px) and (max-width: 375px)"
+  const ExtraSmall = useMediaQuery("(min-width: 200px) and (max-width: 500px)");
+  const Small = useMediaQuery("(min-width: 501px) and (max-width: 767px)");
+  const Medium = useMediaQuery("(min-width: 768px) and (max-width: 991px)");
+  const Large = useMediaQuery("(min-width: 992px) and (max-width: 1021px)");
+  const ExtraLarge = useMediaQuery(
+    "(min-width: 1366px) and (max-width: 1600px) "
   );
-  const isSmallScreenPlus = useMediaQuery(
-    "(min-width: 376px) and (max-width: 500px)"
-  );
-  const isMediumScreen = useMediaQuery(
-    "(min-width: 501px) and (max-width: 600px)"
-  );
-  const islargeScreen = useMediaQuery(
-    "(min-width: 601px) and (max-width:700px)"
-  );
-  const isXlargeScreen = useMediaQuery(
-    "(min-width: 701px) and (max-width:800px)"
-  );
-  const isXXlargeScreen = useMediaQuery(
-    "(min-width: 801px) and (max-width:1200px)"
-  );
-  const isXXXlargeScreen = useMediaQuery("(min-width: 1250px) ");
+  const XXLarge = useMediaQuery("(min-width: 1600px) and (max-width: 2000px) ");
   return (
     <Box sx={BoxOneSx}>
       <Grid
-        sx={Ul(
-          fade,
-          isSmallScreen,
-          isSmallScreenPlus,
-          isMediumScreen,
-          islargeScreen,
-          isXlargeScreen,
-          isXXlargeScreen,
-          isXXXlargeScreen
-        )}
+        sx={Ul(fade, ExtraSmall, Small, Medium, Large, ExtraLarge, XXLarge)}
       >
         <Box
-          sx={Li1(
-            isSmallScreen,
-            isSmallScreenPlus,
-            isMediumScreen,
-            islargeScreen,
-            isXlargeScreen,
-            isXXlargeScreen,
-            isXXXlargeScreen
-          )}
+          sx={Li1(ExtraSmall, Small, Medium, Large, ExtraLarge, XXLarge)}
           className="li1"
         >
           <Boxin1></Boxin1>
@@ -75,71 +47,29 @@ const DimondHeader = () => {
           <ArrowBottom />
         </Grid>
         <Box
-          sx={Li2(
-            isSmallScreen,
-            isSmallScreenPlus,
-            isMediumScreen,
-            islargeScreen,
-            isXlargeScreen,
-            isXXlargeScreen,
-            isXXXlargeScreen
-          )}
+          sx={Li2(ExtraSmall, Small, Medium, Large, ExtraLarge, XXLarge)}
           className="li2"
         >
-          <Boxin2
-            sx={{
-              fontWeight: { xs: "none", sm: "bold" },
-              fontSize: { xs: "6px", sm: "12px", md: "16px", xl: "18px" },
-            }}
-          >
-            بازار 24 ساعته
-          </Boxin2>
+          <Box position={"relative"}>
+            <Box sx={Boxin2}>بازار 24 ساعته</Box>
+          </Box>
         </Box>
         <Box
-          sx={Li3(
-            isSmallScreen,
-            isSmallScreenPlus,
-            isMediumScreen,
-            islargeScreen,
-            isXlargeScreen,
-            isXXlargeScreen,
-            isXXXlargeScreen
-          )}
+          sx={Li3(ExtraSmall, Small, Medium, Large, ExtraLarge, XXLarge)}
           className="li3"
         >
           <Boxin3></Boxin3>
         </Box>
         <Box
-          sx={Li4(
-            isSmallScreen,
-            isSmallScreenPlus,
-            isMediumScreen,
-            islargeScreen,
-            isXlargeScreen,
-            isXXlargeScreen,
-            isXXXlargeScreen
-          )}
+          sx={Li4(ExtraSmall, Small, Medium, Large, ExtraLarge, XXLarge)}
           className="li4"
         >
-          <Boxin4
-            sx={{
-              fontWeight: { xs: "none", sm: "bold" },
-              fontSize: { xs: "6px", sm: "12px", md: "16px", xl: "18px" },
-            }}
-          >
-            امکان تحویل فیزیکی
-          </Boxin4>
+          <Box position={"relative"}>
+            <Box sx={Boxin4}>امکان تحویل فیزیکی</Box>
+          </Box>
         </Box>
         <Box
-          sx={Li5(
-            isSmallScreen,
-            isSmallScreenPlus,
-            isMediumScreen,
-            islargeScreen,
-            isXlargeScreen,
-            isXXlargeScreen,
-            isXXXlargeScreen
-          )}
+          sx={Li5(ExtraSmall, Small, Medium, Large, ExtraLarge, XXLarge)}
           className="li5"
         >
           <Boxin5></Boxin5>
