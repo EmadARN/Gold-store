@@ -50,14 +50,9 @@ const DimondHeader = () => {
           sx={Li2(ExtraSmall, Small, Medium, Large, ExtraLarge, XXLarge)}
           className="li2"
         >
-          <Boxin2
-            sx={{
-              fontWeight: { xs: "none", sm: "bold" },
-              fontSize: { xs: "8px", sm: "12px", md: "16px", xl: "18px" },
-            }}
-          >
-            بازار 24 ساعته
-          </Boxin2>
+          <Box position={"relative"}>
+            <Box sx={Boxin2}>بازار 24 ساعته</Box>
+          </Box>
         </Box>
         <Box
           sx={Li3(ExtraSmall, Small, Medium, Large, ExtraLarge, XXLarge)}
@@ -69,15 +64,9 @@ const DimondHeader = () => {
           sx={Li4(ExtraSmall, Small, Medium, Large, ExtraLarge, XXLarge)}
           className="li4"
         >
-          <Boxin4
-            sx={{
-              fontWeight: { xs: "none", sm: "bold" },
-              
-              fontSize: { xs: "8px", sm: "12px", md: "16px", xl: "18px" },
-            }}
-          >
-            امکان تحویل فیزیکی
-          </Boxin4>
+          <Box position={"relative"}>
+            <Box sx={Boxin4}>امکان تحویل فیزیکی</Box>
+          </Box>
         </Box>
         <Box
           sx={Li5(ExtraSmall, Small, Medium, Large, ExtraLarge, XXLarge)}
