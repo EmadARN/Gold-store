@@ -92,8 +92,8 @@ const Boxin0 = styled("div")(({ theme }) => ({
 const Boxin1 = {
   transform: "rotate(-45deg)",
   position: "absolute",
-  top: "25px",
-  right: "10px",
+  top: "30px",
+  right: "15px",
   fontWeight: "bold",
   fontSize: "9px",
   color: "#fff",
