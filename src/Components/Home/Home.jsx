@@ -7,6 +7,7 @@ import StepperComputerList from "../StepperComputer";
 import StepperList from "../StepperPhone";
 import TabPrice from "../TabPrice/TabPrice";
 import Home_page_desc from "../home-page-disription";
+import Direct_Sign_up from "../directtosignup";
 
 const HomeLand = ({ tabPrice }) => {
   return (
@@ -27,6 +28,12 @@ const HomeLand = ({ tabPrice }) => {
         >
           <Home_page_desc />
         </Grid>
+
+
+<Grid sx={{width:"100%",mb:{xs:20,md:10}}} display="flex" justifyContent="center" >
+  <Direct_Sign_up/>
+</Grid>
+
 
         <Grid
           container

@@ -95,7 +95,7 @@ const Footer = (props) => {
               variant="h5"
               sx={{ whiteSpace: "nowrap" }}
             >
-              آدرس :
+              آدرس :زنجان.اعتمادیه.دانشگاه آزادی اعتمادیه
             </Typography>
             <Typography
               sx={adress_typo}
@@ -132,7 +132,7 @@ const Footer = (props) => {
                   >
                     000000000
                   </Typography>
-                  <span style={span_style}>مسعودی</span>
+                  <span style={span_style}></span>
                 </Box>
                 <Box display="flex" alignItems="center">
                   <Typography
@@ -144,7 +144,7 @@ const Footer = (props) => {
                   >
                     000000000
                   </Typography>
-                  <span style={span_style}>موسوی</span>
+                  <span style={span_style}></span>
                 </Box>
               </Box>
             </Box>
