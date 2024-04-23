@@ -38,3 +38,5 @@ next-env.d.ts
 /.cloud/
 .cloud/
 /.cloud
+
+settings.json
