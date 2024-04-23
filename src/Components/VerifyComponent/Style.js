@@ -76,10 +76,5 @@ export const VerifyButton = {
 };
 
 export const EditNumberBtn = {
-  mt: 1,
-  fontSize: "18px",
-
-  color: "#FFC436",
-  fontWeight: "bold",
-  "&:hover": { backgroundColor: "unset", color: "#222" },
+  color:"#111",fontSize:{xs:'10px',md:"13px"},fontFamily:'Yekan',textAlign:"center"
 };

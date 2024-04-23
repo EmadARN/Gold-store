@@ -9,7 +9,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import rtlPlugin from "stylis-plugin-rtl";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
-import bg from "../../Asset/pexels-michael-steinberg-321464.jpg";
+import bg from "../../Asset/pexels-michael-steinberg-321464new.jpg";
 import { useCookies } from "react-cookie";
 import { useRouter } from "next/router";
 import axios from "axios";
@@ -66,7 +66,7 @@ const VerifyCode = () => {
               >
                 کد تایید را وارد کنید
               </Typography>
-              <Box width="50%" component="form" noValidate sx={{ mt: 1 }}>
+              <Box  component="form" noValidate sx={{ mt: 1,width:{xs:"70%",md:"50%"} }}>
                 <TextField
                   onChange={(e) => setVerify_code(e.target.value)}
                   sx={VerifytextField}
@@ -121,8 +121,8 @@ const VerifyCode = () => {
                 </Button>
               </Box>
 
-              <Box>
-                <Link href={"/VerifyNumber"}>
+              <Box sx={{mt:2,px:1,bgcolor:"#F1AB1F",borderRadius:"10px","&:hover":{bgcolor:"#d3961b"},width:{xs:"45%",md:"30%"},textAlign:"center"}}>
+                <Link  href={"/VerifyNumber"}>
                   <Button variant="text" sx={EditNumberBtn}>
                     {" "}
                     ویرایش شماره همراه

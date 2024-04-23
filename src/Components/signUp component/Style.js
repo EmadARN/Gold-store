@@ -1,7 +1,7 @@
 export const MainGrid = (bg) => {
   const S1 = {
-    minHeight: "100vh !important",
-    height: "auto !important",
+    height: "100vh !important",
+    // height: "auto !important",
     display: "flex",
     justifyContent: "center",
     alignItems:"center",
