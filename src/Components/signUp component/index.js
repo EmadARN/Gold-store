@@ -11,7 +11,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import rtlPlugin from "stylis-plugin-rtl";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
-import bg from "../../Asset/pexels-michael-steinberg-321464new.jpg";
+import bg from "../../Asset/pexels-michael-steinberg-321464.jpg";
 import { IPServer } from "@/Config";
 import axios from "axios";
 import { useRouter } from "next/router";
