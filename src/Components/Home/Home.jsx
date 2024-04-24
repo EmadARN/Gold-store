@@ -19,26 +19,26 @@ const HomeLand = ({ tabPrice }) => {
         </Grid>
 
         <Grid
-          sx={{ border: "2pxs olid red" }}
-          mb={20}
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
+          sx={{ border: "2pxs olid red", mt: { xs: -12, md: 10 } }}
           width="100%"
         >
           <Home_page_desc />
+          <Grid
+            sx={{
+              width: "100%",
+              mt: 5,
+            }}
+            display="flex"
+            justifyContent="center"
+          >
+            <Direct_Sign_up />
+          </Grid>
         </Grid>
-
-
-<Grid sx={{width:"100%",mb:{xs:20,md:10}}} display="flex" justifyContent="center" >
-  <Direct_Sign_up/>
-</Grid>
-
 
         <Grid
           container
           sx={{
-            my: { xs: -20, md: 24 },
+            my: { xs: 6, md: 12 },
 
             flexDirection: { xs: "column-reverse", md: "row" },
             "@media (max-width:1116px) and (min-width:900px)": {
@@ -65,6 +65,7 @@ const HomeLand = ({ tabPrice }) => {
               "@media (max-width:1116px) and (min-width:900px)": {
                 ml: 12,
               },
+              pt: { xs: 0, md: 4 },
             }}
           >
             <TabPrice tabPrice={tabPrice} />
@@ -74,7 +75,7 @@ const HomeLand = ({ tabPrice }) => {
         <Grid
           sx={{
             mb: { xs: 30, md: 20 },
-            mt: { xs: 40, md: 40 },
+            mt: { xs: 25, md: 40 },
             display: "grid",
             placeItems: "center",
           }}

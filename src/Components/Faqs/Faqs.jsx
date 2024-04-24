@@ -8,7 +8,7 @@ import Typography from "@mui/material/Typography";
 import { Box, Container, Grid } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { FaqsOb, FaqsOb2 } from "./Utils/FaqsObjects";
-import {TypoOneSx, TypoThreeSx, TypotwoSx} from "@/Components/Faqs/Style";
+import {TypoOneSx, TypoThreeSx, TypoTitle, TypotwoSx} from "@/Components/Faqs/Style";
 
 const Accordion = styled((props) => (
   <MuiAccordion
@@ -93,11 +93,11 @@ function Faqs() {
                 onChange={handleChange(accordian.panel)}
               >
                 <AccordionSummary>
-                  <Typography variant="h5">{accordian.title}</Typography>
+                  <Typography sx={TypoTitle}>{accordian.title}</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography
-                    variant="h6"
+                   
                     sx={TypoThreeSx}
                   >
                     {accordian.description}
