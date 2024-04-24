@@ -33,7 +33,7 @@ const ContactUs = () => {
           <Grid item>
             <img
               style={ImageOneSx}
-              width={300}
+              width={250}
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpUl24UpIZMPPIdWEefzYFyV9fgalLZ2qb5w&usqp=CAU"
             />
           </Grid>

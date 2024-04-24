@@ -93,7 +93,7 @@ const Boxin1 = {
   transform: "rotate(-45deg)",
   position: "absolute",
   top: "30px",
-  right: "15px",
+  left: "15px",
   fontWeight: "bold",
   fontSize: "9px",
   color: "#fff",
